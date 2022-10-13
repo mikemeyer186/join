@@ -5,9 +5,45 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    transition: all 225ms ease-in-out;
 }
 
-#login-logo {
-    height: 30%;
+#login-logo-white {
+    width: 265px;
     object-fit: cover;
+    position: absolute;
+    left: 40.83%;
+    right: 40.76%;
+    top: 34.18%;
+    bottom: 34.27%;
+    z-index: 1;
+    transition: all 225ms ease-in-out;
+}
+
+#login-logo-blue {
+    width: 265px;
+    object-fit: cover;
+    position: absolute;
+    left: 40.83%;
+    right: 40.76%;
+    top: 34.18%;
+    bottom: 34.27%;
+    transition: all 225ms ease-in-out;
+}
+
+.logoMovement {
+    width: 100px !important;
+    left: 5.35% !important;
+    right: 87.71% !important;
+    top: 7.81% !important;
+    bottom: 80.28% !important;
+}
+
+.pageColorChange {
+    background-color: #f5f5f5 !important;
+}
+
+.no-opacity {
+    opacity: 0;
 }
