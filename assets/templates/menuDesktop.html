@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        font-family: "Open Sans", sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .sidebar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+        width: 230px;
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.178);
+        padding-top: 160px;
+      }
+      .box a {
+        text-decoration: none;
+        color: #42526e;
+      }
+      .box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        margin-bottom: 10px;
+        gap: 25px;
+      }
+      nav {
+        display: flex; 
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .sidebar a {
+        text-decoration: none;
+        color: #42526e;
+      }
+      #iconSummary {
+        padding-right: 4px;
+      }
+      .highlighted {
+        background-color: #D2E3FF;
+        border-radius: 0.5em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sidebar">
+      <nav>
+        <a href="#" class="box highlighted">
+          <img id="iconSummary" src="../img/iconSummary.png" />
+          <p>Summary</p>
+        </a>
+        <a href="#" class="box">
+          <img src="../img/iconBoard.png" />
+          <p>Board</p>
+        </a>
+        <a href="#" class="box">
+          <img src="../img/iconTask.png" />
+          <p>Add Task</p>
+        </a>
+        <a href="#" class="box">
+          <img src="../img/iconContacts.png" />
+          <p>Contacts</p>
+        </a>
+      </nav>
+    </div>
+  </body>
+</html>
