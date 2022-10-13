@@ -20,7 +20,25 @@
     <body onload="loginInit()">
         <div id="login-page">
             <img id="login-logo-white" src="./assets/img/login_logo_white.png" alt="Join Logo" />
-            <img id="login-logo-blue" class="no-Opacity" src="./assets/img/login_logo_blue.png" alt="Join Logo" />
+            <img id="login-logo-blue" class="no-opacity" src="./assets/img/login_logo_blue.png" alt="Join Logo" />
+            <div id="login-box" class="no-opacity">
+                <span class="login-box-headline">Log in</span>
+                <form class="login-form" onsubmit="">
+                    <input class="login-input" type="mail" placeholder="Email" />
+                    <input class="login-input" type="password" placeholder="Password" />
+                    <div class="login-options">
+                        <label class="checkbox">
+                            <input type="checkbox" />
+                            <span class="checkmark">Remember me</span>
+                        </label>
+                        <a class="login-forgot" href="#">Forgot my password</a>
+                    </div>
+                    <div class="login-button">
+                        <button class="login-button-blue">Log in</button>
+                        <button class="login-button-white">Guest log in</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </body>
 </html>
