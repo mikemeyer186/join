@@ -1,13 +1,111 @@
 * {
     box-sizing: border-box;
 }
-
 html {
     scroll-behavior: smooth;
     font-family: 'Open Sans', sans-serif;
 }
-
 body {
     margin: 0;
     padding: 0;
 }
+/* HEADER CSS START */
+header {
+    height: 100px;
+    background-color: #4589ff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+  }
+  .headerIcon {
+    padding: 20px 39px;
+  }
+  .headerProfile {
+    display: flex;
+    align-items: center;
+  }
+  .headerProfile a {
+    text-decoration: none;
+    color: white;
+  }
+  .headerImgProfile {
+    border-radius: 3em;
+    border: 3px solid white;
+    margin-right: 39px;
+  }
+  .headerImgProfile:hover {
+    cursor: pointer;
+  }
+/* HEADER CSS END */
+
+/* SIDEBAR CSS START */
+nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 100%;
+  }
+  .sidebar {
+    z-index: 0;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-height: 100vh !important;
+    height: 90vh;
+    width: 230px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.178);
+    padding-top: 100px;
+  }
+  .sidebar a {
+    text-decoration: none;
+    color: #42526e;
+  }
+  .sidebarBox a {
+    text-decoration: none;
+    color: #42526e;
+  }
+  .sidebarBox {
+    max-height: 50px;
+    width: 190px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 25px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 30px;
+  }
+  .navHighlighted {
+    background-color: #d2e3ff;
+    border-radius: 0.5em;
+  }
+  .legalNoticeHighlighted {
+    background-color: #005dff;
+  }
+  .legalNoticeHighlighted p {
+    color: white !important;
+  }
+  #iconSummary {
+    padding-right: 4px;
+  }
+  #navSummary {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  #legalNotice {
+    margin-top: 350px;
+    padding-right: 20px;
+    padding-left: 10px;
+    border-radius: 0.8em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  #legalNotice p {
+    color: #42526e;
+  }
+  /* SIDEBAR CSS END */

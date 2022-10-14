@@ -1,152 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link
-      rel="stylesheet"
-      href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
-    />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script>
-      function highlightedLegalNotice() {
-        document.getElementById("legalNotice").classList.add("legalNoticeHighlighted");
-        document.getElementById("legalNoticeInfoIcon").src ="../img/icons/infoIconHighlighted.png";
-      }
-      function highlightedNavbar(i) {
-        let index = i;
-        let summary = document.getElementById("navSummary");
-        let board = document.getElementById("navBoard");
-        let task = document.getElementById("navTask");
-        let contacts = document.getElementById("navContacts"); 
-        if (index == 1) {
-        summary.classList.add('navHighlighted');
-        board.classList.remove('navHighlighted');
-        task.classList.remove('navHighlighted');
-        contacts.classList.remove('navHighlighted');
-        }
-        if (index == 2) {
-        summary.classList.remove('navHighlighted');
-        board.classList.add('navHighlighted');
-        task.classList.remove('navHighlighted');
-        contacts.classList.remove('navHighlighted');
-        }
-        if (index == 3) {
-        summary.classList.remove('navHighlighted');
-        board.classList.remove('navHighlighted');
-        task.classList.add('navHighlighted');
-        contacts.classList.remove('navHighlighted');
-        }
-        if (index == 4) {
-        summary.classList.remove('navHighlighted');
-        board.classList.remove('navHighlighted');
-        task.classList.remove('navHighlighted');
-        contacts.classList.add('navHighlighted');
-        }
-      }
-    </script>
-    <style>
-      * {
-        font-family: "Open Sans", sans-serif;
-        margin: 0;
-        padding: 0;
-      }
-      .sidebar {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        max-height: 100vh !important;
-        height: 82vh;
-        width: 230px;
-        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.178);
-        padding-top: 160px;
-      }
-      .box a {
-        text-decoration: none;
-        color: #42526e;
-      }
-      .box {
-        width: 165px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        padding-left: 20px;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        margin-bottom: 10px;
-        gap: 30px;
-      }
-      nav {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        max-width: 100%;
-      }
-      .sidebar a {
-        text-decoration: none;
-        color: #42526e;
-      }
-      #iconSummary {
-        padding-right: 4px;
-      }
-      .navHighlighted {
-        background-color: #d2e3ff;
-        border-radius: 0.5em;
-      }
-      #legalNotice {
-        margin-top: 350px;
-        padding: 10px;
-        border-radius: 1em;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
-      }
-      #legalNotice p {
-        color: #42526e;
-      }
-      .legalNoticeHighlighted {
-        background-color: #005dff;
-      }
-      .legalNoticeHighlighted p {
-        color: white !important;
-      }
-      #navSummary {
-        padding-top: 10px;
-        padding-bottom: 10px;
-      }
-      #navBoard {
-        padding-top: 7px;
-        padding-bottom: 5px;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="sidebar">
-      <nav>
-        <a href="#" id="navSummary" onclick="highlightedNavbar(1)" class="box navHighlighted">
-          <img id="iconSummary" src="../img/icons/iconSummary.png" />
-          <p>Summary</p>
-        </a>
-        <a href="#" id="navBoard" onclick="highlightedNavbar(2)" class="box">
-          <img src="../img/icons/iconBoard.png" />
-          <p>Board</p>
-        </a>
-        <a href="#" id="navTask" onclick="highlightedNavbar(3)" class="box">
-          <img src="../img/icons/iconTask.png" />
-          <p>Add Task</p>
-        </a>
-        <a href="#" id="navContacts" onclick="highlightedNavbar(4)" class="box">
-          <img src="../img/icons/iconContacts.png" />
-          <p>Contacts</p>
-        </a>
-      </nav>
-      <div onclick="highlightedLegalNotice()" id="legalNotice">
-        <!-- Responsive Problem mit legalNotice -->
-        <img id="legalNoticeInfoIcon" src="../img/icons/iconInfo.png" />
-        <p>Legal Notice</p>
-      </div>
-    </div>
-  </body>
-</html>
+<div class="sidebar">
+  <nav>
+    <a
+      href="#"
+      id="navSummary"
+      onclick="highlightedNavbar(1)"
+      class="sidebarBox navHighlighted"
+    >
+      <img id="iconSummary" src="./assets/img/icons/iconSummary.png" />
+      <p>Summary</p>
+    </a>
+    <a href="#" id="navBoard" onclick="highlightedNavbar(2)" class="sidebarBox">
+      <img src="./assets/img/icons/iconBoard.png" />
+      <p>Board</p>
+    </a>
+    <a href="#" id="navTask" onclick="highlightedNavbar(3)" class="sidebarBox">
+      <img src="./assets/img/icons/iconTask.png" />
+      <p>Add Task</p>
+    </a>
+    <a
+      href="#"
+      id="navContacts"
+      onclick="highlightedNavbar(4)"
+      class="sidebarBox"
+    >
+      <img src="./assets/img/icons/iconContacts.png" />
+      <p>Contacts</p>
+    </a>
+  </nav>
+  <div
+    style="cursor: pointer"
+    onclick="highlightedLegalNotice()"
+    id="legalNotice"
+  >
+    <!-- Responsive Problem mit legalNotice -->
+    <img id="legalNoticeInfoIcon" src="./assets/img/icons/iconInfo.png" />
+    <p>Legal Notice</p>
+  </div>
+</div>
