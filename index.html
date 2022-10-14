@@ -21,11 +21,21 @@
         <div id="login-page">
             <img id="login-logo-white" src="./assets/img/login_logo_white.png" alt="Join Logo" />
             <img id="login-logo-blue" class="no-opacity" src="./assets/img/login_logo_blue.png" alt="Join Logo" />
-            <div id="login-box" class="no-opacity">
+            <div id="login-signup-box" class="no-opacity">
+                <span class="signup-text">Not a Join user?</span>
+                <button class="login-button-blue signup-button" onclick="showSignUpBox()">Sign up</button>
+            </div>
+            <div id="login-box" class="login-box no-opacity">
                 <span class="login-box-headline">Log in</span>
                 <form class="login-form" onsubmit="">
-                    <input class="login-input" type="mail" placeholder="Email" />
-                    <input class="login-input" type="password" placeholder="Password" />
+                    <div class="login-input-box">
+                        <input class="login-input" type="email" placeholder="Email" />
+                        <img class="login-icon" src="./assets/img/icons/icon_email.png" alt="E-Mail" />
+                    </div>
+                    <div class="login-input-box">
+                        <input class="login-input" type="password" placeholder="Password" />
+                        <img class="login-icon" src="./assets/img/icons/icon_password.png" alt="E-Mail" />
+                    </div>
                     <div class="login-options">
                         <label class="checkbox">
                             <input type="checkbox" />
@@ -36,6 +46,27 @@
                     <div class="login-button">
                         <button class="login-button-blue">Log in</button>
                         <button class="login-button-white">Guest log in</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="signup-box" class="login-box d-none">
+                <span class="login-box-headline">Sign up</span>
+                <form class="login-form" onsubmit="">
+                    <div class="login-input-box">
+                        <input class="login-input" type="text" placeholder="Name" />
+                        <img class="login-icon" src="./assets/img/icons/icon_name.png" alt="E-Mail" />
+                    </div>
+                    <div class="login-input-box">
+                        <input class="login-input" type="email" placeholder="Email" />
+                        <img class="login-icon" src="./assets/img/icons/icon_email.png" alt="E-Mail" />
+                    </div>
+                    <div class="login-input-box">
+                        <input class="login-input" type="password" placeholder="Password" />
+                        <img class="login-icon" src="./assets/img/icons/icon_password.png" alt="E-Mail" />
+                    </div>
+                    <div class="login-button">
+                        <button class="login-button-blue">Sign up</button>
                     </div>
                 </form>
             </div>

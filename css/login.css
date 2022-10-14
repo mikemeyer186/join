@@ -41,10 +41,14 @@
 }
 
 .no-opacity {
-    opacity: 0;
+    opacity: 0 !important;
 }
 
-#login-box {
+.d-none {
+    display: none !important;
+}
+
+.login-box {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -93,24 +97,37 @@
     gap: 35px;
 }
 
+.login-input-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #d1d1d1;
+    padding: 13px 21px;
+    width: 422px;
+    height: 49px;
+}
+
 .login-input {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 13px 21px;
     gap: 10px;
-    width: 422px;
-    height: 49px;
     background: #ffffff;
     border: none;
-    border-bottom: 1px solid #d1d1d1;
     outline: none;
+    font-size: 20px;
+    width: 90%;
 }
 
 .login-input::placeholder {
     font-size: 19px;
     line-height: 120%;
     color: #d1d1d1;
+}
+
+.login-icon {
+    width: 20px;
+    object-fit: contain;
 }
 
 .login-button {
@@ -134,6 +151,15 @@
     border-radius: 8px;
     color: white;
     font-size: 23px;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 225ms ease-in-out;
+}
+
+.login-button-blue:hover {
+    background: #005dff;
+    transition: all 225ms ease-in-out;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
 }
 
 .login-button-white {
@@ -150,6 +176,15 @@
     border-radius: 8px;
     color: #647188;
     font-size: 23px;
+    cursor: pointer;
+    transition: all 225ms ease-in-out;
+}
+
+.login-button-white:hover {
+    transition: all 225ms ease-in-out;
+    border: 2px solid #4589ff;
+    color: #4589ff;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
 }
 
 .login-options {
@@ -176,4 +211,21 @@
     margin-right: 20px;
     border: 2px solid #4589ff;
     border-radius: 3px;
+}
+
+#login-signup-box {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 35px;
+    right: 5.35%;
+    top: 7.81%;
+    transition: all 225ms ease-in-out;
+}
+
+.signup-text {
+    font-size: 23px;
 }
