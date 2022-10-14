@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" href="./assets/img/logo_join.png" type="image/png" />
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/addTask.css">
     <script src="./js/sidebar.js"></script>
     <script src="./js/main.js"></script>
     <meta charset="UTF-8">
@@ -12,5 +14,9 @@
 <body onload="init()">
     <div w3-include-html=".\assets\templates\headerDesktop.html"></div>
     <div w3-include-html=".\assets\templates\menuDesktop.html"></div>
+    <form class="taskFindAdd">
+        <input type="search" placeholder="Find Task">
+        <button type="submit">Add Task +</button>
+    </form>
 </body>
 </html>
