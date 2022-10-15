@@ -5,7 +5,7 @@ function highlightedLegalNotice() {
     document.getElementById("navBoard").classList.remove('navHighlighted');
     document.getElementById("navTask").classList.remove('navHighlighted');
     document.getElementById("navContacts").classList.remove('navHighlighted');
-    document.getElementById("legalNotice").classList.add("legalNoticeHighlighted");
+    document.getElementById("legalNotice").classList.add('legalNoticeHighlighted');
     document.getElementById("legalNoticeInfoIcon").src ="./assets/img/icons/infoIconHighlighted.png";
   }
 function highlightedNavbar(i) {

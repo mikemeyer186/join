@@ -62,9 +62,8 @@ nav {
     text-decoration: none;
     color: #42526e;
   }
-  .sidebarBox a {
-    text-decoration: none;
-    color: #42526e;
+  .sidebar img {
+    width: 30px;
   }
   .sidebarBox {
     max-height: 50px;
@@ -86,7 +85,7 @@ nav {
     background-color: #005dff;
   }
   .legalNoticeHighlighted p {
-    color: white;
+    color: white !important;
   }
   #iconSummary {
     padding-right: 4px;
@@ -96,7 +95,7 @@ nav {
     padding-bottom: 15px;
   }
   #legalNotice {
-    margin-top: 350px;
+    margin-top: 400px;
     padding-right: 20px;
     padding-left: 10px;
     border-radius: 0.8em;
