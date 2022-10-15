@@ -30,7 +30,7 @@
                 <span class="login-box-headline">Log in</span>
                 <form class="login-form" onsubmit="">
                     <div class="login-input-box">
-                        <input class="login-input" type="email" placeholder="Email" />
+                        <input id="login-input-email" class="login-input" type="email" placeholder="Email" />
                         <img class="login-icon" src="./assets/img/icons/icon_email.png" alt="E-Mail" />
                     </div>
                     <div class="login-input-box">
@@ -54,17 +54,17 @@
             <!-- sign up box -->
             <div id="signup-box" class="login-box d-none">
                 <span class="login-box-headline">Sign up</span>
-                <form class="login-form" onsubmit="">
+                <form class="login-form" onsubmit="signUpNewUser(); return false;">
                     <div class="login-input-box">
-                        <input class="login-input" type="text" placeholder="Name" />
+                        <input id="signup-input-name" class="login-input" type="text" placeholder="Name" required />
                         <img class="login-icon" src="./assets/img/icons/icon_name.png" alt="Name" />
                     </div>
                     <div class="login-input-box">
-                        <input class="login-input" type="email" placeholder="Email" />
+                        <input id="signup-input-email" class="login-input" type="email" placeholder="Email" required />
                         <img class="login-icon" src="./assets/img/icons/icon_email.png" alt="E-Mail" />
                     </div>
                     <div class="login-input-box">
-                        <input id="signup-input-password" class="login-input" type="password" placeholder="Password" onkeyup="showVisibilityIcon('signup')" />
+                        <input id="signup-input-password" class="login-input" type="password" placeholder="Password" onkeyup="showVisibilityIcon('signup')" required minlength="8" />
                         <img id="signup-icon-password" class="login-icon" src="./assets/img/icons/icon_password.png" alt="Password" />
                         <img id="signup-icon-password-visibility" class="login-icon visibility-icon d-none" src="./assets/img/icons/icon_password_nonvisible.png" alt="Password" onclick="setInputToText('signup')" />
                     </div>
