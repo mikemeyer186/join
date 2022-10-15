@@ -142,11 +142,3 @@ function goBackToLogin(signUpEmail, signUpPassword) {
 async function saveAccountsToBackend() {
     await backend.setItem('userAccounts', JSON.stringify(userAccounts));
 }
-
-/**
- * loading user accounts from backend database
- */
-async function loadAccountsFromBackend() {
-    await downloadFromServer();
-    userAccounts = JSON.parse(backend.getItem('userAccounts')) || [];
-}

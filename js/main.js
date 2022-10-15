@@ -2,6 +2,7 @@ let userAccounts = [];
 
 async function init() {
     await includeHTML();
+    await loadAccountsFromBackend();
 }
 
 async function includeHTML() {
@@ -16,4 +17,12 @@ async function includeHTML() {
             element.innerHTML = 'Page not found';
         }
     }
+}
+
+/**
+ * loading user accounts from backend database
+ */
+async function loadAccountsFromBackend() {
+    await downloadFromServer();
+    userAccounts = JSON.parse(backend.getItem('userAccounts')) || [];
 }
