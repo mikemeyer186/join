@@ -130,6 +130,10 @@
     object-fit: contain;
 }
 
+.visibility-icon {
+    cursor: pointer;
+}
+
 .login-button {
     display: flex;
     justify-content: center;

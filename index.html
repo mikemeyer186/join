@@ -25,6 +25,7 @@
                 <span class="signup-text">Not a Join user?</span>
                 <button class="login-button-blue signup-button" onclick="showSignUpBox()">Sign up</button>
             </div>
+            <!-- login box -->
             <div id="login-box" class="login-box no-opacity">
                 <span class="login-box-headline">Log in</span>
                 <form class="login-form" onsubmit="">
@@ -33,8 +34,9 @@
                         <img class="login-icon" src="./assets/img/icons/icon_email.png" alt="E-Mail" />
                     </div>
                     <div class="login-input-box">
-                        <input class="login-input" type="password" placeholder="Password" />
-                        <img class="login-icon" src="./assets/img/icons/icon_password.png" alt="E-Mail" />
+                        <input id="login-input-password" class="login-input" type="password" placeholder="Password" onkeyup="showVisibilityIcon('login')" />
+                        <img id="login-icon-password" class="login-icon" src="./assets/img/icons/icon_password.png" alt="Password" />
+                        <img id="login-icon-password-visibility" class="login-icon visibility-icon d-none" src="./assets/img/icons/icon_password_nonvisible.png" alt="Password" onclick="setInputToText('login')" />
                     </div>
                     <div class="login-options">
                         <label class="checkbox">
@@ -49,21 +51,22 @@
                     </div>
                 </form>
             </div>
-
+            <!-- sign up box -->
             <div id="signup-box" class="login-box d-none">
                 <span class="login-box-headline">Sign up</span>
                 <form class="login-form" onsubmit="">
                     <div class="login-input-box">
                         <input class="login-input" type="text" placeholder="Name" />
-                        <img class="login-icon" src="./assets/img/icons/icon_name.png" alt="E-Mail" />
+                        <img class="login-icon" src="./assets/img/icons/icon_name.png" alt="Name" />
                     </div>
                     <div class="login-input-box">
                         <input class="login-input" type="email" placeholder="Email" />
                         <img class="login-icon" src="./assets/img/icons/icon_email.png" alt="E-Mail" />
                     </div>
                     <div class="login-input-box">
-                        <input class="login-input" type="password" placeholder="Password" />
-                        <img class="login-icon" src="./assets/img/icons/icon_password.png" alt="E-Mail" />
+                        <input id="signup-input-password" class="login-input" type="password" placeholder="Password" onkeyup="showVisibilityIcon('signup')" />
+                        <img id="signup-icon-password" class="login-icon" src="./assets/img/icons/icon_password.png" alt="Password" />
+                        <img id="signup-icon-password-visibility" class="login-icon visibility-icon d-none" src="./assets/img/icons/icon_password_nonvisible.png" alt="Password" onclick="setInputToText('signup')" />
                     </div>
                     <div class="login-button">
                         <button class="login-button-blue">Sign up</button>
