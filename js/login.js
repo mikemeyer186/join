@@ -185,3 +185,8 @@ function hideLoginFault() {
     document.getElementById('login-fault').classList.add('d-none');
     document.getElementById('login-input-password').placeholder = 'Password';
 }
+
+function loginGuest() {
+    document.getElementById('login-input-email').value = userAccounts[1]['userEmail'];
+    document.getElementById('login-input-password').value = userAccounts[1]['userPassword'];
+}
