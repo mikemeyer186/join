@@ -129,6 +129,7 @@ function getUserInitials(signUpName) {
 
 /**
  * switching back to login box with filled inputs after signing up new user
+ * showing popup on bottom of the page
  * @param {*} signUpEmail - email from sign up
  * @param {*} signUpPassword - password from sign up
  */
@@ -141,6 +142,7 @@ function goBackToLogin(signUpEmail, signUpPassword) {
     document.getElementById('login-input-email').value = signUpEmail;
     document.getElementById('login-input-password').value = signUpPassword;
     showVisibilityIcon('login');
+    slidePopupIntoView('signup-popup');
 }
 
 /**
@@ -174,6 +176,9 @@ function saveActiveUserLocal(user) {
     localStorage.setItem('activeUser', JSON.stringify(user));
 }
 
+/**
+ * showing login fault "wrong password"
+ */
 function showLoginFault() {
     document.getElementById('login-fault').classList.remove('d-none');
     document.getElementById('login-input-password').value = '';
@@ -181,12 +186,31 @@ function showLoginFault() {
     showVisibilityIcon('login');
 }
 
+/**
+ * hiding the login fault when user types password
+ */
 function hideLoginFault() {
     document.getElementById('login-fault').classList.add('d-none');
     document.getElementById('login-input-password').placeholder = 'Password';
 }
 
+/**
+ * loggin in as guest with filled login data
+ */
 function loginGuest() {
     document.getElementById('login-input-email').value = userAccounts[1]['userEmail'];
     document.getElementById('login-input-password').value = userAccounts[1]['userPassword'];
+}
+
+/**
+ * sliding the popup from the bottom of page into view
+ * sliding out of view after 3 seconds
+ * @param {string} id - id of html element
+ */
+function slidePopupIntoView(id) {
+    document.getElementById(`${id}`).classList.add('slideIn');
+
+    setTimeout(() => {
+        document.getElementById(`${id}`).classList.remove('slideIn');
+    }, 4000);
 }
