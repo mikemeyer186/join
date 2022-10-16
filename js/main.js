@@ -1,8 +1,10 @@
 let userAccounts = [];
+let activeUser;
 
 async function init() {
     await includeHTML();
     await loadAccountsFromBackend();
+    loadActiveUserLocal();
 }
 
 async function includeHTML() {
@@ -25,4 +27,11 @@ async function includeHTML() {
 async function loadAccountsFromBackend() {
     await downloadFromServer();
     userAccounts = JSON.parse(backend.getItem('userAccounts')) || [];
+}
+
+/**
+ * loading active user from local storage
+ */
+function loadActiveUserLocal() {
+    activeUser = JSON.parse(localStorage.getItem('activeUser'));
 }

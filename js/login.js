@@ -116,7 +116,13 @@ function randomInteger(max) {
 function getUserInitials(signUpName) {
     let stringName = signUpName;
     let stringLetters = stringName.match(/\b(\w)/g);
-    let initials = stringLetters[0] + stringLetters[1];
+    let initials;
+
+    if (stringLetters.length > 1) {
+        initials = stringLetters[0] + stringLetters[1];
+    } else {
+        initials = stringLetters[0];
+    }
     return initials;
 }
 
@@ -141,4 +147,28 @@ function goBackToLogin(signUpEmail, signUpPassword) {
  */
 async function saveAccountsToBackend() {
     await backend.setItem('userAccounts', JSON.stringify(userAccounts));
+}
+
+/**
+ * user login with email and password
+ */
+function loginUser() {
+    let signUpEmail = document.getElementById('login-input-email');
+    let signUpPassword = document.getElementById('login-input-password');
+    let user = userAccounts.find((u) => u.userEmail == signUpEmail.value && u.userPassword == signUpPassword.value);
+
+    if (user) {
+        saveActiveUserLocal(user);
+        window.location.href = './summary.html';
+    } else {
+        console.log('User oder Passwort falsch');
+    }
+}
+
+/**
+ * saving active user to local storage
+ * @param {JSON} user - logged in user data
+ */
+function saveActiveUserLocal(user) {
+    localStorage.setItem('activeUser', JSON.stringify(user));
 }
