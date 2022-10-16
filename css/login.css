@@ -204,6 +204,7 @@
 .login-forgot {
     color: #005dff;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .checkbox {
@@ -266,6 +267,11 @@
     transition: transform 500ms ease-in-out;
 }
 
+.popup-white {
+    background-color: #ffffff;
+    color: black;
+}
+
 .popup > span {
     text-align: center;
 }
@@ -273,4 +279,61 @@
 .slideIn {
     transform: translateY(0);
     transition: transform 500ms ease-in-out;
+}
+
+.arrow-back {
+    position: absolute;
+    width: 25px;
+    object-fit: cover;
+    cursor: pointer;
+    z-index: 1;
+    left: 4%;
+    top: 11.5%;
+}
+
+.forgot-box-text {
+    margin: 0 0 35px 0;
+    padding: 0 65px 0 65px;
+    text-align: center;
+    font-size: 23px;
+}
+
+.reset-box-text {
+    margin: 0;
+    padding: 0 65px 0 65px;
+    text-align: center;
+    font-size: 23px;
+}
+
+.forgot-button {
+    width: 100%;
+}
+
+#forgot-fault {
+    position: absolute;
+    top: 50px;
+    left: 24px;
+    font-size: 13px;
+    color: #ff8190;
+}
+
+#reset-fault {
+    position: absolute;
+    top: 50px;
+    left: 24px;
+    font-size: 13px;
+    color: #ff8190;
+}
+
+#reset-accept {
+    position: absolute;
+    top: 50px;
+    left: 24px;
+    font-size: 13px;
+    color: #2a9d47;
+}
+
+.deactivated-button {
+    pointer-events: none;
+    opacity: 0.3;
 }

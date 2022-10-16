@@ -33,7 +33,7 @@ function showSignUpBox() {
 
 /**
  * showing the password visibility icon when entered some text in password inputfield
- * @param {string} element - element name "login" or "signup"
+ * @param {string} element - element name "login", "signup" or "reset"
  */
 function showVisibilityIcon(element) {
     let inputPassword = document.getElementById(`${element}-input-password`);
@@ -139,6 +139,7 @@ function goBackToLogin(signUpEmail, signUpPassword) {
     document.getElementById('login-logo-white').classList.add('no-opacity');
     document.getElementById('login-logo-blue').classList.remove('no-opacity');
     document.getElementById('login-page').classList.add('pageColorChange');
+    document.getElementById('login-signup-box').classList.remove('d-none');
     document.getElementById('login-input-email').value = signUpEmail;
     document.getElementById('login-input-password').value = signUpPassword;
     showVisibilityIcon('login');
@@ -213,4 +214,125 @@ function slidePopupIntoView(id) {
     setTimeout(() => {
         document.getElementById(`${id}`).classList.remove('slideIn');
     }, 4000);
+}
+
+/**
+ * goin gback to login box
+ */
+function backToLoginBox() {
+    document.getElementById('login-box').classList.remove('d-none');
+    document.getElementById('signup-box').classList.add('d-none');
+    document.getElementById('forgot-box').classList.add('d-none');
+    document.getElementById('reset-box').classList.add('d-none');
+    document.getElementById('login-logo-white').classList.add('no-opacity');
+    document.getElementById('login-logo-blue').classList.remove('no-opacity');
+    document.getElementById('login-page').classList.add('pageColorChange');
+    document.getElementById('login-signup-box').classList.remove('d-none');
+}
+
+/**
+ * showing password forgot box
+ */
+function showForgotBox() {
+    document.getElementById('login-box').classList.add('d-none');
+    document.getElementById('forgot-box').classList.remove('d-none');
+    document.getElementById('login-logo-white').classList.remove('no-opacity');
+    document.getElementById('login-logo-blue').classList.add('no-opacity');
+    document.getElementById('login-page').classList.remove('pageColorChange');
+    document.getElementById('login-signup-box').classList.add('d-none');
+}
+
+/**
+ * sending reset email to signed up user or show fault message
+ */
+function sendResetEmail() {
+    let forgotEmail = document.getElementById('forgot-input-email');
+    let user = userAccounts.find((u) => u.userEmail == forgotEmail.value);
+
+    if (user) {
+        let userId = user.userId;
+        localStorage.setItem('resetUserId', userId);
+        showPasswordResetBox();
+        slidePopupIntoView('forgot-popup');
+    } else {
+        showFault('forgot');
+    }
+}
+
+/**
+ * showing fault when mail oder password mismatched
+ * @param {string} element - name of element "forgot" or "reset"
+ */
+function showFault(element) {
+    document.getElementById(`${element}-fault`).classList.remove('d-none');
+}
+
+/**
+ * hiding failt when user begins typing
+ * @param {string} element - name of element "forgot" or "reset"
+ */
+function hideFault(element) {
+    document.getElementById(`${element}-fault`).classList.add('d-none');
+}
+
+/**
+ * showing password reset box
+ */
+function showPasswordResetBox() {
+    document.getElementById('forgot-box').classList.add('d-none');
+    document.getElementById('reset-box').classList.remove('d-none');
+}
+
+/**
+ * resetting password and saving to backend database or showing fault when passwords mismatch
+ */
+async function resetPassword() {
+    let userId = localStorage.getItem('resetUserId');
+    let newPassword = document.getElementById('resetNew-input-password');
+    let confPassword = document.getElementById('resetConf-input-password');
+
+    if (newPassword.value == confPassword.value) {
+        userAccounts[userId]['userPassword'] = newPassword.value;
+        await saveAccountsToBackend();
+        backToLoginBox();
+        slidePopupIntoView('reset-popup');
+    } else {
+        hideAccept('reset');
+        showFault('reset');
+        document.getElementById('reset-button').classList.add('deactivated-button');
+    }
+}
+
+/**
+ * matching new and confirm passwords
+ */
+function matchResetPasswords() {
+    let newPassword = document.getElementById('resetNew-input-password');
+    let confPassword = document.getElementById('resetConf-input-password');
+
+    if (newPassword.value == confPassword.value) {
+        hideFault('reset');
+        showAccept('reset');
+        document.getElementById('reset-button').classList.remove('deactivated-button');
+    } else {
+        hideAccept('reset');
+        showFault('reset');
+        document.getElementById('reset-button').classList.add('deactivated-button');
+    }
+}
+
+/**
+ * showing password accept when both password match
+ * @param {string} element - name of element "reset"
+ */
+function showAccept(element) {
+    document.getElementById(`${element}-accept`).classList.remove('d-none');
+}
+
+/**
+ * hiding password accept when both password mismatch
+ * @param {string} element - name of element "reset"
+ */
+function hideAccept(element) {
+    document.getElementById(`${element}-accept`).classList.add('d-none');
 }
