@@ -38,6 +38,7 @@ function showSignUpBox() {
 function showVisibilityIcon(element) {
     let inputPassword = document.getElementById(`${element}-input-password`);
     if (inputPassword.value) {
+        hideLoginFault();
         document.getElementById(`${element}-icon-password`).classList.add('d-none');
         document.getElementById(`${element}-icon-password-visibility`).classList.remove('d-none');
     } else {
@@ -161,7 +162,7 @@ function loginUser() {
         saveActiveUserLocal(user);
         window.location.href = './summary.html';
     } else {
-        console.log('User oder Passwort falsch');
+        showLoginFault();
     }
 }
 
@@ -171,4 +172,16 @@ function loginUser() {
  */
 function saveActiveUserLocal(user) {
     localStorage.setItem('activeUser', JSON.stringify(user));
+}
+
+function showLoginFault() {
+    document.getElementById('login-fault').classList.remove('d-none');
+    document.getElementById('login-input-password').value = '';
+    document.getElementById('login-input-password').placeholder = 'Ups! Try again';
+    showVisibilityIcon('login');
+}
+
+function hideLoginFault() {
+    document.getElementById('login-fault').classList.add('d-none');
+    document.getElementById('login-input-password').placeholder = 'Password';
 }

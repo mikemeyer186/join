@@ -30,13 +30,14 @@
                 <span class="login-box-headline">Log in</span>
                 <form class="login-form" onsubmit="loginUser(); return false;">
                     <div class="login-input-box">
-                        <input id="login-input-email" class="login-input" type="email" placeholder="Email" />
+                        <input id="login-input-email" class="login-input" type="email" placeholder="Email" required />
                         <img class="login-icon" src="./assets/img/icons/icon_email.png" alt="E-Mail" />
                     </div>
                     <div class="login-input-box">
-                        <input id="login-input-password" class="login-input" type="password" placeholder="Password" onkeyup="showVisibilityIcon('login')" />
+                        <input id="login-input-password" class="login-input" type="password" placeholder="Password" onkeyup="showVisibilityIcon('login')" required />
                         <img id="login-icon-password" class="login-icon" src="./assets/img/icons/icon_password.png" alt="Password" />
                         <img id="login-icon-password-visibility" class="login-icon visibility-icon d-none" src="./assets/img/icons/icon_password_nonvisible.png" alt="Password" onclick="setInputToText('login')" />
+                        <div id="login-fault" class="d-none">Wrong password</div>
                     </div>
                     <div class="login-options">
                         <label class="checkbox">

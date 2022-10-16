@@ -105,6 +105,7 @@
     padding: 13px 21px;
     width: 422px;
     height: 49px;
+    position: relative;
 }
 
 .login-input {
@@ -232,4 +233,12 @@
 
 .signup-text {
     font-size: 23px;
+}
+
+#login-fault {
+    position: absolute;
+    top: 50px;
+    left: 24px;
+    font-size: 13px;
+    color: #ff8190;
 }
