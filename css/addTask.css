@@ -1,22 +1,12 @@
-.inputFields input {
-    border: 1px solid #D1D1D1;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    padding: 10px 13px;
-    width: 420px;
-    font-size: 40px;
-}
-.inputFields input::placeholder {
-    color: #D1D1D1;
-}
-.inputFields {
-    margin-top: 40px; 
-    margin-left: 320px; 
-}
 form {
     display: flex;
     flex-direction: column;
+}
+form input{
+    padding: 10px 20px;
+    width: 500px;
+    
+    margin-bottom: 20px; 
 }
 form select {
     font-size: 25px; 
@@ -27,8 +17,61 @@ form select {
     border-color: #D1D1D1;
     border-left: none; 
     border-right: none; 
-    width: 420px;
+    width: 500px;
+}
+form h3 {
+    color: #42526E;
+    margin-top: 40px;  
+    margin-bottom: 0; 
+}
+.inputTitle {
+    font-size: 40px;
+    border: 1px solid #D1D1D1;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+.inputFields input::placeholder {
+    color: #D1D1D1;
+}
+.inputFields {
+    margin-top: 40px; 
+    margin-left: 350px; 
 }
 .importanceLvl{
     margin-top: 45px;
+}
+.selectors {
+    border: 1px solid #D1D1D1;
+    border-top: none; 
+    border-left: none; 
+    border-right: none; 
+    background-color: #ffffff;
+    padding: 10px 20px;
+    font-size: 20px; 
+    margin-top: 10px; 
+}
+.selectDate {
+    border: 1px solid #D1D1D1;
+    margin-top: 15px;
+    border-top: none; 
+    border-left: none; 
+    border-right: none; 
+    font-size: 20px; 
+}
+.selectDate::placeholder{
+    color: gray;
+}
+#inputDescription {
+    border-style: solid;
+    border: 1px solid #D1D1D1; 
+    margin-top: 10px; 
+    font-size: 20px; 
+    padding-top: 20px;
+    padding-left: 25px;  
+    padding-right: 50px; 
+    padding-bottom: 75px; 
+    border-top-right-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
 }
