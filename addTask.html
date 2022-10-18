@@ -39,12 +39,18 @@
           </div>
           <h3>Description</h3>
           <input id="inputDescription" type="text" placeholder="Enter a Description">
-          <h3>Subtasks</h3>
-          <input type="text" placeholder="Add new subtask">
+          <h3 id="subtaskTitle">Subtasks</h3>
+          <input id="subtaskText" type="text" placeholder="Add new subtask">
+          <div class="taskFooter">
+          <div class="addSubtaskCheckbox">
           <input type="checkbox">
           <p>Subtask 1</p>
-          <button>Clear X</button>
-          <button>Create Task ✓</button>
+        </div>
+        <div class="taskFooterButtons">
+          <button id="buttonClear">Clear X</button>
+          <button id="buttonCreate">Create Task ✓</button>
+        </div>
+        </div>
     </form>
 </div>
 </body>

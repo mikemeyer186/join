@@ -21,7 +21,7 @@ form select {
 }
 form h3 {
     color: #42526E;
-    margin-top: 40px;  
+    margin-top: 30px;  
     margin-bottom: 0; 
 }
 .inputTitle {
@@ -35,11 +35,11 @@ form h3 {
     color: #D1D1D1;
 }
 .inputFields {
-    margin-top: 40px; 
+    margin-top: 30px; 
     margin-left: 350px; 
 }
 .importanceLvl{
-    margin-top: 45px;
+    margin-top: 30px;
 }
 .selectors {
     border: 1px solid #D1D1D1;
@@ -52,7 +52,7 @@ form h3 {
     margin-top: 10px; 
 }
 .selectDate {
-    border: 1px solid #D1D1D1;
+    border: 2px solid #D1D1D1;
     margin-top: 15px;
     border-top: none; 
     border-left: none; 
@@ -74,4 +74,56 @@ form h3 {
     border-top-right-radius: 0.5em;
     border-bottom-left-radius: 0.5em;
     border-bottom-right-radius: 0.5em;
+}
+#subtaskTitle {
+    margin-top: 0px !important; 
+}
+#subtaskText {
+    margin-top: 10px;
+    margin-bottom: 8px;  
+    border-top: none; 
+    border-left: none; 
+    border-right: none; 
+}
+#subtaskText::placeholder {
+    font-size: 16px;
+}
+.taskFooter {
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;
+}
+.addSubtaskCheckbox input {
+    border-color: #4589FF;
+    margin-top: 18px;
+    margin-right: 20px;    
+    width: 16px;
+}
+.addSubtaskCheckbox { 
+    display:flex; 
+    align-items: center;
+}
+.taskFooterButtons {
+    margin-right: 100px; 
+}
+.taskFooterButtons button {
+    margin-left: 25px;  
+}
+#buttonClear {
+    padding: 15px 30px;
+    border-style: solid;
+    border-radius: 0.5em;
+    background-color: white;
+    color: #647188;
+    font-size: 20px;
+    border: 1px solid #647188
+    border-color: #647188;
+}
+#buttonCreate {
+    padding: 15px 20px; 
+    color: white; 
+    background-color: #4589FF;
+    font-size: 20px; 
+    border-radius: 0.5em;
+    border: none; 
 }
