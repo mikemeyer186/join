@@ -1,10 +1,12 @@
 let userAccounts = [];
 let activeUser;
+let tasks = [];
 
-async function init() {
+async function init(i) {
     await includeHTML();
     await loadAccountsFromBackend();
     loadActiveUserLocal();
+    highlightedNavbar(i);
 }
 
 async function includeHTML() {

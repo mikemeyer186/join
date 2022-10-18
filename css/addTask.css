@@ -24,7 +24,7 @@ form h3 {
     margin-top: 30px;  
     margin-bottom: 0; 
 }
-.inputTitle {
+#inputTitle {
     font-size: 40px;
     border: 1px solid #D1D1D1;
     border-top: none;
@@ -116,7 +116,7 @@ form h3 {
     background-color: white;
     color: #647188;
     font-size: 20px;
-    border: 1px solid #647188
+    border: 1px solid #647188;
     border-color: #647188;
 }
 #buttonCreate {
@@ -126,4 +126,13 @@ form h3 {
     font-size: 20px; 
     border-radius: 0.5em;
     border: none; 
+}
+#newContactText {
+    border-top: none; 
+    border-left: none; 
+    border-right: none; 
+}
+#newContactText::placeholder {
+    font-size: 16px;
+    border: 1px solid #D1D1D1;
 }
