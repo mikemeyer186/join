@@ -1,16 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="./css/main.css">
-    <script src="./js/sidebar.js"></script>
-    <script src="./js/main.js"></script>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join - Task</title>
-</head>
-<body onload="init(4)">
-    <div w3-include-html=".\assets\templates\headerDesktop.html"></div>
-    <div w3-include-html=".\assets\templates\menuDesktop.html"></div>
-</body>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="icon" href="./assets/img/logo_join.png" type="image/png" />
+
+        <link rel="stylesheet" href="./css/fontFamily.css" />
+        <link rel="stylesheet" href="./css/main.css" />
+        <link rel="stylesheet" href="./css/contacts.css" />
+
+        <script src="./js/main.js"></script>
+        <script src="./js/mini_backend.js"></script>
+        <script src="./js/contacts.js"></script>
+        <script src="./js/sidebar.js"></script>
+
+        <title>Join - Contacts</title>
+    </head>
+    <body onload="init(4)">
+        <div w3-include-html=".\assets\templates\headerDesktop.html"></div>
+        <div w3-include-html=".\assets\templates\menuDesktop.html"></div>
+
+        <div class="contacts-box">
+            <div id="contacts-content"></div>
+        </div>
+
+        <button class="addContact-button">
+            <span>New Contact</span>
+            <img src="./assets/img/icons/icon_addContact.png" alt="New Contact" />
+        </button>
+    </body>
 </html>
