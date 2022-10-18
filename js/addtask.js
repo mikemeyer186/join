@@ -6,5 +6,5 @@ function changeInputContact() {
 }
 
 function changeInputCategory() {
-    document.getElementById('selectorCategory').innerHTML = `<input id="newContactText" type="text" placeholder="New category name">`; 
+    document.getElementById('selectorCategory').innerHTML = `<input id="newCategoryText" type="text" placeholder="New category name">`; 
 }

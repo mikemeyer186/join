@@ -1,6 +1,7 @@
 let userAccounts = [];
 let activeUser;
 let tasks = [];
+let taskCategory = []; 
 
 async function init(i) {
     await includeHTML();
