@@ -20,7 +20,7 @@
     <form>
         <input id="inputTitle" type="text" placeholder="Enter a title">
         <div id="selectorContact">
-        <select class="selectors">
+        <select id="selectContact" class="selectors">
           <option value="" disabled selected>Select contacts to assign</option>
           <option value="">You</option>
           <option value="">Maximilian Vogel</option>
@@ -28,10 +28,10 @@
         </select> 
       </div>
         <h3>Due date</h3>
-        <input class="selectDate" type="text" placeholder="dd/mm/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')"></input>
+        <input id="selectDate" type="text" placeholder="dd/mm/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')"></input>
         <h3>Category</h3>
         <div id="selectorCategory">
-        <select class="selectors">
+        <select id="selectContact" class="selectors">
             <option value=""disabled selected>Select task category</option>
             <option onclick="changeInputCategory()" value="newCategory">New category</option>
             <option value="sales">Sales</option>
@@ -39,22 +39,24 @@
           </select> 
         </div>
           <div class="importanceLvl">
-            <img src="./assets/img/TaskValueHard.png">
-            <img src="./assets/img/TaskValueMid.png">
-            <img src="./assets/img/TaskValueLow.png">
+            <img id="importanceIMGHard" src="./assets/img/TaskValueHard.png">
+            <img id="importanceIMGMid" src="./assets/img/TaskValueMid.png">
+            <img id="importanceIMGLow" src="./assets/img/TaskValueLow.png">
           </div>
           <h3>Description</h3>
           <input id="inputDescription" type="text" placeholder="Enter a Description">
           <h3 id="subtaskTitle">Subtasks</h3>
           <input id="subtaskText" type="text" placeholder="Add new subtask">
           <div class="taskFooter">
-          <div class="addSubtaskCheckbox">
+          <div id="addSubtaskCheckbox">
           <input type="checkbox">
+          <div id="subtaskList">
           <p>Subtask 1</p>
         </div>
+      </div>
         <div class="taskFooterButtons">
           <button id="buttonClear">Clear X</button>
-          <button id="buttonCreate">Create Task ✓</button>
+          <button id="buttonCreate" onclick="addTask()">Create Task ✓</button>
         </div>
         </div>
     </form>

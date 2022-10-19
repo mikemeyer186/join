@@ -51,8 +51,8 @@ form h3 {
     font-size: 20px; 
     margin-top: 10px; 
 }
-.selectDate {
-    border: 2px solid #D1D1D1;
+#selectDate {
+    border: 1px solid #D1D1D1;
     margin-top: 15px;
     border-top: none; 
     border-left: none; 
@@ -93,13 +93,13 @@ form h3 {
     align-items: center;
     justify-content: space-between;
 }
-.addSubtaskCheckbox input {
+#addSubtaskCheckbox input {
     border-color: #4589FF;
     margin-top: 18px;
     margin-right: 20px;    
     width: 16px;
 }
-.addSubtaskCheckbox { 
+#addSubtaskCheckbox { 
     display:flex; 
     align-items: center;
 }
@@ -128,11 +128,44 @@ form h3 {
     border: none; 
 }
 #newContactText {
+    margin-top: 10px; 
+    border: 1px solid #D1D1D1;
     border-top: none; 
     border-left: none; 
     border-right: none; 
 }
 #newContactText::placeholder {
     font-size: 16px;
+}
+#newCategoryText::placeholder {
+    font-size: 16px;
+}
+#newCategoryText{
+    margin-top: 15px;
+    margin-bottom: 0; 
     border: 1px solid #D1D1D1;
+    border-top: none; 
+    border-left: none; 
+    border-right: none; 
+}
+#importanceIMGHard:hover {
+    border: 2px solid red;
+    border-top: none; 
+    border-left: none; 
+    border-right: none; 
+    cursor: pointer;
+}
+#importanceIMGMid:hover {
+    border: 2px solid orange; 
+    border-top: none; 
+    border-left: none; 
+    border-right: none; 
+    cursor: pointer;
+}
+#importanceIMGLow:hover {
+    border: 2px solid green; 
+    border-top: none; 
+    border-left: none; 
+    border-right: none; 
+    cursor: pointer;
 }
