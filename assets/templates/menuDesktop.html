@@ -1,39 +1,25 @@
 <div class="sidebar">
-  <nav>
-    <a
-      href="#"
-      id="navSummary"
-      onclick="highlightedNavbar(1)"
-      class="sidebarBox navHighlighted"
-    >
-      <img id="iconSummary" src="./assets/img/icons/iconSummary.png" />
-      <p>Summary</p>
-    </a>
-    <a href="#" id="navBoard" onclick="highlightedNavbar(2)" class="sidebarBox">
-      <img src="./assets/img/icons/iconBoard.png" />
-      <p>Board</p>
-    </a>
-    <a href="#" id="navTask" onclick="highlightedNavbar(3)" class="sidebarBox">
-      <img src="./assets/img/icons/iconTask.png" />
-      <p>Add Task</p>
-    </a>
-    <a
-      href="#"
-      id="navContacts"
-      onclick="highlightedNavbar(4)"
-      class="sidebarBox"
-    >
-      <img src="./assets/img/icons/iconContacts.png" />
-      <p>Contacts</p>
-    </a>
-  </nav>
-  <div
-    style="cursor: pointer"
-    onclick="highlightedLegalNotice()"
-    id="legalNotice"
-  >
-    <!-- Responsive Problem mit legalNotice -->
-    <img id="legalNoticeInfoIcon" src="./assets/img/icons/iconInfo.png" />
-    <p>Legal Notice</p>
-  </div>
+    <nav>
+        <a href="./summary.html" id="navSummary" onclick="highlightedNavbar(1)" class="sidebarBox navHighlighted">
+            <img id="iconSummary" src="./assets/img/icons/iconSummary.png" />
+            <p>Summary</p>
+        </a>
+        <a href="./board.html" id="navBoard" onclick="highlightedNavbar(2)" class="sidebarBox">
+            <img src="./assets/img/icons/iconBoard.png" />
+            <p>Board</p>
+        </a>
+        <a href="./addTask.html" id="navTask" onclick="highlightedNavbar(3)" class="sidebarBox">
+            <img src="./assets/img/icons/iconTask.png" />
+            <p>Add Task</p>
+        </a>
+        <a href="./contacts.html" id="navContacts" onclick="highlightedNavbar(4)" class="sidebarBox">
+            <img src="./assets/img/icons/iconContacts.png" />
+            <p>Contacts</p>
+        </a>
+    </nav>
+    <div style="cursor: pointer" onclick="highlightedLegalNotice()" id="legalNotice">
+        <!-- Responsive Problem mit legalNotice -->
+        <img id="legalNoticeInfoIcon" src="./assets/img/icons/iconInfo.png" />
+        <p>Legal Notice</p>
+    </div>
 </div>
