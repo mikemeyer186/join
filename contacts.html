@@ -22,11 +22,49 @@
         <div w3-include-html=".\assets\templates\headerDesktop.html"></div>
         <div w3-include-html=".\assets\templates\menuDesktop.html"></div>
 
+        <div id="popup-bg" class="d-none no-opacity" onclick="hideNewContactPopUp()">
+            <div id="popup-contact" onclick="stopPropagate(event)">
+                <img class="popup-close-icon" src="./assets/img/icons/icon_close_white.png" alt="Close" onclick="hideNewContactPopUp()" />
+                <div class="popup-contact-top">
+                    <img class="contact-top-logo" src="./assets/img/logo_join_small_white.png" alt="Join Logo" />
+                    <span class="contact-top-headline">Add contact</span>
+                    <span class="contact-top-subtext">Tasks are better with a team!</span>
+                </div>
+                <div class="popup-contact-bottom">
+                    <div class="contact-profil-box">
+                        <img class="contact-profil-img" src="./assets/img/user_white.png" alt="User" />
+                    </div>
+                    <div class="contact-input-box">
+                        <input type="text" class="contact-input" placeholder="Name" />
+                        <img class="contact-icon" src="./assets/img/icons/icon_user_grey.png" alt="Name" />
+                    </div>
+                    <div class="contact-input-box">
+                        <input type="text" class="contact-input" placeholder="Email" />
+                        <img class="contact-icon" src="./assets/img/icons/icon_mail_grey.png" alt="Email" />
+                    </div>
+                    <div class="contact-input-box">
+                        <input type="text" class="contact-input" placeholder="Phone" />
+                        <img class="contact-icon" src="./assets/img/icons/icon_phone_grey.png" alt="Phone" />
+                    </div>
+                    <div class="contact-button-box">
+                        <button class="contact-button-white" onmouseover="blueCloseIcon()" onmouseleave="darkCloseIcon()">
+                            Cancel
+                            <img id="button-close" src="./assets/img/icons/icon_close_dark.png" alt="Close" />
+                        </button>
+                        <button class="contact-button-blue">
+                            Create contact
+                            <img src="./assets/img/icons/icon_check_white.png" alt="Create" />
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="contacts-box">
             <div id="contacts-content"></div>
         </div>
 
-        <button class="addContact-button">
+        <button class="addContact-button" onclick="showNewContactPopUp()">
             <span>New Contact</span>
             <img src="./assets/img/icons/icon_addContact.png" alt="New Contact" />
         </button>
