@@ -7,18 +7,18 @@ let tasks = [{
     "dueDate": '25.05.2022',
     "taskCategory": 'Design',
     "subTask": 'Subtask1',
-    "taskID" : 1,
+    "taskID": 1,
     "categoryColor": 'Orange',
     "priority": 'low',
     "assignedTo": 'Mike Meier, Mike Meyer'
-}]; 
+}];
 
 async function init(i) {
     await includeHTML();
     await loadAccountsFromBackend();
     loadActiveUserLocal();
     highlightedNavbar(i);
-    renderSubTask();
+    //renderSubTask();
 }
 
 async function includeHTML() {
@@ -36,6 +36,13 @@ async function includeHTML() {
 }
 
 /**
+ * saving user accounts in backend database
+ */
+ async function saveAccountsToBackend() {
+    await backend.setItem('userAccounts', JSON.stringify(userAccounts));
+}
+
+/**
  * loading user accounts from backend database
  */
 async function loadAccountsFromBackend() {
@@ -48,4 +55,11 @@ async function loadAccountsFromBackend() {
  */
 function loadActiveUserLocal() {
     activeUser = JSON.parse(localStorage.getItem('activeUser'));
+}
+
+/**
+ * stopping propagation of child elements
+ */
+ function stopPropagate(event) {
+    event.stopPropagation();
 }

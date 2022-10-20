@@ -57,7 +57,7 @@
     padding: 35px 0px;
     gap: 35px;
     width: 45%;
-    height: 40%;
+    height: 50%;
     left: 0;
     right: 0;
     top: 0;
@@ -272,7 +272,7 @@
     color: black;
 }
 
-.popup > span {
+.popup>span {
     text-align: center;
 }
 

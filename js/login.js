@@ -147,13 +147,6 @@ function goBackToLogin(signUpEmail, signUpPassword) {
 }
 
 /**
- * saving user accounts in backend database
- */
-async function saveAccountsToBackend() {
-    await backend.setItem('userAccounts', JSON.stringify(userAccounts));
-}
-
-/**
  * user login with email and password
  */
 function loginUser() {

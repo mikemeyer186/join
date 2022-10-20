@@ -4,11 +4,12 @@ body {
 }
 
 .contacts-box {
-    width: 40%;
+    width: 450px;
     height: calc(100% - 100px);
     overflow-y: scroll;
     background-color: #ffffff;
     box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.08);
+    padding: 48px;
 }
 
 .addContact-button {
@@ -22,7 +23,7 @@ body {
     width: 197px;
     height: 53px;
     right: 2%;
-    top: 10%;
+    top: calc(2% + 100px);
     background-color: #4589ff;
     border: 1px solid #4589ff;
     border-radius: 10px;
@@ -39,7 +40,7 @@ body {
     transition: all 225ms ease-in-out;
 }
 
-.addContact-button > img {
+.addContact-button>img {
     width: 33px;
 }
 
@@ -126,7 +127,7 @@ body {
 .contact-profil-box {
     background-color: #d1d1d1;
     width: 120px;
-    height: 120px;
+    min-height: 120px;
     border-radius: 100%;
     padding: 12px;
     display: flex;
@@ -203,7 +204,7 @@ body {
     transition: all 225ms ease-in-out;
 }
 
-.contact-button-blue > img {
+.contact-button-blue>img {
     width: 16px;
     object-fit: cover;
 }
@@ -232,7 +233,7 @@ body {
     transition: all 225ms ease-in-out;
 }
 
-.contact-button-white > img {
+.contact-button-white>img {
     width: 11px;
     object-fit: cover;
 }
@@ -250,4 +251,53 @@ body {
     top: 22px;
     right: 22px;
     cursor: pointer;
+}
+
+.contact-card {
+    display: flex;
+    align-items: center;
+    width: 350px;
+    height: 77px;
+    cursor: pointer;
+    background-color: white;
+    padding: 15px 25px;
+    gap: 35px;
+    border-radius: 10px;
+    transition: all 225ms ease-in-out;
+}
+
+.contact-card:hover {
+    background-color: #4589FF;
+    color: white;
+    transition: all 225ms ease-in-out;
+}
+
+.contact-pic {
+    width: 42px;
+    height: 42px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border: 2px solid white;
+}
+
+.contact-initials {
+    text-transform: uppercase;
+}
+
+.contact-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.data-name {
+    font-size: 19px;
+}
+
+.data-mail {
+    font-size: 16px;
 }
