@@ -12,3 +12,14 @@ function addTask() {
     //let taskImportance = document.getElemenentById('').value; 
     let description = document.getElementById('inputDescription').value; 
 }
+
+
+function renderSubTask()  {
+    for(let i = 0; i < subTasks.length; i++) {
+        document.getElementById('addSubtaskCheckbox').innerHTML += `
+        <div class="subtaskList">  
+        <input type="checkbox">
+        <p>${subTasks[i]}</p>
+        </div>`;
+    }
+}

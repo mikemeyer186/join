@@ -95,13 +95,25 @@ form h3 {
 }
 #addSubtaskCheckbox input {
     border-color: #4589FF;
-    margin-top: 18px;
     margin-right: 20px;    
     width: 16px;
 }
 #addSubtaskCheckbox { 
     display:flex; 
     align-items: center;
+    flex-direction: column;
+}
+.subtaskList {
+    display: flex; 
+    margin-top: 10px; 
+}
+.subtaskList input {
+    margin: 0; 
+    padding: 0;
+}
+.subtaskList p {
+    margin: 0; 
+    padding: 0;
 }
 .taskFooterButtons {
     margin-right: 100px; 

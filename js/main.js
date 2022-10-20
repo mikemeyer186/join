@@ -1,11 +1,13 @@
 let userAccounts = [];
 let activeUser;
-let tasks = [];
-let taskCategory = [{
+let subTasks = ['Subtask1'];
+let tasks = [{
     "taskTitle": 'Website redesign',
     "description": 'Modify the contacts of the main website...',
     "dueDate": '25.05.2022',
     "taskCategory": 'Design',
+    "subTask": 'Subtask1',
+    "taskID" : 1,
     "categoryColor": 'Orange',
     "priority": "low",
     "assignedTo": 'Mike Meier, Mike Meyer'
@@ -16,6 +18,7 @@ async function init(i) {
     await loadAccountsFromBackend();
     loadActiveUserLocal();
     highlightedNavbar(i);
+    renderSubTask();
 }
 
 async function includeHTML() {
