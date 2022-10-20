@@ -9,7 +9,7 @@ let tasks = [{
     "subTask": 'Subtask1',
     "taskID" : 1,
     "categoryColor": 'Orange',
-    "priority": "low",
+    "priority": 'low',
     "assignedTo": 'Mike Meier, Mike Meyer'
 }]; 
 

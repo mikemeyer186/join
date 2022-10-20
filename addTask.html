@@ -24,8 +24,8 @@
             <option value="" disabled selected>
               Select contacts to assign
             </option>
-            <option value="">You</option>
-            <option value="">Maximilian Vogel</option>
+            <option value="you">You</option>
+            <option value="Maximilian Vogel">Maximilian Vogel</option>
             <option value="" onclick="changeInputContact()">
               Invite new contact
             </option>
@@ -41,7 +41,7 @@
         />
         <h3>Category</h3>
         <div id="selectorCategory">
-          <select id="selectContact" class="selectors">
+          <select id="selectCategory" class="selectors">
             <option value="" disabled selected>Select task category</option>
             <option onclick="changeInputCategory()" value="newCategory">
               New category
@@ -66,7 +66,7 @@
         <div class="taskFooter">
           <div id="addSubtaskCheckbox"></div>
           <div class="taskFooterButtons">
-            <button id="buttonClear">Clear X</button>
+            <button id="buttonClear" onclick="taskClear()">Clear X</button>
             <button id="buttonCreate" onclick="addTask()">Create Task ✓</button>
           </div>
         </div>
