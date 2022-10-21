@@ -1,4 +1,10 @@
-window.onload = setTimeout(renderContacts, 1000);
+async function contactsInit() {
+    await includeHTML();
+    await loadAccountsFromBackend();
+    loadActiveUserLocal();
+    highlightedNavbar(4);
+    renderContacts();
+}
 
 function renderContacts() {
     let content = document.getElementById('contacts-content');
@@ -47,7 +53,7 @@ function addContactToUser() {
         contactEmail: inputEmail.value,
         contactPhone: inputPhone.value,
         contactInitials: inputInitials,
-        contactColor: inputColor
+        contactColor: inputColor,
     };
 
     userAccounts[activeUser.userId].userContacts.push(contactObject);
@@ -80,7 +86,7 @@ function getContactInitials(inputName) {
  * generating random rgb-colors
  * @returns string with rgb-color
  */
- function getRandomColor() {
+function getRandomColor() {
     let r = randomInteger(255);
     let g = randomInteger(255);
     let b = randomInteger(255);
@@ -101,7 +107,7 @@ function randomInteger(max) {
  * html-template for contact card
  */
 function contactCardTemplate(contact) {
-    return /*html*/`
+    return /*html*/ `
         <div class="contact-card">
             <div class="contact-pic" style="background-color:${contact.contactColor}">
                 <span class="contact-initials">${contact.contactInitials}</span>
