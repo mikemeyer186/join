@@ -20,7 +20,7 @@ async function init(i) {
     await loadAccountsFromBackend();
     loadActiveUserLocal();
     highlightedNavbar(i);
-    getSubtaskLocalStorage(); 
+    getSubtaskLocalStorage();
 }
 /**
  * Rendering the header and the sidebar in the page
@@ -64,7 +64,7 @@ function stopPropagate(event) {
     event.stopPropagation();
 }
 /**
- * getting subTasks from the LocalSotrage 
+ * getting subTasks from the LocalSotrage
  */
 function getSubtaskLocalStorage() {
     subTasks = localStorage.getItem('subTasks');

@@ -301,3 +301,14 @@ body {
 .data-mail {
     font-size: 16px;
 }
+
+.alphabet-card {
+    display: flex;
+    align-items: center;
+    width: 350px;
+    height: 77px;
+    background-color: white;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 0 39px 0 39px;
+    font-size: 19px;
+}

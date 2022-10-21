@@ -1,3 +1,8 @@
+let filterLetters = [];
+
+/**
+ * initial function
+ */
 async function contactsInit() {
     await includeHTML();
     await loadAccountsFromBackend();
@@ -6,16 +11,30 @@ async function contactsInit() {
     renderContacts();
 }
 
+/**
+ * rendering contacts from user accounts (logged in user) in alphabetical sort
+ */
 function renderContacts() {
     let content = document.getElementById('contacts-content');
+    let contactsArray = userAccounts[activeUser.userId].userContacts;
     content.innerHTML = '';
+    getFirstLetter();
 
-    for (let i = 0; i < userAccounts[activeUser.userId].userContacts.length; i++) {
-        const contact = userAccounts[activeUser.userId].userContacts[i];
-        content.innerHTML += contactCardTemplate(contact);
+    for (let f = 0; f < filterLetters.length; f++) {
+        const letter = filterLetters[f];
+        let alphabet = contactsArray.filter((l) => l.contactInitials.charAt(0) == letter);
+        content.innerHTML += alphabetCardTemplate(letter);
+
+        for (let i = 0; i < alphabet.length; i++) {
+            const contact = alphabet[i];
+            content.innerHTML += contactCardTemplate(contact);
+        }
     }
 }
 
+/**
+ * showing popup "new contact"
+ */
 function showNewContactPopUp() {
     document.getElementById('popup-bg').classList.remove('d-none');
 
@@ -25,6 +44,9 @@ function showNewContactPopUp() {
     }, 10);
 }
 
+/**
+ * hiding popup "new contact"
+ */
 function hideNewContactPopUp() {
     document.getElementById('popup-contact').classList.remove('popup-slideIn');
     document.getElementById('popup-bg').classList.add('no-opacity');
@@ -34,14 +56,23 @@ function hideNewContactPopUp() {
     }, 250);
 }
 
+/**
+ * changing color of close button to blue when hovering
+ */
 function blueCloseIcon() {
     document.getElementById('button-close').src = './assets/img/icons/icon_close_blue.png';
 }
 
+/**
+ * changing color of close button to dark when mouse leaves the button
+ */
 function darkCloseIcon() {
     document.getElementById('button-close').src = './assets/img/icons/icon_close_dark.png';
 }
 
+/**
+ * adding new contact to user account
+ */
 function addContactToUser() {
     let inputName = document.getElementById('contact-name');
     let inputEmail = document.getElementById('contact-email');
@@ -62,6 +93,9 @@ function addContactToUser() {
     clearAndHidePopUp();
 }
 
+/**
+ * clearing the inputs of popup "new contact" when closing
+ */
 function clearAndHidePopUp() {
     document.getElementById('contact-name').value = '';
     document.getElementById('contact-email').value = '';
@@ -69,6 +103,11 @@ function clearAndHidePopUp() {
     hideNewContactPopUp();
 }
 
+/**
+ * getting the initials of new contact name
+ * @param {string} inputName - is the typed name
+ * @returns - one or two letters
+ */
 function getContactInitials(inputName) {
     let stringName = inputName;
     let stringLetters = stringName.match(/\b(\w)/g);
@@ -104,6 +143,33 @@ function randomInteger(max) {
 }
 
 /**
+ * getting first letter of contact initials
+ */
+function getFirstLetter() {
+    let contactsArray = userAccounts[activeUser.userId].userContacts;
+    for (let i = 0; i < contactsArray.length; i++) {
+        const initials = contactsArray[i].contactInitials;
+        let firstLetter = initials.charAt(0);
+        let index = getIndexOfFirstLetter(firstLetter);
+
+        if (index < 0) {
+            filterLetters.push(firstLetter.toString());
+        }
+    }
+    filterLetters.sort();
+}
+
+/**
+ * getting index of first letter in "filterLetters" array
+ * @param {string} firstLetter - first letter
+ * @returns - index of letter in array
+ */
+function getIndexOfFirstLetter(firstLetter) {
+    let index = filterLetters.indexOf(firstLetter);
+    return index;
+}
+
+/**
  * html-template for contact card
  */
 function contactCardTemplate(contact) {
@@ -118,4 +184,15 @@ function contactCardTemplate(contact) {
             </div>
         </div>
     `;
+}
+
+/**
+ * html-template for alphabetical headline
+ */
+function alphabetCardTemplate(letter) {
+    return /*html*/ `
+    <div class="alphabet-card">
+        <span class="alphabet-letter">${letter}</span>
+    </div>
+`;
 }
