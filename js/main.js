@@ -14,15 +14,17 @@ let tasks = [
         assignedTo: 'Mike Meier, Mike Meyer',
     },
 ];
-
+// Onload function
 async function init(i) {
     await includeHTML();
     await loadAccountsFromBackend();
     loadActiveUserLocal();
     highlightedNavbar(i);
-    renderSubTask();
+    getSubtaskLocalStorage(); 
 }
-
+/**
+ * Rendering the header and the sidebar in the page
+ */
 async function includeHTML() {
     let includeElements = document.querySelectorAll('[w3-include-html]');
     for (let i = 0; i < includeElements.length; i++) {
@@ -36,14 +38,12 @@ async function includeHTML() {
         }
     }
 }
-
 /**
  * saving user accounts in backend database
  */
 async function saveAccountsToBackend() {
     await backend.setItem('userAccounts', JSON.stringify(userAccounts));
 }
-
 /**
  * loading user accounts from backend database
  */
@@ -51,17 +51,21 @@ async function loadAccountsFromBackend() {
     await downloadFromServer();
     userAccounts = JSON.parse(backend.getItem('userAccounts')) || [];
 }
-
 /**
  * loading active user from local storage
  */
 function loadActiveUserLocal() {
     activeUser = JSON.parse(localStorage.getItem('activeUser'));
 }
-
 /**
  * stopping propagation of child elements
  */
 function stopPropagate(event) {
     event.stopPropagation();
+}
+/**
+ * getting subTasks from the LocalSotrage 
+ */
+function getSubtaskLocalStorage() {
+    subTasks = localStorage.getItem('subTasks');
 }

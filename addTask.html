@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Join - Task</title>
   </head>
-  <body onload="init(3)">
+  <body onload="init(3); renderSubTask();">
     <div w3-include-html=".\assets\templates\headerDesktop.html"></div>
     <div w3-include-html=".\assets\templates\menuDesktop.html"></div>
     <div class="inputFields">
@@ -43,7 +43,7 @@
         <div id="selectorCategory">
           <select id="selectCategory" class="selectors">
             <option value="" disabled selected>Select task category</option>
-            <option onclick="changeInputCategory()" value="newCategory">
+            <option onclick="changeInputCategory(); renderSubTask();" value="newCategory">
               New category
             </option>
             <option value="sales">Sales</option>
@@ -63,6 +63,7 @@
         />
         <h3 id="subtaskTitle">Subtasks</h3>
         <input id="subtaskText" type="text" placeholder="Add new subtask" />
+        <button onclick="pushSubtaskLocalStorage()">Test</button>
         <div class="taskFooter">
           <div id="addSubtaskCheckbox"></div>
           <div class="taskFooterButtons">

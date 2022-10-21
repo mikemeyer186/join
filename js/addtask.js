@@ -1,11 +1,6 @@
-function changeInputContact() {
-  document.getElementById("selectorContact").innerHTML = `
-  <input id="newContactText" type="text" placeholder="Contact email">`;
-}
-function changeInputCategory() {
-  document.getElementById("selectorCategory").innerHTML = `
-  <input id="newCategoryText" type="text" placeholder="New category name">`;
-}
+/**
+ * Add the Tasks in the LocalStorage
+ */
 function addTask() {
   let taskInputTitle = document.getElementById("inputTitle").value;
   let selectContact = document.getElementById("selectContact").value;
@@ -27,6 +22,9 @@ function addTask() {
 })
 console.log(tasks[0], tasks[1]);
 }
+/**
+ * Rendering the subtasks checkboxes at the footer
+ */
 function renderSubTask() {
   for (let i = 0; i < subTasks.length; i++) {
     document.getElementById("addSubtaskCheckbox").innerHTML += `
@@ -36,13 +34,37 @@ function renderSubTask() {
         </div>`;
   }
 }
+/**
+ * Clear the input / selectors 
+ */
 function taskClear() {
-    let taskInputTitle = document.getElementById("inputTitle").value = ``;;
-  let selectContact = document.getElementById("selectContact").value = ``;
-  let dueDate = document.getElementById("selectDate").value = ``;
-  let selectCategory = document.getElementById("selectCategory").value = ``;
-  //let taskImportance = document.getElemenentById('').value;
-  //let categoryColor = document.getElementById('').value;
-  //let selectedSubtask = document.getElementById('').value;
-  let description = document.getElementById("inputDescription").value = ``;
+  document.getElementById("inputTitle").value = ``;;
+  document.getElementById("selectContact").value = ``;
+  document.getElementById("selectDate").value = ``;
+  document.getElementById("selectCategory").value = ``;
+  //document.getElemenentById('').value;
+  //document.getElementById('').value;
+  //document.getElementById('').value;
+  document.getElementById("inputDescription").value = ``;
+}
+/**
+ * pushing new subtask in the Localstorage
+ */
+function pushSubtaskLocalStorage() {
+  //subTasks.push(document.getElementById('subtaskText').value);
+  console.log(subTasks);
+}
+/**
+ * Change the contact selector in a input field
+ */
+ function changeInputContact() {
+  document.getElementById("selectorContact").innerHTML = `
+  <input id="newContactText" type="text" placeholder="Contact email">`;
+}
+/**
+ * Change the Category selector in a input field
+ */
+function changeInputCategory() {
+  document.getElementById("selectorCategory").innerHTML = `
+  <input id="newCategoryText" type="text" placeholder="New category name">`;
 }
