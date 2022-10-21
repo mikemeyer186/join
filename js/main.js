@@ -8,7 +8,7 @@ let tasks = [
         dueDate: '25.05.2022',
         taskCategory: 'Design',
         subTask: 'Subtask1',
-        taskID: 1,
+        taskID: tasks.length,
         categoryColor: 'Orange',
         priority: 'low',
         assignedTo: 'Mike Meier, Mike Meyer',

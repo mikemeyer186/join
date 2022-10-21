@@ -28,21 +28,16 @@ function addTask() {
  * Rendering the subtasks checkboxes at the footer
  */
 function renderSubTask() {
-  console.log(subTasks.length);
-  if (subTasks == true) {
-    subTasks = [];
-    subTasks.push(JSON.parse(localStorage.getItem("subTasks")));
-    console.log(subTasks.length);
-    for (let i = 0; i <= subTasks.length; i++) {
-      document.getElementById("addSubtaskCheckbox").innerHTML += `
+  subTasks
+  if(subTasks){
+    document.getElementById('addSubtaskCheckbox').innerHTML = ``; 
+  for (let i = 0; i < subTasks.length; i++) {
+    document.getElementById("addSubtaskCheckbox").innerHTML += `
         <div class="subtaskList">  
         <input value="${subTasks[i]}" type="checkbox">
         <p>${subTasks[i]}</p>
         </div>`;
-    }
-  } else {
-    subTasks.push("Subtask","Subtask2");
-    localStorage.setItem("subtasks", subTasks);
+      }
   }
 }
 /**
@@ -62,6 +57,8 @@ function taskClear() {
  * pushing new subtask in the Localstorage
  */
 function pushSubtaskLocalStorage() {
+  subTasks.push(document.getElementById("subtaskText").value);
+  localStorage.setItem(JSON.parse('subtasks', subTasks));
   renderSubTask();
 }
 /**
