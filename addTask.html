@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Join - Task</title>
   </head>
-  <body onload="init(3); renderSubTask();">
+  <body onload="init(3); renderSubTask(); loadTasksfromBackend();">
     <div w3-include-html=".\assets\templates\headerDesktop.html"></div>
     <div w3-include-html=".\assets\templates\menuDesktop.html"></div>
     <div class="inputFields">
@@ -68,7 +68,7 @@
           <div id="addSubtaskCheckbox"></div>
           <div class="taskFooterButtons">
             <button id="buttonClear" onclick="taskClear()">Clear X</button>
-            <button id="buttonCreate" onclick="addTask()">Create Task ✓</button>
+            <button id="buttonCreate" onclick="addTask(); return false;">Create Task ✓</button>
           </div>
         </div>
       </form>

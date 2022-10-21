@@ -1,19 +1,7 @@
 let userAccounts = [];
 let activeUser;
 let subTasks = [];
-let tasks = [
-    {
-        taskTitle: 'Website redesign',
-        description: 'Modify the contacts of the main website...',
-        dueDate: '25.05.2022',
-        taskCategory: 'Design',
-        subTask: 'Subtask1',
-        taskID: tasks.length,
-        categoryColor: 'Orange',
-        priority: 'low',
-        assignedTo: 'Mike Meier, Mike Meyer',
-    },
-];
+let tasks = [];
 // Onload function
 async function init(i) {
     await includeHTML();

@@ -1,5 +1,12 @@
 /**
- * Add the Tasks in the LocalStorage
+ * pulling tasks from backend 
+ */
+async function loadTasksfromBackend(){
+  await downloadFromServer();
+  tasks = JSON.parse(backend.getItem('tasks')) || [];
+}
+/**
+ * Push JSON in tasks 
  */
 function addTask() {
   let taskInputTitle = document.getElementById("inputTitle").value;
@@ -21,8 +28,12 @@ function addTask() {
     //"priority": taskImportance,
     assignedTo: selectContact,
   });
-  backend.setItem("tasks", JSON.stringify(tasks));
-  console.log(JSON.parse(backend.getItem("tasks")));
+  pushTasksinBackend();
+}
+
+async function pushTasksinBackend() {
+  await backend.setItem("tasks", JSON.stringify(tasks));
+  console.log(tasks);
 }
 /**
  * Rendering the subtasks checkboxes at the footer
