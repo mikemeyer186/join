@@ -1,6 +1,6 @@
 let userAccounts = [];
 let activeUser;
-let subTasks = ['Subtask1'];
+let subTasks = [];
 let tasks = [
     {
         taskTitle: 'Website redesign',
@@ -19,8 +19,7 @@ async function init(i) {
     await includeHTML();
     await loadAccountsFromBackend();
     loadActiveUserLocal();
-    highlightedNavbar(i);
-    getSubtaskLocalStorage(); 
+    highlightedNavbar(i); 
 }
 /**
  * Rendering the header and the sidebar in the page
@@ -66,6 +65,3 @@ function stopPropagate(event) {
 /**
  * getting subTasks from the LocalSotrage 
  */
-function getSubtaskLocalStorage() {
-    subTasks = localStorage.getItem('subTasks');
-}
