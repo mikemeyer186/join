@@ -39,7 +39,7 @@ async function pushTasksinBackend() {
  * Rendering the subtasks checkboxes at the footer
  */
 function renderSubTask() {
-  subTasks
+  console.log(subTasks);
   if(subTasks){
     document.getElementById('addSubtaskCheckbox').innerHTML = ``; 
   for (let i = 0; i < subTasks.length; i++) {
@@ -49,6 +49,9 @@ function renderSubTask() {
         <p>${subTasks[i]}</p>
         </div>`;
       }
+  } else {
+    subTasks.push('Subtask1');
+    renderSubTask();
   }
 }
 /**

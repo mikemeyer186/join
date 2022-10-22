@@ -2,6 +2,7 @@ let userAccounts = [];
 let activeUser;
 let subTasks = [];
 let tasks = [];
+
 // Onload function
 async function init(i) {
     await includeHTML();
@@ -50,6 +51,3 @@ function loadActiveUserLocal() {
 function stopPropagate(event) {
     event.stopPropagation();
 }
-/**
- * getting subTasks from the LocalSotrage
- */
