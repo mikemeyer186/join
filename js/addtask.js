@@ -1,12 +1,12 @@
 /**
- * pulling tasks from backend 
+ * pulling tasks from backend
  */
-async function loadTasksfromBackend(){
+async function loadTasksfromBackend() {
   await downloadFromServer();
-  tasks = JSON.parse(backend.getItem('tasks')) || [];
+  tasks = JSON.parse(backend.getItem("tasks")) || [];
 }
 /**
- * Push JSON in tasks 
+ * Push JSON in tasks
  */
 function addTask() {
   let taskInputTitle = document.getElementById("inputTitle").value;
@@ -33,26 +33,28 @@ function addTask() {
 
 async function pushTasksinBackend() {
   await backend.setItem("tasks", JSON.stringify(tasks));
-  console.log(tasks);
 }
 /**
  * Rendering the subtasks checkboxes at the footer
  */
 function renderSubTask() {
-  console.log(subTasks);
-  if(subTasks){
-    document.getElementById('addSubtaskCheckbox').innerHTML = ``; 
+  subTasks = JSON.parse(localStorage.getItem('subtasks'));
+  document.getElementById("addSubtaskCheckbox").innerHTML = ``;
   for (let i = 0; i < subTasks.length; i++) {
     document.getElementById("addSubtaskCheckbox").innerHTML += `
         <div class="subtaskList">  
         <input value="${subTasks[i]}" type="checkbox">
         <p>${subTasks[i]}</p>
         </div>`;
-      }
-  } else {
-    subTasks.push('Subtask1');
-    renderSubTask();
   }
+}
+/**
+ * pushing new subtask in the Localstorage
+ */
+function pushSubtaskLocalStorage() {
+  subTasks.push(document.getElementById("subtaskText").value);
+  localStorage.setItem("subtasks",JSON.stringify(subTasks));
+  renderSubTask();
 }
 /**
  * Clear the input / selectors
@@ -66,14 +68,6 @@ function taskClear() {
   //document.getElementById('').value;
   //document.getElementById('').value;
   document.getElementById("inputDescription").value = ``;
-}
-/**
- * pushing new subtask in the Localstorage
- */
-function pushSubtaskLocalStorage() {
-  subTasks.push(document.getElementById("subtaskText").value);
-  localStorage.setItem(JSON.parse('subtasks', subTasks));
-  renderSubTask();
 }
 /**
  * Change the contact selector in a input field
