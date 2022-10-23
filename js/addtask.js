@@ -1,5 +1,3 @@
-
-
 /**
  * pulling tasks from backend
  */
@@ -40,51 +38,31 @@ async function pushTasksinBackend() {
  * Rendering the subtasks checkboxes at the footer
  */
 function renderSubTask() {
-  subTasks = JSON.parse(localStorage.getItem('subtasks'));
-  document.getElementById("addSubtaskCheckbox").innerHTML = ``;
-  for (let i = 0; i < subTasks.length; i++) {
+  subTasks = JSON.parse(localStorage.getItem('subtasks')) || [];
+  if (subTasks == false) {
     document.getElementById("addSubtaskCheckbox").innerHTML += `
+            <div class="subtaskList">  
+            <input value="subtaskPlaceholder" type="checkbox">
+            <p>Subtask1</p>
+            </div>`;
+  } else {
+    document.getElementById("addSubtaskCheckbox").innerHTML = ``;
+    for (let i = 0; i < subTasks.length; i++) {
+      document.getElementById("addSubtaskCheckbox").innerHTML += `
         <div class="subtaskList">  
         <input value="${subTasks[i]}" type="checkbox">
         <p>${subTasks[i]}</p>
         </div>`;
+    }
   }
 }
-/**
- * priority change color 
- */
-function prioritySelected(i) {
-  if(i == 1) {
-    document.getElementById('importanceIMGHard').classList.remove('importanceHard');
-    document.getElementById('importanceIMGLow').classList.add('importanceLow');
-    document.getElementById('importanceIMGMid').classList.add('importanceMid');
-    document.getElementById('importanceIMGHard').src = "./assets/img/TaskValueHardSelected.png";
-    document.getElementById('importanceIMGMid').src = "./assets/img/TaskValueMid.png";
-    document.getElementById('importanceIMGLow').src = "./assets/img/TaskValueLow.png";
-  }
-  if(i == 2) {
-    document.getElementById('importanceIMGMid').classList.remove('importanceMid');
-    document.getElementById('importanceIMGLow').classList.add('importanceLow');
-    document.getElementById('importanceIMGHard').classList.add('importanceHard');
-    document.getElementById('importanceIMGHard').src = "./assets/img/TaskValueHard.png";
-    document.getElementById('importanceIMGMid').src = "./assets/img/TaskValueMidSelected.png";
-    document.getElementById('importanceIMGLow').src = "./assets/img/TaskValueLow.png";
-  }
-  if(i == 3) {
-    document.getElementById('importanceIMGLow').classList.remove('importanceLow');
-    document.getElementById('importanceIMGMid').classList.add('importanceMid');
-    document.getElementById('importanceIMGHard').classList.add('importanceHard');
-    document.getElementById('importanceIMGHard').src = "./assets/img/TaskValueHard.png";
-    document.getElementById('importanceIMGMid').src = "./assets/img/TaskValueMid.png";
-    document.getElementById('importanceIMGLow').src = "./assets/img/TaskValueLowSelected.png";
-  }
-}
+
 /**
  * pushing new subtask in the Localstorage
  */
 function pushSubtaskLocalStorage() {
   subTasks.push(document.getElementById("subtaskText").value);
-  localStorage.setItem("subtasks",JSON.stringify(subTasks));
+  localStorage.setItem("subtasks", JSON.stringify(subTasks));
   renderSubTask();
 }
 /**
@@ -113,4 +91,52 @@ function changeInputContact() {
 function changeInputCategory() {
   document.getElementById("selectorCategory").innerHTML = `
   <input id="newCategoryText" type="text" placeholder="New category name">`;
+}
+/**
+ * priority change color
+ */
+function prioritySelected(i) {
+  if (i == 1) {
+    document
+      .getElementById("importanceIMGHard")
+      .classList.remove("importanceHard");
+    document.getElementById("importanceIMGLow").classList.add("importanceLow");
+    document.getElementById("importanceIMGMid").classList.add("importanceMid");
+    document.getElementById("importanceIMGHard").src =
+      "./assets/img/TaskValueHardSelected.png";
+    document.getElementById("importanceIMGMid").src =
+      "./assets/img/TaskValueMid.png";
+    document.getElementById("importanceIMGLow").src =
+      "./assets/img/TaskValueLow.png";
+  }
+  if (i == 2) {
+    document
+      .getElementById("importanceIMGMid")
+      .classList.remove("importanceMid");
+    document.getElementById("importanceIMGLow").classList.add("importanceLow");
+    document
+      .getElementById("importanceIMGHard")
+      .classList.add("importanceHard");
+    document.getElementById("importanceIMGHard").src =
+      "./assets/img/TaskValueHard.png";
+    document.getElementById("importanceIMGMid").src =
+      "./assets/img/TaskValueMidSelected.png";
+    document.getElementById("importanceIMGLow").src =
+      "./assets/img/TaskValueLow.png";
+  }
+  if (i == 3) {
+    document
+      .getElementById("importanceIMGLow")
+      .classList.remove("importanceLow");
+    document.getElementById("importanceIMGMid").classList.add("importanceMid");
+    document
+      .getElementById("importanceIMGHard")
+      .classList.add("importanceHard");
+    document.getElementById("importanceIMGHard").src =
+      "./assets/img/TaskValueHard.png";
+    document.getElementById("importanceIMGMid").src =
+      "./assets/img/TaskValueMid.png";
+    document.getElementById("importanceIMGLow").src =
+      "./assets/img/TaskValueLowSelected.png";
+  }
 }

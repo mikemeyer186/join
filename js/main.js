@@ -1,6 +1,6 @@
 let userAccounts = [];
 let activeUser;
-let subTasks = ["Subtask1"];
+let subTasks = [];
 let tasks = [];
 
 // Onload function

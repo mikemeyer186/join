@@ -100,7 +100,7 @@ form h3 {
 }
 #addSubtaskCheckbox {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
 }
 .subtaskList {
