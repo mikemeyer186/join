@@ -86,11 +86,11 @@ function addContactToUser() {
         contactInitials: inputInitials,
         contactColor: inputColor,
     };
-
     userAccounts[activeUser.userId].userContacts.push(contactObject);
     saveAccountsToBackend();
     renderContacts();
     clearAndHidePopUp();
+    slidePopupIntoView('created-popup');
 }
 
 /**
@@ -169,6 +169,10 @@ function getIndexOfFirstLetter(firstLetter) {
     return index;
 }
 
+/**
+ * opening detail view of selected contact
+ * @param {string} contactEmail - email of selected user for identifying in array
+ */
 function openContactDetailView(contactEmail) {
     let contactIndex = getIndexOfContact(contactEmail);
     let contact = userAccounts[activeUser.userId].userContacts[contactIndex];
@@ -178,6 +182,11 @@ function openContactDetailView(contactEmail) {
     detailContent.innerHTML = contactDetailViewTemplate(contact, contactIndex);
 }
 
+/**
+ * getting index of selected user in userContacts array
+ * @param {string} search - email of selected user for identifying in array
+ * @returns - index of contact in array
+ */
 function getIndexOfContact(search) {
     let contactsArray = userAccounts[activeUser.userId].userContacts;
     let index;
@@ -241,6 +250,20 @@ function saveEditContact() {
     renderContacts();
     hideEditContactPopUp();
     saveAccountsToBackend();
+    slidePopupIntoView('edited-popup');
+}
+
+/**
+ * sliding the popup from the bottom of page into view
+ * sliding out of view after 3 seconds
+ * @param {string} id - id of html element
+ */
+function slidePopupIntoView(id) {
+    document.getElementById(`${id}`).classList.add('slideIn');
+
+    setTimeout(() => {
+        document.getElementById(`${id}`).classList.remove('slideIn');
+    }, 4000);
 }
 
 /**
