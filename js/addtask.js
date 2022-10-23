@@ -38,7 +38,7 @@ async function pushTasksinBackend() {
  * Rendering the subtasks checkboxes at the footer
  */
 function renderSubTask() {
-  subTasks = JSON.parse(localStorage.getItem('subtasks')) || [];
+  subTasks = JSON.parse(localStorage.getItem("subtasks")) || [];
   if (subTasks == false) {
     document.getElementById("addSubtaskCheckbox").innerHTML += `
             <div class="subtaskList">  
