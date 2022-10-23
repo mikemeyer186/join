@@ -169,12 +169,26 @@ function getIndexOfFirstLetter(firstLetter) {
     return index;
 }
 
+function openContactDetailView(contactEmail) {
+    let contactObject = searchUserContacts(contactEmail);
+    let detailContent = document.getElementById('contacts-detail');
+    detailContent.classList.remove('d-none');
+    detailContent.innerHTML = '';
+    detailContent.innerHTML = contactDetailViewTemplate(contactObject);
+}
+
+function searchUserContacts(search) {
+    let contactsArray = userAccounts[activeUser.userId].userContacts;
+    let result = contactsArray.filter((u) => u.contactEmail == search);
+    return result[0];
+}
+
 /**
  * html-template for contact card
  */
 function contactCardTemplate(contact) {
     return /*html*/ `
-        <div class="contact-card">
+        <div class="contact-card" onclick="openContactDetailView('${contact.contactEmail}')">
             <div class="contact-pic" style="background-color:${contact.contactColor}">
                 <span class="contact-initials">${contact.contactInitials}</span>
             </div>
@@ -195,4 +209,17 @@ function alphabetCardTemplate(letter) {
         <span class="alphabet-letter">${letter}</span>
     </div>
 `;
+}
+
+/**
+ * html-template fpr contact detail view
+ */
+function contactDetailViewTemplate(contact) {
+    return /*html*/ `
+        <div class="contacts-detail-top">
+            <div class="contact-pic-detail" style="background-color:${contact.contactColor}">
+                <span class="contact-initials-detail">${contact.contactInitials}</span>
+            </div>
+        </div>
+    `;
 }
