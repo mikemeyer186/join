@@ -170,17 +170,77 @@ function getIndexOfFirstLetter(firstLetter) {
 }
 
 function openContactDetailView(contactEmail) {
-    let contactObject = searchUserContacts(contactEmail);
+    let contactIndex = getIndexOfContact(contactEmail);
+    let contact = userAccounts[activeUser.userId].userContacts[contactIndex];
     let detailContent = document.getElementById('contacts-detail');
-    detailContent.classList.remove('d-none');
+    document.getElementById('contacts-right').classList.remove('slided-out');
     detailContent.innerHTML = '';
-    detailContent.innerHTML = contactDetailViewTemplate(contactObject);
+    detailContent.innerHTML = contactDetailViewTemplate(contact, contactIndex);
 }
 
-function searchUserContacts(search) {
+function getIndexOfContact(search) {
     let contactsArray = userAccounts[activeUser.userId].userContacts;
-    let result = contactsArray.filter((u) => u.contactEmail == search);
-    return result[0];
+    let index;
+    contactsArray.find((c, i) => {
+        if (c.contactEmail == search) {
+            index = i;
+        }
+    });
+    return index;
+}
+
+/**
+ * showing popup "edit contact"
+ */
+function showEditContactPopUp(index) {
+    document.getElementById('popup-bg-edit').classList.remove('d-none');
+
+    setTimeout(() => {
+        document.getElementById('popup-contact-edit').classList.add('popup-slideIn');
+        document.getElementById('popup-bg-edit').classList.remove('no-opacity');
+    }, 10);
+
+    fillContactEditInputs(index);
+    localStorage.setItem('editIndex', index);
+}
+
+/**
+ * hiding popup "edit contact"
+ */
+function hideEditContactPopUp() {
+    document.getElementById('popup-contact-edit').classList.remove('popup-slideIn');
+    document.getElementById('popup-bg-edit').classList.add('no-opacity');
+
+    setTimeout(() => {
+        document.getElementById('popup-bg-edit').classList.add('d-none');
+    }, 250);
+}
+
+/**
+ * filling inputs of edit popup
+ * @param {number} index - index of contact in userContacts array
+ */
+function fillContactEditInputs(index) {
+    let contact = userAccounts[activeUser.userId].userContacts[index];
+    document.getElementById('contact-profil-edit').innerHTML = editProfilPicTemplate(contact);
+    document.getElementById('contact-name-edit').value = contact.contactName;
+    document.getElementById('contact-email-edit').value = contact.contactEmail;
+    document.getElementById('contact-phone-edit').value = contact.contactPhone;
+}
+
+/**
+ * saving edited contact to userContacts array
+ */
+function saveEditContact() {
+    let index = localStorage.getItem('editIndex');
+    let contact = userAccounts[activeUser.userId].userContacts[index];
+    contact.contactName = document.getElementById('contact-name-edit').value;
+    contact.contactEmail = document.getElementById('contact-email-edit').value;
+    contact.contactPhone = document.getElementById('contact-phone-edit').value;
+    openContactDetailView(contact.contactEmail);
+    renderContacts();
+    hideEditContactPopUp();
+    saveAccountsToBackend();
 }
 
 /**
@@ -212,14 +272,42 @@ function alphabetCardTemplate(letter) {
 }
 
 /**
- * html-template fpr contact detail view
+ * html-template for contact detail view
  */
-function contactDetailViewTemplate(contact) {
+function contactDetailViewTemplate(contact, contactIndex) {
     return /*html*/ `
         <div class="contacts-detail-top">
             <div class="contact-pic-detail" style="background-color:${contact.contactColor}">
                 <span class="contact-initials-detail">${contact.contactInitials}</span>
             </div>
+            <div class="contact-detail-name-box">
+                <span class="contact-detail-name">${contact.contactName}</span>
+                <div class="contact-detail-task"><span class="plus">+ </span>Add task</div>
+            </div>
+        </div>
+        <div class="contacts-detail-bottom">
+            <div class="contact-detail-info">
+                <span class="info-headline">Contact information</span>
+                <span class="info-subheadline">Email</span>
+                <span class="info-email">${contact.contactEmail}</span>
+                <span class="info-subheadline">Phone</span>
+                <span class="info-phone">${contact.contactPhone}</span>
+            </div>
+            <div class="contact-detail-change" onclick="showEditContactPopUp(${contactIndex})">
+                <img class="change-icon" src="./assets/img/icons/icon_edit_contact.png" alt="Edit contact">
+                <span>Edit contact</span>
+            </div>
+        </div>
+    `;
+}
+
+/**
+ * html-template for profil pic in edit popup
+ */
+function editProfilPicTemplate(contact) {
+    return /*html*/ `
+        <div class="contact-pic-detail" style="background-color:${contact.contactColor}">
+            <span class="contact-initials-detail">${contact.contactInitials}</span>
         </div>
     `;
 }

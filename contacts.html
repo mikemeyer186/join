@@ -60,12 +60,43 @@
             </div>
         </div>
 
+        <div id="popup-bg-edit" class="d-none no-opacity" onclick="hideEditContactPopUp()">
+            <div id="popup-contact-edit" onclick="stopPropagate(event)">
+                <img class="popup-close-icon" src="./assets/img/icons/icon_close_white.png" alt="Close" onclick="hideEditContactPopUp()" />
+                <div class="popup-contact-top popup-contact-edit-top">
+                    <img class="contact-top-logo" src="./assets/img/logo_join_small_white.png" alt="Join Logo" />
+                    <span class="contact-top-headline">Edit contact</span>
+                </div>
+                <div class="popup-contact-bottom">
+                    <div id="contact-profil-edit"></div>
+                    <div class="contact-input-box">
+                        <input id="contact-name-edit" type="text" class="contact-input" placeholder="Name" />
+                        <img class="contact-icon" src="./assets/img/icons/icon_user_grey.png" alt="Name" />
+                    </div>
+                    <div class="contact-input-box">
+                        <input id="contact-email-edit" type="text" class="contact-input" placeholder="Email" />
+                        <img class="contact-icon" src="./assets/img/icons/icon_mail_grey.png" alt="Email" />
+                    </div>
+                    <div class="contact-input-box">
+                        <input id="contact-phone-edit" type="text" class="contact-input" placeholder="Phone" />
+                        <img class="contact-icon" src="./assets/img/icons/icon_phone_grey.png" alt="Phone" />
+                    </div>
+                    <div class="contact-button-box">
+                        <button class="contact-button-blue" onclick="saveEditContact()">
+                            Save
+                            <img src="./assets/img/icons/icon_check_white.png" alt="Create" />
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="contacts-wrapper">
             <div class="contacts-box">
                 <div id="contacts-content"></div>
             </div>
-            <div class="contacts-right">
-                <div id="contacts-detail" class="d-none"></div>
+            <div id="contacts-right" class="slided-out">
+                <div id="contacts-detail"></div>
             </div>
         </div>
 

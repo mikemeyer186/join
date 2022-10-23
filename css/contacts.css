@@ -43,7 +43,8 @@ body {
     width: 33px;
 }
 
-#popup-bg {
+#popup-bg,
+#popup-bg-edit {
     position: absolute;
     left: 0;
     right: 0;
@@ -55,7 +56,8 @@ body {
     transition: all 225ms ease-in-out;
 }
 
-#popup-contact {
+#popup-contact,
+#popup-contact-edit {
     position: relative;
     width: 580px;
     height: 100%;
@@ -89,8 +91,12 @@ body {
     gap: 12px;
     width: 100%;
     height: 35%;
-    background: #4589ff;
+    background-color: #4589ff;
     border-radius: 0px 30px 0 0;
+}
+
+.popup-contact-edit-top {
+    background-color: #005dff;
 }
 
 .popup-contact-bottom {
@@ -310,9 +316,114 @@ body {
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     padding: 0 39px 0 39px;
     font-size: 19px;
+    margin-bottom: 12px;
 }
 
 .contacts-wrapper {
     display: flex;
     height: 100%;
+}
+
+#contacts-right {
+    transform: translateX(0);
+    transition: all 300ms ease-out;
+}
+
+.slided-out {
+    transform: translateX(3000px) !important;
+    transition: all 300ms ease-out !important;
+}
+
+.contacts-detail-top {
+    display: flex;
+    align-items: center;
+    padding: 48px;
+}
+
+.contact-pic-detail {
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border: 3px solid white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.08);
+    color: white;
+    font-size: 47px;
+    font-weight: 500;
+}
+
+.contact-detail-name-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 0 0 48px;
+    gap: 16px;
+}
+
+.contact-detail-name {
+    font-size: 48px;
+    font-weight: 600;
+}
+
+.contact-detail-task {
+    padding: 0 0 0 24px;
+    font-size: 16px;
+    color: #005dff;
+    cursor: pointer;
+    position: relative;
+}
+
+.plus {
+    position: absolute;
+    font-size: 32px;
+    left: 0;
+    top: -12px;
+}
+
+.contacts-detail-bottom {
+    display: flex;
+}
+
+.contact-detail-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 48px 48px 48px;
+    gap: 16px;
+}
+
+.info-headline {
+    font-size: 23px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.info-subheadline {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.info-email {
+    color: #005dff;
+    margin-bottom: 16px;
+    cursor: pointer;
+}
+
+.info-phone {
+    cursor: pointer;
+}
+
+.contact-detail-change {
+    margin-left: 60px;
+    cursor: pointer;
+}
+
+.change-icon {
+    height: 30.9px;
+    object-fit: cover;
 }
