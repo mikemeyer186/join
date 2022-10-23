@@ -50,10 +50,10 @@
             <option value="backoffice">Backoffice</option>
           </select>
         </div>
-        <div class="importanceLvl">
-          <img id="importanceIMGHard" src="./assets/img/TaskValueHard.png" />
-          <img id="importanceIMGMid" src="./assets/img/TaskValueMid.png" />
-          <img id="importanceIMGLow" src="./assets/img/TaskValueLow.png" />
+        <div id="importanceLvl">
+          <img class="importanceHard" id="importanceIMGHard" value="taskHard" onclick="prioritySelected(1)" src="./assets/img/TaskValueHard.png" />
+          <img class="importanceMid" id="importanceIMGMid" value="taskMid" onclick="prioritySelected(2)" src="./assets/img/TaskValueMid.png" />
+          <img class="importanceLow" id="importanceIMGLow" value="taskLow" onclick="prioritySelected(3)" src="./assets/img/TaskValueLow.png" />
         </div>
         <h3>Description</h3>
         <input

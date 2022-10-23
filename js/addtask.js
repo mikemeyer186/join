@@ -1,3 +1,5 @@
+
+
 /**
  * pulling tasks from backend
  */
@@ -46,6 +48,35 @@ function renderSubTask() {
         <input value="${subTasks[i]}" type="checkbox">
         <p>${subTasks[i]}</p>
         </div>`;
+  }
+}
+/**
+ * priority change color 
+ */
+function prioritySelected(i) {
+  if(i == 1) {
+    document.getElementById('importanceIMGHard').classList.remove('importanceHard');
+    document.getElementById('importanceIMGLow').classList.add('importanceLow');
+    document.getElementById('importanceIMGMid').classList.add('importanceMid');
+    document.getElementById('importanceIMGHard').src = "./assets/img/TaskValueHardSelected.png";
+    document.getElementById('importanceIMGMid').src = "./assets/img/TaskValueMid.png";
+    document.getElementById('importanceIMGLow').src = "./assets/img/TaskValueLow.png";
+  }
+  if(i == 2) {
+    document.getElementById('importanceIMGMid').classList.remove('importanceMid');
+    document.getElementById('importanceIMGLow').classList.add('importanceLow');
+    document.getElementById('importanceIMGHard').classList.add('importanceHard');
+    document.getElementById('importanceIMGHard').src = "./assets/img/TaskValueHard.png";
+    document.getElementById('importanceIMGMid').src = "./assets/img/TaskValueMidSelected.png";
+    document.getElementById('importanceIMGLow').src = "./assets/img/TaskValueLow.png";
+  }
+  if(i == 3) {
+    document.getElementById('importanceIMGLow').classList.remove('importanceLow');
+    document.getElementById('importanceIMGMid').classList.add('importanceMid');
+    document.getElementById('importanceIMGHard').classList.add('importanceHard');
+    document.getElementById('importanceIMGHard').src = "./assets/img/TaskValueHard.png";
+    document.getElementById('importanceIMGMid').src = "./assets/img/TaskValueMid.png";
+    document.getElementById('importanceIMGLow').src = "./assets/img/TaskValueLowSelected.png";
   }
 }
 /**

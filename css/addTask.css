@@ -38,7 +38,7 @@ form h3 {
   margin-top: 30px;
   margin-left: 350px;
 }
-.importanceLvl {
+#importanceLvl {
   margin-top: 30px;
 }
 .selectors {
@@ -160,22 +160,28 @@ form h3 {
   border-left: none;
   border-right: none;
 }
-#importanceIMGHard:hover {
-  border: 2px solid red;
+.importanceHard:hover {
+  border: 2px solid #FF3D00;
+  border-bottom-left-radius: 1em; 
+  border-bottom-right-radius: 1em;  
   border-top: none;
   border-left: none;
   border-right: none;
   cursor: pointer;
 }
-#importanceIMGMid:hover {
-  border: 2px solid orange;
+.importanceMid:hover {
+  border: 2px solid #FFA800;
+  border-bottom-left-radius: 1em; 
+  border-bottom-right-radius: 1em;  
   border-top: none;
   border-left: none;
   border-right: none;
   cursor: pointer;
 }
-#importanceIMGLow:hover {
-  border: 2px solid green;
+.importanceLow:hover {
+  border: 2px solid #7AE229;
+  border-bottom-left-radius: 1em; 
+  border-bottom-right-radius: 1em; 
   border-top: none;
   border-left: none;
   border-right: none;
