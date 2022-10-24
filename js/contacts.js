@@ -1,4 +1,5 @@
 let filterLetters = [];
+let contactList = [];
 
 /**
  * initial function
@@ -9,26 +10,41 @@ async function contactsInit() {
     loadActiveUserLocal();
     highlightedNavbar(4);
     renderContacts();
+    renderContactList();
 }
 
 /**
  * rendering contacts from user accounts (active user) in alphabetical order
+ * in contactList array with register card
  */
 function renderContacts() {
-    let content = document.getElementById('contacts-content');
     let contactsArray = userAccounts[activeUser].userContacts;
-    content.innerHTML = '';
+    contactList = [];
     getFirstLetter();
 
     for (let f = 0; f < filterLetters.length; f++) {
         const letter = filterLetters[f];
         let alphabet = contactsArray.filter((l) => l.contactInitials.charAt(0) == letter);
-        content.innerHTML += alphabetCardTemplate(letter);
+        contactList.push(alphabetCardTemplate(letter));
 
         for (let i = 0; i < alphabet.length; i++) {
             const contact = alphabet[i];
-            content.innerHTML += contactCardTemplate(contact);
+            let index = getIndexOfContact(contact.contactEmail);
+            contactList.push(contactCardTemplate(contact, index));
         }
+    }
+}
+
+/**
+ * rendering contactList in html element
+ */
+function renderContactList(){
+    let content = document.getElementById('contacts-content');
+    content.innerHTML = '';
+
+    for (let i = 0; i < contactList.length; i++) {
+        const element = contactList[i];
+        content.innerHTML += element;
     }
 }
 
@@ -71,7 +87,7 @@ function darkCloseIcon() {
 }
 
 /**
- * adding new contact to user account
+ * adding new contact to user account and show details
  */
 function addContactToUser() {
     let inputName = document.getElementById('contact-name');
@@ -87,8 +103,17 @@ function addContactToUser() {
         contactColor: inputColor,
     };
     userAccounts[activeUser].userContacts.push(contactObject);
+    saveAndRender();
+    openContactDetailView(contactList.length - filterLetters.length - 1);
+}
+
+/**
+ * saving, clearing and rendering contacts after adding new contact
+ */
+function saveAndRender(){
     saveAccountsToBackend();
     renderContacts();
+    renderContactList();
     clearAndHidePopUp();
     slidePopupIntoView('created-popup');
 }
@@ -123,7 +148,7 @@ function getContactInitials(inputName) {
 
 /**
  * generating random rgb-colors
- * @returns string with rgb-color
+ * @returns - string with rgb-color
  */
 function getRandomColor() {
     let r = randomInteger(255);
@@ -136,7 +161,7 @@ function getRandomColor() {
 /**
  * generating random number betwenn 0 and 255
  * @param {number} max - is 255 for rgb
- * @returns random number
+ * @returns - random number
  */
 function randomInteger(max) {
     return Math.floor(Math.random() * (max + 1));
@@ -171,15 +196,30 @@ function getIndexOfFirstLetter(firstLetter) {
 
 /**
  * opening detail view of selected contact
- * @param {string} contactEmail - email of selected user for identifying in array
+ * @param {number} index - index of selected user for identifying in array
  */
-function openContactDetailView(contactEmail) {
-    let contactIndex = getIndexOfContact(contactEmail);
-    let contact = userAccounts[activeUser].userContacts[contactIndex];
+function openContactDetailView(index) {
+    let contact = userAccounts[activeUser].userContacts[index];
     let detailContent = document.getElementById('contacts-detail');
+    localStorage.setItem('contactIndex', index);
     document.getElementById('contacts-right').classList.remove('slided-out');
     detailContent.innerHTML = '';
-    detailContent.innerHTML = contactDetailViewTemplate(contact, contactIndex);
+    detailContent.innerHTML = contactDetailViewTemplate(contact, index);
+    changeColorOfSelectedCard();
+}
+
+/**
+ * changing the bg-color of selected contact card
+ * @param {number} index - index of contact in userAccounts array
+ */
+function changeColorOfSelectedCard(){
+    let index = localStorage.getItem('contactIndex');
+    let contactsLength = contactList.length - filterLetters.length
+    for (let i = 0; i < contactsLength; i++) {
+        document.getElementById(`contact-id-${i}`).classList.remove('card-bg-blue');
+    }
+
+    document.getElementById(`contact-id-${index}`).classList.add('card-bg-blue');
 }
 
 /**
@@ -210,7 +250,6 @@ function showEditContactPopUp(index) {
     }, 10);
 
     fillContactEditInputs(index);
-    localStorage.setItem('editIndex', index);
 }
 
 /**
@@ -241,13 +280,22 @@ function fillContactEditInputs(index) {
  * saving edited contact to userContacts array
  */
 function saveEditContact() {
-    let index = localStorage.getItem('editIndex');
+    let index = localStorage.getItem('contactIndex');
     let contact = userAccounts[activeUser].userContacts[index];
     contact.contactName = document.getElementById('contact-name-edit').value;
     contact.contactEmail = document.getElementById('contact-email-edit').value;
     contact.contactPhone = document.getElementById('contact-phone-edit').value;
-    openContactDetailView(contact.contactEmail);
+    openContactDetailView(index);
+    saveAndRenderEdit();
+    changeColorOfSelectedCard();
+}
+
+/**
+ * saving, clearing and rendering contacts after editing contact
+ */
+ function saveAndRenderEdit(){
     renderContacts();
+    renderContactList();
     hideEditContactPopUp();
     saveAccountsToBackend();
     slidePopupIntoView('edited-popup');
@@ -269,9 +317,9 @@ function slidePopupIntoView(id) {
 /**
  * html-template for contact card
  */
-function contactCardTemplate(contact) {
+function contactCardTemplate(contact, index) {
     return /*html*/ `
-        <div class="contact-card" onclick="openContactDetailView('${contact.contactEmail}')">
+        <div id="contact-id-${index}" class="contact-card" onclick="openContactDetailView(${index})">
             <div class="contact-pic" style="background-color:${contact.contactColor}">
                 <span class="contact-initials">${contact.contactInitials}</span>
             </div>
@@ -297,7 +345,7 @@ function alphabetCardTemplate(letter) {
 /**
  * html-template for contact detail view
  */
-function contactDetailViewTemplate(contact, contactIndex) {
+function contactDetailViewTemplate(contact, index) {
     return /*html*/ `
         <div class="contacts-detail-top">
             <div class="contact-pic-detail" style="background-color:${contact.contactColor}">
@@ -312,11 +360,11 @@ function contactDetailViewTemplate(contact, contactIndex) {
             <div class="contact-detail-info">
                 <span class="info-headline">Contact information</span>
                 <span class="info-subheadline">Email</span>
-                <span class="info-email">${contact.contactEmail}</span>
+                <a href="mailto:${contact.contactEmail}"><span class="info-email">${contact.contactEmail}</span></a>
                 <span class="info-subheadline">Phone</span>
-                <span class="info-phone">${contact.contactPhone}</span>
+                <a href="tel:${contact.contactPhone}"><span class="info-phone">${contact.contactPhone}</span></a>
             </div>
-            <div class="contact-detail-change" onclick="showEditContactPopUp(${contactIndex})">
+            <div class="contact-detail-change" onclick="showEditContactPopUp(${index})">
                 <img class="change-icon" src="./assets/img/icons/icon_edit_contact.png" alt="Edit contact">
                 <span>Edit contact</span>
             </div>

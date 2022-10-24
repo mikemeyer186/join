@@ -271,6 +271,11 @@ body {
     transition: all 225ms ease-in-out;
 }
 
+.card-bg-blue{
+    background-color: #4589ff;
+    color: white;
+}
+
 .contact-card:hover {
     background-color: #4589ff;
     color: white;
@@ -395,6 +400,11 @@ body {
     justify-content: center;
     padding: 0 48px 48px 48px;
     gap: 16px;
+}
+
+.contact-detail-info>a{
+    text-decoration: none;
+    color: inherit;
 }
 
 .info-headline {
