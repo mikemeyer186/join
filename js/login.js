@@ -167,7 +167,8 @@ function loginUser() {
  * @param {JSON} user - logged in user data
  */
 function saveActiveUserLocal(user) {
-    localStorage.setItem('activeUser', JSON.stringify(user));
+    let activeUser = user.userId;
+    localStorage.setItem('activeUser', activeUser);
 }
 
 /**

@@ -12,11 +12,11 @@ async function contactsInit() {
 }
 
 /**
- * rendering contacts from user accounts (logged in user) in alphabetical sort
+ * rendering contacts from user accounts (active user) in alphabetical order
  */
 function renderContacts() {
     let content = document.getElementById('contacts-content');
-    let contactsArray = userAccounts[activeUser.userId].userContacts;
+    let contactsArray = userAccounts[activeUser].userContacts;
     content.innerHTML = '';
     getFirstLetter();
 
@@ -86,7 +86,7 @@ function addContactToUser() {
         contactInitials: inputInitials,
         contactColor: inputColor,
     };
-    userAccounts[activeUser.userId].userContacts.push(contactObject);
+    userAccounts[activeUser].userContacts.push(contactObject);
     saveAccountsToBackend();
     renderContacts();
     clearAndHidePopUp();
@@ -146,7 +146,7 @@ function randomInteger(max) {
  * getting first letter of contact initials
  */
 function getFirstLetter() {
-    let contactsArray = userAccounts[activeUser.userId].userContacts;
+    let contactsArray = userAccounts[activeUser].userContacts;
     for (let i = 0; i < contactsArray.length; i++) {
         const initials = contactsArray[i].contactInitials;
         let firstLetter = initials.charAt(0);
@@ -175,7 +175,7 @@ function getIndexOfFirstLetter(firstLetter) {
  */
 function openContactDetailView(contactEmail) {
     let contactIndex = getIndexOfContact(contactEmail);
-    let contact = userAccounts[activeUser.userId].userContacts[contactIndex];
+    let contact = userAccounts[activeUser].userContacts[contactIndex];
     let detailContent = document.getElementById('contacts-detail');
     document.getElementById('contacts-right').classList.remove('slided-out');
     detailContent.innerHTML = '';
@@ -188,7 +188,7 @@ function openContactDetailView(contactEmail) {
  * @returns - index of contact in array
  */
 function getIndexOfContact(search) {
-    let contactsArray = userAccounts[activeUser.userId].userContacts;
+    let contactsArray = userAccounts[activeUser].userContacts;
     let index;
     contactsArray.find((c, i) => {
         if (c.contactEmail == search) {
@@ -230,7 +230,7 @@ function hideEditContactPopUp() {
  * @param {number} index - index of contact in userContacts array
  */
 function fillContactEditInputs(index) {
-    let contact = userAccounts[activeUser.userId].userContacts[index];
+    let contact = userAccounts[activeUser].userContacts[index];
     document.getElementById('contact-profil-edit').innerHTML = editProfilPicTemplate(contact);
     document.getElementById('contact-name-edit').value = contact.contactName;
     document.getElementById('contact-email-edit').value = contact.contactEmail;
@@ -242,7 +242,7 @@ function fillContactEditInputs(index) {
  */
 function saveEditContact() {
     let index = localStorage.getItem('editIndex');
-    let contact = userAccounts[activeUser.userId].userContacts[index];
+    let contact = userAccounts[activeUser].userContacts[index];
     contact.contactName = document.getElementById('contact-name-edit').value;
     contact.contactEmail = document.getElementById('contact-email-edit').value;
     contact.contactPhone = document.getElementById('contact-phone-edit').value;

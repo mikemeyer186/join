@@ -43,7 +43,7 @@ async function loadAccountsFromBackend() {
  * loading active user from local storage
  */
 function loadActiveUserLocal() {
-    activeUser = JSON.parse(localStorage.getItem('activeUser'));
+    activeUser = localStorage.getItem('activeUser');
 }
 /**
  * stopping propagation of child elements
