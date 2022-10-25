@@ -106,7 +106,17 @@ function changeInputContact() {
  */
 function changeInputCategory() {
   document.getElementById("selectorCategory").innerHTML = `
-  <input id="newCategoryText" type="text" placeholder="New category name">`;
+  <div class="inputCategory">
+  <input id="newCategoryText" type="text" placeholder="New category name">
+  <div style="margin-top: 10px; margin-left: 20px; ">
+  <img style="padding-right: 20px;" src="./assets/img/categoryColors/grayCategory.png">
+  <img style="padding-right: 20px;" src="./assets/img/categoryColors/redCategory.png">
+  <img style="padding-right: 20px;" src="./assets/img/categoryColors/greenCategory.png">
+  <img style="padding-right: 20px;" src="./assets/img/categoryColors/orangeCategory.png">
+  <img style="padding-right: 20px;" src="./assets/img/categoryColors/purpleCategory.png">
+  <img src="./assets/img/categoryColors/blueCategory.png">
+  </div>
+  </div>`;
 }
 /**
  * priority change color

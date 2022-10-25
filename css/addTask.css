@@ -187,3 +187,7 @@ form h3 {
   border-right: none;
   cursor: pointer;
 }
+.inputCategory{
+  display: flex; 
+  flex-direction: column;
+}
