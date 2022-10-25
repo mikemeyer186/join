@@ -1,3 +1,6 @@
+var checkedValue;
+
+
 /**
  * pulling tasks from backend
  */
@@ -15,20 +18,20 @@ function addTask() {
   let selectCategory = document.getElementById("selectCategory").value;
   //let taskImportance = document.getElemenentById('').value;
   //let categoryColor = document.getElementById('').value;
-  //let selectedSubtask = document.getElementById('').value;
+  let selectedSubtask = getSelectedSubtask();
   let description = document.getElementById("inputDescription").value;
   tasks.push({
     taskTitle: taskInputTitle,
     description: description,
     dueDate: dueDate,
     taskCategory: selectCategory,
-    //"subTask": selectedSubtask,
+    subTask: selectedSubtask,
     taskID: tasks.length,
-    //"categoryColor": categoryColor,
-    //"priority": taskImportance,
+    //categoryColor: categoryColor,
+    //priority: taskImportance,
     assignedTo: selectContact,
   });
-  pushTasksinBackend();
+  //pushTasksinBackend();
 }
 
 async function pushTasksinBackend() {
@@ -49,12 +52,25 @@ function renderSubTask() {
     document.getElementById("addSubtaskCheckbox").innerHTML = ``;
     for (let i = 0; i < subTasks.length; i++) {
       document.getElementById("addSubtaskCheckbox").innerHTML += `
-        <div class="subtaskList">  
-        <input value="${subTasks[i]}" type="checkbox">
+        <div class="subtaskList" id="subtaskValue">  
+        <input id="${subTasks[i]}" value="${subTasks[i]}" class="subtaskCheckbox" type="checkbox">
         <p>${subTasks[i]}</p>
         </div>`;
     }
   }
+}
+
+/**
+ * gettin the checked subtask
+ */
+function getSelectedSubtask() {
+   var checks = document.getElementsByClassName('subtaskCheckbox'); 
+   for(let i = 0; i < checks.length; i++) {
+    if (checks[i].checked === true) {
+      return checks[i].value; 
+    }
+   }
+
 }
 
 /**
