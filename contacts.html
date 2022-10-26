@@ -83,6 +83,9 @@
                         <img class="contact-icon" src="./assets/img/icons/icon_phone_grey.png" alt="Phone" />
                     </div>
                     <div class="contact-button-box">
+                        <button class="contact-button-red" onclick="deleteContact()">
+                            <img class="contact-delete-icon" src="./assets/img/icons/icon_close_white.png" alt="Delete" />
+                        </button>
                         <button class="contact-button-blue" onclick="saveEditContact()">
                             Save
                             <img src="./assets/img/icons/icon_check_white.png" alt="Create" />
@@ -111,6 +114,9 @@
         </div>
         <div id="edited-popup" class="popup">
             <span>Your contact has been edited successfully.</span>
+        </div>
+        <div id="deleted-popup" class="popup">
+            <span>Your contact has been deleted successfully.</span>
         </div>
     </body>
 </html>

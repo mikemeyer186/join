@@ -172,6 +172,7 @@ function randomInteger(max) {
  */
 function getFirstLetter() {
     let contactsArray = userAccounts[activeUser].userContacts;
+    filterLetters = [];
     for (let i = 0; i < contactsArray.length; i++) {
         const initials = contactsArray[i].contactInitials;
         let firstLetter = initials.charAt(0);
@@ -290,6 +291,14 @@ function saveEditContact() {
     changeColorOfSelectedCard();
 }
 
+function deleteContact() {
+    let index = localStorage.getItem('contactIndex');
+    let userContacts = userAccounts[activeUser].userContacts;
+    userContacts.splice(index, 1);
+    openContactDetailView(0);
+    saveAndRenderEdit();
+}
+
 /**
  * saving, clearing and rendering contacts after editing contact
  */
@@ -298,7 +307,7 @@ function saveEditContact() {
     renderContactList();
     hideEditContactPopUp();
     saveAccountsToBackend();
-    slidePopupIntoView('edited-popup');
+    slidePopupIntoView('deleted-popup');
 }
 
 /**

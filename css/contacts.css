@@ -250,6 +250,36 @@ body {
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
 }
 
+.contact-button-red {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 35px;
+    gap: 10px;
+    height: 48px;
+    width: 80px;
+    background-color: #ff4949;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 23px;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 225ms ease-in-out;
+}
+
+.contact-button-red:hover {
+    background: #ff0606;
+    transition: all 225ms ease-in-out;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.contact-delete-icon {
+    width: 32px;
+    object-fit: cover;
+}
+
 .popup-close-icon {
     position: absolute;
     width: 32px;
