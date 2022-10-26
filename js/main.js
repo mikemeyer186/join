@@ -60,3 +60,7 @@ function showActiveUserIcon(){
     document.getElementById('header-profil-bg').style.backgroundColor = `${user.userColor}`;
     document.getElementById('header-profil-initials').innerHTML = `${user.userInitials}`;
 }
+
+function showLogOutPopUp(){
+    document.getElementById('logOut-popup').classList.add('slideLogOutIntoView');
+}
