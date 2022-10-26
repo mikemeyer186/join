@@ -51,3 +51,9 @@ function loadActiveUserLocal() {
 function stopPropagate(event) {
     event.stopPropagation();
 }
+
+function showActiveUserIcon(){
+    let user = userAccounts[activeUser];
+    document.getElementById('header-profil-bg').style.backgroundColor = `${user.userColor}`;
+    document.getElementById('header-profil-initials').innerHTML = `${user.userInitials}`;
+}

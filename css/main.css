@@ -30,12 +30,21 @@ header {
     color: white;
   }
   .headerImgProfile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 3em;
+    width: 49px;
+    height: 49px;
     border: 3px solid white;
     margin-right: 39px;
   }
   .headerImgProfile:hover {
     cursor: pointer;
+  }
+  .headerImgInitials{
+    font-size: 18px;
+    color: #ffffff;
   }
 /* HEADER CSS END */
 

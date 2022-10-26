@@ -5,6 +5,7 @@ async function summaryInit() {
     loadActiveUserLocal();
     highlightedNavbar(1);
     showGreeting();
+    showActiveUserIcon();
 }
 
 function showGreeting(){

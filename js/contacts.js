@@ -11,6 +11,7 @@ async function contactsInit() {
     highlightedNavbar(4);
     renderContacts();
     renderContactList();
+    showActiveUserIcon();
 }
 
 /**
