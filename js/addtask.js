@@ -1,6 +1,21 @@
-var checkedValue;
-
-
+var checkedSubtaskValue;
+var prioritySelected;
+/**
+ * onload functions
+ */
+function addTaskOnload() {
+  init(3);
+  renderSubTask();
+  loadTasksfromBackend();
+  getSelectedSubtask();
+  //changeInputCategory();
+}
+/**
+ * getting datas from localStorage
+ */
+function loadLocalStorage(){
+  subTasks = JSON.parse(localStorage.getItem("subtasks")) || [];
+}
 /**
  * pulling tasks from backend
  */
@@ -16,22 +31,20 @@ function addTask() {
   let selectContact = document.getElementById("selectContact").value;
   let dueDate = document.getElementById("selectDate").value;
   let selectCategory = document.getElementById("selectCategory").value;
-  //let taskImportance = document.getElemenentById('').value;
   //let categoryColor = document.getElementById('').value;
-  let selectedSubtask = getSelectedSubtask();
   let description = document.getElementById("inputDescription").value;
   tasks.push({
     taskTitle: taskInputTitle,
-    description: description,
-    dueDate: dueDate,
+    taskDescription: description,
+    toDueDate: dueDate,
     taskCategory: selectCategory,
-    subTask: selectedSubtask,
+    subTask: checkedSubtaskValue,
     taskID: tasks.length,
     //categoryColor: categoryColor,
-    //priority: taskImportance,
+    priority: prioritySelected,
     assignedTo: selectContact,
   });
-  //pushTasksinBackend();
+  pushTasksinBackend();
 }
 
 async function pushTasksinBackend() {
@@ -41,7 +54,6 @@ async function pushTasksinBackend() {
  * Rendering the subtasks checkboxes at the footer
  */
 function renderSubTask() {
-  subTasks = JSON.parse(localStorage.getItem("subtasks")) || [];
   if (subTasks == false) {
     document.getElementById("addSubtaskCheckbox").innerHTML += `
             <div class="subtaskList">  
@@ -64,16 +76,15 @@ function renderSubTask() {
  * gettin the checked subtask
  */
 function getSelectedSubtask() {
-   let subtaskCheckboxes = document.querySelectorAll('.subtaskCheckbox');
-   subtaskCheckboxes.forEach((checkbox) => {
-    checkbox.addEventListener('change', (event) => {
-      if(event.target.checked) {
-        console.log(event.target.checked);
-      } else {
-        alert('Bitte Subtask auswählen!');
+  let subtaskCheckboxes = document.querySelectorAll(".subtaskCheckbox");
+  subtaskCheckboxes.forEach((checkbox) => {
+    checkbox.addEventListener("change", (event) => {
+      if (event.target.checked) {
+        checkedSubtaskValue = event.target.value;
+        console.log(checkedSubtaskValue);
       }
-    })
-   })
+    });
+  });
 }
 
 /**
@@ -127,46 +138,30 @@ function changeInputCategory() {
  */
 function prioritySelected(i) {
   if (i == 1) {
-    document
-      .getElementById("importanceIMGHard")
-      .classList.remove("importanceHard");
+    prioritySelected = "Hard";
+    document.getElementById("importanceIMGHard").classList.remove("importanceHard");
     document.getElementById("importanceIMGLow").classList.add("importanceLow");
     document.getElementById("importanceIMGMid").classList.add("importanceMid");
-    document.getElementById("importanceIMGHard").src =
-      "./assets/img/TaskValueHardSelected.png";
-    document.getElementById("importanceIMGMid").src =
-      "./assets/img/TaskValueMid.png";
-    document.getElementById("importanceIMGLow").src =
-      "./assets/img/TaskValueLow.png";
+    document.getElementById("importanceIMGHard").src ="./assets/img/TaskValueHardSelected.png";
+    document.getElementById("importanceIMGMid").src ="./assets/img/TaskValueMid.png";
+    document.getElementById("importanceIMGLow").src ="./assets/img/TaskValueLow.png";
   }
   if (i == 2) {
-    document
-      .getElementById("importanceIMGMid")
-      .classList.remove("importanceMid");
+    prioritySelected = "Mid";
+    document.getElementById("importanceIMGMid").classList.remove("importanceMid");
     document.getElementById("importanceIMGLow").classList.add("importanceLow");
-    document
-      .getElementById("importanceIMGHard")
-      .classList.add("importanceHard");
-    document.getElementById("importanceIMGHard").src =
-      "./assets/img/TaskValueHard.png";
-    document.getElementById("importanceIMGMid").src =
-      "./assets/img/TaskValueMidSelected.png";
-    document.getElementById("importanceIMGLow").src =
-      "./assets/img/TaskValueLow.png";
+    document.getElementById("importanceIMGHard").classList.add("importanceHard");
+    document.getElementById("importanceIMGHard").src ="./assets/img/TaskValueHard.png";
+    document.getElementById("importanceIMGMid").src ="./assets/img/TaskValueMidSelected.png";
+    document.getElementById("importanceIMGLow").src ="./assets/img/TaskValueLow.png";
   }
   if (i == 3) {
-    document
-      .getElementById("importanceIMGLow")
-      .classList.remove("importanceLow");
+    prioritySelected = "Low";
+    document.getElementById("importanceIMGLow").classList.remove("importanceLow");
     document.getElementById("importanceIMGMid").classList.add("importanceMid");
-    document
-      .getElementById("importanceIMGHard")
-      .classList.add("importanceHard");
-    document.getElementById("importanceIMGHard").src =
-      "./assets/img/TaskValueHard.png";
-    document.getElementById("importanceIMGMid").src =
-      "./assets/img/TaskValueMid.png";
-    document.getElementById("importanceIMGLow").src =
-      "./assets/img/TaskValueLowSelected.png";
+    document.getElementById("importanceIMGHard").classList.add("importanceHard");
+    document.getElementById("importanceIMGHard").src ="./assets/img/TaskValueHard.png";
+    document.getElementById("importanceIMGMid").src ="./assets/img/TaskValueMid.png";
+    document.getElementById("importanceIMGLow").src ="./assets/img/TaskValueLowSelected.png";
   }
 }

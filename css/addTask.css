@@ -139,6 +139,12 @@ form h3 {
   border-radius: 0.5em;
   border: none;
 }
+#buttonCreate:hover{
+  cursor: pointer;
+}
+#buttonClear:hover {
+  cursor: pointer;
+}
 #newContactText {
   margin-top: 10px;
   border: 1px solid #d1d1d1;

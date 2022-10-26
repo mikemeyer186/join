@@ -1,7 +1,8 @@
 let userAccounts = [];
 let activeUser;
-let subTasks = [];
-let tasks = [];
+var subTasks = [];
+var tasks = [];
+var taskCategory = []; 
 
 // Onload function
 async function init(i) {
