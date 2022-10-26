@@ -52,6 +52,9 @@ function stopPropagate(event) {
     event.stopPropagation();
 }
 
+/**
+ * showing active user initials and color in header
+ */
 function showActiveUserIcon(){
     let user = userAccounts[activeUser];
     document.getElementById('header-profil-bg').style.backgroundColor = `${user.userColor}`;
