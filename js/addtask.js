@@ -1,5 +1,5 @@
 var checkedSubtaskValue;
-var prioritySelected;
+var prioritySelect;
 /**
  * onload functions
  */
@@ -9,12 +9,6 @@ function addTaskOnload() {
   loadTasksfromBackend();
   getSelectedSubtask();
   //changeInputCategory();
-}
-/**
- * getting datas from localStorage
- */
-function loadLocalStorage(){
-  subTasks = JSON.parse(localStorage.getItem("subtasks")) || [];
 }
 /**
  * pulling tasks from backend
@@ -31,7 +25,6 @@ function addTask() {
   let selectContact = document.getElementById("selectContact").value;
   let dueDate = document.getElementById("selectDate").value;
   let selectCategory = document.getElementById("selectCategory").value;
-  //let categoryColor = document.getElementById('').value;
   let description = document.getElementById("inputDescription").value;
   tasks.push({
     taskTitle: taskInputTitle,
@@ -40,11 +33,11 @@ function addTask() {
     taskCategory: selectCategory,
     subTask: checkedSubtaskValue,
     taskID: tasks.length,
-    //categoryColor: categoryColor,
-    priority: prioritySelected,
+    priority: prioritySelect,
     assignedTo: selectContact,
   });
   pushTasksinBackend();
+  taskClear();
 }
 
 async function pushTasksinBackend() {
@@ -54,6 +47,7 @@ async function pushTasksinBackend() {
  * Rendering the subtasks checkboxes at the footer
  */
 function renderSubTask() {
+  subTasks = JSON.parse(localStorage.getItem("subtasks")) || [];
   if (subTasks == false) {
     document.getElementById("addSubtaskCheckbox").innerHTML += `
             <div class="subtaskList">  
@@ -71,7 +65,6 @@ function renderSubTask() {
     }
   }
 }
-
 /**
  * gettin the checked subtask
  */
@@ -86,12 +79,12 @@ function getSelectedSubtask() {
     });
   });
 }
-
 /**
  * pushing new subtask in the Localstorage
  */
 function pushSubtaskLocalStorage() {
   subTasks.push(document.getElementById("subtaskText").value);
+  document.getElementById('subtaskText').value = ``;
   localStorage.setItem("subtasks", JSON.stringify(subTasks));
   renderSubTask();
 }
@@ -138,7 +131,7 @@ function changeInputCategory() {
  */
 function prioritySelected(i) {
   if (i == 1) {
-    prioritySelected = "Hard";
+    prioritySelect = "Hard";
     document.getElementById("importanceIMGHard").classList.remove("importanceHard");
     document.getElementById("importanceIMGLow").classList.add("importanceLow");
     document.getElementById("importanceIMGMid").classList.add("importanceMid");
@@ -147,7 +140,7 @@ function prioritySelected(i) {
     document.getElementById("importanceIMGLow").src ="./assets/img/TaskValueLow.png";
   }
   if (i == 2) {
-    prioritySelected = "Mid";
+    prioritySelect = "Mid";
     document.getElementById("importanceIMGMid").classList.remove("importanceMid");
     document.getElementById("importanceIMGLow").classList.add("importanceLow");
     document.getElementById("importanceIMGHard").classList.add("importanceHard");
@@ -156,7 +149,7 @@ function prioritySelected(i) {
     document.getElementById("importanceIMGLow").src ="./assets/img/TaskValueLow.png";
   }
   if (i == 3) {
-    prioritySelected = "Low";
+    prioritySelect = "Low";
     document.getElementById("importanceIMGLow").classList.remove("importanceLow");
     document.getElementById("importanceIMGMid").classList.add("importanceMid");
     document.getElementById("importanceIMGHard").classList.add("importanceHard");
