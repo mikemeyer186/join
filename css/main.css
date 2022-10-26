@@ -47,7 +47,17 @@ header {
     color: #ffffff;
   }
 
-  #logOut-popup {
+  #logOut-popup-bg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transform: translateX(100vw);
+    transition: all 225ms ease-in-out;
+  }
+
+  .logOut-popup {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,18 +71,18 @@ header {
     top: 90px;
     right: 60px;
     cursor: pointer;
-    transform: translateX(500px);
-    transition: all 500ms ease-out;
+    z-index: 1;
+    transition: all 225ms ease-in-out;
   }
 
   .slideLogOutIntoView {
     transform: translateX(0) !important;
-    transition: all 500ms ease-out;
+    transition: all 225ms ease-in-out;
   }
 
-  #logOut-popup:hover {
+  .logOut-popup:hover {
     background-color: #D2E3FF;
-    transition: all 500ms ease-out;
+    transition: all 225ms ease-in-out;
   }
 
   .logOut-text {

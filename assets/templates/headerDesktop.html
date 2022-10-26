@@ -5,11 +5,13 @@
   <div class="headerProfile">
     <a href="#">Kanban Project Managment Tool</a>
     <img style="padding: 30px; cursor: pointer" src="./assets/img/QuestionIcon.png" />
-    <div id="header-profil-bg" class="headerImgProfile" onclick="showLogOutPopUp()">
+    <div id="header-profil-bg" class="headerImgProfile" onclick="toggleLogOutPopUp()">
       <span id="header-profil-initials" class="headerImgInitials"></span>
     </div>
   </div>
-  <div id="logOut-popup">
-    <span class="logOut-text">Log out</span>
+  <div id="logOut-popup-bg" onclick="toggleLogOutPopUp()">
+    <div class="logOut-popup" onclick="stopPropagate(event); logOutActiveUser();">
+      <span class="logOut-text">Log out</span>
+    </div>
   </div>
 </header>

@@ -55,12 +55,22 @@ function stopPropagate(event) {
 /**
  * showing active user initials and color in header
  */
-function showActiveUserIcon(){
+function showActiveUserIcon() {
     let user = userAccounts[activeUser];
     document.getElementById('header-profil-bg').style.backgroundColor = `${user.userColor}`;
     document.getElementById('header-profil-initials').innerHTML = `${user.userInitials}`;
 }
 
-function showLogOutPopUp(){
-    document.getElementById('logOut-popup').classList.add('slideLogOutIntoView');
+/**
+ * toggeling log out popup class for sliding into view
+ */
+function toggleLogOutPopUp() {
+    document.getElementById('logOut-popup-bg').classList.toggle('slideLogOutIntoView');
+}
+
+/**
+ * logging active user out (back to index.html)
+ */
+function logOutActiveUser() {
+    window.location.href = './index.html';
 }
