@@ -64,13 +64,16 @@ function renderSubTask() {
  * gettin the checked subtask
  */
 function getSelectedSubtask() {
-   var checks = document.getElementsByClassName('subtaskCheckbox'); 
-   for(let i = 0; i < checks.length; i++) {
-    if (checks[i].checked === true) {
-      return checks[i].value; 
-    }
-   }
-
+   let subtaskCheckboxes = document.querySelectorAll('.subtaskCheckbox');
+   subtaskCheckboxes.forEach((checkbox) => {
+    checkbox.addEventListener('change', (event) => {
+      if(event.target.checked) {
+        console.log(event.target.checked);
+      } else {
+        alert('Bitte Subtask auswählen!');
+      }
+    })
+   })
 }
 
 /**
