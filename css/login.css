@@ -11,10 +11,11 @@
     width: 265px;
     object-fit: cover;
     position: absolute;
-    left: 40.83%;
-    right: 40.76%;
-    top: 34.18%;
-    bottom: 34.27%;
+    left: 50%;
+    right: 50%;
+    top: 50%;
+    bottom: 50%;
+    transform: translate(-50%, -50%);
     transition: all 225ms ease-in-out;
 }
 
@@ -22,10 +23,11 @@
     width: 265px;
     object-fit: cover;
     position: absolute;
-    left: 40.83%;
-    right: 40.76%;
-    top: 34.18%;
-    bottom: 34.27%;
+    left: 50%;
+    right: 50%;
+    top: 50%;
+    bottom: 50%;
+    transform: translate(-50%, -50%);
     transition: all 225ms ease-in-out;
 }
 
@@ -35,6 +37,8 @@
     right: 87.71% !important;
     top: 7.81% !important;
     bottom: 80.28% !important;
+    transform: translate(0) !important;
+
 }
 
 .pageColorChange {
@@ -54,10 +58,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
     padding: 35px 0px;
     gap: 35px;
     width: 45%;
-    height: 40%;
+    height: 50%;
     left: 0;
     right: 0;
     top: 0;
@@ -70,6 +75,7 @@
 }
 
 .login-box-headline {
+    display: block;
     font-size: 48px;
     font-weight: 700;
     width: 100%;
@@ -222,8 +228,6 @@
 
 #login-signup-box {
     position: absolute;
-    top: 10px;
-    right: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -336,4 +340,206 @@
 .deactivated-button {
     pointer-events: none;
     opacity: 0.3;
+}
+
+/** responsive section **/
+@media(max-width: 1200px) {
+    .login-box {
+        height: 60%;
+        width: 55%;
+    }
+
+    .popup {
+        width: 55%;
+    }
+}
+
+@media(max-width: 1000px) {
+    .login-box {
+        height: 60%;
+        width: 60%;
+    }
+
+    .popup {
+        width: 60%;
+    }
+
+    .logoMovement {
+        width: 70px !important;
+        top: 4.81% !important;
+    }
+
+    .login-box-headline {
+        font-size: 40px;
+    }
+}
+
+@media(max-width: 900px) {
+    .login-box {
+        height: 62%;
+        width: 65%;
+    }
+
+    .popup {
+        width: 65%;
+    }
+
+    .arrow-back {
+        top: 8.5%;
+    }
+}
+
+@media(max-width: 750px) {
+    .login-box {
+        height: 65%;
+        width: 90%;
+    }
+
+    .popup {
+        width: 90%;
+    }
+
+    #login-signup-box {
+        right: 50%;
+        top: 90%;
+        transform: translateX(50%);
+    }
+
+    .signup-text {
+        white-space: nowrap;
+    }
+
+    .logoMovement {
+        width: 60px !important;
+        top: 3.81% !important;
+    }
+}
+
+@media(max-width: 550px) {
+    .login-box {
+        height: 72%;
+    }
+
+    .popup {
+        width: 100%;
+    }
+
+    .logoMovement {
+        width: 60px !important;
+        top: 1.81% !important;
+    }
+
+    .login-input-box {
+        width: 90%;
+        padding: 13px 10px;
+    }
+
+    .login-options {
+        flex-direction: column-reverse;
+        gap: 17px;
+    }
+
+    .login-button {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .login-button-blue {
+        width: 197px;
+    }
+
+    .signup-button {
+        width: 98px;
+        height: 36px;
+        font-size: 16px;
+        padding: 5px 15px;
+    }
+
+    .signup-text {
+        font-size: 16px;
+    }
+
+    .login-box-headline::after {
+        top: 70px;
+    }
+
+    .forgot-headline {
+        padding: 0 50px 0 50px;
+    }
+
+    .forgot-headline::after {
+        top: 130px !important;
+    }
+
+    .reset-headline::after {
+        top: 120px !important;
+    }
+
+    .login-form {
+        padding-top: 5px;
+        width: 90%;
+        gap: 22px;
+    }
+
+    .arrow-back {
+        top: 2.5%;
+    }
+
+    .forgot-box-text {
+        font-size: 19px;
+    }
+
+    .forgot-button {
+        font-size: 16px;
+        padding: 5px 20px;
+        width: 90%;
+    }
+
+    .login-input {
+        font-size: 16px;
+    }
+
+    #forgot-fault,
+    #reset-accept,
+    #reset-fault {
+        left: 10px;
+    }
+
+    #reset-button {
+        margin-top: 25px;
+    }
+}
+
+@media(max-width: 350px) {
+    .forgot-headline {
+        padding: 0;
+    }
+
+    .forgot-box-text {
+        padding: 0 10px 0 10px !important;
+    }
+}
+
+@media(max-height: 900px){
+    .login-box {
+        gap: 15px;
+    }
+
+    .login-form {
+        gap: 20px;
+        padding-top: 10px;
+    }
+
+    .login-box-headline::after {
+        top: 70px;
+    }
+
+    .forgot-box-text {
+        margin: 0 0 0 0;
+        padding: 0 25px 0 25px;
+    }
+
+    .forgot-button {
+        margin-top: 10px;
+    }
 }
