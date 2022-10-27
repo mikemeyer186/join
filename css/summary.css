@@ -54,7 +54,7 @@
     align-items: center;
     padding: 28px 48px;
     gap: 35px;
-    width: 682px;
+    width: 694px;
     height: 191px;
     background-color: #4589FF;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
@@ -104,8 +104,8 @@
 
 .tile-white {
     padding: 40px;
-    width: 204px;
-    height: 219px;
+    width: 208px;
+    height: 191px;
     background-color: #FFFFFF;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
     border-radius: 30px;
