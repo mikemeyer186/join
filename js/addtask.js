@@ -36,11 +36,11 @@ function addTask() {
     assignedTo: selectContact,
   });
   pushTasksinBackend();
-  taskClear();
 }
 
 async function pushTasksinBackend() {
   await backend.setItem("tasks", JSON.stringify(tasks));
+  console.log('Pushed in backend succes!')
 }
 /**
  * Rendering the subtasks checkboxes at the footer
@@ -87,6 +87,24 @@ function pushSubtaskLocalStorage() {
   localStorage.setItem("subtasks", JSON.stringify(subTasks));
   renderSubTask();
 }
+/** 
+ * clear Contact input 
+ */
+function clearCategoryInput() {
+  document.getElementById('newCategoryText').value = ``; 
+}
+/**
+ * clear Email input 
+ */
+function clearContactInput() {
+  document.getElementById('selectContact').value = ``; 
+}
+/**
+ * clear subtask input 
+ */
+function clearSubtask() {
+  document.getElementById('subtaskText').value = ``; 
+}
 /**
  * Clear the input / selectors
  */
@@ -106,11 +124,11 @@ function changeInputContact() {
   document.getElementById("selectorContact").innerHTML = `
   <div>
   <div class="checkAndCrossIconsEmail">
-        <i class="fa-solid fa-xmark fa-xl contactX pointer"></i> 
+        <i onclick="clearContactInput()" class="fa-solid fa-xmark fa-xl contactX pointer"></i> 
         <img src="./assets/img/icons/trennstrich.png">
-        <i onclick="pushSubtaskLocalStorage()" class=" pointer fa-solid fa-check fa-xl contactCheck"></i>
+        <i onclick="" class=" pointer fa-solid fa-check fa-xl contactCheck"></i>
         </div>
-  <input id="newContactText" type="text" placeholder="Contact email">
+  <input id="selectContact" type="text" placeholder="Contact email">
   </div>`;
 }
 /**
@@ -120,9 +138,9 @@ function changeInputCategory() {
   document.getElementById("selectorCategory").innerHTML = `
   <div class="inputCategory">
   <div class="checkAndCrossIconsCategory">
-        <i class="fa-solid fa-xmark fa-xl pointer"></i> 
+        <i onclick="clearCategoryInput()" class="fa-solid fa-xmark fa-xl pointer"></i> 
         <img src="./assets/img/icons/trennstrich.png">
-        <i onclick="pushSubtaskLocalStorage()" class="fa-solid fa-check fa-xl pointer"></i>
+        <i onclick="" class="fa-solid fa-check fa-xl pointer"></i>
       </div>
   <input id="newCategoryText" type="text" placeholder="New category name">
   <div style="margin-top: 10px; margin-left: 20px; ">

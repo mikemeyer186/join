@@ -1,3 +1,4 @@
+
 form {
   display: flex;
   flex-direction: column;
@@ -145,7 +146,7 @@ form h3 {
 #buttonClear:hover {
   cursor: pointer;
 }
-#newContactText {
+#selectContact {
   margin-top: 10px;
   border: 1px solid #d1d1d1;
   border-top: none;
@@ -222,7 +223,7 @@ form h3 {
 .checkAndCrossIcons{
   display: flex; 
   position: relative;
-  top: 30px;
+  top: 33px;
   left: 430px;
 }
 .checkAndCrossIcons p{
@@ -236,7 +237,7 @@ form h3 {
 .checkAndCrossIconsEmail {
   position: relative;
   width: 100px;
-  top: 45px;
+  top: 49px;
   left: 430px; 
 }
 .contactX {
@@ -250,7 +251,7 @@ form h3 {
 .checkAndCrossIconsCategory{
   display: flex; 
   position: relative;
-  top: 45px;
+  top: 49px;
   left: 430px;
 }
 .pointer {
