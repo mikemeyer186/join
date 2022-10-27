@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script src="https://kit.fontawesome.com/362dd1e776.js" crossorigin="anonymous"></script>
     <link rel="icon" href="./assets/img/logo_join.png" type="image/png" />
     <link rel="stylesheet" href="./css/main.css" />
     <link rel="stylesheet" href="./css/addTask.css" />
@@ -20,7 +21,7 @@
       <form>
         <input id="inputTitle" type="text" placeholder="Enter a title" />
         <div id="selectorContact">
-          <select id="selectContact" class="selectors">
+          <select id="selectContact" class="selectors pointer">
             <option value="" disabled selected>
               Select contacts to assign
             </option>
@@ -32,6 +33,7 @@
           </select>
         </div>
         <h3>Due date</h3>
+        <i class="fa-regular fa-calendar-minus fa-xl"></i>
         <input
           id="selectDate"
           type="text"
@@ -41,7 +43,7 @@
         />
         <h3>Category</h3>
         <div id="selectorCategory">
-          <select id="selectCategory" class="selectors">
+          <select id="selectCategory" class="selectors pointer">
             <option value="" disabled selected>Select task category</option>
             <option onclick="changeInputCategory(); renderSubTask();" value="newCategory">
               New category
@@ -62,8 +64,12 @@
           placeholder="Enter a Description"
         />
         <h3 id="subtaskTitle">Subtasks</h3>
+        <div class="checkAndCrossIcons">
+        <i class="fa-solid fa-xmark fa-xl pointer"></i> 
+        <img src="./assets/img/icons/trennstrich.png">
+        <i onclick="pushSubtaskLocalStorage()" class="fa-solid fa-check fa-xl pointer"></i>
+      </div>
         <input id="subtaskText" type="text" placeholder="Add new subtask" />
-        <button onclick="pushSubtaskLocalStorage(); return false;">Test</button>
         <div class="taskFooter">
           <div id="addSubtaskCheckbox"></div>
           <div class="taskFooterButtons">

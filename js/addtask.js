@@ -8,7 +8,6 @@ function addTaskOnload() {
   renderSubTask();
   loadTasksfromBackend();
   getSelectedSubtask();
-  //changeInputCategory();
 }
 /**
  * pulling tasks from backend
@@ -51,7 +50,7 @@ function renderSubTask() {
   if (subTasks == false) {
     document.getElementById("addSubtaskCheckbox").innerHTML += `
             <div class="subtaskList">  
-            <input value="subtaskPlaceholder" type="checkbox">
+            <input value="subtaskPlaceholder" type="checkbox" class="pointer">
             <p>Subtask1</p>
             </div>`;
   } else {
@@ -59,7 +58,7 @@ function renderSubTask() {
     for (let i = 0; i < subTasks.length; i++) {
       document.getElementById("addSubtaskCheckbox").innerHTML += `
         <div class="subtaskList" id="subtaskValue">  
-        <input id="${subTasks[i]}" value="${subTasks[i]}" class="subtaskCheckbox" type="checkbox">
+        <input id="${subTasks[i]}" value="${subTasks[i]}" class="subtaskCheckbox pointer" type="checkbox">
         <p>${subTasks[i]}</p>
         </div>`;
     }
@@ -96,17 +95,23 @@ function taskClear() {
   document.getElementById("selectContact").value = ``;
   document.getElementById("selectDate").value = ``;
   document.getElementById("selectCategory").value = ``;
-  //document.getElemenentById('').value;
-  //document.getElementById('').value;
-  //document.getElementById('').value;
   document.getElementById("inputDescription").value = ``;
+  document.getElementById("subtaskText").value = ``;
+  window.location.reload(); 
 }
 /**
  * Change the contact selector in a input field
  */
 function changeInputContact() {
   document.getElementById("selectorContact").innerHTML = `
-  <input id="newContactText" type="text" placeholder="Contact email">`;
+  <div>
+  <div class="checkAndCrossIconsEmail">
+        <i class="fa-solid fa-xmark fa-xl contactX pointer"></i> 
+        <img src="./assets/img/icons/trennstrich.png">
+        <i onclick="pushSubtaskLocalStorage()" class=" pointer fa-solid fa-check fa-xl contactCheck"></i>
+        </div>
+  <input id="newContactText" type="text" placeholder="Contact email">
+  </div>`;
 }
 /**
  * Change the Category selector in a input field
@@ -114,7 +119,11 @@ function changeInputContact() {
 function changeInputCategory() {
   document.getElementById("selectorCategory").innerHTML = `
   <div class="inputCategory">
-  <img class="checkSelector" src="./assets/img/checkedIconSelector.png">
+  <div class="checkAndCrossIconsCategory">
+        <i class="fa-solid fa-xmark fa-xl pointer"></i> 
+        <img src="./assets/img/icons/trennstrich.png">
+        <i onclick="pushSubtaskLocalStorage()" class="fa-solid fa-check fa-xl pointer"></i>
+      </div>
   <input id="newCategoryText" type="text" placeholder="New category name">
   <div style="margin-top: 10px; margin-left: 20px; ">
   <img class="categoryColor" style="margin-right: 20px;" src="./assets/img/categoryColors/grayCategory.png">
