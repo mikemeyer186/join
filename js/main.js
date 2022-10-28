@@ -5,7 +5,13 @@ var tasks = [];
 var taskCategory = []; 
 var checkedSubtaskValue;
 var prioritySelect;
-
+/**
+ * pulling tasks from backend
+ */
+ async function loadTasksfromBackend() {
+    await downloadFromServer();
+    tasks = JSON.parse(backend.getItem("tasks")) || [];
+  }
 // Onload function
 async function init(i) {
     await includeHTML();

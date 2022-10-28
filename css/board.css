@@ -37,17 +37,17 @@ body {
     margin-left: 230px; 
     gap: 50px;
 }
-.boardTodo {
+#boardTodo {
     margin-left: 50px; 
     width: 25%;
 }
-.boardProgress {
+#boardProgress {
     width: 25%;
 }
-.boardFeedback {
+#boardFeedback {
     width: 25%;
 }
-.boardDone {
+#boardDone {
     width: 25%;
 }
 .boxHeader {

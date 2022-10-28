@@ -7,13 +7,7 @@ function addTaskOnload() {
   loadTasksfromBackend();
   getSelectedSubtask();
 }
-/**
- * pulling tasks from backend
- */
-async function loadTasksfromBackend() {
-  await downloadFromServer();
-  tasks = JSON.parse(backend.getItem("tasks")) || [];
-}
+
 /**
  * Push JSON in tasks
  */
@@ -130,7 +124,7 @@ function changeInputContact() {
         <img src="./assets/img/icons/trennstrich.png">
         <i onclick="" class=" pointer fa-solid fa-check fa-xl contactCheck"></i>
         </div>
-  <input id="selectContact" type="text" placeholder="Contact email">
+  <input id="selectContact" type="email" placeholder="Contact email" required>
   </div>`;
 }
 /**
@@ -158,7 +152,7 @@ function changeInputCategory() {
         <img src="./assets/img/icons/trennstrich.png">
         <i onclick="" class="fa-solid fa-check fa-xl pointer"></i>
       </div>
-  <input id="newCategoryText" type="text" placeholder="New category name">
+  <input id="newCategoryText" type="text" placeholder="New category name" required>
   <div style="margin-top: 10px; margin-left: 20px; ">
   <img class="categoryColor" style="margin-right: 20px;" src="./assets/img/categoryColors/grayCategory.png">
   <img class="categoryColor" style="margin-right: 20px;" src="./assets/img/categoryColors/redCategory.png">

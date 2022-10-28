@@ -1,6 +1,9 @@
 // body onload functions 
 async function boardOnload() {
     await init(2);
-    //loadTasksfromBackend();
+    loadTasksfromBackend();
     downloadFromServer();
+}
+function renderTasksinBoard() {
+
 }

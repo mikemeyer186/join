@@ -19,7 +19,7 @@
     <div w3-include-html=".\assets\templates\menuDesktop.html"></div>
     <div class="inputFields">
       <form>
-        <input id="inputTitle" type="text" placeholder="Enter a title" />
+        <input id="inputTitle" type="text" placeholder="Enter a title" required/>
         <div id="selectorContact">
           <select id="selectContact" class="selectors pointer">
             <option value="" disabled selected>
@@ -40,6 +40,7 @@
           placeholder="dd/mm/yyyy"
           onfocus="(this.type='date')"
           onblur="(this.type='text')"
+          required
         />
         <h3>Category</h3>
         <div id="selectorCategory">
@@ -62,6 +63,7 @@
           id="inputDescription"
           type="text"
           placeholder="Enter a Description"
+          required
         />
         <h3 id="subtaskTitle">Subtasks</h3>
         <div class="checkAndCrossIcons">
