@@ -1,5 +1,3 @@
-var checkedSubtaskValue;
-var prioritySelect;
 /**
  * onload functions
  */

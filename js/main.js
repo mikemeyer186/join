@@ -3,6 +3,8 @@ let activeUser;
 var subTasks = [];
 var tasks = [];
 var taskCategory = []; 
+var checkedSubtaskValue;
+var prioritySelect;
 
 // Onload function
 async function init(i) {
