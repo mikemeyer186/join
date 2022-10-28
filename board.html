@@ -1,19 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <link rel="icon" href="./assets/img/logo_join.png" type="image/png" />
-    <link rel="stylesheet" href="./css/board.css">
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/board.css" />
+    <link rel="stylesheet" href="./css/main.css" />
     <script src="./js/board.js"></script>
     <script src="./js/sidebar.js"></script>
     <script src="./js/main.js"></script>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Join - Board</title>
-</head>
-<body onload="boardOnload()">
+  </head>
+  <body onload="boardOnload()">
     <div w3-include-html=".\assets\templates\headerDesktop.html"></div>
     <div w3-include-html=".\assets\templates\menuDesktop.html"></div>
-</body>
+    <div class="boardFindandAddtask">
+      <input type="search" placeholder="Find Task" />
+      <button>Add task +</button>
+    </div>
+    <div class="boardContent">
+      <div class="boardTodo">
+        <div class="boxHeader">
+          <h2>To do</h2>
+          <img class="pointer" src="./assets/img/plus button v1.png" />
+        </div>
+        <div class="boardBox">
+          <div class="boardBoxContent">
+            <p class="boardBoxCategory">Desing</p>
+            <h4 class="boardBoxTitle">Website redesign</h4>
+            <p class="boardBoxDescription">
+              Modify the contents of the main website...
+            </p>
+            <div class="boardBoxFooter">
+              <div class="boxContacts"></div>
+              <img src="./assets/img/iconLow.png" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="boardProgress">
+        <div class="boxHeader">
+          <h2>In progress</h2>
+          <img class="pointer" src="./assets/img/plus button v1.png" />
+        </div>
+      </div>
+      <div class="boardFeedback">
+        <div class="boxHeader">
+          <h2>Await feedback</h2>
+          <img class="pointer" src="./assets/img/plus button v1.png" />
+        </div>
+      </div>
+      <div class="boardDone">
+        <div class="boxHeader">
+          <h2>Done</h2>
+          <img class="pointer" src="./assets/img/plus button v1.png" />
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
