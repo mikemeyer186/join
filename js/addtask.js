@@ -87,18 +87,6 @@ function pushSubtaskLocalStorage() {
   localStorage.setItem("subtasks", JSON.stringify(subTasks));
   renderSubTask();
 }
-/** 
- * clear Contact input 
- */
-function clearCategoryInput() {
-  document.getElementById('newCategoryText').value = ``; 
-}
-/**
- * clear Email input 
- */
-function clearContactInput() {
-  document.getElementById('selectContact').value = ``; 
-}
 /**
  * clear subtask input 
  */
@@ -118,18 +106,48 @@ function taskClear() {
   window.location.reload(); 
 }
 /**
+ * rechange the contact input in a selector 
+ */
+function rechangeContactInput() {
+  document.getElementById('selectorContact').innerHTML = `
+  <select id="selectContact" class="selectors pointer">
+  <option value="" disabled selected>
+    Select contacts to assign
+  </option>
+  <option value="you">You</option>
+  <option value="Maximilian Vogel">Maximilian Vogel</option>
+  <option value="" onclick="changeInputContact()">
+    Invite new contact
+  </option>
+  </select>`; 
+}
+/**
  * Change the contact selector in a input field
  */
 function changeInputContact() {
   document.getElementById("selectorContact").innerHTML = `
   <div>
   <div class="checkAndCrossIconsEmail">
-        <i onclick="clearContactInput()" class="fa-solid fa-xmark fa-xl contactX pointer"></i> 
+        <i onclick="rechangeContactInput()" class="fa-solid fa-xmark fa-xl contactX pointer"></i> 
         <img src="./assets/img/icons/trennstrich.png">
         <i onclick="" class=" pointer fa-solid fa-check fa-xl contactCheck"></i>
         </div>
   <input id="selectContact" type="text" placeholder="Contact email">
   </div>`;
+}
+/**
+ * rechange the category input
+ */
+function rechangeCategoryInput() {
+  document.getElementById('selectorCategory').innerHTML = `
+  <select id="selectCategory" class="selectors pointer">
+  <option value="" disabled selected>Select task category</option>
+  <option onclick="changeInputCategory(); renderSubTask();" value="newCategory">
+    New category
+  </option>
+  <option value="sales">Sales</option>
+  <option value="backoffice">Backoffice</option>
+  </select>`;
 }
 /**
  * Change the Category selector in a input field
@@ -138,7 +156,7 @@ function changeInputCategory() {
   document.getElementById("selectorCategory").innerHTML = `
   <div class="inputCategory">
   <div class="checkAndCrossIconsCategory">
-        <i onclick="clearCategoryInput()" class="fa-solid fa-xmark fa-xl pointer"></i> 
+        <i onclick="rechangeCategoryInput()" class="fa-solid fa-xmark fa-xl pointer"></i> 
         <img src="./assets/img/icons/trennstrich.png">
         <i onclick="" class="fa-solid fa-check fa-xl pointer"></i>
       </div>
