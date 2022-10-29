@@ -26,6 +26,7 @@ async function addTask() {
     taskID: tasks.length,
     priority: prioritySelect,
     assignedTo: selectContact,
+    taskStatus: "todo"
   });
   await pushTasksinBackend();
   window.location.href = "board.html"
