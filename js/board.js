@@ -8,6 +8,7 @@ async function boardOnload() {
 function renderTasksinBoard() {
     for(let i = 0; i < tasks.length; i++) {
             document.getElementById("boardTodo").innerHTML += `
+            <div class="boardBox">
             <div class="boardBoxContent">
             <p class="boardBoxCategory">${tasks[i].taskCategory}</p>
             <h4 class="boardBoxTitle">${tasks[i].taskTitle}</h4>
@@ -19,6 +20,6 @@ function renderTasksinBoard() {
               <img src="./assets/img/icon${tasks[i].priority}.png" />
             </div>
           </div>`;
-        
     }
+    console.log("Tasks successfully loaded into board!");
 }
