@@ -11,7 +11,7 @@ function addTaskOnload() {
 /**
  * Push JSON in tasks
  */
-function addTask() {
+async function addTask() {
   let taskInputTitle = document.getElementById("inputTitle").value;
   let selectContact = document.getElementById("selectContact").value;
   let dueDate = document.getElementById("selectDate").value;
@@ -27,7 +27,8 @@ function addTask() {
     priority: prioritySelect,
     assignedTo: selectContact,
   });
-  pushTasksinBackend();
+  await pushTasksinBackend();
+  window.location.href = "board.html"
 }
 
 async function pushTasksinBackend() {

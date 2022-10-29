@@ -13,7 +13,7 @@ function renderTasksinBoard() {
             <p class="boardBoxCategory">${tasks[i].taskCategory}</p>
             <h4 class="boardBoxTitle">${tasks[i].taskTitle}</h4>
             <p class="boardBoxDescription">
-              ${tasks[i].description}
+              ${tasks[i].taskDescription}
             </p>
             <div class="boardBoxFooter">
               <div class="boxContacts"></div>
