@@ -22,25 +22,25 @@
       <button>Add task +</button>
     </div>
     <div class="boardContent">
-      <div id="boardTodo">
+      <div id="boardTodo" ondrop="drop('todo')" ondragover="allowDrop(event)">
         <div class="boxHeader">
           <h2>To do</h2>
           <img class="pointer" src="./assets/img/plus button v1.png" />
         </div>
       </div>
-      <div id="boardProgress">
+      <div id="boardProgress" ondrop="drop('progress')" ondragover="allowDrop(event)">
         <div class="boxHeader">
           <h2>In progress</h2>
           <img class="pointer" src="./assets/img/plus button v1.png" />
         </div>
       </div>
-      <div id="boardFeedback">
+      <div id="boardFeedback" ondrop="drop('feedback')" ondragover="allowDrop(event)">
         <div class="boxHeader">
           <h2>Await feedback</h2>
           <img class="pointer" src="./assets/img/plus button v1.png" />
         </div>
       </div>
-      <div id="boardDone">
+      <div id="boardDone" ondrop="drop('done')" ondragover="allowDrop(event)">
         <div class="boxHeader">
           <h2>Done</h2>
           <img class="pointer" src="./assets/img/plus button v1.png" />
