@@ -7,14 +7,13 @@ async function boardOnload() {
     renderTasksinBoard();
 }
 function renderTasksinBoard() {
+  document.getElementById("boardTodoContent").innerHTML = ``;
+  document.getElementById("boardProgressContent").innerHTML = ``;
+  document.getElementById("boardFeedbackContent").innerHTML = ``;
+  document.getElementById("boardDoneContent").innerHTML = ``;
     for(let i = 0; i < tasks.length; i++) {
       if(tasks[i].taskStatus == "todo") {
-            document.getElementById("boardTodo").innerHTML = ``;
-            document.getElementById("boardTodo").innerHTML += `
-            <div class="boxHeader">
-            <h2>To do</h2>
-            <img class="pointer" src="./assets/img/plus button v1.png" />
-            </div>
+            document.getElementById("boardTodoContent").innerHTML += `
             <div draggable="true" ondragstart="startDraggin(${tasks[i].taskID})" class="boardBox">
             <div class="boardBoxContent">
             <p class="boardBoxCategory">${tasks[i].taskCategory}</p>
@@ -29,12 +28,7 @@ function renderTasksinBoard() {
           </div>`;
     } 
     if (tasks[i].taskStatus == "progress") {
-      document.getElementById("boardProgress").innerHTML = ``;
-      document.getElementById("boardProgress").innerHTML += `
-            <div class="boxHeader">
-            <h2>In progress</h2>
-            <img class="pointer" src="./assets/img/plus button v1.png" />
-            </div>
+      document.getElementById("boardProgressContent").innerHTML += `
             <div draggable="true" ondragstart="startDraggin(${tasks[i].taskID})" class="boardBox">
             <div class="boardBoxContent">
             <p class="boardBoxCategory">${tasks[i].taskCategory}</p>
@@ -49,12 +43,7 @@ function renderTasksinBoard() {
           </div>`;
     }
     if (tasks[i].taskStatus == "feedback") {
-      document.getElementById("boardFeedback").innerHTML = ``;
-      document.getElementById("boardFeedback").innerHTML += `
-            <div class="boxHeader">
-            <h2>Await feedback</h2>
-            <img class="pointer" src="./assets/img/plus button v1.png" />
-            </div>
+      document.getElementById("boardFeedbackContent").innerHTML += `
             <div draggable="true" ondragstart="startDraggin(${tasks[i].taskID})" class="boardBox">
             <div class="boardBoxContent">
             <p class="boardBoxCategory">${tasks[i].taskCategory}</p>
@@ -69,12 +58,7 @@ function renderTasksinBoard() {
           </div>`;
     }
     if (tasks[i].taskStatus == "done") {
-      document.getElementById("boardDone").innerHTML = ``;
-      document.getElementById("boardDone").innerHTML += `
-            <div class="boxHeader">
-            <h2>Done</h2>
-            <img class="pointer" src="./assets/img/plus button v1.png" />
-            </div>
+      document.getElementById("boardDoneContent").innerHTML += `
             <div draggable="true" ondragstart="startDraggin(${tasks[i].taskID})" class="boardBox">
             <div class="boardBoxContent">
             <p class="boardBoxCategory">${tasks[i].taskCategory}</p>
@@ -92,12 +76,12 @@ function renderTasksinBoard() {
   }
 }
 function startDraggin(id){
-  currentDraggedElement = id - 1;
+  currentDraggedElement = id;
 }
 function allowDrop(ev){
   ev.preventDefault();
 }
-function drop(status) {
+async function drop(status) {
   tasks[currentDraggedElement]['taskStatus'] = status;
   renderTasksinBoard();
 }
