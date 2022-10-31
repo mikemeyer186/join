@@ -5,7 +5,7 @@ function highlightedLegalNotice() {
     document.getElementById("navBoard").classList.remove('navHighlighted');
     document.getElementById("navTask").classList.remove('navHighlighted');
     document.getElementById("navContacts").classList.remove('navHighlighted');
-    document.getElementById("legalNotice").classList.add('legalNoticeHighlighted');
+    document.getElementById("legalNotice").classList.add('navHighlighted');
     document.getElementById("legalNoticeInfoIcon").src ="./assets/img/icons/infoIconHighlighted.png";
   }
 function highlightedNavbar(i) {
@@ -15,7 +15,7 @@ function highlightedNavbar(i) {
     document.getElementById("navBoard").classList.remove('navHighlighted');
     document.getElementById("navTask").classList.remove('navHighlighted');
     document.getElementById("navContacts").classList.remove('navHighlighted');
-    document.getElementById("legalNotice").classList.remove('legalNoticeHighlighted');
+    document.getElementById("legalNotice").classList.remove('navHighlighted');
     document.getElementById("legalNoticeInfoIcon").src ="./assets/img/icons/iconInfo.png";
     }
     if (index == 2) {
@@ -23,7 +23,7 @@ function highlightedNavbar(i) {
     document.getElementById("navBoard").classList.add('navHighlighted');
     document.getElementById("navTask").classList.remove('navHighlighted');
     document.getElementById("navContacts").classList.remove('navHighlighted');
-    document.getElementById("legalNotice").classList.remove('legalNoticeHighlighted');
+    document.getElementById("legalNotice").classList.remove('navHighlighted');
     document.getElementById("legalNoticeInfoIcon").src ="./assets/img/icons/iconInfo.png";
     }
     if (index == 3) {
@@ -31,7 +31,7 @@ function highlightedNavbar(i) {
     document.getElementById("navBoard").classList.remove('navHighlighted');
     document.getElementById("navTask").classList.add('navHighlighted');
     document.getElementById("navContacts").classList.remove('navHighlighted');
-    document.getElementById("legalNotice").classList.remove('legalNoticeHighlighted');
+    document.getElementById("legalNotice").classList.remove('navHighlighted');
     document.getElementById("legalNoticeInfoIcon").src ="./assets/img/icons/iconInfo.png";
     }
     if (index == 4) {
@@ -39,7 +39,7 @@ function highlightedNavbar(i) {
     document.getElementById("navBoard").classList.remove('navHighlighted');
     document.getElementById("navTask").classList.remove('navHighlighted');
     document.getElementById("navContacts").classList.add('navHighlighted');
-    document.getElementById("legalNotice").classList.remove('legalNoticeHighlighted');
+    document.getElementById("legalNotice").classList.remove('navHighlighted');
     document.getElementById("legalNoticeInfoIcon").src ="./assets/img/icons/iconInfo.png";
     }
 }
