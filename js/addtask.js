@@ -7,19 +7,16 @@ function addTaskOnload() {
   loadTasksfromBackend();
   getSelectedSubtask();
 }
-
 /**
  * Push JSON in tasks
  */
 async function addTask() {
-  let localUser = [userAccounts[activeUser]];
-  console.log(localUser.userTasks);
   let taskInputTitle = document.getElementById("inputTitle").value;
   let selectContact = document.getElementById("selectContact").value;
   let dueDate = document.getElementById("selectDate").value;
   let selectCategory = document.getElementById("selectCategory").value;
   let description = document.getElementById("inputDescription").value;
-  tasks.push({
+  tasks.push({ 
     taskTitle: taskInputTitle,
     taskDescription: description,
     toDueDate: dueDate,
@@ -30,13 +27,14 @@ async function addTask() {
     assignedTo: selectContact,
     taskStatus: "todo"
   });
-  userAccounts[activeUser].userTasks.push(tasks.length);
-  console.log(localUser);
+  userAccounts[activeUser].userTasks.push(tasks.length); // User account get task id
   localStorage.setItem("activeUser", JSON.stringify(userAccounts[activeUser]));
   await pushTasksinBackend();
-  window.location.href = "board.html"
+  window.location.href = "board.html" // go to board side
 }
-
+/**
+ * Push the tasks in the backend and gives report. 
+ */
 async function pushTasksinBackend() {
   await backend.setItem("tasks", JSON.stringify(tasks));
   console.log('Pushed in backend succes!')
@@ -163,7 +161,7 @@ function changeInputCategory() {
   </div>`;
 }
 /**
- * priority change color
+ * priority change color and gives value
  */
 function prioritySelected(i) {
   if (i == 1) {

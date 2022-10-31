@@ -1,4 +1,5 @@
-var currentDraggedElement;
+// drag and drop variable for task id 
+var currentDraggedElement; 
 // body onload functions 
 async function boardOnload() {
     await init(2);
@@ -6,6 +7,9 @@ async function boardOnload() {
     await downloadFromServer();
     renderTasksinBoard();
 }
+/**
+ * this function is rendering the task boxes in the board 
+ */
 function renderTasksinBoard() {
   document.getElementById("boardTodoContent").innerHTML = ``;
   document.getElementById("boardProgressContent").innerHTML = ``;
@@ -75,18 +79,26 @@ function renderTasksinBoard() {
   }
   console.log("Tasks successfully loaded into board!");
 }
+/**
+ * save the dragged element 
+ */
 function startDraggin(id){
   currentDraggedElement = id;
 }
+/**
+ * allows the drop in this area  
+ */
 function allowDrop(ev){
   ev.preventDefault();
 }
+/**
+ * task status change by dropping 
+ */
 async function drop(status) {
   tasks[currentDraggedElement]['taskStatus'] = status;
   renderTasksinBoard();
   pushTasksinBackend();
 }
-
 /**
  * showing popup "Add task"
  */
@@ -99,14 +111,12 @@ async function drop(status) {
   }, 10);
 }
 /**
- * hiding popup "new contact"
+ * hiding popup "add Task"
  */
  function hideNewContactPopUp() {
   document.getElementById('popup-addTask').classList.remove('popup-slideIn');
   document.getElementById('popup-bg').classList.add('no-opacity');
-
   setTimeout(() => {
       document.getElementById('popup-bg').classList.add('d-none');
   }, 250);
 }
-

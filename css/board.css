@@ -1,425 +1,424 @@
 body {
-    height: 100vh;
-    overflow-x: hidden;
+  height: 100vh;
+  overflow-x: hidden;
 }
 .pointer:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 .boardFindandAddtask {
-    display: flex; 
-    align-items: center;
-    margin-top: 70px;
-    margin-bottom: 70px;
-    margin-left: 285px;
+  display: flex;
+  align-items: center;
+  margin-top: 70px;
+  margin-bottom: 70px;
+  margin-left: 285px;
 }
 .boardFindandAddtask button {
-    font-size: 22px;
-    color: white;
-    border: 1px solid #4589FF;
-    border-radius: 10px;
-    background-color: #4589FF;
-    width: 140px;
-    height: 50px; 
+  font-size: 22px;
+  color: white;
+  border: 1px solid #4589ff;
+  border-radius: 10px;
+  background-color: #4589ff;
+  width: 140px;
+  height: 50px;
 }
-.boardFindandAddtask input  {
-    border-radius: 10px;
-    border: 1px solid #D1D1D1;
-    margin-right: 35px;
-    height: 50px; 
-    width: 250px;
-    padding-left: 25px; 
-    padding-right: 25px;  
+.boardFindandAddtask input {
+  border-radius: 10px;
+  border: 1px solid #d1d1d1;
+  margin-right: 35px;
+  height: 50px;
+  width: 250px;
+  padding-left: 25px;
+  padding-right: 25px;
 }
 .boardFindandAddtask input::placeholder {
-    color: #D1D1D1;
+  color: #d1d1d1;
 }
 .boardContent {
-    display: flex;
-    margin-left: 230px; 
-    gap: 50px;
+  display: flex;
+  margin-left: 230px;
+  gap: 50px;
 }
 #boardTodo {
-    height: 100vh;
-    margin-left: 50px; 
-    width: 25%;
+  height: 100vh;
+  margin-left: 50px;
+  width: 25%;
 }
 #boardProgress {
-    height: 100vh;
-    width: 25%;
+  height: 100vh;
+  width: 25%;
 }
 #boardFeedback {
-    height: 100vh;
-    width: 25%;
+  height: 100vh;
+  width: 25%;
 }
 #boardDone {
-    height: 100vh;
-    width: 25%;
+  height: 100vh;
+  width: 25%;
 }
 .boxHeader {
-    display: flex; 
-    justify-content: space-around;
-    align-items: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 .boxHeader h2 {
-    color: #42526E;
+  color: #42526e;
 }
 .boxHeader img {
-    object-fit: cover;
-    width: 30px;
-    height: 30px;
+  object-fit: cover;
+  width: 30px;
+  height: 30px;
 }
 .boardBox {
-    margin-top: 20px; 
-    box-shadow: 0px 0px 8px 3px rgba(0, 0, 0, 0.048);
-    width: 100%;
-    border: 1px solid #D1D1D1;
-    border-radius: 1em;
+  margin-top: 20px;
+  box-shadow: 0px 0px 8px 3px rgba(0, 0, 0, 0.048);
+  width: 100%;
+  border: 1px solid #d1d1d1;
+  border-radius: 1em;
 }
 .boardBoxCategory {
-    border-radius: 0.5em;
-    color: white;
-    padding-top: 6px; 
-    padding-bottom: 4px; 
-    background-color: #FF7A00;
-    margin-top: 20px; 
-    padding-left: 25px;
-    width: 100px;
+  border-radius: 0.5em;
+  color: white;
+  padding-top: 6px;
+  padding-bottom: 4px;
+  background-color: #ff7a00;
+  margin-top: 20px;
+  padding-left: 25px;
+  width: 100px;
 }
 .boardBoxContent {
-    margin-left: 20px; 
+  margin-left: 20px;
 }
 .boardBoxContent h4 {
-    color: #4589FF;
-    margin-bottom: 0; 
+  color: #4589ff;
+  margin-bottom: 0;
 }
 .boardBoxDescription {
-    color: #A8A8A8;
+  color: #a8a8a8;
 }
 .boardBoxFooter img {
-    margin-right: 20px; 
+  margin-right: 20px;
 }
 .boardBoxFooter {
-    display: flex; 
-    justify-content: space-between;
-    margin-bottom: 20px; 
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 #popup-bg,
 #popup-bg-edit {
-    position: absolute;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    top: 0;
-    background-color: rgba(255, 255, 255, 0.4);
-    z-index: 2;
-    opacity: 1;
-    transition: all 225ms ease-in-out;
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.4);
+  z-index: 2;
+  opacity: 1;
+  transition: all 225ms ease-in-out;
 }
 #popup-addTask,
 #popup-addTask-edit {
-    position: relative; 
-    float: right;
-    width: 580px;
-    height: 100%;
-    background: #ffffff;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
-    border-radius: 30px 0px 30px 30px;
-    transform: translateX(600px);
-    transition: all 225ms ease-in-out;
+  position: relative;
+  float: right;
+  width: 580px;
+  height: 100%;
+  background: #ffffff;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
+  border-radius: 30px 0px 30px 30px;
+  transform: translateX(600px);
+  transition: all 225ms ease-in-out;
 }
 .popup-addTask-top {
-    display: flex; 
-    justify-content: space-around;
-    align-items: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 .popup-addTask-top h1 {
-    font-size: 50px;
-    padding-top: 30px;
-    padding-left: 10px;  
+  font-size: 50px;
+  padding-top: 30px;
+  padding-left: 10px;
 }
 .popup-slideIn {
-    transform: translateX(0) !important;
-    transition: all 225ms ease-in-out !important;
+  transform: translateX(0) !important;
+  transition: all 225ms ease-in-out !important;
 }
 .d-none {
-    display: none !important;
+  display: none !important;
 }
 .no-opacity {
-    opacity: 0 !important;
-    transition: all 225ms ease-in-out;
+  opacity: 0 !important;
+  transition: all 225ms ease-in-out;
 }
 .popup-close-icon-gray {
-    position: absolute;
-    width: 32px;
-    top: 22px;
-    right: 22px;
-    cursor: pointer;
+  position: absolute;
+  width: 32px;
+  top: 22px;
+  right: 22px;
+  cursor: pointer;
 }
 .buttonCreate {
-    margin-top: 25px; 
-    padding: 15px 20px 15px 20px;
-    color: white;
-    background-color: #4589ff;
-    font-size: 20px;
-    border-radius: 0.5em;
-    border: none;
+  margin-top: 25px;
+  padding: 15px 20px 15px 20px;
+  color: white;
+  background-color: #4589ff;
+  font-size: 20px;
+  border-radius: 0.5em;
+  border: none;
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+form input {
+  padding: 10px 20px;
+  width: 500px;
+
+  margin-bottom: 20px;
+}
+form select {
+  font-size: 25px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  height: 50px;
+  border-top: none;
+  border-color: #d1d1d1;
+  border-left: none;
+  border-right: none;
+  width: 500px;
+}
+form h3 {
+  color: #42526e;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+#inputTitle {
+  font-size: 40px;
+  border: 1px solid #d1d1d1;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.inputFields input::placeholder {
+  color: #d1d1d1;
+}
+.inputFields {
+  margin-top: 0;
+  margin-left: 40px;
+}
+#importanceLvl {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.selectors {
+  border: 1px solid #d1d1d1;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background-color: #ffffff;
+  padding: 10px 20px;
+  font-size: 20px;
+  margin-top: 10px;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-  }
-  form input {
-    padding: 10px 20px;
-    width: 500px;
-  
-    margin-bottom: 20px;
-  }
-  form select {
-    font-size: 25px;
-    margin-top: 40px;
-    margin-bottom: 20px; 
-    padding-left: 10px;
-    height: 50px;
-    border-top: none;
-    border-color: #d1d1d1;
-    border-left: none;
-    border-right: none;
-    width: 500px;
-  }
-  form h3 {
-    color: #42526e;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-  #inputTitle {
-    font-size: 40px;
-    border: 1px solid #d1d1d1;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-  }
-  .inputFields input::placeholder {
-    color: #d1d1d1;
-  }
-  .inputFields {
-    margin-top: 0;
-    margin-left: 40px;
-  }
-  #importanceLvl {
-    margin-top: 10px;
-    margin-bottom: 20px;
-  }
-  .selectors {
-    border: 1px solid #d1d1d1;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    background-color: #ffffff;
-    padding: 10px 20px;
-    font-size: 20px;
-    margin-top: 10px;
-  }
-  
-  #selectDate {
-    border: 1px solid #d1d1d1;
-    margin-top: 15px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    font-size: 20px;
-  }
-  .selectDate::placeholder {
-    color: gray;
-  }
-  #inputDescription {
-    border-style: solid;
-    border: 1px solid #d1d1d1;
-    margin-top: 10px;
-    font-size: 20px;
-    padding-top: 20px;
-    padding-left: 25px;
-    padding-right: 50px;
-    padding-bottom: 75px;
-    border-top-right-radius: 0.5em;
-    border-bottom-left-radius: 0.5em;
-    border-bottom-right-radius: 0.5em;
-  }
-  #subtaskTitle {
-    margin-top: 0px !important;
-  }
-  #subtaskText {
-    margin-bottom: 8px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-  }
-  #subtaskText::placeholder {
-    font-size: 16px;
-  }
-  .taskFooter {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  #addSubtaskCheckbox input {
-    border-color: #4589ff;
-    margin-right: 20px;
-    width: 16px;
-  }
-  #addSubtaskCheckbox {
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-  }
-  .subtaskList {
-    display: flex;
-    margin-top: 10px;
-  }
-  .subtaskList input {
-    margin: 0;
-    padding: 0;
-  }
-  .subtaskList p {
-    margin: 0;
-    padding: 0;
-  }
-  .taskFooterButtons {
-    margin-right: 100px;
-  }
-  .taskFooterButtons button {
-    margin-left: 25px;
-  }
-  #buttonClear {
-    padding: 15px 30px;
-    border-style: solid;
-    border-radius: 0.5em;
-    background-color: white;
-    color: #647188;
-    font-size: 20px;
-    border: 1px solid #647188;
-    border-color: #647188;
-  }
-  #buttonCreate {
-    padding: 15px 20px;
-    color: white;
-    background-color: #4589ff;
-    font-size: 20px;
-    border-radius: 0.5em;
-    border: none;
-  }
-  #buttonCreate:hover{
-    cursor: pointer;
-  }
-  #buttonClear:hover {
-    cursor: pointer;
-  }
-  #selectContact {
-    margin-top: 10px;
-    border: 1px solid #d1d1d1;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-  }
-  #newContactText::placeholder {
-    font-size: 16px;
-  }
-  #newCategoryText::placeholder {
-    font-size: 16px;
-  }
-  #newCategoryText {
-    margin-top: 15px;
-    margin-bottom: 0;
-    border: 1px solid #d1d1d1;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-  }
-  .importanceHard:hover {
-    border: 2px solid #FF3D00;
-    border-bottom-left-radius: 1em; 
-    border-bottom-right-radius: 1em;  
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    cursor: pointer;
-  }
-  .importanceMid:hover {
-    border: 2px solid #FFA800;
-    border-bottom-left-radius: 1em; 
-    border-bottom-right-radius: 1em;  
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    cursor: pointer;
-  }
-  .importanceLow:hover {
-    border: 2px solid #7AE229;
-    border-bottom-left-radius: 1em; 
-    border-bottom-right-radius: 1em; 
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    cursor: pointer;
-  }
-  .inputCategory{
-    display: flex; 
-    flex-direction: column;
-  }
-  .categoryColor:hover {
-    cursor: pointer;
-    border-radius: 3em;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  }
-  .checkSelector {
-    width: 20px;
-    position: relative;
-  }
-  .fa-calendar-minus {
-    color: #4589FF;
-    position: relative;
-    width: 30px;
-    left: 460px;
-    top: 47px;
-  }
-  .fa-check {
-    padding-left: 10px; 
-    padding-top: 3px; 
-    width: 23px;
-    color: #4589FF;
-  }
-  .checkAndCrossIcons{
-    display: flex; 
-    position: relative;
-    z-index: 2;
-    top: 33px;
-    left: 430px;
-  }
-  .checkAndCrossIcons p{
-    padding: 5px;
-  }
-  .fa-xmark {
-    color: #4589FF;
-    padding-right: 12px;
-    padding-top: 3px;  
-  }
-  .checkAndCrossIconsEmail {
-    position: relative;
-    width: 100px;
-    top: 49px;
-    left: 430px; 
-  }
-  .contactX {
-    padding-bottom: 10px; 
-    padding-right: 8px; 
-  }
-  .contactCheck {
-    padding-bottom: 10px; 
-    padding-left: 5px; 
-  }
-  .checkAndCrossIconsCategory{
-    display: flex; 
-    position: relative;
-    top: 10px;
-    left: 10px;
-  }
+#selectDate {
+  border: 1px solid #d1d1d1;
+  margin-top: 15px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-size: 20px;
+}
+.selectDate::placeholder {
+  color: gray;
+}
+#inputDescription {
+  border-style: solid;
+  border: 1px solid #d1d1d1;
+  margin-top: 10px;
+  font-size: 20px;
+  padding-top: 20px;
+  padding-left: 25px;
+  padding-right: 50px;
+  padding-bottom: 75px;
+  border-top-right-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+}
+#subtaskTitle {
+  margin-top: 0px !important;
+}
+#subtaskText {
+  margin-bottom: 8px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+#subtaskText::placeholder {
+  font-size: 16px;
+}
+.taskFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#addSubtaskCheckbox input {
+  border-color: #4589ff;
+  margin-right: 20px;
+  width: 16px;
+}
+#addSubtaskCheckbox {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.subtaskList {
+  display: flex;
+  margin-top: 10px;
+}
+.subtaskList input {
+  margin: 0;
+  padding: 0;
+}
+.subtaskList p {
+  margin: 0;
+  padding: 0;
+}
+.taskFooterButtons {
+  margin-right: 100px;
+}
+.taskFooterButtons button {
+  margin-left: 25px;
+}
+#buttonClear {
+  padding: 15px 30px;
+  border-style: solid;
+  border-radius: 0.5em;
+  background-color: white;
+  color: #647188;
+  font-size: 20px;
+  border: 1px solid #647188;
+  border-color: #647188;
+}
+#buttonCreate {
+  padding: 15px 20px;
+  color: white;
+  background-color: #4589ff;
+  font-size: 20px;
+  border-radius: 0.5em;
+  border: none;
+}
+#buttonCreate:hover {
+  cursor: pointer;
+}
+#buttonClear:hover {
+  cursor: pointer;
+}
+#selectContact {
+  margin-top: 10px;
+  border: 1px solid #d1d1d1;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+#newContactText::placeholder {
+  font-size: 16px;
+}
+#newCategoryText::placeholder {
+  font-size: 16px;
+}
+#newCategoryText {
+  margin-top: 15px;
+  margin-bottom: 0;
+  border: 1px solid #d1d1d1;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.importanceHard:hover {
+  border: 2px solid #ff3d00;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  cursor: pointer;
+}
+.importanceMid:hover {
+  border: 2px solid #ffa800;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  cursor: pointer;
+}
+.importanceLow:hover {
+  border: 2px solid #7ae229;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  cursor: pointer;
+}
+.inputCategory {
+  display: flex;
+  flex-direction: column;
+}
+.categoryColor:hover {
+  cursor: pointer;
+  border-radius: 3em;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.checkSelector {
+  width: 20px;
+  position: relative;
+}
+.fa-calendar-minus {
+  color: #4589ff;
+  position: relative;
+  width: 30px;
+  left: 460px;
+  top: 47px;
+}
+.fa-check {
+  padding-left: 10px;
+  padding-top: 3px;
+  width: 23px;
+  color: #4589ff;
+}
+.checkAndCrossIcons {
+  display: flex;
+  position: relative;
+  z-index: 2;
+  top: 33px;
+  left: 430px;
+}
+.checkAndCrossIcons p {
+  padding: 5px;
+}
+.fa-xmark {
+  color: #4589ff;
+  padding-right: 12px;
+  padding-top: 3px;
+}
+.checkAndCrossIconsEmail {
+  position: relative;
+  width: 100px;
+  top: 49px;
+  left: 430px;
+}
+.contactX {
+  padding-bottom: 10px;
+  padding-right: 8px;
+}
+.contactCheck {
+  padding-bottom: 10px;
+  padding-left: 5px;
+}
+.checkAndCrossIconsCategory {
+  display: flex;
+  position: relative;
+  top: 10px;
+  left: 10px;
+}

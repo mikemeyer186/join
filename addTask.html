@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="https://kit.fontawesome.com/362dd1e776.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/362dd1e776.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="icon" href="./assets/img/logo_join.png" type="image/png" />
     <link rel="stylesheet" href="./css/main.css" />
     <link rel="stylesheet" href="./css/addTask.css" />
@@ -19,7 +22,12 @@
     <div w3-include-html=".\assets\templates\menuDesktop.html"></div>
     <div class="inputFields">
       <form>
-        <input id="inputTitle" type="text" placeholder="Enter a title" required/>
+        <input
+          id="inputTitle"
+          type="text"
+          placeholder="Enter a title"
+          required
+        />
         <div id="selectorContact">
           <select id="selectContact" class="selectors pointer">
             <option value="" disabled selected>
@@ -54,9 +62,27 @@
           </select>
         </div>
         <div id="importanceLvl">
-          <img class="importanceHard" id="importanceIMGHard" value="taskHard" onclick="prioritySelected(1)" src="./assets/img/TaskValueHard.png" />
-          <img class="importanceMid" id="importanceIMGMid" value="taskMid" onclick="prioritySelected(2)" src="./assets/img/TaskValueMid.png" />
-          <img class="importanceLow" id="importanceIMGLow" value="taskLow" onclick="prioritySelected(3)" src="./assets/img/TaskValueLow.png" />
+          <img
+            class="importanceHard"
+            id="importanceIMGHard"
+            value="taskHard"
+            onclick="prioritySelected(1)"
+            src="./assets/img/TaskValueHard.png"
+          />
+          <img
+            class="importanceMid"
+            id="importanceIMGMid"
+            value="taskMid"
+            onclick="prioritySelected(2)"
+            src="./assets/img/TaskValueMid.png"
+          />
+          <img
+            class="importanceLow"
+            id="importanceIMGLow"
+            value="taskLow"
+            onclick="prioritySelected(3)"
+            src="./assets/img/TaskValueLow.png"
+          />
         </div>
         <h3>Description</h3>
         <input
@@ -67,16 +93,24 @@
         />
         <h3 id="subtaskTitle">Subtasks</h3>
         <div class="checkAndCrossIcons">
-        <i onclick="clearSubtask()" class="fa-solid fa-xmark fa-xl pointer"></i> 
-        <img src="./assets/img/icons/trennstrich.png">
-        <i onclick="pushSubtaskLocalStorage()" class="fa-solid fa-check fa-xl pointer"></i>
-      </div>
+          <i
+            onclick="clearSubtask()"
+            class="fa-solid fa-xmark fa-xl pointer"
+          ></i>
+          <img src="./assets/img/icons/trennstrich.png" />
+          <i
+            onclick="pushSubtaskLocalStorage()"
+            class="fa-solid fa-check fa-xl pointer"
+          ></i>
+        </div>
         <input id="subtaskText" type="text" placeholder="Add new subtask" />
         <div class="taskFooter">
           <div id="addSubtaskCheckbox"></div>
           <div class="taskFooterButtons">
             <button id="buttonClear" onclick="taskClear()">Clear X</button>
-            <button id="buttonCreate" onclick="addTask(); return false">Create Task ✓</button>
+            <button id="buttonCreate" onclick="addTask(); return false">
+              Create Task ✓
+            </button>
           </div>
         </div>
       </form>

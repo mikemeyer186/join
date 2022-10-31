@@ -1,4 +1,3 @@
-
 form {
   display: flex;
   flex-direction: column;
@@ -140,7 +139,7 @@ form h3 {
   border-radius: 0.5em;
   border: none;
 }
-#buttonCreate:hover{
+#buttonCreate:hover {
   cursor: pointer;
 }
 #buttonClear:hover {
@@ -168,34 +167,34 @@ form h3 {
   border-right: none;
 }
 .importanceHard:hover {
-  border: 2px solid #FF3D00;
-  border-bottom-left-radius: 1em; 
-  border-bottom-right-radius: 1em;  
+  border: 2px solid #ff3d00;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
   border-top: none;
   border-left: none;
   border-right: none;
   cursor: pointer;
 }
 .importanceMid:hover {
-  border: 2px solid #FFA800;
-  border-bottom-left-radius: 1em; 
-  border-bottom-right-radius: 1em;  
+  border: 2px solid #ffa800;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
   border-top: none;
   border-left: none;
   border-right: none;
   cursor: pointer;
 }
 .importanceLow:hover {
-  border: 2px solid #7AE229;
-  border-bottom-left-radius: 1em; 
-  border-bottom-right-radius: 1em; 
+  border: 2px solid #7ae229;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
   border-top: none;
   border-left: none;
   border-right: none;
   cursor: pointer;
 }
-.inputCategory{
-  display: flex; 
+.inputCategory {
+  display: flex;
   flex-direction: column;
 }
 .categoryColor:hover {
@@ -208,48 +207,48 @@ form h3 {
   position: relative;
 }
 .fa-calendar-minus {
-  color: #4589FF;
+  color: #4589ff;
   position: relative;
   width: 30px;
   left: 460px;
   top: 47px;
 }
 .fa-check {
-  padding-left: 10px; 
-  padding-top: 3px; 
+  padding-left: 10px;
+  padding-top: 3px;
   width: 23px;
-  color: #4589FF;
+  color: #4589ff;
 }
-.checkAndCrossIcons{
-  display: flex; 
+.checkAndCrossIcons {
+  display: flex;
   position: relative;
   top: 33px;
   left: 430px;
 }
-.checkAndCrossIcons p{
+.checkAndCrossIcons p {
   padding: 5px;
 }
 .fa-xmark {
-  color: #4589FF;
+  color: #4589ff;
   padding-right: 12px;
-  padding-top: 3px;  
+  padding-top: 3px;
 }
 .checkAndCrossIconsEmail {
   position: relative;
   width: 100px;
   top: 49px;
-  left: 430px; 
+  left: 430px;
 }
 .contactX {
-  padding-bottom: 10px; 
-  padding-right: 8px; 
+  padding-bottom: 10px;
+  padding-right: 8px;
 }
 .contactCheck {
-  padding-bottom: 10px; 
-  padding-left: 5px; 
+  padding-bottom: 10px;
+  padding-left: 5px;
 }
-.checkAndCrossIconsCategory{
-  display: flex; 
+.checkAndCrossIconsCategory {
+  display: flex;
   position: relative;
   top: 49px;
   left: 430px;
