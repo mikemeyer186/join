@@ -166,6 +166,30 @@ form h3 {
   border-left: none;
   border-right: none;
 }
+.importanceHard {
+  border: 2px solid #ffffff;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.importanceMid {
+  border: 2px solid #ffffff;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.importanceLow {
+  border: 2px solid #ffffff;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
 .importanceHard:hover {
   border: 2px solid #ff3d00;
   border-bottom-left-radius: 1em;
