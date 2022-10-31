@@ -12,6 +12,8 @@ function addTaskOnload() {
  * Push JSON in tasks
  */
 async function addTask() {
+  let localUser = [userAccounts[activeUser]];
+  console.log(localUser.userTasks);
   let taskInputTitle = document.getElementById("inputTitle").value;
   let selectContact = document.getElementById("selectContact").value;
   let dueDate = document.getElementById("selectDate").value;
@@ -28,6 +30,9 @@ async function addTask() {
     assignedTo: selectContact,
     taskStatus: "todo"
   });
+  userAccounts[activeUser].userTasks.push(tasks.length);
+  console.log(localUser);
+  localStorage.setItem("activeUser", JSON.stringify(userAccounts[activeUser]));
   await pushTasksinBackend();
   window.location.href = "board.html"
 }
