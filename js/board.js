@@ -84,6 +84,7 @@ function allowDrop(ev){
 async function drop(status) {
   tasks[currentDraggedElement]['taskStatus'] = status;
   renderTasksinBoard();
+  pushTasksinBackend();
 }
 
 /**
