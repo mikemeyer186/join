@@ -98,3 +98,323 @@ body {
     justify-content: space-between;
     margin-bottom: 20px; 
 }
+#popup-bg,
+#popup-bg-edit {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.4);
+    z-index: 2;
+    opacity: 1;
+    transition: all 225ms ease-in-out;
+}
+#popup-addTask,
+#popup-addTask-edit {
+    position: relative; 
+    float: right;
+    width: 580px;
+    height: 100%;
+    background: #ffffff;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
+    border-radius: 30px 0px 30px 30px;
+    transform: translateX(600px);
+    transition: all 225ms ease-in-out;
+}
+.popup-addTask-top {
+    display: flex; 
+    justify-content: space-around;
+    align-items: center;
+}
+.popup-addTask-top h1 {
+    font-size: 50px;
+    padding-top: 30px;
+    padding-left: 10px;  
+}
+.popup-slideIn {
+    transform: translateX(0) !important;
+    transition: all 225ms ease-in-out !important;
+}
+.d-none {
+    display: none !important;
+}
+.no-opacity {
+    opacity: 0 !important;
+    transition: all 225ms ease-in-out;
+}
+.popup-close-icon-gray {
+    position: absolute;
+    width: 32px;
+    top: 22px;
+    right: 22px;
+    cursor: pointer;
+}
+.buttonCreate {
+    margin-top: 25px; 
+    padding: 15px 20px 15px 20px;
+    color: white;
+    background-color: #4589ff;
+    font-size: 20px;
+    border-radius: 0.5em;
+    border: none;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+  }
+  form input {
+    padding: 10px 20px;
+    width: 500px;
+  
+    margin-bottom: 20px;
+  }
+  form select {
+    font-size: 25px;
+    margin-top: 40px;
+    margin-bottom: 20px; 
+    padding-left: 10px;
+    height: 50px;
+    border-top: none;
+    border-color: #d1d1d1;
+    border-left: none;
+    border-right: none;
+    width: 500px;
+  }
+  form h3 {
+    color: #42526e;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  #inputTitle {
+    font-size: 40px;
+    border: 1px solid #d1d1d1;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+  }
+  .inputFields input::placeholder {
+    color: #d1d1d1;
+  }
+  .inputFields {
+    margin-top: 0;
+    margin-left: 40px;
+  }
+  #importanceLvl {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  .selectors {
+    border: 1px solid #d1d1d1;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-color: #ffffff;
+    padding: 10px 20px;
+    font-size: 20px;
+    margin-top: 10px;
+  }
+  
+  #selectDate {
+    border: 1px solid #d1d1d1;
+    margin-top: 15px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-size: 20px;
+  }
+  .selectDate::placeholder {
+    color: gray;
+  }
+  #inputDescription {
+    border-style: solid;
+    border: 1px solid #d1d1d1;
+    margin-top: 10px;
+    font-size: 20px;
+    padding-top: 20px;
+    padding-left: 25px;
+    padding-right: 50px;
+    padding-bottom: 75px;
+    border-top-right-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+  }
+  #subtaskTitle {
+    margin-top: 0px !important;
+  }
+  #subtaskText {
+    margin-bottom: 8px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+  }
+  #subtaskText::placeholder {
+    font-size: 16px;
+  }
+  .taskFooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  #addSubtaskCheckbox input {
+    border-color: #4589ff;
+    margin-right: 20px;
+    width: 16px;
+  }
+  #addSubtaskCheckbox {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .subtaskList {
+    display: flex;
+    margin-top: 10px;
+  }
+  .subtaskList input {
+    margin: 0;
+    padding: 0;
+  }
+  .subtaskList p {
+    margin: 0;
+    padding: 0;
+  }
+  .taskFooterButtons {
+    margin-right: 100px;
+  }
+  .taskFooterButtons button {
+    margin-left: 25px;
+  }
+  #buttonClear {
+    padding: 15px 30px;
+    border-style: solid;
+    border-radius: 0.5em;
+    background-color: white;
+    color: #647188;
+    font-size: 20px;
+    border: 1px solid #647188;
+    border-color: #647188;
+  }
+  #buttonCreate {
+    padding: 15px 20px;
+    color: white;
+    background-color: #4589ff;
+    font-size: 20px;
+    border-radius: 0.5em;
+    border: none;
+  }
+  #buttonCreate:hover{
+    cursor: pointer;
+  }
+  #buttonClear:hover {
+    cursor: pointer;
+  }
+  #selectContact {
+    margin-top: 10px;
+    border: 1px solid #d1d1d1;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+  }
+  #newContactText::placeholder {
+    font-size: 16px;
+  }
+  #newCategoryText::placeholder {
+    font-size: 16px;
+  }
+  #newCategoryText {
+    margin-top: 15px;
+    margin-bottom: 0;
+    border: 1px solid #d1d1d1;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+  }
+  .importanceHard:hover {
+    border: 2px solid #FF3D00;
+    border-bottom-left-radius: 1em; 
+    border-bottom-right-radius: 1em;  
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    cursor: pointer;
+  }
+  .importanceMid:hover {
+    border: 2px solid #FFA800;
+    border-bottom-left-radius: 1em; 
+    border-bottom-right-radius: 1em;  
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    cursor: pointer;
+  }
+  .importanceLow:hover {
+    border: 2px solid #7AE229;
+    border-bottom-left-radius: 1em; 
+    border-bottom-right-radius: 1em; 
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    cursor: pointer;
+  }
+  .inputCategory{
+    display: flex; 
+    flex-direction: column;
+  }
+  .categoryColor:hover {
+    cursor: pointer;
+    border-radius: 3em;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  .checkSelector {
+    width: 20px;
+    position: relative;
+  }
+  .fa-calendar-minus {
+    color: #4589FF;
+    position: relative;
+    width: 30px;
+    left: 460px;
+    top: 47px;
+  }
+  .fa-check {
+    padding-left: 10px; 
+    padding-top: 3px; 
+    width: 23px;
+    color: #4589FF;
+  }
+  .checkAndCrossIcons{
+    display: flex; 
+    position: relative;
+    z-index: 2;
+    top: 33px;
+    left: 430px;
+  }
+  .checkAndCrossIcons p{
+    padding: 5px;
+  }
+  .fa-xmark {
+    color: #4589FF;
+    padding-right: 12px;
+    padding-top: 3px;  
+  }
+  .checkAndCrossIconsEmail {
+    position: relative;
+    width: 100px;
+    top: 49px;
+    left: 430px; 
+  }
+  .contactX {
+    padding-bottom: 10px; 
+    padding-right: 8px; 
+  }
+  .contactCheck {
+    padding-bottom: 10px; 
+    padding-left: 5px; 
+  }
+  .checkAndCrossIconsCategory{
+    display: flex; 
+    position: relative;
+    top: 10px;
+    left: 10px;
+  }

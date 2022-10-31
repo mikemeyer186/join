@@ -72,8 +72,8 @@ function renderTasksinBoard() {
             </div>
           </div>`;
     }
-    console.log("Tasks successfully loaded into board!");
   }
+  console.log("Tasks successfully loaded into board!");
 }
 function startDraggin(id){
   currentDraggedElement = id;
@@ -85,3 +85,27 @@ async function drop(status) {
   tasks[currentDraggedElement]['taskStatus'] = status;
   renderTasksinBoard();
 }
+
+/**
+ * showing popup "Add task"
+ */
+ function addTaskPopup() {
+  document.getElementById('popup-bg').classList.remove('d-none');
+
+  setTimeout(() => {
+      document.getElementById('popup-addTask').classList.add('popup-slideIn');
+      document.getElementById('popup-bg').classList.remove('no-opacity');
+  }, 10);
+}
+/**
+ * hiding popup "new contact"
+ */
+ function hideNewContactPopUp() {
+  document.getElementById('popup-addTask').classList.remove('popup-slideIn');
+  document.getElementById('popup-bg').classList.add('no-opacity');
+
+  setTimeout(() => {
+      document.getElementById('popup-bg').classList.add('d-none');
+  }, 250);
+}
+
