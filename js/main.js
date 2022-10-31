@@ -17,6 +17,7 @@ async function init(i) {
     await includeHTML();
     await loadAccountsFromBackend();
     loadActiveUserLocal();
+    showActiveUserIcon();
     highlightedNavbar(i);
 }
 /**
