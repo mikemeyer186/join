@@ -41,13 +41,6 @@ async function pushTasksinBackend() {
  */
 function renderSubTask() {
   subTasks = JSON.parse(localStorage.getItem("subtasks")) || [];
-  if (subTasks == false) {
-    document.getElementById("addSubtaskCheckbox").innerHTML += `
-            <div class="subtaskList">  
-            <input value="subtaskPlaceholder" type="checkbox" class="pointer">
-            <p>Subtask1</p>
-            </div>`;
-  } else {
     document.getElementById("addSubtaskCheckbox").innerHTML = ``;
     for (let i = 0; i < subTasks.length; i++) {
       document.getElementById("addSubtaskCheckbox").innerHTML += `
@@ -55,7 +48,6 @@ function renderSubTask() {
         <input id="${subTasks[i]}" value="${subTasks[i]}" class="subtaskCheckbox pointer" type="checkbox">
         <p>${subTasks[i]}</p>
         </div>`;
-    }
   }
 }
 /**
