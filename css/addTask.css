@@ -53,10 +53,11 @@ form h3 {
   align-items: center;
 }
 .selectorCell:hover {
-  transition: 200ms;
+  transition: 500ms;
   background-color: #D2E3FF;
 }
 .selectorCell img {
+  padding-top: 3px; 
   margin-left: 20px; 
 }
 .boardContent {

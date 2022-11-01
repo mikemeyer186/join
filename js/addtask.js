@@ -132,29 +132,26 @@ function changeInputContact() {
  */
 function rechangeCategoryInput() {
   document.getElementById('selectorCategory').innerHTML = `
-    <div class="selectorHeader pointer">Select task category <img class="selectorArrow" src="./assets/img/selectorArrow.png"></div>
-    <div onclick="changeInputCategory()" id="selectorPlaceholder">
-      New category
-    </div>
-    <div id="selectorCategoryRender">
-      <!-- Rendering selector content here -->
-    </div>`
-  //renderingTaskCategorySelector();
+  <div class="selectorHeader pointer" onclick="renderingTaskCategorySelector()">Select task category <img class="selectorArrow" src="./assets/img/selectorArrow.png"></div>
+  <div id="selectorCategoryRender">
+    <!-- Rendering selector content here -->
+  </div>`
+  renderingTaskCategorySelector();
   }
 /**
  * rendering task cateogry´s in selector (Onclick)
  */
 function renderingTaskCategorySelector() {
   let staticCategorys = [
-    {taskCategory: "New category", taskColor: "grayCategory.png"},
-    {taskCategory: "Sales", taskColor: "purpleCategory.png"},
-    {taskCategory: "Backoffice", taskColor: "blueCategory.png"}
+    {taskCategory: "New category", taskColor: "grayCategory.png", cagtegoryID: 0},
+    {taskCategory: "Sales", taskColor: "purpleCategory.png", cagtegoryID: 1},
+    {taskCategory: "Backoffice", taskColor: "blueCategory.png", cagtegoryID: 2}
   ];
   if(selectorCategoryIndex == 0) {
     document.getElementById('selectorCategoryRender').innerHTML = ``; 
     for(let j = 0; j < staticCategorys.length; j++) {
       document.getElementById('selectorCategoryRender').innerHTML += `
-        <div class="selectorCell">
+        <div onclick="selectedCategory('${staticCategorys[j].taskCategory}')" class="selectorCell pointer">
           <div>${staticCategorys[j].taskCategory}</div>
           <div><img src="./assets/img/categoryColors/${staticCategorys[j].taskColor}"</div>
         </div>
@@ -162,7 +159,7 @@ function renderingTaskCategorySelector() {
     }
     for(let i = 0; i < taskCategorySelector.length; i++) {
       document.getElementById('selectorCategoryRender').innerHTML += `
-      <div id="${taskCategorySelector[i].taskCategory}" class="selectorCell">
+      <div onclick="selectedCategory("${staticCategorys[j].taskCategory}")" class="selectorCell pointer">
       <div class="selectorCellCategory">${taskCategorySelector[i].taskCategory}</div>
       <div class="selectorCellColor">${taskCategorySelector[i].taskColor}</div>
       </div>
@@ -172,6 +169,16 @@ function renderingTaskCategorySelector() {
   } else {
     document.getElementById('selectorCategoryRender').innerHTML = ``; 
     selectorCategoryIndex--; 
+  }
+}
+/**
+ * getting selected Category 
+ */
+function selectedCategory(category) {
+ if(category == 'New category') {
+    changeInputCategory();
+  } else {
+    // Folgt noch
   }
 }
 /**
