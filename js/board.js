@@ -18,7 +18,7 @@ function renderTasksinBoard() {
     for(let i = 0; i < tasks.length; i++) {
       if(tasks[i].taskStatus == "todo") {
             document.getElementById("boardTodoContent").innerHTML += `
-            <div draggable="true" ondragstart="startDraggin(${tasks[i].taskID})" class="boardBox">
+            <div onclick="taskPopup(${tasks[i].taskID})" draggable="true" ondragstart="startDraggin(${tasks[i].taskID})" class="boardBox pointer">
             <div class="boardBoxContent">
             <p class="boardBoxCategory">${tasks[i].taskCategory}</p>
             <h4 class="boardBoxTitle">${tasks[i].taskTitle}</h4>
@@ -33,7 +33,7 @@ function renderTasksinBoard() {
     } 
     if (tasks[i].taskStatus == "progress") {
       document.getElementById("boardProgressContent").innerHTML += `
-            <div draggable="true" ondragstart="startDraggin(${tasks[i].taskID})" class="boardBox">
+            <div onclick="taskPopup(${tasks[i].taskID}) draggable="true" ondragstart="startDraggin(${tasks[i].taskID})" class="boardBox pointer">
             <div class="boardBoxContent">
             <p class="boardBoxCategory">${tasks[i].taskCategory}</p>
             <h4 class="boardBoxTitle">${tasks[i].taskTitle}</h4>
@@ -48,7 +48,7 @@ function renderTasksinBoard() {
     }
     if (tasks[i].taskStatus == "feedback") {
       document.getElementById("boardFeedbackContent").innerHTML += `
-            <div draggable="true" ondragstart="startDraggin(${tasks[i].taskID})" class="boardBox">
+            <div onclick="taskPopup(${tasks[i].taskID}) draggable="true" ondragstart="startDraggin(${tasks[i].taskID})" class="boardBox pointer">
             <div class="boardBoxContent">
             <p class="boardBoxCategory">${tasks[i].taskCategory}</p>
             <h4 class="boardBoxTitle">${tasks[i].taskTitle}</h4>
@@ -63,7 +63,7 @@ function renderTasksinBoard() {
     }
     if (tasks[i].taskStatus == "done") {
       document.getElementById("boardDoneContent").innerHTML += `
-            <div draggable="true" ondragstart="startDraggin(${tasks[i].taskID})" class="boardBox">
+            <div onclick="taskPopup(${tasks[i].taskID}) draggable="true" ondragstart="startDraggin(${tasks[i].taskID})" class="boardBox pointer">
             <div class="boardBoxContent">
             <p class="boardBoxCategory">${tasks[i].taskCategory}</p>
             <h4 class="boardBoxTitle">${tasks[i].taskTitle}</h4>
@@ -100,7 +100,7 @@ async function drop(status) {
   pushTasksinBackend();
 }
 /**
- * showing popup "Add task"
+ * showing popup Add task
  */
  function addTaskPopup() {
   document.getElementById('popup-bg').classList.remove('d-none');
@@ -111,7 +111,7 @@ async function drop(status) {
   }, 10);
 }
 /**
- * hiding popup "add Task"
+ * hiding popup add Task
  */
  function hideNewContactPopUp() {
   document.getElementById('popup-addTask').classList.remove('popup-slideIn');
@@ -119,4 +119,13 @@ async function drop(status) {
   setTimeout(() => {
       document.getElementById('popup-bg').classList.add('d-none');
   }, 250);
+}
+/**
+ * showing popup from task // Comeback 
+ */
+function taskPopup(taskID) {
+  document.getElementById('popup-bg').classList.remove('d-none');
+  setTimeout(() => {
+    document.getElementById('popup-bg').classList.remove('no-opacity');
+}, 10);
 }

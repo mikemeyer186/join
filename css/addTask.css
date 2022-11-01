@@ -24,6 +24,9 @@ form h3 {
   margin-top: 30px;
   margin-bottom: 0;
 }
+.boardContent {
+  margin-top: 100px; 
+}
 #inputTitle {
   font-size: 40px;
   border: 1px solid #d1d1d1;
@@ -35,7 +38,7 @@ form h3 {
   color: #d1d1d1;
 }
 .inputFields {
-  margin-top: 30px;
+  padding-top: 120px;
   margin-left: 350px;
 }
 #importanceLvl {

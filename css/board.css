@@ -7,8 +7,8 @@ body {
 }
 .boardFindandAddtask {
   display: flex;
+  padding-top: 170px; 
   align-items: center;
-  margin-top: 70px;
   margin-bottom: 70px;
   margin-left: 285px;
 }
