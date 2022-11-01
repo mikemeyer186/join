@@ -280,6 +280,14 @@ nav {
         top: 70px;
         right: 10px;
     }
+
+    .headerIcon {
+        padding: 20px 12px;
+    }
+
+    .headerImgProfile {
+        margin-right: 12px;
+    }
 }
 
 @media (max-width: 450px) {

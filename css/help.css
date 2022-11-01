@@ -1,6 +1,5 @@
 .help-wrapper {
     padding: 148px 48px 136px 278px;
-    overflow: scroll;
 }
 
 h1 {
@@ -24,5 +23,11 @@ h2 {
 @media (max-width: 800px) {
     .help-wrapper {
         padding: 128px 48px 136px 48px;
+    }
+}
+
+@media (max-width: 400px) {
+    .help-wrapper {
+        padding: 128px 24px 136px 24px;
     }
 }

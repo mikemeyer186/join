@@ -8,4 +8,21 @@ h1 {
 
 h2 {
     color: #005dff;
+    word-break: break-all;
+}
+
+.legal-wrapper a {
+    word-break: break-all;
+}
+
+@media (max-width: 800px) {
+    .legal-wrapper {
+        padding: 128px 48px 136px 48px;
+    }
+}
+
+@media (max-width: 400px) {
+    .legal-wrapper {
+        padding: 128px 24px 136px 24px;
+    }
 }
