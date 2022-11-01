@@ -124,6 +124,7 @@ nav {
     top: 100px;
     float: left;
     z-index: 0;
+    background-color: #ffffff;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -163,7 +164,7 @@ nav {
 }
 
 .sidebarBox {
-    max-height: 50px;
+    height: 50px;
     width: 190px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -231,6 +232,7 @@ nav {
         align-items: center;
         padding: 10px;
         width: 20vw;
+        height: 100%;
         gap: 5px;
         margin: 0;
     }
@@ -240,6 +242,6 @@ nav {
     }
 
     .navHighlighted {
-        width: 80px;
+        width: 20vw;
     }
 }

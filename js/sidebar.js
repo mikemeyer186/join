@@ -3,6 +3,8 @@
  * @param {number} item - index of navigation object (1 - 5)
  */
 function highlightedNavbar(item) {
+    noHighlightNav();
+
     if (item == 1) {
         highlightSelectedNav('navSummary');
         highlightSelectedNav('navSummary-mobile');
@@ -22,9 +24,6 @@ function highlightedNavbar(item) {
     if (item == 5) {
         highlightSelectedNav('legalNotice');
     }
-    if (item == 6) {
-        noHighlightNav();
-    }
 }
 
 /**
@@ -32,7 +31,6 @@ function highlightedNavbar(item) {
  * @param {string} element - id of navigation element
  */
 function highlightSelectedNav(element) {
-    noHighlightNav();
     document.getElementById(`${element}`).classList.add('navHighlighted');
 }
 
