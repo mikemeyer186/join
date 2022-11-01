@@ -73,11 +73,11 @@ header {
 
 .logOut-popup {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 5px;
     padding: 10px;
-    width: 137px;
-    height: 59px;
     background-color: #ffffff;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px 0px 20px 20px;
@@ -94,15 +94,22 @@ header {
     transition: all 225ms ease-in-out;
 }
 
-.logOut-popup:hover {
-    background-color: #d2e3ff;
-    transition: all 225ms ease-in-out;
-}
-
 .logOut-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     color: #4589ff;
     font-size: 19px;
+    padding: 0 12px 0 12px;
 }
+
+.logOut-text:hover {
+    background-color: #d2e3ff;
+    transition: all 225ms ease-in-out;
+    border-radius: 8px;
+}
+
 /* HEADER CSS END */
 
 /* SIDEBAR CSS START */

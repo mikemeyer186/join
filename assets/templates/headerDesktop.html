@@ -10,8 +10,10 @@
         </div>
     </div>
     <div id="logOut-popup-bg" onclick="toggleLogOutPopUp()">
-        <div class="logOut-popup" onclick="stopPropagate(event); logOutActiveUser();">
-            <span class="logOut-text">Log out</span>
+        <div class="logOut-popup" onclick="stopPropagate(event)">
+            <span class="logOut-text">Help</span>
+            <span class="logOut-text">Legal notice</span>
+            <span class="logOut-text" onclick="logOutActiveUser()">Log out</span>
         </div>
     </div>
 </header>
