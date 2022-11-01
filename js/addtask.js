@@ -129,14 +129,23 @@ function changeInputContact() {
  */
 function rechangeCategoryInput() {
   document.getElementById('selectorCategory').innerHTML = `
-  <select id="selectCategory" class="selectors pointer">
-  <option value="" disabled selected>Select task category</option>
-  <option onclick="changeInputCategory(); renderSubTask();" value="newCategory">
-    New category
-  </option>
-  <option value="sales">Sales</option>
-  <option value="backoffice">Backoffice</option>
-  </select>`;
+    <div class="selectorHeader pointer">Select task category <img class="selectorArrow" src="./assets/img/selectorArrow.png"></div>
+    <div onclick="changeInputCategory()" id="selectorPlaceholder">
+      New category
+    </div>
+    <div id="selectorCategoryRender">
+      <!-- Rendering selector content here -->
+    </div>`
+  //renderingTaskCategorySelector();
+  }
+/**
+ * rendering task cateogry´s in selector (Onclick)
+ */
+function renderingTaskCategorySelector() {
+  document.getElementById('selectorCategoryRender').innerHTML = ``;
+  for(let i = 0; i < taskCategorySelector; i++) {
+    document.getElementById('selectorCategoryRender').innerHTML += ``;
+  }
 }
 /**
  * Change the Category selector in a input field

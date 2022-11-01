@@ -5,6 +5,8 @@ var tasks = [];
 var taskCategory = []; 
 var checkedSubtaskValue;
 var prioritySelect;
+var taskCategorySelector = [];
+var taskContactSelector = []
 /**
  * pulling tasks from backend
  */
