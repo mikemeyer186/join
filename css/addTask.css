@@ -43,6 +43,22 @@ form h3 {
   border-right: none; 
   width: 100%;
 }
+.selectorCell {
+  padding-top: 10px;
+  padding-bottom: 10px; 
+  padding-left: 20px;  
+  font-size: 20px; 
+  display: flex; 
+  justify-content: start;
+  align-items: center;
+}
+.selectorCell:hover {
+  transition: 200ms;
+  background-color: #D2E3FF;
+}
+.selectorCell img {
+  margin-left: 20px; 
+}
 .boardContent {
   margin-top: 100px; 
 }

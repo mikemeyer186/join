@@ -18,8 +18,9 @@
     <title>Join - AddTask</title>
   </head>
   <body onload="addTaskOnload()">
-    <div w3-include-html=".\assets\templates\headerDesktop.html"></div>
-    <div w3-include-html=".\assets\templates\menuDesktop.html"></div>
+    <div class="header-desktop" w3-include-html=".\assets\templates\headerDesktop.html"></div>
+    <div class="menu-desktop" w3-include-html=".\assets\templates\menuDesktop.html"></div>
+    <div class="menu-mobile" w3-include-html=".\assets\templates\menuMobile.html"></div>
     <div class="inputFields">
       <form>
         <input
@@ -44,10 +45,7 @@
         />
         <h3>Category</h3>
         <div id="selectorCategory">
-            <div class="selectorHeader pointer">Select task category <img class="selectorArrow" src="./assets/img/selectorArrow.png"></div>
-            <div onclick="changeInputCategory()" id="selectorPlaceholder">
-              New category
-            </div>
+            <div class="selectorHeader pointer" onclick="renderingTaskCategorySelector()">Select task category <img class="selectorArrow" src="./assets/img/selectorArrow.png"></div>
             <div id="selectorCategoryRender">
               <!-- Rendering selector content here -->
             </div>

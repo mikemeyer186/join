@@ -1,3 +1,6 @@
+// muss noch in die main.js 
+var selectorCategoryIndex = 0;
+
 /**
  * onload functions
  */
@@ -142,9 +145,33 @@ function rechangeCategoryInput() {
  * rendering task cateogry´s in selector (Onclick)
  */
 function renderingTaskCategorySelector() {
-  document.getElementById('selectorCategoryRender').innerHTML = ``;
-  for(let i = 0; i < taskCategorySelector; i++) {
-    document.getElementById('selectorCategoryRender').innerHTML += ``;
+  let staticCategorys = [
+    {taskCategory: "New category", taskColor: "grayCategory.png"},
+    {taskCategory: "Sales", taskColor: "purpleCategory.png"},
+    {taskCategory: "Backoffice", taskColor: "blueCategory.png"}
+  ];
+  if(selectorCategoryIndex == 0) {
+    document.getElementById('selectorCategoryRender').innerHTML = ``; 
+    for(let j = 0; j < staticCategorys.length; j++) {
+      document.getElementById('selectorCategoryRender').innerHTML += `
+        <div class="selectorCell">
+          <div>${staticCategorys[j].taskCategory}</div>
+          <div><img src="./assets/img/categoryColors/${staticCategorys[j].taskColor}"</div>
+        </div>
+      `;
+    }
+    for(let i = 0; i < taskCategorySelector.length; i++) {
+      document.getElementById('selectorCategoryRender').innerHTML += `
+      <div id="${taskCategorySelector[i].taskCategory}" class="selectorCell">
+      <div class="selectorCellCategory">${taskCategorySelector[i].taskCategory}</div>
+      <div class="selectorCellColor">${taskCategorySelector[i].taskColor}</div>
+      </div>
+      `;
+    }
+    selectorCategoryIndex++;
+  } else {
+    document.getElementById('selectorCategoryRender').innerHTML = ``; 
+    selectorCategoryIndex--; 
   }
 }
 /**
