@@ -1,0 +1,4 @@
+.legal-wrapper {
+    padding: 48px;
+    padding-left: calc(48px + 230px) !important;
+}
