@@ -1,35 +1,46 @@
 * {
     box-sizing: border-box;
 }
+
 html {
     scroll-behavior: smooth;
     font-family: 'Open Sans', sans-serif;
 }
+
 body {
     margin: 0;
     padding: 0;
 }
+
 /* HEADER CSS START */
 header {
+    position: fixed;
+    left: 0;
+    right: 0;
+
     height: 100px;
     background-color: #4589ff;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1;
-  }
-  .headerIcon {
+}
+
+.headerIcon {
     padding: 20px 39px;
-  }
-  .headerProfile {
+}
+
+.headerProfile {
     display: flex;
     align-items: center;
-  }
-  .headerProfile a {
+}
+
+.headerProfile a {
     text-decoration: none;
     color: white;
-  }
-  .headerImgProfile {
+}
+
+.headerImgProfile {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,16 +49,18 @@ header {
     height: 49px;
     border: 3px solid white;
     margin-right: 39px;
-  }
-  .headerImgProfile:hover {
+}
+
+.headerImgProfile:hover {
     cursor: pointer;
-  }
-  .headerImgInitials{
+}
+
+.headerImgInitials {
     font-size: 18px;
     color: #ffffff;
-  }
+}
 
-  #logOut-popup-bg {
+#logOut-popup-bg {
     position: absolute;
     left: 0;
     right: 0;
@@ -56,16 +69,16 @@ header {
     transform: translateX(100vw);
     transition: all 225ms ease-in-out;
     z-index: 1;
-  }
+}
 
-  .logOut-popup {
+.logOut-popup {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px;
     width: 137px;
     height: 59px;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px 0px 20px 20px;
     position: absolute;
@@ -74,22 +87,22 @@ header {
     cursor: pointer;
     z-index: 2;
     transition: all 225ms ease-in-out;
-  }
+}
 
-  .slideLogOutIntoView {
+.slideLogOutIntoView {
     transform: translateX(0) !important;
     transition: all 225ms ease-in-out;
-  }
+}
 
-  .logOut-popup:hover {
-    background-color: #D2E3FF;
+.logOut-popup:hover {
+    background-color: #d2e3ff;
     transition: all 225ms ease-in-out;
-  }
+}
 
-  .logOut-text {
-    color: #4589FF;
+.logOut-text {
+    color: #4589ff;
     font-size: 19px;
-  }
+}
 /* HEADER CSS END */
 
 /* SIDEBAR CSS START */
@@ -98,10 +111,13 @@ nav {
     flex-direction: column;
     align-items: flex-start;
     max-width: 100%;
-  }
-  .sidebar {
-    position: relative;
-    float: left; 
+}
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 100px;
+    float: left;
     z-index: 0;
     display: flex;
     flex-direction: column;
@@ -111,15 +127,18 @@ nav {
     width: 230px;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.178);
     padding-top: 100px;
-  }
-  .sidebar a {
+}
+
+.sidebar a {
     text-decoration: none;
     color: #42526e;
-  }
-  .sidebar img {
+}
+
+.sidebar img {
     width: 30px;
-  }
-  .sidebarBox {
+}
+
+.sidebarBox {
     max-height: 50px;
     width: 190px;
     padding-top: 10px;
@@ -130,25 +149,31 @@ nav {
     align-items: center;
     margin-bottom: 10px;
     gap: 30px;
-  }
-  .navHighlighted {
+}
+
+.navHighlighted {
     background-color: #d2e3ff;
     border-radius: 0.5em;
-  }
-  .legalNoticeHighlighted {
+}
+
+.legalNoticeHighlighted {
     background-color: #005dff;
-  }
-  .legalNoticeHighlighted p {
+}
+
+.legalNoticeHighlighted p {
     color: white !important;
-  }
-  #iconSummary {
+}
+
+#iconSummary {
     padding-right: 4px;
-  }
-  #navSummary {
+}
+
+#navSummary {
     padding-top: 15px;
     padding-bottom: 15px;
-  }
-  #legalNotice {
+}
+
+#legalNotice {
     position: absolute;
     left: 0;
     right: 0;
@@ -161,8 +186,10 @@ nav {
     justify-content: center;
     align-items: center;
     gap: 10px;
-  }
-  #legalNotice p {
+}
+
+#legalNotice p {
     color: #42526e;
-  }
-  /* SIDEBAR CSS END */
+}
+
+/* SIDEBAR CSS END */

@@ -1,4 +1,6 @@
 .page-wrapper {
+    padding-top: 100px;
+    padding-left: 230px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,10 +16,10 @@
 #greeting-name {
     font-size: 48px;
     font-weight: 700;
-    color: #4589FF;
+    color: #4589ff;
 }
 
-.information{
+.information {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -56,7 +58,7 @@
     gap: 35px;
     width: 694px;
     height: 191px;
-    background-color: #4589FF;
+    background-color: #4589ff;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
     border-radius: 30px;
     cursor: pointer;
@@ -64,20 +66,20 @@
 }
 
 .tile-big:hover {
-    background-color: #FFFFFF;
-    color: #4589FF;
+    background-color: #ffffff;
+    color: #4589ff;
     transition: all 225ms ease-in-out;
 }
 
-.tile-big:hover .info-text, 
+.tile-big:hover .info-text,
 .tile-big:hover .info-date,
 .tile-big:hover .info-number {
-    color: #4589FF;
+    color: #4589ff;
     transition: all 225ms ease-in-out;
 }
 
 .tile-big:hover .vertical-object {
-    background-color: #4589FF;
+    background-color: #4589ff;
     transition: all 225ms ease-in-out;
 }
 
@@ -85,20 +87,20 @@
     padding: 40px;
     width: 208px;
     height: 191px;
-    background-color: #D2E3FF;
+    background-color: #d2e3ff;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
     border-radius: 30px;
     transition: all 225ms ease-in-out;
 }
 
 .tile-blue:hover {
-    background-color: #FFFFFF;
-    color: #4589FF;
+    background-color: #ffffff;
+    color: #4589ff;
     transition: all 225ms ease-in-out;
 }
 
 .tile-blue:hover .info-text {
-    color: #4589FF;
+    color: #4589ff;
     transition: all 225ms ease-in-out;
 }
 
@@ -106,20 +108,20 @@
     padding: 40px;
     width: 208px;
     height: 191px;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
     border-radius: 30px;
     transition: all 225ms ease-in-out;
 }
 
 .tile-white:hover {
-    background-color: #4589FF;
-    color: #FFFFFF;
+    background-color: #4589ff;
+    color: #ffffff;
     transition: all 225ms ease-in-out;
 }
 
-.tile-white:hover .info-text{
-    color: #FFFFFF;
+.tile-white:hover .info-text {
+    color: #ffffff;
     transition: all 225ms ease-in-out;
 }
 
@@ -144,20 +146,20 @@
 
 .info-text {
     font-size: 23px;
-    color: #4589FF;
+    color: #4589ff;
     text-align: center;
     transition: all 225ms ease-in-out;
 }
 
 .white-text {
-    color: #FFFFFF;
+    color: #ffffff;
     text-align: center;
 }
 
 .vertical-object {
     width: 3px;
     height: 145px;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     transition: all 225ms ease-in-out;
 }
 
@@ -171,6 +173,6 @@
 .info-date {
     font-size: 48px;
     font-weight: 700;
-    color: #FFFFFF;
+    color: #ffffff;
     transition: all 225ms ease-in-out;
 }
