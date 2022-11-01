@@ -17,7 +17,8 @@ function highlightedNavbar(item) {
     }
     if (item == 5) {
         highlightSelectedNav('legalNotice');
-    } else {
+    }
+    if (item == 6) {
         noHighlightNav();
     }
 }
@@ -33,7 +34,6 @@ function highlightSelectedNav(element) {
 
 /**
  * removing class from all elements
- * @param {string} element - id of navigation element
  */
 function noHighlightNav() {
     document.getElementById('navSummary').classList.remove('navHighlighted');
