@@ -67,8 +67,9 @@ header {
     top: 0;
     bottom: 0;
     transform: translateX(100vw);
-    transition: all 225ms ease-in-out;
+    transition: all 125ms ease-out;
     z-index: 1;
+    height: 100vh;
 }
 
 .logOut-popup {
@@ -76,8 +77,6 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 5px;
-    padding: 10px;
     background-color: #ffffff;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px 0px 20px 20px;
@@ -86,12 +85,18 @@ header {
     right: 60px;
     cursor: pointer;
     z-index: 2;
-    transition: all 225ms ease-in-out;
+    transition: all 125ms ease-out;
+    overflow: hidden;
+}
+
+.logOut-popup a {
+    text-decoration: none;
+    color: #4589ff;
 }
 
 .slideLogOutIntoView {
     transform: translateX(0) !important;
-    transition: all 225ms ease-in-out;
+    transition: all 125ms ease-out;
 }
 
 .logOut-text {
@@ -101,13 +106,16 @@ header {
     width: 100%;
     color: #4589ff;
     font-size: 19px;
-    padding: 0 12px 0 12px;
+    padding: 10px 20px 10px 20px;
 }
 
 .logOut-text:hover {
     background-color: #d2e3ff;
     transition: all 225ms ease-in-out;
-    border-radius: 8px;
+}
+
+.popup-link-mobile {
+    display: none;
 }
 
 /* HEADER CSS END */
@@ -262,5 +270,13 @@ nav {
 
     .header-help {
         display: none;
+    }
+
+    .popup-link-mobile {
+        display: flex;
+    }
+
+    .logOut-popup {
+        top: 70px;
     }
 }
