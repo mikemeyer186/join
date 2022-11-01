@@ -119,7 +119,10 @@ form h3 {
   padding: 0;
 }
 .taskFooterButtons {
-  margin-right: 100px;
+  display: flex; 
+  position: fixed;
+  top: 90vh;
+  left: 73vw; 
 }
 .taskFooterButtons button {
   margin-left: 25px;
