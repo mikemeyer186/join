@@ -20,7 +20,7 @@ function renderTasksinBoard() {
             document.getElementById("boardTodoContent").innerHTML += `
             <div onclick="taskPopup(${tasks[i].taskID})" draggable="true" ondragstart="startDraggin(${tasks[i].taskID})" class="boardBox pointer">
             <div class="boardBoxContent">
-            <p class="boardBoxCategory">${tasks[i].taskCategory}</p>
+            <p class="boardBoxCategory ${tasks[i].taskCategory.TaskColor}">${tasks[i].taskCategory.Category}</p>
             <h4 class="boardBoxTitle">${tasks[i].taskTitle}</h4>
             <p class="boardBoxDescription">
               ${tasks[i].taskDescription}

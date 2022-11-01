@@ -1,6 +1,9 @@
 // muss noch in die main.js 
 var selectorCategoryIndex = 0;
-
+var categorySelectedColor; 
+var selectedCategoryValue = [];
+var taskCategoryFinaly = [];
+var taskCategoryColorFinaly = [];
 /**
  * onload functions
  */
@@ -15,19 +18,22 @@ function addTaskOnload() {
  */
 async function addTask() {
   let taskInputTitle = document.getElementById("inputTitle").value;
-  let selectContact = document.getElementById("selectContact").value;
+  //let selectContact = document.getElementById("selectContact").value;
   let dueDate = document.getElementById("selectDate").value;
-  let selectCategory = document.getElementById("selectCategory").value;
+  //let selectCategory = document.getElementById("selectCategory").value;
+  //let selectColor = document.getElementById().value; 
   let description = document.getElementById("inputDescription").value;
   tasks.push({ 
     taskTitle: taskInputTitle,
     taskDescription: description,
     toDueDate: dueDate,
-    taskCategory: selectCategory,
+    taskCategory: 
+                        {Category: taskCategoryFinaly, 
+                        TaskColor: taskCategoryColorFinaly},
     subTask: checkedSubtaskValue,
     taskID: tasks.length,
     priority: prioritySelect,
-    assignedTo: selectContact,
+    //assignedTo: selectContact,
     taskStatus: "todo"
   });
   userAccounts[activeUser].userTasks.push(tasks.length); // User account get task id
@@ -143,25 +149,26 @@ function rechangeCategoryInput() {
  */
 function renderingTaskCategorySelector() {
   let staticCategorys = [
-    {taskCategory: "New category", taskColor: "grayCategory.png", cagtegoryID: 0},
-    {taskCategory: "Sales", taskColor: "purpleCategory.png", cagtegoryID: 1},
-    {taskCategory: "Backoffice", taskColor: "blueCategory.png", cagtegoryID: 2}
+    {taskCategory: "New category", taskColor: "grayCategory", cagtegoryID: 0},
+    {taskCategory: "Sales", taskColor: "purpleCategory", cagtegoryID: 1},
+    {taskCategory: "Backoffice", taskColor: "blueCategory", cagtegoryID: 2}
   ];
+  taskCategorySelector = JSON.parse(localStorage.getItem('taskCategory')) || [];
   if(selectorCategoryIndex == 0) {
     document.getElementById('selectorCategoryRender').innerHTML = ``; 
     for(let j = 0; j < staticCategorys.length; j++) {
       document.getElementById('selectorCategoryRender').innerHTML += `
-        <div onclick="selectedCategory('${staticCategorys[j].taskCategory}')" class="selectorCell pointer">
+        <div onclick="selectedCategory('${staticCategorys[j].taskCategory}','${staticCategorys[j].taskColor}')" class="selectorCell pointer">
           <div>${staticCategorys[j].taskCategory}</div>
-          <div><img src="./assets/img/categoryColors/${staticCategorys[j].taskColor}"</div>
+          <div><img src="./assets/img/categoryColors/${staticCategorys[j].taskColor}.png"</div>
         </div>
       `;
     }
     for(let i = 0; i < taskCategorySelector.length; i++) {
       document.getElementById('selectorCategoryRender').innerHTML += `
-      <div onclick="selectedCategory("${staticCategorys[j].taskCategory}")" class="selectorCell pointer">
+      <div onclick="selectedCategory('${taskCategorySelector[i].taskCategory}','${taskCategorySelector[i].taskColor}')" class="selectorCell pointer">
       <div class="selectorCellCategory">${taskCategorySelector[i].taskCategory}</div>
-      <div class="selectorCellColor">${taskCategorySelector[i].taskColor}</div>
+      <div class="selectorCellColor"><img src="./assets/img/categoryColors/${taskCategorySelector[i].taskColor}.png"/></div>
       </div>
       `;
     }
@@ -174,11 +181,53 @@ function renderingTaskCategorySelector() {
 /**
  * getting selected Category 
  */
-function selectedCategory(category) {
+function selectedCategory(category, color) {
  if(category == 'New category') {
     changeInputCategory();
   } else {
-    // Folgt noch
+    taskCategoryFinaly = category; 
+    taskCategoryColorFinaly = color; 
+    document.getElementById('selectorCategory').innerHTML = `
+    <div class="selectorHeader pointer" onclick="renderingTaskCategorySelector()">
+    <div class="selected">
+    ${category}
+    <img src="./assets/img/categoryColors/${color}.png" />
+    </div>
+    <img class="selectorArrow" src="./assets/img/selectorArrow.png"></div>
+    <div id="selectorCategoryRender">
+      <!-- Rendering selector content here -->
+    </div>`;
+  }
+}
+function addCategoryColor(value) {
+  console.log('Funktion läuft an!');
+  if(document.getElementById('newCategoryText').value) {
+    console.log('if abfrage bestanden ');
+    categorySelectedColor = value;  
+    document.getElementById('categoryColorCells').innerHTML = ``;
+    document.getElementById('categoryColorCells').innerHTML = `
+    <img class="thisColor" src="./assets/img/categoryColors/${categorySelectedColor}.png"/>
+    `;
+    document.getElementById('mistakeReportCategory').innerHTML = ``; 
+  } else {
+    console.log('if abfrage verkackt');
+    document.getElementById('mistakeReportCategory').innerHTML = `Please enter category first!`;
+  }
+}
+async function addCategory() {
+  newCategory = document.getElementById('newCategoryText').value; 
+  if(categorySelectedColor && newCategory) {
+  taskCategorySelector = JSON.parse(localStorage.getItem('taskCategory')) || [];
+    console.log(taskCategorySelector);
+    taskCategorySelector.push({taskCategory: newCategory, taskColor: categorySelectedColor});
+    console.log(taskCategorySelector);
+    localStorage.setItem('taskCategory', JSON.stringify(taskCategorySelector));
+    console.log(JSON.parse(localStorage.getItem('taskCategory')));
+    console.log('Neue Category gepusht!');
+    rechangeCategoryInput();
+    renderingTaskCategorySelector();
+  } else {
+    document.getElementById('mistakeReportCategory').innerHTML = `Please select color!`;
   }
 }
 /**
@@ -190,17 +239,18 @@ function changeInputCategory() {
   <div class="checkAndCrossIconsCategory">
         <i onclick="rechangeCategoryInput()" class="fa-solid fa-xmark fa-xl pointer"></i> 
         <img src="./assets/img/icons/trennstrich.png">
-        <i onclick="" class="fa-solid fa-check fa-xl pointer"></i>
+        <i onclick="addCategory()" class="fa-solid fa-check fa-xl pointer"></i>
       </div>
   <input id="newCategoryText" type="text" placeholder="New category name" required>
-  <div style="margin-top: 10px; margin-left: 20px; ">
-  <img class="categoryColor" style="margin-right: 20px;" src="./assets/img/categoryColors/grayCategory.png">
-  <img class="categoryColor" style="margin-right: 20px;" src="./assets/img/categoryColors/redCategory.png">
-  <img class="categoryColor" style="margin-right: 20px;" src="./assets/img/categoryColors/greenCategory.png">
-  <img class="categoryColor" style="margin-right: 20px;" src="./assets/img/categoryColors/orangeCategory.png">
-  <img class="categoryColor" style="margin-right: 20px;" src="./assets/img/categoryColors/purpleCategory.png">
-  <img class="categoryColor" src="./assets/img/categoryColors/blueCategory.png">
+  <div id="categoryColorCells"style="margin-top: 10px; margin-left: 20px; ">
+  <img onclick="addCategoryColor('grayCategory')" class="categoryColor" style="margin-right: 20px;" src="./assets/img/categoryColors/grayCategory.png">
+  <img onclick="addCategoryColor('redCategory')" class="categoryColor" style="margin-right: 20px;" src="./assets/img/categoryColors/redCategory.png">
+  <img onclick="addCategoryColor('greenCategory')" class="categoryColor" style="margin-right: 20px;" src="./assets/img/categoryColors/greenCategory.png">
+  <img onclick="addCategoryColor('orangeCategory')" class="categoryColor" style="margin-right: 20px;" src="./assets/img/categoryColors/orangeCategory.png">
+  <img onclick="addCategoryColor('purpleCategory')" class="categoryColor" style="margin-right: 20px;" src="./assets/img/categoryColors/purpleCategory.png">
+  <img onclick="addCategoryColor('blueCategory')" class="categoryColor" src="./assets/img/categoryColors/blueCategory.png">
   </div>
+  <div id="mistakeReportCategory"></div>
   </div>`;
 }
 /**

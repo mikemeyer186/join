@@ -76,12 +76,29 @@ body {
   border: 1px solid #d1d1d1;
   border-radius: 1em;
 }
+.blueCategory {
+  background-color: #0038FF !important;
+}
+.grayCategory {
+  background-color: #8AA4FF !important;
+}
+.greenCategory {
+  background-color: #2AD300 !important;
+}
+.orangeCategory {
+  background-color: #FF8A00 !important;
+}
+.purpleCategory {
+  background-color: #E200BE !important;
+}
+.redCategory {
+  background-color: #FF0000 !important;
+}
 .boardBoxCategory {
   border-radius: 0.5em;
   color: white;
   padding-top: 6px;
   padding-bottom: 4px;
-  background-color: #ff7a00;
   margin-top: 20px;
   padding-left: 25px;
   width: 100px;

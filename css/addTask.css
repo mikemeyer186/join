@@ -8,26 +8,32 @@ form input {
 
   margin-bottom: 20px;
 }
-form select {
-  font-size: 25px;
-  margin-top: 40px;
-  padding-left: 10px;
-  height: 50px;
-  border-top: none;
-  border-color: #d1d1d1;
-  border-left: none;
-  border-right: none;
-  width: 500px;
-}
 form h3 {
   color: #42526e;
-  margin-top: 30px;
+  margin-top: 20px;
   margin-bottom: 0;
+}
+#mistakeReportCategory {
+  color: rgba(235, 0, 0, 0.699); 
+  margin-left: 20px; 
+  margin-top: 10px; 
+  margin-bottom: 0; 
+  padding: 0; 
 }
 .selectorArrow {
   width: 10px;
   height: 10px;
   margin-right: 10px; 
+}
+.thisColor{
+  position: relative;
+  bottom: 43px;
+  left: 80px; 
+}
+.selected{
+  gap: 20px;
+  display: flex; 
+  align-items: center;
 }
 .selectorHeader {
   display: flex; 
@@ -81,20 +87,9 @@ form h3 {
 #importanceLvl {
   margin-top: 30px;
 }
-.selectors {
-  border: 1px solid #d1d1d1;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  background-color: #ffffff;
-  padding: 10px 20px;
-  font-size: 20px;
-  margin-top: 10px;
-}
-
 #selectDate {
   border: 1px solid #d1d1d1;
-  margin-top: 15px;
+  margin-top: 0;
   border-top: none;
   border-left: none;
   border-right: none;
@@ -202,6 +197,7 @@ form h3 {
   font-size: 16px;
 }
 #newCategoryText {
+  font-size: 20px;
   margin-top: 15px;
   margin-bottom: 0;
   border: 1px solid #d1d1d1;
