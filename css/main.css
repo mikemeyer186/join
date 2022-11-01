@@ -278,5 +278,27 @@ nav {
 
     .logOut-popup {
         top: 70px;
+        right: 10px;
+    }
+}
+
+@media (max-width: 450px) {
+    .sidebar-mobile p {
+        font-size: 14px;
+    }
+
+    .sidebarBox {
+        width: 23vw;
+    }
+}
+
+@media (max-width: 350px) {
+    .sidebar-mobile p {
+        font-size: 12px;
+    }
+
+    .sidebarBox {
+        width: 25vw;
+        padding: 7px;
     }
 }
