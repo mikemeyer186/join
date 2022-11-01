@@ -17,9 +17,9 @@ header {
     position: fixed;
     left: 0;
     right: 0;
-
     height: 100px;
     background-color: #4589ff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -106,6 +106,11 @@ header {
 /* HEADER CSS END */
 
 /* SIDEBAR CSS START */
+
+.menu-mobile {
+    display: none;
+}
+
 nav {
     display: flex;
     flex-direction: column;
@@ -129,13 +134,32 @@ nav {
     padding-top: 100px;
 }
 
-.sidebar a {
+.sidebar-mobile {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 88px;
+    width: 100vw;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.178);
+}
+
+.sidebar a,
+.sidebar-mobile a {
     text-decoration: none;
     color: #42526e;
 }
 
-.sidebar img {
+.sidebar img,
+.sidebar-mobile img {
     width: 30px;
+    object-fit: cover;
 }
 
 .sidebarBox {
@@ -154,14 +178,6 @@ nav {
 .navHighlighted {
     background-color: #d2e3ff;
     border-radius: 0.5em;
-}
-
-.legalNoticeHighlighted {
-    background-color: #005dff;
-}
-
-.legalNoticeHighlighted p {
-    color: white !important;
 }
 
 #iconSummary {
@@ -193,3 +209,37 @@ nav {
 }
 
 /* SIDEBAR CSS END */
+
+/* responsive section */
+@media (max-width: 800px) {
+    .menu-desktop {
+        display: none !important;
+    }
+
+    .menu-mobile {
+        display: block !important;
+    }
+
+    nav {
+        flex-direction: row;
+    }
+
+    .sidebarBox {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        width: 20vw;
+        gap: 5px;
+        margin: 0;
+    }
+
+    .sidebarBox > p {
+        margin: 0;
+    }
+
+    .navHighlighted {
+        width: 80px;
+    }
+}
