@@ -39,7 +39,7 @@ function renderContacts() {
 /**
  * rendering contactList in html element
  */
-function renderContactList(){
+function renderContactList() {
     let content = document.getElementById('contacts-content');
     content.innerHTML = '';
 
@@ -111,7 +111,7 @@ function addContactToUser() {
 /**
  * saving, clearing and rendering contacts after adding new contact
  */
-function saveAndRender(){
+function saveAndRender() {
     saveAccountsToBackend();
     renderContacts();
     renderContactList();
@@ -204,7 +204,7 @@ function openContactDetailView(index) {
     let contact = userAccounts[activeUser].userContacts[index];
     let detailContent = document.getElementById('contacts-detail');
     localStorage.setItem('contactIndex', index);
-    document.getElementById('contacts-right').classList.remove('slided-out');
+    document.getElementById('contacts-right').classList.add('slided-in');
     detailContent.innerHTML = '';
     detailContent.innerHTML = contactDetailViewTemplate(contact, index);
     changeColorOfSelectedCard();
@@ -214,9 +214,9 @@ function openContactDetailView(index) {
  * changing the bg-color of selected contact card
  * @param {number} index - index of contact in userAccounts array
  */
-function changeColorOfSelectedCard(){
+function changeColorOfSelectedCard() {
     let index = localStorage.getItem('contactIndex');
-    let contactsLength = contactList.length - filterLetters.length
+    let contactsLength = contactList.length - filterLetters.length;
     for (let i = 0; i < contactsLength; i++) {
         document.getElementById(`contact-id-${i}`).classList.remove('card-bg-blue');
     }
@@ -303,7 +303,7 @@ function deleteContact() {
 /**
  * saving, clearing and rendering contacts after editing contact
  */
- function saveAndRenderEdit(){
+function saveAndRenderEdit() {
     renderContacts();
     renderContactList();
     hideEditContactPopUp();

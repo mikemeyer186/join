@@ -362,12 +362,12 @@ body {
 }
 
 #contacts-right {
-    transform: translateX(0);
+    transform: translateX(100vw);
     transition: all 300ms ease-out;
 }
 
-.slided-out {
-    transform: translateX(3000px) !important;
+.slided-in {
+    transform: translateX(0) !important;
     transition: all 300ms ease-out !important;
 }
 
@@ -499,4 +499,114 @@ body {
 
 .popup > span {
     text-align: center;
+}
+
+/* responsice section */
+@media (max-width: 1300px) {
+    .contacts-detail-top {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contact-detail-name-box {
+        padding: 0;
+    }
+
+    .contact-detail-name {
+        text-align: center;
+    }
+
+    .contact-detail-task {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin: auto;
+    }
+}
+
+@media (max-width: 1150px) {
+    #contacts-right {
+        display: none;
+    }
+
+    .contacts-box {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 75px;
+        box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.08);
+        padding: 0 48px 136px 48px;
+    }
+
+    .addContact-button {
+        top: 110px;
+    }
+}
+
+@media (max-width: 800px) {
+    .contacts-wrapper {
+        padding: 100px 0 136px 0;
+    }
+
+    #popup-contact {
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .popup-contact-top {
+        border-radius: 0;
+    }
+
+    .popup-contact-bottom {
+        border-radius: 0;
+    }
+}
+
+@media (max-width: 500px) {
+    .popup-contact-bottom {
+        padding-top: 0;
+    }
+
+    .contact-button-box {
+        flex-direction: column-reverse;
+    }
+
+    .contact-button-white {
+        width: 246px;
+    }
+
+    .contact-input-box {
+        width: 110%;
+    }
+
+    .contact-top-headline {
+        text-align: center;
+    }
+
+    .popup-contact-top {
+        padding: 48px 24px;
+    }
+}
+
+@media (max-height: 800px) {
+    .contact-top-headline {
+        font-size: 32px;
+    }
+
+    .popup-contact-bottom {
+        gap: 12px;
+    }
+
+    .contact-profil-box {
+        width: 80px;
+        min-height: 80px;
+        margin-bottom: -12px;
+    }
+
+    .contact-profil-img {
+        width: 30px;
+    }
 }
