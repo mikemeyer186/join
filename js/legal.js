@@ -1,7 +1,7 @@
-async function legalInit(){
+async function legalInit() {
     await includeHTML();
     await loadAccountsFromBackend();
     loadActiveUserLocal();
     showActiveUserIcon();
-    highlightedLegalNotice();
+    highlightedNavbar(5);
 }
