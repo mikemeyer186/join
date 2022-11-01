@@ -1,17 +1,17 @@
 <header>
-  <div class="headerIcon">
-    <img src="./assets/img/icons/IconHeader.png" />
-  </div>
-  <div class="headerProfile">
-    <a href="#">Kanban Project Managment Tool</a>
-    <img style="padding: 30px; cursor: pointer" src="./assets/img/QuestionIcon.png" />
-    <div id="header-profil-bg" class="headerImgProfile" onclick="toggleLogOutPopUp()">
-      <span id="header-profil-initials" class="headerImgInitials"></span>
+    <div class="headerIcon">
+        <img src="./assets/img/icons/IconHeader.png" />
     </div>
-  </div>
-  <div id="logOut-popup-bg" onclick="toggleLogOutPopUp()">
-    <div class="logOut-popup" onclick="stopPropagate(event); logOutActiveUser();">
-      <span class="logOut-text">Log out</span>
+    <div class="headerProfile">
+        <a href="#">Kanban Project Managment Tool</a>
+        <a href="./help.html"><img style="padding: 30px; cursor: pointer" src="./assets/img/QuestionIcon.png" /></a>
+        <div id="header-profil-bg" class="headerImgProfile" onclick="toggleLogOutPopUp()">
+            <span id="header-profil-initials" class="headerImgInitials"></span>
+        </div>
     </div>
-  </div>
+    <div id="logOut-popup-bg" onclick="toggleLogOutPopUp()">
+        <div class="logOut-popup" onclick="stopPropagate(event); logOutActiveUser();">
+            <span class="logOut-text">Log out</span>
+        </div>
+    </div>
 </header>
