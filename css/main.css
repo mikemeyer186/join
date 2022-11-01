@@ -244,4 +244,16 @@ nav {
     .navHighlighted {
         width: 20vw;
     }
+
+    header {
+        height: 80px;
+    }
+
+    .header-text {
+        display: none;
+    }
+
+    .header-help {
+        display: none;
+    }
 }
