@@ -53,6 +53,7 @@ body {
 }
 #boardDone {
   height: 100vh;
+  margin-right: 50px;
   width: 25%;
 }
 .boxHeader {
