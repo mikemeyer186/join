@@ -272,8 +272,8 @@ form h3 {
   color: #4589ff;
   position: relative;
   width: 30px;
-  left: 460px;
-  top: 47px;
+  left: 470px;
+  top: 35px;
 }
 .fa-check {
   padding-left: 10px;
@@ -321,7 +321,9 @@ form h3 {
 .selectorCellContact {
   padding-left: 20px;
   padding-top: 10px; 
+  height: 50px; 
   padding-bottom: 10px; 
+  max-height: 50px;
   display: flex; 
   justify-content: space-between;
   align-items: center;
@@ -329,7 +331,15 @@ form h3 {
 .selectorCellContact:hover {
   background-color: #D2E3FF;
 }
-#contactSelectorCheckboxes input { 
+#contactSelectorCheckboxes{ 
   margin: 0;
-  width: 30px !important;
+  margin-right: 10px; 
+}
+#contactIconContacts{
+  width: 30px;
+  margin-right: -8px;
+  object-fit: cover;
+}
+.selectorContact {
+  max-height: 100px !important;
 }

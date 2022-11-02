@@ -5,6 +5,7 @@ var categorySelectedColor;
 var selectedCategoryValue = [];
 var taskCategoryFinaly = [];
 var taskCategoryColorFinaly = [];
+var contactSelected = [];
 /**
  * onload functions
  */
@@ -105,16 +106,10 @@ function taskClear() {
  */
 function rechangeContactInput() {
   document.getElementById('selectorContact').innerHTML = `
-  <select id="selectContact" class="selectors pointer">
-  <option value="" disabled selected>
-    Select contacts to assign
-  </option>
-  <option value="you">You</option>
-  <option value="Maximilian Vogel">Maximilian Vogel</option>
-  <option value="" onclick="changeInputContact()">
-    Invite new contact
-  </option>
-  </select>`; 
+  <div onclick="renderingContactsSelector()" class="selectorHeader pointer">Select contacts to assign <img class="selectorArrow" src="./assets/img/selectorArrow.png"></div>
+  <div id="selectorContactRender">
+    <!-- renderzone for contact selctor -->
+  </div>`; 
 }
 /**
  * Change the contact selector in a input field
@@ -142,6 +137,12 @@ function rechangeCategoryInput() {
   renderingTaskCategorySelector();
   }
 /**
+ * save selected contacts // Absolutly not working. Come back tomorrow
+*/  
+function selectedContact(initiales) {
+  document.getElementById(initiales).src = "./assets/img/icons/checkButtonChecked.png";
+}
+/**
  * rendering contacts in addTask 
  */
 function renderingContactsSelector() {
@@ -150,19 +151,19 @@ function renderingContactsSelector() {
     document.getElementById('selectorContactRender').innerHTML = ``; 
     for(let i = 0; i < activeUserContacts.length; i++) {
       document.getElementById('selectorContactRender').innerHTML += `
-        <div class="selectorCellContact">
+        <div onclick="selectedContact('${activeUserContacts[i].contactName},'${activeUserContacts[i].contactInitials}')" class="selectorCellContact">
           <nobr>${activeUserContacts[i].contactName}</nobr>
           <div id="contactSelectorCheckboxes">
-          <input type="checkbox">
+          <img id="${activeUserContacts[i].contactInitials}" src="./assets/img/icons/checkButton.png">
         </div>
         </div>
       `;
       }
       document.getElementById('selectorContactRender').innerHTML += `
-        <div class="selectorCellContact">
+        <div onclick="changeInputContact()" class="selectorCellContact">
           <nobr>Invite new contact</nobr>
           <div id="contactSelectorCheckboxes">
-          <input type="checkbox">
+          <img id="contactIconContacts" src="./assets/img/icons/contactIcon.png">
         </div>
         </div>`;
     selectorContactIndex++;
