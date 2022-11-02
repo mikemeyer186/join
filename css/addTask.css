@@ -318,3 +318,18 @@ form h3 {
 .pointer {
   cursor: pointer;
 }
+.selectorCellContact {
+  padding-left: 20px;
+  padding-top: 10px; 
+  padding-bottom: 10px; 
+  display: flex; 
+  justify-content: space-between;
+  align-items: center;
+}
+.selectorCellContact:hover {
+  background-color: #D2E3FF;
+}
+#contactSelectorCheckboxes input { 
+  margin: 0;
+  width: 30px !important;
+}

@@ -1,5 +1,6 @@
 // muss noch in die main.js 
 var selectorCategoryIndex = 0;
+var selectorContactIndex = 0; 
 var categorySelectedColor; 
 var selectedCategoryValue = [];
 var taskCategoryFinaly = [];
@@ -140,6 +141,36 @@ function rechangeCategoryInput() {
   </div>`
   renderingTaskCategorySelector();
   }
+/**
+ * rendering contacts in addTask 
+ */
+function renderingContactsSelector() {
+  let activeUserContacts = userAccounts[activeUser].userContacts;
+  if(selectorContactIndex == 0) {
+    document.getElementById('selectorContactRender').innerHTML = ``; 
+    for(let i = 0; i < activeUserContacts.length; i++) {
+      document.getElementById('selectorContactRender').innerHTML += `
+        <div class="selectorCellContact">
+          <nobr>${activeUserContacts[i].contactName}</nobr>
+          <div id="contactSelectorCheckboxes">
+          <input type="checkbox">
+        </div>
+        </div>
+      `;
+      }
+      document.getElementById('selectorContactRender').innerHTML += `
+        <div class="selectorCellContact">
+          <nobr>Invite new contact</nobr>
+          <div id="contactSelectorCheckboxes">
+          <input type="checkbox">
+        </div>
+        </div>`;
+    selectorContactIndex++;
+  } else {
+    document.getElementById('selectorContactRender').innerHTML = ``; 
+    selectorContactIndex--;
+  }
+}
 /**
  * rendering task cateogry´s in selector (Onclick)
  */
