@@ -20,8 +20,6 @@ async function addTask() {
   let taskInputTitle = document.getElementById("inputTitle").value;
   //let selectContact = document.getElementById("selectContact").value;
   let dueDate = document.getElementById("selectDate").value;
-  //let selectCategory = document.getElementById("selectCategory").value;
-  //let selectColor = document.getElementById().value; 
   let description = document.getElementById("inputDescription").value;
   tasks.push({ 
     taskTitle: taskInputTitle,
@@ -70,7 +68,6 @@ function getSelectedSubtask() {
     checkbox.addEventListener("change", (event) => {
       if (event.target.checked) {
         checkedSubtaskValue = event.target.value;
-        console.log(checkedSubtaskValue);
       }
     });
   });
@@ -199,9 +196,7 @@ function selectedCategory(category, color) {
   }
 }
 function addCategoryColor(value) {
-  console.log('Funktion läuft an!');
   if(document.getElementById('newCategoryText').value) {
-    console.log('if abfrage bestanden ');
     categorySelectedColor = value;  
     document.getElementById('categoryColorCells').innerHTML = ``;
     document.getElementById('categoryColorCells').innerHTML = `
@@ -209,11 +204,10 @@ function addCategoryColor(value) {
     `;
     document.getElementById('mistakeReportCategory').innerHTML = ``; 
   } else {
-    console.log('if abfrage verkackt');
     document.getElementById('mistakeReportCategory').innerHTML = `Please enter category first!`;
   }
 }
-async function addCategory() {
+function addCategory() {
   newCategory = document.getElementById('newCategoryText').value; 
   if(categorySelectedColor && newCategory) {
   taskCategorySelector = JSON.parse(localStorage.getItem('taskCategory')) || [];
