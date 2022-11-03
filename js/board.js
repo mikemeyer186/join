@@ -42,7 +42,9 @@ function renderTasksinBoard() {
         ${tasks[i].taskDescription}
       </p>
       <div class="boardBoxFooter">
-        <div class="boxContacts"></div>
+        <div id="${tasks[i].taskID}" class="boxContacts">
+        <p></p>
+        </div>
         <img src="./assets/img/icon${tasks[i].priority}.png" />
       </div>
     </div>`;
@@ -72,13 +74,28 @@ function renderTasksinBoard() {
         ${tasks[i].taskDescription}
       </p>
       <div class="boardBoxFooter">
-        <div class="boxContacts"></div>
+        <div id="boxContacts">
+        <div class="abbreviationIconsBox" style="background-color: ${tasks[i].assignedTo[0].paint}">${tasks[i].assignedTo[0].abbreviation}</div>
+        <div class="abbreviationIconsBox" style="background-color: ${tasks[i].assignedTo[1].paint}">${tasks[i].assignedTo[1].abbreviation}</div>
+        <div class="abbreviationIconsBox" style="background-color: ${tasks[i].assignedTo[2].paint}">+${tasks[i].assignedTo.length - 2}</div>
+        </div>
         <img src="./assets/img/icon${tasks[i].priority}.png" />
       </div>
     </div>`;
     }
   }
   console.log("Tasks successfully loaded into board!");
+}
+/**
+ * render abbreviation in boxes
+ */
+function renderAbbreviationIcons() {
+  document.getElementById('').innerHTML = ``; 
+  for(let i = 0; i < this; i++){
+    document.getElementById('') += `
+    <span class="abbreviationIconsBox">${lorem}</span>
+    `; 
+  }
 }
 /**
  * save the dragged element

@@ -522,3 +522,18 @@ form h3 {
   top: 10px;
   left: 10px;
 }
+.abbreviationIconsBox {
+  font-size: 12px;
+  color: white;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 60px; 
+  border: 2px solid #ffffff; 
+  width: 35px !important;
+  height: 35px !important;
+}
+#boxContacts {
+  display: flex; 
+}
