@@ -74,6 +74,7 @@ function getSelectedSubtask() {
     });
   });
 }
+
 /**
  * pushing new subtask in the Localstorage
  */
@@ -137,24 +138,21 @@ function rechangeCategoryInput() {
   renderingTaskCategorySelector();
   }
 /**
- * save selected contacts // Absolutly not working. Come back tomorrow
+ * save selected contacts
 */  
 function selectedContact(name, initiales) {
   if(document.getElementById(name).classList == 'checked'){
     let index = -1; 
     contactCheckedValue.find(function(name, i) {
       if(contactCheckedValue.name === name){
-        index = i; 
-        return i; 
+        index = i;  
       }
   });
   contactCheckedValue.splice(index, 1);
-  console.log(contactCheckedValue);
   document.getElementById(name).classList.remove('checked');
   document.getElementById(name).src ="./assets/img/icons/checkButton.png";
 } else {
   contactCheckedValue.push({contactName: name, abbreviation: initiales});
-  console.log(contactCheckedValue);
   document.getElementById(name).src = "./assets/img/icons/checkButtonChecked.png";
   document.getElementById(name).classList.add('checked');
 }
