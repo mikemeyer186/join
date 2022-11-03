@@ -131,4 +131,7 @@ function taskEditPopup(taskID) {
     document.getElementById("popup-bg").classList.remove("no-opacity");
     document.getElementById("popup-Task").classList.add("popup-slideInTask");
   }, 10);
+  //document.getElementById('popup-addTask').innerHTML = `
+
+  //`;
 }

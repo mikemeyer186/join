@@ -100,14 +100,15 @@ body {
   background-color: #FF0000 !important;
 }
 .boardBoxCategory {
-  text-align: center;
+  display: flex; 
+  justify-content: center;
   border-radius: 0.5em;
   color: white;
   padding-top: 6px;
   padding-bottom: 4px;
   margin-top: 20px;
-  padding-left: 12px;
-  padding-right: 12px;
+  padding-left: 30px;
+  padding-right: 30px;
   width: 100px;
 }
 .boardBoxContent {
@@ -123,10 +124,55 @@ body {
 .boardBoxFooter img {
   margin-right: 20px;
 }
+.popupTaskDateTitle{
+  display: flex; 
+  margin-top: 30px;
+  margin-bottom: 20px;
+  gap: 25px; 
+}
+.popupTaskContacts {
+  margin-top: 20px;
+}
+.popupContactsCell {
+  display: flex; 
+  align-items: center;
+  margin-top: 30px; 
+  gap: 35px;
+}
+.contact-pic-Task {
+  width: 42px;
+  height: 42px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: 2px solid white;
+}
+.editButton {
+  position: absolute;
+  top: 690px;
+  left: 500px;
+}
+.contact-initials-Task {
+  text-transform: uppercase;
+}
+.popupTaskValue { 
+  display: flex; 
+  align-items: center;
+}
+.popupTaskValue img {
+  width: 120px;
+  height: 30px;
+  margin-left: 25px; 
+}
 .boardBoxFooter {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
+}
+.taskPopUpContent{
+  padding: 50px;
 }
 #popup-bg,
 #popup-bg-edit {
@@ -145,7 +191,7 @@ body {
   position: relative;
   justify-content: center;
   float: right;
-  width: 580px;
+  width: 470px;
   height: 100%;
   background: #ffffff;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
