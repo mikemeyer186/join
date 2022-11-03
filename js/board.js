@@ -18,7 +18,7 @@ function renderTasksinBoard() {
   for (let i = 0; i < tasks.length; i++) {
     if (tasks[i].taskStatus == "todo") {
       document.getElementById("boardTodoContent").innerHTML += `
-            <div onclick="taskPopup(${tasks[i].taskID})" draggable="true" ondragstart="startDraggin(${tasks[i].taskID})" class="boardBox pointer">
+            <div onclick="taskEditPopup(${tasks[i].taskID})" draggable="true" ondragstart="startDraggin(${tasks[i].taskID})" class="boardBox pointer">
             <div class="boardBoxContent">
             <p class="boardBoxCategory ${tasks[i].taskCategory.TaskColor}">${tasks[i].taskCategory.Category}</p>
             <h4 class="boardBoxTitle">${tasks[i].taskTitle}</h4>
@@ -33,7 +33,7 @@ function renderTasksinBoard() {
     }
     if (tasks[i].taskStatus == "progress") {
       document.getElementById("boardProgressContent").innerHTML += `
-      <div onclick="taskPopup(${tasks[i].taskID})" draggable="true" ondragstart="startDraggin(${tasks[i].taskID})" class="boardBox pointer">
+      <div onclick="taskEditPopup(${tasks[i].taskID})" draggable="true" ondragstart="startDraggin(${tasks[i].taskID})" class="boardBox pointer">
       <div class="boardBoxContent">
       <p class="boardBoxCategory ${tasks[i].taskCategory.TaskColor}">${tasks[i].taskCategory.Category}</p>
       <h4 class="boardBoxTitle">${tasks[i].taskTitle}</h4>
@@ -48,7 +48,7 @@ function renderTasksinBoard() {
     }
     if (tasks[i].taskStatus == "feedback") {
       document.getElementById("boardFeedbackContent").innerHTML += `
-      <div onclick="taskPopup(${tasks[i].taskID})" draggable="true" ondragstart="startDraggin(${tasks[i].taskID})" class="boardBox pointer">
+      <div onclick="taskEditPopup(${tasks[i].taskID})" draggable="true" ondragstart="startDraggin(${tasks[i].taskID})" class="boardBox pointer">
       <div class="boardBoxContent">
       <p class="boardBoxCategory ${tasks[i].taskCategory.TaskColor}">${tasks[i].taskCategory.Category}</p>
       <h4 class="boardBoxTitle">${tasks[i].taskTitle}</h4>
@@ -63,7 +63,7 @@ function renderTasksinBoard() {
     }
     if (tasks[i].taskStatus == "done") {
       document.getElementById("boardDoneContent").innerHTML += `
-      <div onclick="taskPopup(${tasks[i].taskID})" draggable="true" ondragstart="startDraggin(${tasks[i].taskID})" class="boardBox pointer">
+      <div onclick="taskEditPopup(${tasks[i].taskID})" draggable="true" ondragstart="startDraggin(${tasks[i].taskID})" class="boardBox pointer">
       <div class="boardBoxContent">
       <p class="boardBoxCategory ${tasks[i].taskCategory.TaskColor}">${tasks[i].taskCategory.Category}</p>
       <h4 class="boardBoxTitle">${tasks[i].taskTitle}</h4>
@@ -104,28 +104,31 @@ async function drop(status) {
  */
 function addTaskPopup() {
   document.getElementById("popup-bg").classList.remove("d-none");
-
+  document.getElementById("popup-addTask").classList.remove("d-none");
   setTimeout(() => {
-    document.getElementById("popup-addTask").classList.add("popup-slideIn");
+    document.getElementById("popup-addTask").classList.add("popup-slideInAddTask");
     document.getElementById("popup-bg").classList.remove("no-opacity");
   }, 10);
 }
 /**
  * hiding popup add Task
  */
-function hideNewContactPopUp() {
-  document.getElementById("popup-addTask").classList.remove("popup-slideIn");
+function hidePopUps() {
+  document.getElementById("popup-addTask").classList.remove("popup-slideInAddTask");
+  document.getElementById("popup-Task").classList.remove("popup-slideInTask");
   document.getElementById("popup-bg").classList.add("no-opacity");
   setTimeout(() => {
+    document.getElementById("popup-addTask").classList.add("d-none");
     document.getElementById("popup-bg").classList.add("d-none");
   }, 250);
 }
 /**
  * showing popup from task // Comeback
  */
-function taskPopup(taskID) {
+function taskEditPopup(taskID) {
   document.getElementById("popup-bg").classList.remove("d-none");
   setTimeout(() => {
     document.getElementById("popup-bg").classList.remove("no-opacity");
+    document.getElementById("popup-Task").classList.add("popup-slideInTask");
   }, 10);
 }

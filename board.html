@@ -19,14 +19,14 @@
     <div
       id="popup-bg"
       class="d-none no-opacity"
-      onclick="hideNewContactPopUp()"
+      onclick="hidePopUps()"
     >
-      <div id="popup-addTask" onclick="stopPropagate(event)">
+      <div id="popup-addTask" class="d-none" onclick="stopPropagate(event)">
         <img
           class="popup-close-icon-gray"
           src="./assets/img/icons/XIconGray.png"
           alt="Close"
-          onclick="hideNewContactPopUp()"
+          onclick="hidePopUps()"
         />
         <div class="popup-addTask-top">
           <h1>Add Task</h1>
@@ -125,11 +125,32 @@
           </form>
         </div>
       </div>
+      <div class="width100">
+      <div id="popup-Task" onclick="stopPropagate(event)">
+        <img
+          class="popup-close-icon-gray"
+          src="./assets/img/icons/XIconGray.png"
+          alt="Close"
+          onclick="hidePopUps()"
+        />
+        <div class="popup-addTask-top">
+        </div>
+      </div>
+    </div>
     </div>
     <!--- Test Popup  -->
-    <div class="header-desktop" w3-include-html=".\assets\templates\headerDesktop.html"></div>
-    <div class="menu-desktop" w3-include-html=".\assets\templates\menuDesktop.html"></div>
-    <div class="menu-mobile" w3-include-html=".\assets\templates\menuMobile.html"></div>
+    <div
+      class="header-desktop"
+      w3-include-html=".\assets\templates\headerDesktop.html"
+    ></div>
+    <div
+      class="menu-desktop"
+      w3-include-html=".\assets\templates\menuDesktop.html"
+    ></div>
+    <div
+      class="menu-mobile"
+      w3-include-html=".\assets\templates\menuMobile.html"
+    ></div>
     <div class="boardFindandAddtask">
       <input type="search" placeholder="Find Task" />
       <button class="pointer" onclick="addTaskPopup()">Add task +</button>
