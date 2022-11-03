@@ -1,5 +1,6 @@
 // drag and drop variable for task id
 var currentDraggedElement;
+var popupTaskContent = []; 
 // body onload functions
 async function boardOnload() {
   await init(2);
@@ -125,13 +126,45 @@ function hidePopUps() {
 /**
  * showing popup from task // Comeback
  */
-function taskEditPopup(taskID) {
+function taskEditPopup(taskIDused) {
+ 
   document.getElementById("popup-bg").classList.remove("d-none");
   setTimeout(() => {
     document.getElementById("popup-bg").classList.remove("no-opacity");
     document.getElementById("popup-Task").classList.add("popup-slideInTask");
   }, 10);
-  //document.getElementById('popup-addTask').innerHTML = `
+  for(let i = 0; i < tasks.length; i++){
+    if(tasks[i].taskID == taskIDused) {
+      popupTaskContent = tasks[i];
+      console.log(popupTaskContent);
+    }
+  }
+  document.getElementById('taskPopUpContent').innerHTML = `
+  <p class="boardBoxCategoryPopup ${popupTaskContent.taskCategory.TaskColor}">${popupTaskContent.taskCategory.Category}</p>
+  <h1>${popupTaskContent.taskTitle}</h1>
+  <p>${popupTaskContent.taskDescription}</p>
 
-  //`;
+  <div class="popupTaskDateTitle"><b>Due date:</b><id="popupTaskDate">${popupTaskContent.toDueDate}</div></div>
+  <div class="popupTaskValue"><b>Priority: </b><div><img style="object-fit: cover;"src="./assets/img/${popupTaskContent.priority}PopUpIcon.png"></div></div>
+  <div class="popupTaskContacts">
+  <b>Assigned to:</b>
+  <div id="popupContactsRender">
+
+  </div>
+  `;
+  popupRenderContacts();
+}
+
+function popupRenderContacts() {
+  document.getElementById('popupContactsRender').innerHTML = ``;
+  for(let i = 0; i < popupTaskContent.assignedTo.length; i++) {
+    document.getElementById('popupContactsRender').innerHTML += `
+    <div class="popupContactsCell">
+    <div class="contact-pic-Task" style="background-color: ${popupTaskContent.assignedTo[i].paint};">
+      <span>${popupTaskContent.assignedTo[i].abbreviation}</span>
+    </div>
+      <span>${popupTaskContent.assignedTo[i].contactName}</span>
+    </div>
+    `; 
+  }
 }

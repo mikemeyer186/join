@@ -111,6 +111,18 @@ body {
   padding-right: 30px;
   width: 100px;
 }
+.boardBoxCategoryPopup {
+  display: flex; 
+  justify-content: center;
+  border-radius: 0.5em;
+  color: white;
+  padding-top: 6px;
+  padding-bottom: 4px;
+  margin-top: 0;
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 100px;
+}
 .boardBoxContent {
   margin-left: 20px;
 }
@@ -151,8 +163,8 @@ body {
 }
 .editButton {
   position: absolute;
-  top: 690px;
-  left: 500px;
+  top: 790px;
+  left: 920px;
 }
 .contact-initials-Task {
   text-transform: uppercase;
@@ -171,7 +183,7 @@ body {
   justify-content: space-between;
   margin-bottom: 20px;
 }
-.taskPopUpContent{
+#taskPopUpContent{
   padding: 50px;
 }
 #popup-bg,

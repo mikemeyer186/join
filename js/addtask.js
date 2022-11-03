@@ -140,7 +140,7 @@ function rechangeCategoryInput() {
 /**
  * save selected contacts
 */  
-function selectedContact(name, initiales) {
+function selectedContact(name, initiales, color) {
   if(document.getElementById(name).classList == 'checked'){
     let index = -1; 
     contactCheckedValue.find(function(name, i) {
@@ -152,7 +152,12 @@ function selectedContact(name, initiales) {
   document.getElementById(name).classList.remove('checked');
   document.getElementById(name).src ="./assets/img/icons/checkButton.png";
 } else {
-  contactCheckedValue.push({contactName: name, abbreviation: initiales});
+  contactCheckedValue.push({
+    contactName: name, 
+    abbreviation: initiales, 
+    paint: color
+  });
+  console.log(contactCheckedValue);
   document.getElementById(name).src = "./assets/img/icons/checkButtonChecked.png";
   document.getElementById(name).classList.add('checked');
 }
@@ -166,7 +171,7 @@ function renderingContactsSelector() {
     document.getElementById('selectorContactRender').innerHTML = ``; 
     for(let i = 0; i < activeUserContacts.length; i++) {
       document.getElementById('selectorContactRender').innerHTML += `
-        <div onclick="selectedContact('${activeUserContacts[i].contactName}','${activeUserContacts[i].contactInitials}')" class="selectorCellContact">
+        <div onclick="selectedContact('${activeUserContacts[i].contactName}','${activeUserContacts[i].contactInitials}','${activeUserContacts[i].contactColor}')" class="selectorCellContact">
           <nobr>${activeUserContacts[i].contactName}</nobr>
           <div id="contactSelectorCheckboxes">
           <img id="${activeUserContacts[i].contactName}" src="./assets/img/icons/checkButton.png">
