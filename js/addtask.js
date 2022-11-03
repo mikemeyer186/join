@@ -6,6 +6,7 @@ var selectedCategoryValue = [];
 var taskCategoryFinaly = [];
 var taskCategoryColorFinaly = [];
 var contactSelected = [];
+var contactCheckedValue = [];
 /**
  * onload functions
  */
@@ -20,7 +21,6 @@ function addTaskOnload() {
  */
 async function addTask() {
   let taskInputTitle = document.getElementById("inputTitle").value;
-  //let selectContact = document.getElementById("selectContact").value;
   let dueDate = document.getElementById("selectDate").value;
   let description = document.getElementById("inputDescription").value;
   tasks.push({ 
@@ -33,7 +33,7 @@ async function addTask() {
     subTask: checkedSubtaskValue,
     taskID: tasks.length,
     priority: prioritySelect,
-    //assignedTo: selectContact,
+    assignedTo: contactCheckedValue,
     taskStatus: "todo"
   });
   userAccounts[activeUser].userTasks.push(tasks.length); // User account get task id
@@ -139,8 +139,25 @@ function rechangeCategoryInput() {
 /**
  * save selected contacts // Absolutly not working. Come back tomorrow
 */  
-function selectedContact(initiales) {
-  document.getElementById(initiales).src = "./assets/img/icons/checkButtonChecked.png";
+function selectedContact(name, initiales) {
+  if(document.getElementById(name).classList == 'checked'){
+    let index = -1; 
+    contactCheckedValue.find(function(name, i) {
+      if(contactCheckedValue.name === name){
+        index = i; 
+        return i; 
+      }
+  });
+  contactCheckedValue.splice(index, 1);
+  console.log(contactCheckedValue);
+  document.getElementById(name).classList.remove('checked');
+  document.getElementById(name).src ="./assets/img/icons/checkButton.png";
+} else {
+  contactCheckedValue.push({contactName: name, abbreviation: initiales});
+  console.log(contactCheckedValue);
+  document.getElementById(name).src = "./assets/img/icons/checkButtonChecked.png";
+  document.getElementById(name).classList.add('checked');
+}
 }
 /**
  * rendering contacts in addTask 
@@ -151,10 +168,10 @@ function renderingContactsSelector() {
     document.getElementById('selectorContactRender').innerHTML = ``; 
     for(let i = 0; i < activeUserContacts.length; i++) {
       document.getElementById('selectorContactRender').innerHTML += `
-        <div onclick="selectedContact('${activeUserContacts[i].contactName},'${activeUserContacts[i].contactInitials}')" class="selectorCellContact">
+        <div onclick="selectedContact('${activeUserContacts[i].contactName}','${activeUserContacts[i].contactInitials}')" class="selectorCellContact">
           <nobr>${activeUserContacts[i].contactName}</nobr>
           <div id="contactSelectorCheckboxes">
-          <img id="${activeUserContacts[i].contactInitials}" src="./assets/img/icons/checkButton.png">
+          <img id="${activeUserContacts[i].contactName}" src="./assets/img/icons/checkButton.png">
         </div>
         </div>
       `;
