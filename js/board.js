@@ -19,18 +19,23 @@ function renderTasksinBoard() {
   for (let i = 0; i < tasks.length; i++) {
     if (tasks[i].taskStatus == "todo") {
       document.getElementById("boardTodoContent").innerHTML += `
-            <div onclick="taskEditPopup(${tasks[i].taskID})" draggable="true" ondragstart="startDraggin(${tasks[i].taskID})" class="boardBox pointer">
-            <div class="boardBoxContent">
-            <p class="boardBoxCategory ${tasks[i].taskCategory.TaskColor}">${tasks[i].taskCategory.Category}</p>
-            <h4 class="boardBoxTitle">${tasks[i].taskTitle}</h4>
-            <p class="boardBoxDescription">
-              ${tasks[i].taskDescription}
-            </p>
-            <div class="boardBoxFooter">
-              <div class="boxContacts"></div>
-              <img src="./assets/img/icon${tasks[i].priority}.png" />
-            </div>
-          </div>`;
+      <div onclick="taskEditPopup(${tasks[i].taskID})" draggable="true" ondragstart="startDraggin(${tasks[i].taskID})" class="boardBox pointer">
+      <div class="boardBoxContent">
+      <p class="boardBoxCategory ${tasks[i].taskCategory.TaskColor}">${tasks[i].taskCategory.Category}</p>
+      <h4 class="boardBoxTitle">${tasks[i].taskTitle}</h4>
+      <p class="boardBoxDescription">
+        ${tasks[i].taskDescription}
+      </p>
+      <div class="boardBoxFooter">
+        <div id="boxContacts">
+        <div class="abbreviationIconsBox" id="abbreviationIconsBox1" style="background-color: ${tasks[i].assignedTo[0].paint}">${tasks[i].assignedTo[0].abbreviation}</div>
+        <div class="abbreviationIconsBox" id="abbreviationIconsBox2" style="background-color: ${tasks[i].assignedTo[1].paint}">${tasks[i].assignedTo[1].abbreviation}</div>
+        <div class="abbreviationIconsBox" id="abbreviationIconsBox3" style="background-color: ${tasks[i].assignedTo[2].paint}">+${tasks[i].assignedTo.length - 2}
+        </div></div>
+        <img src="./assets/img/icon${tasks[i].priority}.png" />
+      </div>
+    </div>
+          `;
     }
     if (tasks[i].taskStatus == "progress") {
       document.getElementById("boardProgressContent").innerHTML += `
@@ -42,12 +47,15 @@ function renderTasksinBoard() {
         ${tasks[i].taskDescription}
       </p>
       <div class="boardBoxFooter">
-        <div id="${tasks[i].taskID}" class="boxContacts">
-        <p></p>
-        </div>
+        <div id="boxContacts">
+        <div class="abbreviationIconsBox" id="abbreviationIconsBox1" style="background-color: ${tasks[i].assignedTo[0].paint}">${tasks[i].assignedTo[0].abbreviation}</div>
+        <div class="abbreviationIconsBox" id="abbreviationIconsBox2" style="background-color: ${tasks[i].assignedTo[1].paint}">${tasks[i].assignedTo[1].abbreviation}</div>
+        <div class="abbreviationIconsBox" id="abbreviationIconsBox3" style="background-color: ${tasks[i].assignedTo[2].paint}">+${tasks[i].assignedTo.length - 2}
+        </div></div>
         <img src="./assets/img/icon${tasks[i].priority}.png" />
       </div>
-    </div>`;
+    </div>
+    `;
     }
     if (tasks[i].taskStatus == "feedback") {
       document.getElementById("boardFeedbackContent").innerHTML += `
@@ -59,10 +67,15 @@ function renderTasksinBoard() {
         ${tasks[i].taskDescription}
       </p>
       <div class="boardBoxFooter">
-        <div class="boxContacts"></div>
+        <div id="boxContacts">
+        <div class="abbreviationIconsBox" id="abbreviationIconsBox1" style="background-color: ${tasks[i].assignedTo[0].paint}">${tasks[i].assignedTo[0].abbreviation}</div>
+        <div class="abbreviationIconsBox" id="abbreviationIconsBox2" style="background-color: ${tasks[i].assignedTo[1].paint}">${tasks[i].assignedTo[1].abbreviation}</div>
+        <div class="abbreviationIconsBox" id="abbreviationIconsBox3" style="background-color: ${tasks[i].assignedTo[2].paint}">+${tasks[i].assignedTo.length - 2}
+        </div></div>
         <img src="./assets/img/icon${tasks[i].priority}.png" />
       </div>
-    </div>`;
+    </div>
+    `;
     }
     if (tasks[i].taskStatus == "done") {
       document.getElementById("boardDoneContent").innerHTML += `
@@ -75,13 +88,14 @@ function renderTasksinBoard() {
       </p>
       <div class="boardBoxFooter">
         <div id="boxContacts">
-        <div class="abbreviationIconsBox" style="background-color: ${tasks[i].assignedTo[0].paint}">${tasks[i].assignedTo[0].abbreviation}</div>
-        <div class="abbreviationIconsBox" style="background-color: ${tasks[i].assignedTo[1].paint}">${tasks[i].assignedTo[1].abbreviation}</div>
-        <div class="abbreviationIconsBox" style="background-color: ${tasks[i].assignedTo[2].paint}">+${tasks[i].assignedTo.length - 2}</div>
-        </div>
+        <div class="abbreviationIconsBox" id="abbreviationIconsBox1" style="background-color: ${tasks[i].assignedTo[0].paint}">${tasks[i].assignedTo[0].abbreviation}</div>
+        <div class="abbreviationIconsBox" id="abbreviationIconsBox2" style="background-color: ${tasks[i].assignedTo[1].paint}">${tasks[i].assignedTo[1].abbreviation}</div>
+        <div class="abbreviationIconsBox" id="abbreviationIconsBox3" style="background-color: ${tasks[i].assignedTo[2].paint}">+${tasks[i].assignedTo.length - 2}
+        </div></div>
         <img src="./assets/img/icon${tasks[i].priority}.png" />
       </div>
-    </div>`;
+    </div>
+    `;
     }
   }
   console.log("Tasks successfully loaded into board!");
@@ -137,6 +151,7 @@ function hidePopUps() {
   document.getElementById("popup-bg").classList.add("no-opacity");
   setTimeout(() => {
     document.getElementById("popup-addTask").classList.add("d-none");
+    document.getElementById("popup-Task").classList.add("d-none");
     document.getElementById("popup-bg").classList.add("d-none");
   }, 250);
 }
@@ -144,7 +159,7 @@ function hidePopUps() {
  * showing popup from task // Comeback
  */
 function taskEditPopup(taskIDused) {
- 
+  document.getElementById("popup-Task").classList.remove("d-none");
   document.getElementById("popup-bg").classList.remove("d-none");
   setTimeout(() => {
     document.getElementById("popup-bg").classList.remove("no-opacity");
