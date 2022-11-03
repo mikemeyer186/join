@@ -1,6 +1,7 @@
-body {
+.page-container {
     height: 100vh;
     overflow: hidden;
+    position: relative;
 }
 
 .contacts-wrapper {
@@ -58,7 +59,7 @@ body {
     bottom: 0;
     top: 0;
     background-color: rgba(255, 255, 255, 0.4);
-    z-index: 2;
+    z-index: 4;
     opacity: 1;
     transition: all 225ms ease-in-out;
 }
@@ -265,7 +266,7 @@ body {
     padding: 10px 35px;
     gap: 10px;
     height: 48px;
-    width: 80px;
+    width: 246px;
     background-color: #ff4949;
     border: none;
     border-radius: 8px;
@@ -362,6 +363,10 @@ body {
 }
 
 #contacts-right {
+    position: absolute;
+    left: 690px;
+    height: 100%;
+    background-color: #ffffff;
     transform: translateX(100vw);
     transition: all 300ms ease-out;
 }
@@ -423,6 +428,8 @@ body {
 
 .contacts-detail-bottom {
     display: flex;
+    justify-content: center;
+    padding: 12px;
 }
 
 .contact-detail-info {
@@ -501,6 +508,21 @@ body {
     text-align: center;
 }
 
+.contact-detail-back {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    cursor: pointer;
+}
+
+.change-icon-mobile {
+    display: none;
+    width: 45px;
+    object-fit: cover;
+}
+
 /* responsice section */
 @media (max-width: 1300px) {
     .contacts-detail-top {
@@ -528,7 +550,23 @@ body {
 
 @media (max-width: 1150px) {
     #contacts-right {
+        z-index: 3;
+        left: 235px;
+        top: 105px;
+        right: 0;
+    }
+
+    .contact-detail-back {
+        display: block;
+    }
+
+    .change-icon,
+    .change-icon-text {
         display: none;
+    }
+
+    .change-icon-mobile {
+        display: block;
     }
 
     .contacts-box {
@@ -539,6 +577,7 @@ body {
         margin-top: 75px;
         box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.08);
         padding: 0 48px 136px 48px;
+        overflow-x: hidden;
     }
 
     .addContact-button {
@@ -563,6 +602,33 @@ body {
     .popup-contact-bottom {
         border-radius: 0;
     }
+
+    #contacts-right {
+        left: 0;
+        right: 0;
+        top: 85px;
+        bottom: 93px;
+        height: auto;
+    }
+
+    #popup-contact-edit {
+        width: 100vw;
+    }
+
+    .contact-detail-info {
+        padding: 0;
+    }
+
+    .contact-detail-change {
+        margin-left: 30px;
+    }
+
+    .change-icon-mobile {
+        position: absolute;
+        bottom: 30px;
+        right: 30px;
+    }
+
 }
 
 @media (max-width: 500px) {
@@ -584,10 +650,16 @@ body {
 
     .contact-top-headline {
         text-align: center;
+        font-size: 28px;
     }
 
     .popup-contact-top {
         padding: 48px 24px;
+    }
+
+    .alphabet-card,
+    .contact-card {
+        width: 100%;
     }
 }
 

@@ -210,6 +210,10 @@ function openContactDetailView(index) {
     changeColorOfSelectedCard();
 }
 
+function closeContactDetailView(){
+    document.getElementById('contacts-right').classList.remove('slided-in');
+}
+
 /**
  * changing the bg-color of selected contact card
  * @param {number} index - index of contact in userAccounts array
@@ -358,6 +362,7 @@ function alphabetCardTemplate(letter) {
 function contactDetailViewTemplate(contact, index) {
     return /*html*/ `
         <div class="contacts-detail-top">
+            <img class="contact-detail-back" src="./assets/img/arrow_left.png" alt="Back" onclick="closeContactDetailView()">
             <div class="contact-pic-detail" style="background-color:${contact.contactColor}">
                 <span class="contact-initials-detail">${contact.contactInitials}</span>
             </div>
@@ -376,7 +381,8 @@ function contactDetailViewTemplate(contact, index) {
             </div>
             <div class="contact-detail-change" onclick="showEditContactPopUp(${index})">
                 <img class="change-icon" src="./assets/img/icons/icon_edit_contact.png" alt="Edit contact">
-                <span>Edit contact</span>
+                <img class="change-icon-mobile" src="./assets/img/editButton.png" alt="Edit contact">
+                <span class="change-icon-text">Edit contact</span>
             </div>
         </div>
     `;
