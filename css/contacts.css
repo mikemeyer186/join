@@ -607,7 +607,7 @@
         left: 0;
         right: 0;
         top: 85px;
-        bottom: 93px;
+        bottom: 50px;
         height: auto;
     }
 
@@ -625,7 +625,7 @@
 
     .change-icon-mobile {
         position: absolute;
-        bottom: 30px;
+        bottom: 60px;
         right: 30px;
     }
 

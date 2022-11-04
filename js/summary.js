@@ -51,12 +51,13 @@ function returnGreetingSlogan(hours){
 function loadTasksInformation(){
     let userTasksIds = userAccounts[activeUser].userTasks;
     let userTasksArray = [];
-
-    for (let i = 0; i < userTasksIds.length; i++) {
-        const taskId = userTasksIds[i];
-        userTasksArray.push(tasks[taskId]);
+    if (userTasksIds.length > 0 ) {
+        for (let i = 0; i < userTasksIds.length; i++) {
+            const taskId = userTasksIds[i];
+            userTasksArray.push(tasks[taskId]);
+        }
+        showTasksInformation(userTasksArray);
     }
-    showTasksInformation(userTasksArray);
 }
 
 /**
