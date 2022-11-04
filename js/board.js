@@ -1,6 +1,3 @@
-// drag and drop variable for task id
-var currentDraggedElement;
-var popupTaskContent = []; 
 // body onload functions
 async function boardOnload() {
   await init(2);

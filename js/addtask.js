@@ -1,12 +1,3 @@
-// muss noch in die main.js 
-var selectorCategoryIndex = 0;
-var selectorContactIndex = 0; 
-var categorySelectedColor; 
-var selectedCategoryValue = [];
-var taskCategoryFinaly = [];
-var taskCategoryColorFinaly = [];
-var contactSelected = [];
-var contactCheckedValue = [];
 /**
  * onload functions
  */

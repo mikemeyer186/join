@@ -7,6 +7,16 @@ var checkedSubtaskValue;
 var prioritySelect;
 var taskCategorySelector = [];
 var taskContactSelector = [];
+var currentDraggedElement;
+var popupTaskContent = []; 
+var selectorCategoryIndex = 0;
+var selectorContactIndex = 0; 
+var categorySelectedColor; 
+var selectedCategoryValue = [];
+var taskCategoryFinaly = [];
+var taskCategoryColorFinaly = [];
+var contactSelected = [];
+var contactCheckedValue = [];
 /**
  * pulling tasks from backend
  */
