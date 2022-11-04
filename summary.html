@@ -26,11 +26,11 @@
             <div class="greeting"><span id="greeting-slogan"></span><span id="greeting-name"></span></div>
             <div class="information">
                 <div class="information-top">
-                    <div class="tile-big">
+                    <div class="tile-big" onclick="goToBoard()">
                         <div class="tile">
                             <div class="info-box-top">
                                 <img class="info-icon" src="./assets/img/icons/icon_urgent.png" alt="Urgent" />
-                                <span class="info-number white-text">3</span>
+                                <span id="info-number-Hard" class="info-number white-text"></span>
                             </div>
                             <div class="info-box-bottom">
                                 <span class="info-text white-text">Tasks urgent</span>
@@ -38,16 +38,16 @@
                         </div>
                         <div class="vertical-object"></div>
                         <div class="info-deadline">
-                            <div class="info-date">04.11.2022</div>
+                            <div id="info-date-deadline" class="info-date"></div>
                             <div class="info-box-bottom">
                                 <span class="info-text white-text">Upcoming deadline</span>
                             </div>
                         </div>
                     </div>
-                    <div class="tile tile-blue">
+                    <div class="tile tile-blue" onclick="goToBoard()">
                         <div class="info-box-top">
                             <img class="info-icon" src="./assets/img/icons/icon_todo.png" alt="ToDo" />
-                            <span class="info-number">3</span>
+                            <span id="info-number-todo" class="info-number"></span>
                         </div>
                         <div class="info-box-bottom">
                             <span class="info-text">Tasks To-do</span>
@@ -55,37 +55,37 @@
                     </div>
                 </div>
                 <div class="information-bottom">
-                    <div class="tile tile-white">
+                    <div class="tile tile-white" onclick="goToBoard()">
                         <div class="info-box-top">
                             <img class="info-icon" src="./assets/img/icons/icon_board.png" alt="Board" />
-                            <span class="info-number">3</span>
+                            <span id="info-number-board" class="info-number"></span>
                         </div>
                         <div class="info-box-bottom">
                             <span class="info-text">Tasks in<br />board</span>
                         </div>
                     </div>
-                    <div class="tile tile-white">
+                    <div class="tile tile-white" onclick="goToBoard()">
                         <div class="info-box-top">
                             <img class="info-icon" src="./assets/img/icons/icon_progress.png" alt="Progress" />
-                            <span class="info-number">3</span>
+                            <span id="info-number-progress" class="info-number"></span>
                         </div>
                         <div class="info-box-bottom">
                             <span class="info-text">Tasks in<br />progress</span>
                         </div>
                     </div>
-                    <div class="tile tile-white">
+                    <div class="tile tile-white" onclick="goToBoard()">
                         <div class="info-box-top">
                             <img class="info-icon" src="./assets/img/icons/icon_feedback.png" alt="Feedback" />
-                            <span class="info-number">3</span>
+                            <span id="info-number-feedback" class="info-number"></span>
                         </div>
                         <div class="info-box-bottom">
                             <span class="info-text">Awaiting<br />feedback</span>
                         </div>
                     </div>
-                    <div class="tile tile-white">
+                    <div class="tile tile-white" onclick="goToBoard()">
                         <div class="info-box-top">
                             <img class="info-icon" src="./assets/img/icons/icon_done.png" alt="Done" />
-                            <span class="info-number">3</span>
+                            <span id="info-number-done" class="info-number"></span>
                         </div>
                         <div class="info-box-bottom">
                             <span class="info-text">Tasks<br />done</span>
