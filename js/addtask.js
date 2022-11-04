@@ -1,6 +1,4 @@
-/**
- * onload functions
- */
+// body onload functions
 function addTaskOnload() {
   init(3);
   renderSubTask();
