@@ -27,7 +27,6 @@ async function addTask() {
   });
   userAccounts[activeUser].userTasks.push(tasks.length); // User account get task id
   await saveAccountsToBackend();
-  
   await pushTasksinBackend();
   window.location.href = "board.html" // go to board side
 }
