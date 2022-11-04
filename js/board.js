@@ -4,6 +4,7 @@ async function boardOnload() {
   await loadTasksfromBackend();
   await downloadFromServer();
   renderTasksinBoard();
+  console.log(userAccounts[activeUser].userTasks);
 }
 /**
  * this function is rendering the task boxes in the board
