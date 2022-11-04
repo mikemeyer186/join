@@ -27,15 +27,12 @@ function renderTasksinBoard() {
         ${tasks[i].taskDescription}
       </p>
       <div class="boardBoxFooter">
-        <div id="boxContacts">
-        <div class="abbreviationIconsBox" id="abbreviationIconsBox1" style="background-color: ${tasks[i].assignedTo[0].paint}">${tasks[i].assignedTo[0].abbreviation}</div>
-        <div class="abbreviationIconsBox" id="abbreviationIconsBox2" style="background-color: ${tasks[i].assignedTo[1].paint}">${tasks[i].assignedTo[1].abbreviation}</div>
-        <div class="abbreviationIconsBox" id="abbreviationIconsBox3" style="background-color: ${tasks[i].assignedTo[2].paint}">+${tasks[i].assignedTo.length - 2}
-        </div></div>
+        <div id="${tasks[i].taskID}" class="boxContacts">
+          </div>
         <img src="./assets/img/icon${tasks[i].priority}.png" />
       </div>
-    </div>
-          `;
+    </div>`;
+    renderAbbrevaitionInBox(tasks[i].taskID, i);
     }
     if (tasks[i].taskStatus == "progress") {
       document.getElementById("boardProgressContent").innerHTML += `
@@ -47,15 +44,12 @@ function renderTasksinBoard() {
         ${tasks[i].taskDescription}
       </p>
       <div class="boardBoxFooter">
-        <div id="boxContacts">
-        <div class="abbreviationIconsBox" id="abbreviationIconsBox1" style="background-color: ${tasks[i].assignedTo[0].paint}">${tasks[i].assignedTo[0].abbreviation}</div>
-        <div class="abbreviationIconsBox" id="abbreviationIconsBox2" style="background-color: ${tasks[i].assignedTo[1].paint}">${tasks[i].assignedTo[1].abbreviation}</div>
-        <div class="abbreviationIconsBox" id="abbreviationIconsBox3" style="background-color: ${tasks[i].assignedTo[2].paint}">+${tasks[i].assignedTo.length - 2}
-        </div></div>
+        <div id="${tasks[i].taskID}" class="boxContacts">
+          </div>
         <img src="./assets/img/icon${tasks[i].priority}.png" />
       </div>
-    </div>
-    `;
+    </div>`;
+    renderAbbrevaitionInBox(tasks[i].taskID, i);
     }
     if (tasks[i].taskStatus == "feedback") {
       document.getElementById("boardFeedbackContent").innerHTML += `
@@ -67,15 +61,12 @@ function renderTasksinBoard() {
         ${tasks[i].taskDescription}
       </p>
       <div class="boardBoxFooter">
-        <div id="boxContacts">
-        <div class="abbreviationIconsBox" id="abbreviationIconsBox1" style="background-color: ${tasks[i].assignedTo[0].paint}">${tasks[i].assignedTo[0].abbreviation}</div>
-        <div class="abbreviationIconsBox" id="abbreviationIconsBox2" style="background-color: ${tasks[i].assignedTo[1].paint}">${tasks[i].assignedTo[1].abbreviation}</div>
-        <div class="abbreviationIconsBox" id="abbreviationIconsBox3" style="background-color: ${tasks[i].assignedTo[2].paint}">+${tasks[i].assignedTo.length - 2}
-        </div></div>
+        <div id="${tasks[i].taskID}" class="boxContacts">
+          </div>
         <img src="./assets/img/icon${tasks[i].priority}.png" />
       </div>
-    </div>
-    `;
+    </div>`;
+    renderAbbrevaitionInBox(tasks[i].taskID, i);
     }
     if (tasks[i].taskStatus == "done") {
       document.getElementById("boardDoneContent").innerHTML += `
@@ -87,18 +78,45 @@ function renderTasksinBoard() {
         ${tasks[i].taskDescription}
       </p>
       <div class="boardBoxFooter">
-        <div id="boxContacts">
-        <div class="abbreviationIconsBox" id="abbreviationIconsBox1" style="background-color: ${tasks[i].assignedTo[0].paint}">${tasks[i].assignedTo[0].abbreviation}</div>
-        <div class="abbreviationIconsBox" id="abbreviationIconsBox2" style="background-color: ${tasks[i].assignedTo[1].paint}">${tasks[i].assignedTo[1].abbreviation}</div>
-        <div class="abbreviationIconsBox" id="abbreviationIconsBox3" style="background-color: ${tasks[i].assignedTo[2].paint}">+${tasks[i].assignedTo.length - 2}
-        </div></div>
+        <div id="${tasks[i].taskID}" class="boxContacts">
+          </div>
         <img src="./assets/img/icon${tasks[i].priority}.png" />
       </div>
-    </div>
-    `;
+    </div>`;
+    renderAbbrevaitionInBox(tasks[i].taskID, i);
     }
   }
   console.log("Tasks successfully loaded into board!");
+}
+/** 
+ * Rendering the abbrevaition in the boxes 
+ */
+function renderAbbrevaitionInBox(ident, b){
+  document.getElementById(ident).innerHTM = ``;
+  if(tasks[b].assignedTo.length > 3) { 
+  for(let i = 0; i < 2; i++){
+    document.getElementById(ident).innerHTML += `
+    <div class="abbreviationIconsBox" id="abbreviationIconsBox${i + 1}" style="background-color: ${tasks[b].assignedTo[i].paint}">${tasks[b].assignedTo[i].abbreviation}</div>`;
+  }
+  document.getElementById(ident).innerHTML += `
+  <div class="abbreviationIconsBox" id="abbreviationIconsBox3" style="background-color: ${tasks[b].assignedTo[2].paint}">+${tasks[b].assignedTo.length - 2}</div>`;
+}
+if(tasks[b].assignedTo.length == 3) {
+    document.getElementById(ident).innerHTML += `
+    <div class="abbreviationIconsBox" id="abbreviationIconsBox1" style="background-color: ${tasks[b].assignedTo[0].paint}">${tasks[b].assignedTo[0].abbreviation}</div>
+    <div class="abbreviationIconsBox" id="abbreviationIconsBox2" style="background-color: ${tasks[b].assignedTo[1].paint}">${tasks[b].assignedTo[1].abbreviation}</div>
+    <div class="abbreviationIconsBox" id="abbreviationIconsBox3" style="background-color: ${tasks[b].assignedTo[2].paint}">${tasks[b].assignedTo[2].abbreviation}</div>
+    `;
+}
+if(tasks[b].assignedTo.length == 2) {
+    document.getElementById(ident).innerHTML += `
+    <div class="abbreviationIconsBox" id="abbreviationIconsBox1" style="background-color: ${tasks[b].assignedTo[0].paint}">${tasks[b].assignedTo[0].abbreviation}</div>
+    <div class="abbreviationIconsBox" id="abbreviationIconsBox2" style="background-color: ${tasks[b].assignedTo[1].paint}">${tasks[b].assignedTo[1].abbreviation}</div>`;
+}
+if(tasks[b].assignedTo.length == 1) {
+    document.getElementById(ident).innerHTML += `
+    <div class="abbreviationIconsBox" id="abbreviationIconsBox1" style="background-color: ${tasks[b].assignedTo[0].paint}">${tasks[b].assignedTo[0].abbreviation}</div>`;
+}
 }
 /**
  * render abbreviation in boxes

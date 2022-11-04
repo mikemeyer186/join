@@ -536,7 +536,7 @@ form h3 {
   width: 35px !important;
   height: 35px !important;
 }
-#boxContacts {
+.boxContacts {
   position: relative;
   display: flex; 
 }
