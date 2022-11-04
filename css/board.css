@@ -197,7 +197,7 @@ body {
   bottom: 0;
   top: 0;
   background-color: rgba(255, 255, 255, 0.4);
-  z-index: 2;
+  z-index: 5;
   opacity: 1;
   transition: all 225ms ease-in-out;
 }
@@ -205,8 +205,9 @@ body {
 #popup-addTask-edit {
   position: relative;
   justify-content: center;
+  z-index: 7;
   float: right;
-  width: 470px;
+  width: 570px;
   height: 100%;
   background: #ffffff;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
