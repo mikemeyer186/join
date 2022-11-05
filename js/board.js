@@ -225,7 +225,7 @@ function editPopupTask(ident) {
   <form>
         <input
           value="${popupTaskContent.taskTitle}"
-          id="inputTitle"
+          id="inputTitleEdit"
           type="text"
           placeholder="Enter a title"
           required
@@ -233,7 +233,7 @@ function editPopupTask(ident) {
         <h3>Description</h3>
         <input
           value="${popupTaskContent.taskDescription}"
-          id="inputDescription"
+          id="inputDescriptionEdit"
           type="text"
           placeholder="Enter a Description"
           required
@@ -241,7 +241,7 @@ function editPopupTask(ident) {
         <h3 style="margin-bottom: 10px;">Due date</h3>
         <i onclick="showDatePopUp()" class="fa-regular fa-calendar-minus fa-xl pointer"></i>
         <input
-          id="selectDate"
+          id="selectDateEdit"
           type="text"
           value="${popupTaskContent.toDueDate}"
           placeholder="dd/mm/yyyy"
@@ -249,42 +249,43 @@ function editPopupTask(ident) {
           onblur="(this.type='text')"
           required
         />
-        <div style="margin-top: 30px;" id="importanceLvl">
+        <div style="margin-top: 30px;" id="importanceLvlEdit">
           <img
             class="importanceHard"
-            id="importanceIMGHard"
+            id="importanceEditIMGHard"
             value="taskHard"
-            onclick="prioritySelected(1)"
+            onclick="prioritySelectedEdit('Hard')"
             src="./assets/img/TaskValueHard.png"
           />
           <img
             class="importanceMid"
-            id="importanceIMGMid"
+            id="importanceEditIMGMid"
             value="taskMid"
-            onclick="prioritySelected(2)"
+            onclick="prioritySelectedEdit('Mid')"
             src="./assets/img/TaskValueMid.png"
           />
           <img
             class="importanceLow"
-            id="importanceIMGLow"
+            id="importanceEditIMGLow"
             value="taskLow"
-            onclick="prioritySelected(3)"
+            onclick="prioritySelectedEdit('Low')"
             src="./assets/img/TaskValueLow.png"
           />
           </div>
           <h3>Assigned to</h3>
-          <div id="selectorContact">
-            <div onclick="renderingContactsSelector()" class="selectorHeader pointer">
+          <div id="selectorContactPopup">
+            <div onclick="renderingContactsSelectorPopup()" class="selectorHeader pointer">
               Select contacts to assign 
               <img class="selectorArrow" src="./assets/img/selectorArrow.png">
             </div>
-            <div class="selectorPupupContacts" id="selectorContactRender">
+            <div class="selectorPupupContacts" id="selectorContactRenderPopup">
               <!-- renderzone for contact selctor -->
             </div>
           </div>
-          <img class="okButton" src="./assets/img/okButton.png">
+          <img class="okButton" onclick="addTaskBoard(${popupTaskContent.taskID});" src="./assets/img/okButton.png">
     </form>
   `;
+  prioritySelectedEdit(popupTaskContent.priority);
 }
 /**
  * rendering contacts in footer of the Task Pupup
@@ -300,5 +301,60 @@ function popupRenderContacts() {
       <span>${popupTaskContent.assignedTo[i].contactName}</span>
     </div>
     `; 
+  }
+}
+/**
+ * Push JSON in tasks from board
+ */
+ async function addTaskBoard(i) {
+  let index = i - 1; 
+  let taskInputTitle = document.getElementById("inputTitleEdit").value;
+  let dueDate = document.getElementById("selectDateEdit").value;
+  let description = document.getElementById("inputDescriptionEdit").value;
+  tasks[index].replace({ 
+    taskTitle: taskInputTitle,
+    taskDescription: description,
+    toDueDate: dueDate,
+    taskCategory: 
+                        {Category: taskCategoryFinaly, 
+                        TaskColor: taskCategoryColorFinaly},
+    priority: prioritySelect,
+    assignedTo: contactCheckedValue,
+  });
+  userAccounts[activeUser].userTasks.push(tasks.length); // User account get task id
+  await pushTasksinBackend(),
+  console.log('PASST');
+}
+
+/**
+ * selected priority task popup !!!!!!!!
+ */
+ function prioritySelectedEdit(i) {
+  if (i == "Hard") {
+    prioritySelect = "Hard";
+    document.getElementById("importanceEditIMGHard").classList.remove("importanceHard");
+    document.getElementById("importanceEditIMGLow").classList.add("importanceLow");
+    document.getElementById("importanceEditIMGMid").classList.add("importanceMid");
+    document.getElementById("importanceEditIMGHard").src ="./assets/img/TaskValueHardSelected.png";
+    document.getElementById("importanceEditIMGMid").src ="./assets/img/TaskValueMid.png";
+    document.getElementById("importanceEditIMGLow").src ="./assets/img/TaskValueLow.png";
+  }
+  if (i == "Mid") {
+    prioritySelect = "Mid";
+    document.getElementById("importanceEditIMGMid").classList.remove("importanceMid");
+    document.getElementById("importanceEditIMGLow").classList.add("importanceLow");
+    document.getElementById("importanceEditIMGHard").classList.add("importanceHard");
+    document.getElementById("importanceEditIMGHard").src ="./assets/img/TaskValueHard.png";
+    document.getElementById("importanceEditIMGMid").src ="./assets/img/TaskValueMidSelected.png";
+    document.getElementById("importanceEditIMGLow").src ="./assets/img/TaskValueLow.png";
+  }
+  if (i == "Low") {
+    prioritySelect = "Low";
+    document.getElementById("importanceEditIMGLow").classList.remove("importanceLow");
+    document.getElementById("importanceEditIMGMid").classList.add("importanceMid");
+    document.getElementById("importanceEditIMGHard").classList.add("importanceHard");
+    document.getElementById("importanceEditIMGHard").src ="./assets/img/TaskValueHard.png";
+    document.getElementById("importanceEditIMGMid").src ="./assets/img/TaskValueMid.png";
+    document.getElementById("importanceEditIMGLow").src ="./assets/img/TaskValueLowSelected.png";
   }
 }

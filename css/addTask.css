@@ -1,3 +1,7 @@
+body{
+  overflow-x: hidden;
+  overflow-y: auto;
+}
 form {
   display: flex;
   flex-direction: column;
@@ -104,13 +108,19 @@ input[type="date"]::-webkit-clear-button {
   border-left: none;
   border-right: none;
 }
+#inputTitleEdit {
+  font-size: 40px;
+  border: 1px solid #d1d1d1;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
 .inputFields input::placeholder {
   color: #d1d1d1;
 }
 .inputFields {
   width: 500px;
-  padding-top: 120px;
-  margin-left: 350px;
+  margin-left: 40px;
 }
 #importanceLvl {
   margin-top: 30px;
@@ -123,10 +133,31 @@ input[type="date"]::-webkit-clear-button {
   border-right: none;
   font-size: 20px;
 }
+#selectDateEdit {
+  border: 1px solid #d1d1d1;
+  margin-top: 0;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-size: 20px;
+}
 .selectDate::placeholder {
   color: gray;
 }
 #inputDescription {
+  border-style: solid;
+  border: 1px solid #d1d1d1;
+  margin-top: 10px;
+  font-size: 20px;
+  padding-top: 20px;
+  padding-left: 25px;
+  padding-right: 50px;
+  padding-bottom: 75px;
+  border-top-right-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+}
+#inputDescriptionEdit {
   border-style: solid;
   border: 1px solid #d1d1d1;
   margin-top: 10px;
@@ -372,4 +403,85 @@ input[type="date"]::-webkit-clear-button {
 }
 .selectorContact {
   max-height: 100px !important;
+}
+.addtaskStatic {
+  margin-left: 300px;
+  padding-top: 140px; 
+}
+@media(max-width: 600px) {
+  body {
+    padding-left: 0 !important; 
+    padding-right: 0 !important; 
+  }
+}
+@media(max-width: 800px) { 
+  .checkAndCrossIcons {
+    left: 380px; 
+  }
+  body {
+    padding-left: 10vw; 
+    padding-right: 10vw;
+  }
+  .addtaskStatic {
+    margin-left: 0;
+    padding-top: 100px;
+    max-width: 100vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+  .fa-calendar-minus {
+    display: none; 
+  }
+  #buttonClear {
+    display: none;
+  }
+  #buttonCreate {
+    display: none;
+  }
+  input {
+    max-width: 100%;
+
+  }
+  #importanceIMGHard {
+    width: 120px;
+  }
+  #importanceIMGMid {
+    width: 120px;
+  }
+  #importanceIMGLow {
+    width: 120px;
+  }
+  .importanceLvl {
+    width: 100vw;
+  }
+}
+@media(max-width: 380px) {
+  .checkAndCrossIcons {
+    left: 270px; 
+  }
+  #importanceIMGHard {
+    width: 100px;
+  }
+  #importanceIMGMid {
+    width: 100px;
+  }
+  #importanceIMGLow {
+    width: 100px;
+  }
+}
+@media(max-width: 1300px) {
+  #buttonClear{
+    font-size: 16px;
+  }
+  #buttonCreate{
+    font-size: 16px;
+  }
+}
+@media(max-width: 1120px) {
+  .taskFooterButtons {
+    display: flex;
+    position: relative;
+    top: 100px;
+    left: -100px;  
+  }
 }

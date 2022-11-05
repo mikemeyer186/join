@@ -183,6 +183,36 @@ function renderingContactsSelector() {
   }
 }
 /**
+ * rendering contacts in addTask Popup at board
+ */
+ function renderingContactsSelectorPopup() {
+  let activeUserContacts = userAccounts[activeUser].userContacts;
+  if(selectorContactIndex == 0) {
+    document.getElementById('selectorContactRenderPopup').innerHTML = ``; 
+    for(let i = 0; i < activeUserContacts.length; i++) {
+      document.getElementById('selectorContactRenderPopup').innerHTML += `
+        <div onclick="selectedContact('${activeUserContacts[i].contactName}','${activeUserContacts[i].contactInitials}','${activeUserContacts[i].contactColor}')" class="selectorCellContact">
+          <nobr>${activeUserContacts[i].contactName}</nobr>
+          <div id="contactSelectorCheckboxes">
+          <img id="${activeUserContacts[i].contactName}" src="./assets/img/icons/checkButton.png">
+        </div>
+        </div>
+      `;
+      }
+      document.getElementById('selectorContactRender').innerHTML += `
+        <div onclick="changeInputContact()" class="selectorCellContact">
+          <nobr>Invite new contact</nobr>
+          <div id="contactSelectorCheckboxes">
+          <img id="contactIconContacts" src="./assets/img/icons/contactIcon.png">
+        </div>
+        </div>`;
+    selectorContactIndex++;
+  } else {
+    document.getElementById('selectorContactRenderPopup').innerHTML = ``; 
+    selectorContactIndex--;
+  }
+}
+/**
  * rendering task cateogry´s in selector (Onclick)
  */
 function renderingTaskCategorySelector() {
