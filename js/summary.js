@@ -29,8 +29,13 @@ function showGreeting() {
  * showing mobile greet text with delay and transparency
  */
 function showMobileGreeting() {
-    setTimeout(setMobileGreetingTransparent, 1000);
-    setTimeout(hideMobileGreeting, 1500);
+    let introScreenShown = localStorage.getItem('introScreen');
+    if (introScreenShown == 1) {
+        document.getElementById('greeting-mobile').classList.add('d-none');
+    } else {
+        setTimeout(setMobileGreetingTransparent, 1000);
+        setTimeout(hideMobileGreeting, 2000);
+    }
 }
 
 /**
@@ -45,6 +50,7 @@ function setMobileGreetingTransparent() {
  */
 function hideMobileGreeting() {
     document.getElementById('greeting-mobile').classList.add('d-none');
+    localStorage.setItem('introScreen', 1);
 }
 
 /**

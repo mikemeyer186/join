@@ -2,16 +2,16 @@ let userAccounts = [];
 let activeUser;
 var subTasks = [];
 var tasks = [];
-var taskCategory = []; 
+var taskCategory = [];
 var checkedSubtaskValue;
 var prioritySelect;
 var taskCategorySelector = [];
 var taskContactSelector = [];
 var currentDraggedElement;
-var popupTaskContent = []; 
+var popupTaskContent = [];
 var selectorCategoryIndex = 0;
-var selectorContactIndex = 0; 
-var categorySelectedColor; 
+var selectorContactIndex = 0;
+var categorySelectedColor;
 var selectedCategoryValue = [];
 var taskCategoryFinaly = [];
 var taskCategoryColorFinaly = [];
@@ -20,10 +20,10 @@ var contactCheckedValue = [];
 /**
  * pulling tasks from backend
  */
- async function loadTasksfromBackend() {
+async function loadTasksfromBackend() {
     await downloadFromServer();
-    tasks = JSON.parse(backend.getItem("tasks")) || [];
-  }
+    tasks = JSON.parse(backend.getItem('tasks')) || [];
+}
 // Onload function
 async function init(i) {
     await includeHTML();
@@ -95,4 +95,5 @@ function toggleLogOutPopUp() {
  */
 function logOutActiveUser() {
     window.location.href = './index.html';
+    localStorage.setItem('introScreen', 0);
 }
