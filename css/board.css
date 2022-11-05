@@ -161,13 +161,14 @@ body {
   color: white;
   border: 2px solid white;
 }
+
 .editButton {
-  position: relative;
+  position: absolute;
   object-fit: cover;
   width: 50px;
   height: 50px; 
-  top: 790px;
-  left: -70px;
+  top: 690px;
+  left: 500px;
 }
 .contact-initials-Task {
   text-transform: uppercase;
@@ -552,4 +553,20 @@ form h3 {
 #abbreviationIconsBox3 {
   position: absolute;
   left: 54px;
+}
+.okButton {
+  position: absolute;
+  z-index: -1;
+  top: 690px;
+  left: 490px;
+  object-fit: cover;
+  width: 70px;
+  height: 50px; 
+}
+.selectorPupupContacts {
+  scrollbar-width: none;
+  max-height: 100px; 
+  overflow-x: hidden; 
+  overflow-y: scroll;
+  white-space: nowrap;
 }

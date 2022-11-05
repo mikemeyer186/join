@@ -4,6 +4,7 @@
     <link rel="icon" href="./assets/img/logo_join.png" type="image/png" />
     <link rel="stylesheet" href="./css/board.css" />
     <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/addTask.css" />
     <script src="./js/addtask.js"></script>
     <script src="./js/board.js"></script>
     <script src="./js/sidebar.js"></script>
@@ -16,11 +17,7 @@
   </head>
   <body onload="boardOnload()">
     <!--- Test Popup  -->
-    <div
-      id="popup-bg"
-      class="d-none no-opacity"
-      onclick="hidePopUps()"
-    >
+    <div id="popup-bg" class="d-none no-opacity" onclick="hidePopUps()">
       <div id="popup-addTask" class="d-none" onclick="stopPropagate(event)">
         <img
           class="popup-close-icon-gray"
@@ -126,23 +123,16 @@
         </div>
       </div>
       <div class="width100">
-      <div id="popup-Task" onclick="stopPropagate(event)">
-        <img
-          class="popup-close-icon-gray"
-          src="./assets/img/icons/XIconGray.png"
-          alt="Close"
-          onclick="hidePopUps()"
-        />
-        <div id="taskPopUpContent">
-          
-          </div>
-
+        <div id="popup-Task" onclick="stopPropagate(event)">
+          <img
+            class="popup-close-icon-gray"
+            src="./assets/img/icons/XIconGray.png"
+            alt="Close"
+            onclick="hidePopUps()"
+          />
+          <div id="taskPopUpContent"></div>
         </div>
-        <div class="popup-addTask-top">
-        </div>
-        <img class="editButton" src="./assets/img/editButton.png">
       </div>
-    </div>
     </div>
     <!--- Test Popup  -->
     <div

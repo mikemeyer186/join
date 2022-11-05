@@ -348,6 +348,7 @@ input[type="date"]::-webkit-clear-button {
   cursor: pointer;
 }
 .selectorCellContact {
+  background-color: #ffffff;
   padding-left: 20px;
   padding-top: 10px; 
   height: 50px; 

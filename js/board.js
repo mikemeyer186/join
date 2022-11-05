@@ -184,25 +184,111 @@ function taskEditPopup(taskIDused) {
   for(let i = 0; i < tasks.length; i++){
     if(tasks[i].taskID == taskIDused) {
       popupTaskContent = tasks[i];
-      console.log(popupTaskContent);
     }
   }
   document.getElementById('taskPopUpContent').innerHTML = `
   <p class="boardBoxCategoryPopup ${popupTaskContent.taskCategory.TaskColor}">${popupTaskContent.taskCategory.Category}</p>
   <h1>${popupTaskContent.taskTitle}</h1>
   <p>${popupTaskContent.taskDescription}</p>
-
-  <div class="popupTaskDateTitle"><b>Due date:</b><id="popupTaskDate">${popupTaskContent.toDueDate}</div></div>
-  <div class="popupTaskValue"><b>Priority: </b><div><img style="object-fit: cover;"src="./assets/img/${popupTaskContent.priority}PopUpIcon.png"></div></div>
+  <div class="popupTaskDateTitle">
+    <b>Due date:</b><id="popupTaskDate">
+    ${popupTaskContent.toDueDate}
+  </div>
+  <div class="popupTaskValue">
+    <b>Priority: </b>
+    <div>
+      <img style="object-fit: cover;"src="./assets/img/${popupTaskContent.priority}PopUpIcon.png">
+    </div>
+  </div>
   <div class="popupTaskContacts">
-  <b>Assigned to:</b>
-  <div id="popupContactsRender">
-
+    <b>Assigned to:</b>
+    <div id="popupContactsRender">
+    </div>
+  </div>
+  <div class="popup-addTask-top"></div>
+    <img
+      onclick="editPopupTask(${popupTaskContent.taskID})"
+      class="editButton pointer"
+      src="./assets/img/editButton.png"
+    />
   </div>
   `;
   popupRenderContacts();
 }
-
+function editPopupTask(ident) {
+  for(let i = 0; i < tasks.length; i++){
+    if(tasks[i].taskID == ident) {
+      popupTaskContent = tasks[i];
+    }
+  }
+  document.getElementById('taskPopUpContent').innerHTML = `
+  <form>
+        <input
+          value="${popupTaskContent.taskTitle}"
+          id="inputTitle"
+          type="text"
+          placeholder="Enter a title"
+          required
+        />
+        <h3>Description</h3>
+        <input
+          value="${popupTaskContent.taskDescription}"
+          id="inputDescription"
+          type="text"
+          placeholder="Enter a Description"
+          required
+        />
+        <h3 style="margin-bottom: 10px;">Due date</h3>
+        <i onclick="showDatePopUp()" class="fa-regular fa-calendar-minus fa-xl pointer"></i>
+        <input
+          id="selectDate"
+          type="text"
+          value="${popupTaskContent.toDueDate}"
+          placeholder="dd/mm/yyyy"
+          onfocus="(this.type='date')"
+          onblur="(this.type='text')"
+          required
+        />
+        <div style="margin-top: 30px;" id="importanceLvl">
+          <img
+            class="importanceHard"
+            id="importanceIMGHard"
+            value="taskHard"
+            onclick="prioritySelected(1)"
+            src="./assets/img/TaskValueHard.png"
+          />
+          <img
+            class="importanceMid"
+            id="importanceIMGMid"
+            value="taskMid"
+            onclick="prioritySelected(2)"
+            src="./assets/img/TaskValueMid.png"
+          />
+          <img
+            class="importanceLow"
+            id="importanceIMGLow"
+            value="taskLow"
+            onclick="prioritySelected(3)"
+            src="./assets/img/TaskValueLow.png"
+          />
+          </div>
+          <h3>Assigned to</h3>
+          <div id="selectorContact">
+            <div onclick="renderingContactsSelector()" class="selectorHeader pointer">
+              Select contacts to assign 
+              <img class="selectorArrow" src="./assets/img/selectorArrow.png">
+            </div>
+            <div class="selectorPupupContacts" id="selectorContactRender">
+              <!-- renderzone for contact selctor -->
+            </div>
+          </div>
+          <img class="okButton" src="./assets/img/okButton.png">
+    </form>
+  `;
+}
+/**
+ * rendering contacts in footer of the Task Pupup
+ */
 function popupRenderContacts() {
   document.getElementById('popupContactsRender').innerHTML = ``;
   for(let i = 0; i < popupTaskContent.assignedTo.length; i++) {
