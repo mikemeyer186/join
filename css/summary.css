@@ -9,14 +9,38 @@
     gap: 35px;
 }
 
-#greeting-slogan {
+.greeting-slogan {
     font-size: 48px;
 }
 
-#greeting-name {
+.greeting-name {
     font-size: 48px;
     font-weight: 700;
     color: #4589ff;
+}
+
+#greeting-mobile {
+    position: absolute;
+    text-align: center;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+    background-color: #ffffff;
+    z-index: 2;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.show-greeting {
+    display: none;
+}
+
+.no-Opacity {
+    opacity: 0 !important;
+    transform: translateY(-500px) !important;
+    transition: all 500ms ease-in-out;
 }
 
 .information {
@@ -185,9 +209,13 @@
     transition: all 225ms ease-in-out;
 }
 
+.d-none {
+    display: none !important;
+}
+
 /* responsive section */
 
-@media (max-width:1250px){
+@media (max-width: 1250px) {
     .page-wrapper {
         gap: 15px;
         justify-content: center;
@@ -234,15 +262,31 @@
         font-size: 18px;
     }
 
-    #greeting-name,
-    #greeting-slogan {
+    .greeting-name,
+    .greeting-slogan {
         font-size: 38px;
     }
 }
 
-@media (max-width:800px){
-    .page-wrapper{
+@media (max-width: 800px) {
+    .page-wrapper {
         padding-left: 0;
         padding-bottom: 95px;
+    }
+
+    .greeting {
+        display: none;
+    }
+
+    .show-greeting {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+    }
+
+    .greeting-name,
+    .greeting-slogan {
+        font-size: 48px;
     }
 }

@@ -15,12 +15,36 @@ async function summaryInit() {
 /**
  * showing greeting slogan and username
  */
-function showGreeting(){
+function showGreeting() {
     let dateNow = new Date();
     let hours = dateNow.getHours();
     let greetingSlogan = returnGreetingSlogan(hours);
     document.getElementById('greeting-slogan').innerHTML = greetingSlogan;
     document.getElementById('greeting-name').innerHTML = userAccounts[activeUser].userName;
+    document.getElementById('greeting-slogan-mobile').innerHTML = greetingSlogan;
+    document.getElementById('greeting-name-mobile').innerHTML = userAccounts[activeUser].userName;
+}
+
+/**
+ * showing mobile greet text with delay and transparency
+ */
+function showMobileGreeting() {
+    setTimeout(setMobileGreetingTransparent, 1000);
+    setTimeout(hideMobileGreeting, 1500);
+}
+
+/**
+ * setting mobile greet to transparent
+ */
+function setMobileGreetingTransparent() {
+    document.getElementById('greeting-mobile').classList.add('no-Opacity');
+}
+
+/**
+ * hiding mobile greet
+ */
+function hideMobileGreeting() {
+    document.getElementById('greeting-mobile').classList.add('d-none');
 }
 
 /**
@@ -28,18 +52,18 @@ function showGreeting(){
  * @param {number} hours - the hours of time now
  * @returns - greeting slogan
  */
-function returnGreetingSlogan(hours){
+function returnGreetingSlogan(hours) {
     let greetingSlogan;
     if (hours < 6 || hours > 22) {
         greetingSlogan = 'Good night, ';
     }
-    if (hours >= 6 && hours < 10){
+    if (hours >= 6 && hours < 10) {
         greetingSlogan = 'Good morning, ';
     }
-    if (hours >= 10 && hours < 18){
+    if (hours >= 10 && hours < 18) {
         greetingSlogan = 'Have a nice day, ';
     }
-    if (hours >= 18 && hours <= 22){
+    if (hours >= 18 && hours <= 22) {
         greetingSlogan = 'Good evening, ';
     }
     return greetingSlogan;
@@ -48,10 +72,10 @@ function returnGreetingSlogan(hours){
 /**
  * loading tasks informations and creating an local array
  */
-function loadTasksInformation(){
+function loadTasksInformation() {
     let userTasksIds = userAccounts[activeUser].userTasks;
     let userTasksArray = [];
-    if (userTasksIds.length > 0 ) {
+    if (userTasksIds.length > 0) {
         for (let i = 0; i < userTasksIds.length; i++) {
             const taskId = userTasksIds[i];
             userTasksArray.push(tasks[taskId]);
@@ -64,7 +88,7 @@ function loadTasksInformation(){
  * showing different values of userTasks array
  * @param {JSON} userTasksArray - array with user tasks
  */
-function showTasksInformation(userTasksArray){
+function showTasksInformation(userTasksArray) {
     showTasksInBoard(userTasksArray);
     showTasksWithStatus(userTasksArray, 'progress');
     showTasksWithStatus(userTasksArray, 'feedback');
@@ -77,7 +101,7 @@ function showTasksInformation(userTasksArray){
  * showing the number of all tasks in userTaks array
  * @param {JSON} userTasksArray - array with user tasks
  */
-function showTasksInBoard(userTasksArray){
+function showTasksInBoard(userTasksArray) {
     let numberOfTasks = userTasksArray.length;
     document.getElementById('info-number-board').innerHTML = numberOfTasks;
 }
@@ -87,7 +111,7 @@ function showTasksInBoard(userTasksArray){
  * @param {JSON} userTasksArray - array with user tasks
  * @param {string} taskStatus - status of task
  */
-function showTasksWithStatus(userTasksArray, taskStatus){
+function showTasksWithStatus(userTasksArray, taskStatus) {
     let filterResult = userTasksArray.filter((t) => t.taskStatus.includes(taskStatus));
     let numberOfTasks = filterResult.length;
     document.getElementById(`info-number-${taskStatus}`).innerHTML = numberOfTasks;
@@ -98,7 +122,7 @@ function showTasksWithStatus(userTasksArray, taskStatus){
  * @param {JSON} userTasksArray - array with user tasks
  * @param {string} taskStatus - status of task
  */
-function showTasksWithPriority(userTasksArray, taskPriority){
+function showTasksWithPriority(userTasksArray, taskPriority) {
     let filterResult = userTasksArray.filter((t) => t.priority.includes(taskPriority));
     let numberOfTasks = filterResult.length;
     document.getElementById(`info-number-${taskPriority}`).innerHTML = numberOfTasks;
@@ -109,7 +133,7 @@ function showTasksWithPriority(userTasksArray, taskPriority){
  * showing the upcoming date of the urgent tasks
  * @param {JSON} filterResult - result of filtering urgent tasks
  */
-function showTasksWithNextDate(filterResult){
+function showTasksWithNextDate(filterResult) {
     let dateArray = [];
     let options = { year: 'numeric', month: '2-digit', day: '2-digit' };
     for (let i = 0; i < filterResult.length; i++) {
@@ -117,8 +141,8 @@ function showTasksWithNextDate(filterResult){
         let dateObject = new Date(taskDate);
         dateArray.push(dateObject);
     }
-    dateArray.sort(function(a, b){
-        return a - b 
+    dateArray.sort(function (a, b) {
+        return a - b;
     });
     document.getElementById('info-date-deadline').innerHTML = dateArray[0].toLocaleDateString(undefined, options);
 }
@@ -129,4 +153,3 @@ function showTasksWithNextDate(filterResult){
 function goToBoard() {
     window.location.href = './board.html';
 }
-

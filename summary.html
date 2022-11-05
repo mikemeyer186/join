@@ -17,13 +17,14 @@
 
         <title>Join - Summary</title>
     </head>
-    <body onload="summaryInit()">
+    <body onload="summaryInit(); showMobileGreeting();">
         <div class="header-desktop" w3-include-html=".\assets\templates\headerDesktop.html"></div>
         <div class="menu-desktop" w3-include-html=".\assets\templates\menuDesktop.html"></div>
         <div class="menu-mobile" w3-include-html=".\assets\templates\menuMobile.html"></div>
 
         <div class="page-wrapper">
-            <div class="greeting"><span id="greeting-slogan"></span><span id="greeting-name"></span></div>
+            <div class="greeting"><span id="greeting-slogan" class="greeting-slogan"></span><span id="greeting-name" class="greeting-name"></span></div>
+            <div id="greeting-mobile" class="show-greeting"><span id="greeting-slogan-mobile" class="greeting-slogan"></span><span id="greeting-name-mobile" class="greeting-name"></span></div>
             <div class="information">
                 <div class="information-top">
                     <div class="tile-big" onclick="goToBoard()">
