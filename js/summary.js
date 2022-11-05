@@ -131,8 +131,10 @@ function showTasksWithStatus(userTasksArray, taskStatus) {
 function showTasksWithPriority(userTasksArray, taskPriority) {
     let filterResult = userTasksArray.filter((t) => t.priority.includes(taskPriority));
     let numberOfTasks = filterResult.length;
-    document.getElementById(`info-number-${taskPriority}`).innerHTML = numberOfTasks;
-    showTasksWithNextDate(filterResult);
+    if (filterResult.length > 0) {
+        document.getElementById(`info-number-${taskPriority}`).innerHTML = numberOfTasks;
+        showTasksWithNextDate(filterResult);
+    }
 }
 
 /**
