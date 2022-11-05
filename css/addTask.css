@@ -121,6 +121,7 @@ input[type="date"]::-webkit-clear-button {
 .inputFields {
   width: 500px;
   margin-left: 40px;
+  padding-bottom: 50px;
 }
 #importanceLvl {
   margin-top: 30px;
@@ -418,6 +419,9 @@ input[type="date"]::-webkit-clear-button {
   .checkAndCrossIcons {
     left: 380px; 
   }
+  .checkAndCrossIconsCategory {
+    left: 380px; 
+  }
   body {
     padding-left: 10vw; 
     padding-right: 10vw;
@@ -457,6 +461,9 @@ input[type="date"]::-webkit-clear-button {
 }
 @media(max-width: 380px) {
   .checkAndCrossIcons {
+    left: 270px; 
+  }
+  .checkAndCrossIconsCategory {
     left: 270px; 
   }
   #importanceIMGHard {
