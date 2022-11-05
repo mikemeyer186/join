@@ -628,7 +628,6 @@
         bottom: 60px;
         right: 30px;
     }
-
 }
 
 @media (max-width: 500px) {
@@ -680,5 +679,23 @@
 
     .contact-profil-img {
         width: 30px;
+    }
+
+    #contacts-right {
+        overflow-y: scroll;
+        padding-bottom: 50px;
+    }
+}
+
+@media (max-height: 720px) {
+    .contact-pic-detail {
+        width: 80px;
+        height: 80px;
+        font-size: 36px;
+    }
+
+    .popup-contact-bottom {
+        padding-bottom: 45px;
+        padding-top: 45px;
     }
 }
