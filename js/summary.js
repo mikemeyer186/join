@@ -91,8 +91,9 @@ function showTasksInformation(userTasksArray) {
 /**
  * loading tasks informations and creating an local array
  */
- function loadTasksInformation() {
+function loadTasksInformation() {
     let userTasksIds = userAccounts[activeUser].userTasks;
+    userTasksArray = [];
     if (userTasksIds.length > 0) {
         for (let i = 0; i < userTasksIds.length; i++) {
             const taskId = userTasksIds[i];
