@@ -76,21 +76,6 @@ function returnGreetingSlogan(hours) {
 }
 
 /**
- * loading tasks informations and creating an local array
- */
-function loadTasksInformation() {
-    let userTasksIds = userAccounts[activeUser].userTasks;
-    let userTasksArray = [];
-    if (userTasksIds.length > 0) {
-        for (let i = 0; i < userTasksIds.length; i++) {
-            const taskId = userTasksIds[i];
-            userTasksArray.push(tasks[taskId]);
-        }
-        showTasksInformation(userTasksArray);
-    }
-}
-
-/**
  * showing different values of userTasks array
  * @param {JSON} userTasksArray - array with user tasks
  */
@@ -101,6 +86,20 @@ function showTasksInformation(userTasksArray) {
     showTasksWithStatus(userTasksArray, 'done');
     showTasksWithStatus(userTasksArray, 'todo');
     showTasksWithPriority(userTasksArray, 'Hard');
+}
+
+/**
+ * loading tasks informations and creating an local array
+ */
+ function loadTasksInformation() {
+    let userTasksIds = userAccounts[activeUser].userTasks;
+    if (userTasksIds.length > 0) {
+        for (let i = 0; i < userTasksIds.length; i++) {
+            const taskId = userTasksIds[i];
+            userTasksArray.push(tasks[taskId]);
+        }
+        showTasksInformation(userTasksArray);
+    }
 }
 
 /**

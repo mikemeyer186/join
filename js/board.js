@@ -14,74 +14,81 @@ function renderTasksinBoard() {
   document.getElementById("boardProgressContent").innerHTML = ``;
   document.getElementById("boardFeedbackContent").innerHTML = ``;
   document.getElementById("boardDoneContent").innerHTML = ``;
-  for (let i = 0; i < tasks.length; i++) {
-    if (tasks[i].taskStatus == "todo") {
+  let userTasksIds = userAccounts[activeUser].userTasks;
+    if (userTasksIds.length > 0) {
+        for (let i = 0; i < userTasksIds.length; i++) {
+            const taskId = userTasksIds[i];
+            userTasksArray.push(tasks[taskId]);
+        }
+      }
+  for (let i = 0; i < userTasksArray.length; i++) {
+    if (userTasksArray[i].taskStatus == "todo") {
       document.getElementById("boardTodoContent").innerHTML += `
-      <div onclick="taskEditPopup(${tasks[i].taskID})" draggable="true" ondragstart="startDraggin(${tasks[i].taskID})" class="boardBox pointer">
+      <div onclick="taskEditPopup(${userTasksArray[i].taskID})" draggable="true" ondragstart="startDraggin(${userTasksArray[i].taskID})" class="boardBox pointer">
       <div class="boardBoxContent">
-      <p class="boardBoxCategory ${tasks[i].taskCategory.TaskColor}">${tasks[i].taskCategory.Category}</p>
-      <h4 class="boardBoxTitle">${tasks[i].taskTitle}</h4>
+      <p class="boardBoxCategory ${userTasksArray[i].taskCategory.TaskColor}">${userTasksArray[i].taskCategory.Category}</p>
+      <h4 class="boardBoxTitle">${userTasksArray[i].taskTitle}</h4>
       <p class="boardBoxDescription">
-        ${tasks[i].taskDescription}
+        ${userTasksArray[i].taskDescription}
       </p>
       <div class="boardBoxFooter">
-        <div id="${tasks[i].taskID}" class="boxContacts">
+        <div id="${userTasksArray[i].taskID}" class="boxContacts">
           </div>
-        <img src="./assets/img/icon${tasks[i].priority}.png" />
+        <img src="./assets/img/icon${userTasksArray[i].priority}.png" />
       </div>
     </div>`;
-    renderAbbrevaitionInBox(tasks[i].taskID, i);
+    renderAbbrevaitionInBox(userTasksArray[i].taskID, i);
     }
-    if (tasks[i].taskStatus == "progress") {
+    if (userTasksArray[i].taskStatus == "progress") {
       document.getElementById("boardProgressContent").innerHTML += `
-      <div onclick="taskEditPopup(${tasks[i].taskID})" draggable="true" ondragstart="startDraggin(${tasks[i].taskID})" class="boardBox pointer">
+      <div onclick="taskEditPopup(${userTasksArray[i].taskID})" draggable="true" ondragstart="startDraggin(${userTasksArray[i].taskID})" class="boardBox pointer">
       <div class="boardBoxContent">
-      <p class="boardBoxCategory ${tasks[i].taskCategory.TaskColor}">${tasks[i].taskCategory.Category}</p>
-      <h4 class="boardBoxTitle">${tasks[i].taskTitle}</h4>
+      <p class="boardBoxCategory ${userTasksArray[i].taskCategory.TaskColor}">${userTasksArray[i].taskCategory.Category}</p>
+      <h4 class="boardBoxTitle">${userTasksArray[i].taskTitle}</h4>
       <p class="boardBoxDescription">
-        ${tasks[i].taskDescription}
+        ${userTasksArray[i].taskDescription}
       </p>
       <div class="boardBoxFooter">
-        <div id="${tasks[i].taskID}" class="boxContacts">
+        <div id="${userTasksArray[i].taskID}" class="boxContacts">
           </div>
-        <img src="./assets/img/icon${tasks[i].priority}.png" />
+        <img src="./assets/img/icon${userTasksArray[i].priority}.png" />
       </div>
     </div>`;
-    renderAbbrevaitionInBox(tasks[i].taskID, i);
+    renderAbbrevaitionInBox(userTasksArray[i].taskID, i);
     }
-    if (tasks[i].taskStatus == "feedback") {
+    if (userTasksArray[i].taskStatus == "feedback") {
       document.getElementById("boardFeedbackContent").innerHTML += `
-      <div onclick="taskEditPopup(${tasks[i].taskID})" draggable="true" ondragstart="startDraggin(${tasks[i].taskID})" class="boardBox pointer">
+      <div onclick="taskEditPopup(${userTasksArray[i].taskID})" draggable="true" ondragstart="startDraggin(${userTasksArray[i].taskID})" class="boardBox pointer">
       <div class="boardBoxContent">
-      <p class="boardBoxCategory ${tasks[i].taskCategory.TaskColor}">${tasks[i].taskCategory.Category}</p>
-      <h4 class="boardBoxTitle">${tasks[i].taskTitle}</h4>
+      <p class="boardBoxCategory ${userTasksArray[i].taskCategory.TaskColor}">${userTasksArray[i].taskCategory.Category}</p>
+      <h4 class="boardBoxTitle">${userTasksArray[i].taskTitle}</h4>
       <p class="boardBoxDescription">
-        ${tasks[i].taskDescription}
+        ${userTasksArray[i].taskDescription}
       </p>
       <div class="boardBoxFooter">
-        <div id="${tasks[i].taskID}" class="boxContacts">
+        <div id="${userTasksArray[i].taskID}" class="boxContacts">
           </div>
-        <img src="./assets/img/icon${tasks[i].priority}.png" />
+        <img src="./assets/img/icon${userTasksArray[i].priority}.png" />
       </div>
     </div>`;
-    renderAbbrevaitionInBox(tasks[i].taskID, i);
+    renderAbbrevaitionInBox(userTasksArray[i].taskID, i);
     }
-    if (tasks[i].taskStatus == "done") {
+    if (userTasksArray[i].taskStatus == "done") {
       document.getElementById("boardDoneContent").innerHTML += `
-      <div onclick="taskEditPopup(${tasks[i].taskID})" draggable="true" ondragstart="startDraggin(${tasks[i].taskID})" class="boardBox pointer">
+      <div onclick="taskEditPopup(${userTasksArray[i].taskID})" draggable="true" ondragstart="startDraggin(${userTasksArray[i].taskID})" class="boardBox pointer">
       <div class="boardBoxContent">
-      <p class="boardBoxCategory ${tasks[i].taskCategory.TaskColor}">${tasks[i].taskCategory.Category}</p>
-      <h4 class="boardBoxTitle">${tasks[i].taskTitle}</h4>
+      <p class="boardBoxCategory ${userTasksArray[i].taskCategory.TaskColor}">${userTasksArray[i].taskCategory.Category}</p>
+      <h4 class="boardBoxTitle">${userTasksArray[i].taskTitle}</h4>
       <p class="boardBoxDescription">
-        ${tasks[i].taskDescription}
+        ${userTasksArray[i].taskDescription}
       </p>
       <div class="boardBoxFooter">
-        <div id="${tasks[i].taskID}" class="boxContacts">
+        <div id="${userTasksArray[i].taskID}" class="boxContacts">
           </div>
-        <img src="./assets/img/icon${tasks[i].priority}.png" />
+        <img src="./assets/img/icon${userTasksArray[i].priority}.png" />
       </div>
     </div>`;
-    renderAbbrevaitionInBox(tasks[i].taskID, i);
+    renderAbbrevaitionInBox(userTasksArray[i].taskID, i);
     }
   }
   console.log("Tasks successfully loaded into board!");

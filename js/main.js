@@ -1,22 +1,23 @@
 let userAccounts = [];
 let activeUser;
-var subTasks = [];
-var tasks = [];
-var taskCategory = [];
-var checkedSubtaskValue;
-var prioritySelect;
-var taskCategorySelector = [];
-var taskContactSelector = [];
-var currentDraggedElement;
-var popupTaskContent = [];
-var selectorCategoryIndex = 0;
-var selectorContactIndex = 0;
-var categorySelectedColor;
-var selectedCategoryValue = [];
-var taskCategoryFinaly = [];
-var taskCategoryColorFinaly = [];
-var contactSelected = [];
-var contactCheckedValue = [];
+let subTasks = [];
+let tasks = [];
+let taskCategory = [];
+let checkedSubtaskValue;
+let prioritySelect;
+let taskCategorySelector = [];
+let taskContactSelector = [];
+let currentDraggedElement;
+let popupTaskContent = [];
+let selectorCategoryIndex = 0;
+let selectorContactIndex = 0;
+let categorySelectedColor;
+let selectedCategoryValue = [];
+let taskCategoryFinaly = [];
+let taskCategoryColorFinaly = [];
+let contactSelected = [];
+let contactCheckedValue = [];
+let userTasksArray = [];
 /**
  * pulling tasks from backend
  */
@@ -48,6 +49,7 @@ async function includeHTML() {
         }
     }
 }
+
 /**
  * saving user accounts in backend database
  */
