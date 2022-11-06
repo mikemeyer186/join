@@ -12,6 +12,7 @@ async function addTask() {
   let taskInputTitle = document.getElementById("inputTitle").value;
   let dueDate = document.getElementById("selectDate").value;
   let description = document.getElementById("inputDescription").value;
+  userAccounts[activeUser].userTasks.push(tasks.length); // User account get task id
   tasks.push({ 
     taskTitle: taskInputTitle,
     taskDescription: description,
@@ -25,7 +26,6 @@ async function addTask() {
     assignedTo: contactCheckedValue,
     taskStatus: "todo"
   });
-  userAccounts[activeUser].userTasks.push(tasks.length); // User account get task id
   await saveAccountsToBackend();
   await pushTasksinBackend();
   window.location.href = "board.html" // go to board side
@@ -182,36 +182,7 @@ function renderingContactsSelector() {
     selectorContactIndex--;
   }
 }
-/**
- * rendering contacts in addTask Popup at board
- */
- function renderingContactsSelectorPopup() {
-  let activeUserContacts = userAccounts[activeUser].userContacts;
-  if(selectorContactIndex == 0) {
-    document.getElementById('selectorContactRenderPopup').innerHTML = ``; 
-    for(let i = 0; i < activeUserContacts.length; i++) {
-      document.getElementById('selectorContactRenderPopup').innerHTML += `
-        <div onclick="selectedContact('${activeUserContacts[i].contactName}','${activeUserContacts[i].contactInitials}','${activeUserContacts[i].contactColor}')" class="selectorCellContact">
-          <nobr>${activeUserContacts[i].contactName}</nobr>
-          <div id="contactSelectorCheckboxes">
-          <img id="${activeUserContacts[i].contactName}" src="./assets/img/icons/checkButton.png">
-        </div>
-        </div>
-      `;
-      }
-      document.getElementById('selectorContactRender').innerHTML += `
-        <div onclick="changeInputContact()" class="selectorCellContact">
-          <nobr>Invite new contact</nobr>
-          <div id="contactSelectorCheckboxes">
-          <img id="contactIconContacts" src="./assets/img/icons/contactIcon.png">
-        </div>
-        </div>`;
-    selectorContactIndex++;
-  } else {
-    document.getElementById('selectorContactRenderPopup').innerHTML = ``; 
-    selectorContactIndex--;
-  }
-}
+
 /**
  * rendering task cateogry´s in selector (Onclick)
  */

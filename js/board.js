@@ -216,6 +216,7 @@ function taskEditPopup(taskIDused) {
   popupRenderContacts();
 }
 function editPopupTask(ident) {
+  contactCheckedValue = tasks[ident].assignedTo;
   for(let i = 0; i < tasks.length; i++){
     if(tasks[i].taskID == ident) {
       popupTaskContent = tasks[i];
@@ -274,7 +275,7 @@ function editPopupTask(ident) {
           </div>
           <h3>Assigned to</h3>
           <div id="selectorContactPopup">
-            <div onclick="renderingContactsSelectorPopup()" class="selectorHeader pointer">
+            <div onclick="renderingContactsSelectorPopup(${popupTaskContent.taskID})" class="selectorHeader pointer">
               Select contacts to assign 
               <img class="selectorArrow" src="./assets/img/selectorArrow.png">
             </div>
@@ -282,7 +283,7 @@ function editPopupTask(ident) {
               <!-- renderzone for contact selctor -->
             </div>
           </div>
-          <img class="okButton" onclick="addTaskBoard(${popupTaskContent.taskID});" src="./assets/img/okButton.png">
+          <img class="okButton pointer" onclick="addTaskBoard(${popupTaskContent.taskID});" src="./assets/img/okButton.png">
     </form>
   `;
   prioritySelectedEdit(popupTaskContent.priority);
@@ -307,23 +308,18 @@ function popupRenderContacts() {
  * Push JSON in tasks from board
  */
  async function addTaskBoard(i) {
-  let index = i - 1; 
+  contactCheckedValue = tasks[i].assignedTo;
+  console.log(contactCheckedValue);
   let taskInputTitle = document.getElementById("inputTitleEdit").value;
   let dueDate = document.getElementById("selectDateEdit").value;
   let description = document.getElementById("inputDescriptionEdit").value;
-  tasks[index].replace({ 
-    taskTitle: taskInputTitle,
-    taskDescription: description,
-    toDueDate: dueDate,
-    taskCategory: 
-                        {Category: taskCategoryFinaly, 
-                        TaskColor: taskCategoryColorFinaly},
-    priority: prioritySelect,
-    assignedTo: contactCheckedValue,
-  });
-  userAccounts[activeUser].userTasks.push(tasks.length); // User account get task id
-  await pushTasksinBackend(),
-  console.log('PASST');
+  tasks[i].taskTitle = taskInputTitle;
+  tasks[i].taskDescription = description;
+  tasks[i].toDueDate = dueDate;
+  tasks[i].priority = prioritySelect;
+  tasks[i].assignedTo = contactCheckedValue;
+  await pushTasksinBackend();
+  window.location.reload();
 }
 
 /**
@@ -357,4 +353,83 @@ function popupRenderContacts() {
     document.getElementById("importanceEditIMGMid").src ="./assets/img/TaskValueMid.png";
     document.getElementById("importanceEditIMGLow").src ="./assets/img/TaskValueLowSelected.png";
   }
+}
+/**
+ * rendering contacts in addTask Popup at board
+ */
+ function renderingContactsSelectorPopup(index) {
+  
+  console.log(checkedSubtaskValue);
+  let activeUserContacts = userAccounts[activeUser].userContacts;
+  if(selectorContactIndex == 0) {
+    document.getElementById('selectorContactRenderPopup').innerHTML = ``; 
+    for(let i = 0; i < activeUserContacts.length; i++) {
+      if(findContact(index, userAccounts[activeUser].userContacts[i].contactName) === true) {
+      document.getElementById('selectorContactRenderPopup').innerHTML += `
+        <div onclick="selectedContactPopup('${activeUserContacts[i].contactName}','${activeUserContacts[i].contactInitials}','${activeUserContacts[i].contactColor}','${i}')" class="selectorCellContact">
+          <nobr>${activeUserContacts[i].contactName}</nobr>
+          <div id="contactSelectorCheckboxes">
+          <img id="popup${i}${activeUserContacts[i].contactName}" class="checked" src="./assets/img/icons/checkButtonChecked.png">
+        </div>
+        </div>
+      `;
+    } else {
+        document.getElementById('selectorContactRenderPopup').innerHTML += `
+        <div onclick="selectedContactPopup('${activeUserContacts[i].contactName}','${activeUserContacts[i].contactInitials}','${activeUserContacts[i].contactColor}','${i}')" class="selectorCellContact">
+          <nobr>${activeUserContacts[i].contactName}</nobr>
+          <div id="contactSelectorCheckboxes">
+          <img id="popup${i}${activeUserContacts[i].contactName}" src="./assets/img/icons/checkButton.png">
+        </div>
+        </div>
+      `;
+      }  
+    }
+      document.getElementById('selectorContactRender').innerHTML += `
+        <div onclick="changeInputContact()" class="selectorCellContact">
+          <nobr>Invite new contact</nobr>
+          <div id="contactSelectorCheckboxes">
+          <img id="contactIconContacts" src="./assets/img/icons/contactIcon.png">
+        </div>
+        </div>`;
+    selectorContactIndex++;
+  } else {
+    tasks[index].assignedTo = contactCheckedValue;
+    document.getElementById('selectorContactRenderPopup').innerHTML = ``; 
+    selectorContactIndex--;
+  }
+}
+
+function findContact(index, name) {
+  for(let i = 0; i < contactCheckedValue.length; i++){
+    if(contactCheckedValue[i].contactName == name){ 
+      return true;
+    }
+  }
+}
+
+/**
+ * save selected contactsPopup
+*/  
+function selectedContactPopup(name, initiales, color, number) {
+  if(document.getElementById('popup'+number+name).classList == 'checked'){
+    let index = -1; 
+    contactCheckedValue.find(function(name, i) {
+      if(contactCheckedValue.name === name){
+        index = i;  
+      }
+  });
+  contactCheckedValue.splice(index, 1);
+  document.getElementById('popup'+number+name).classList.remove('checked');
+  document.getElementById('popup'+number+name).src ="./assets/img/icons/checkButton.png";
+  console.log(contactCheckedValue); 
+} else {
+  contactCheckedValue.push({
+    contactName: name, 
+    abbreviation: initiales, 
+    paint: color
+  });
+  console.log(contactCheckedValue);
+  document.getElementById('popup'+number+name).src = "./assets/img/icons/checkButtonChecked.png";
+  document.getElementById('popup'+number+name).classList.add('checked');
+}
 }
