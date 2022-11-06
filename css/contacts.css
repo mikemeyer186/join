@@ -534,7 +534,7 @@
     background-color: white;
     width: 100vw;
     height: 100vh;
-    transform: translateX(100vh);
+    transform: translateX(300vh);
     transition: all 225ms;
  }
 .translate0 {
