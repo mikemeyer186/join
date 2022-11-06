@@ -1,6 +1,5 @@
 let filterLetters = [];
 let contactList = [];
-
 /**
  * initial function
  */
@@ -368,7 +367,7 @@ function contactDetailViewTemplate(contact, index) {
             </div>
             <div class="contact-detail-name-box">
                 <span class="contact-detail-name">${contact.contactName}</span>
-                <div class="contact-detail-task"><span class="plus">+ </span>Add task</div>
+                <div onclick="showAddTaskPopup()" class="contact-detail-task"><span class="plus">+ </span>Add task</div>
             </div>
         </div>
         <div class="contacts-detail-bottom">
@@ -398,3 +397,88 @@ function editProfilPicTemplate(contact) {
         </div>
     `;
 }
+function showAddTaskPopup() {
+    document.getElementById('addTaskPopup').classList.toggle('translate0');
+    document.getElementById('header-mobile-addTask').classList.toggle('d-none');
+}
+
+/**
+ * rendering contacts in addTask Popup at board
+ */
+ function renderingContactsSelectorPopup(index) {
+    contactCheckedValue = userAccounts[activeUser].userContacts[index];
+    let contactName = userAccounts[activeUser].userContacts[index].contactName;
+    let activeUserContacts = userAccounts[activeUser].userContacts;
+    if (selectorContactIndex == 0) {
+      document.getElementById("selectorContactRenderPopup").innerHTML = ``;
+      for (let i = 0; i < activeUserContacts.length; i++) {
+        if (findContact(activeUserContacts[i].contactName) === true) {
+          document.getElementById("selectorContactRenderPopup").innerHTML += `
+          <div onclick="selectedContactPopup('${activeUserContacts[i].contactName}','${activeUserContacts[i].contactInitials}','${activeUserContacts[i].contactColor}','${i}')" class="selectorCellContact">
+            <nobr>${activeUserContacts[i].contactName}</nobr>
+            <div id="contactSelectorCheckboxes">
+            <img id="popup${i}${activeUserContacts[i].contactName}" class="checked" src="./assets/img/icons/checkButtonChecked.png">
+          </div>
+          </div>
+        `;
+        } else {
+          document.getElementById("selectorContactRenderPopup").innerHTML += `
+          <div onclick="selectedContactPopup('${activeUserContacts[i].contactName}','${activeUserContacts[i].contactInitials}','${activeUserContacts[i].contactColor}','${i}')" class="selectorCellContact">
+            <nobr>${activeUserContacts[i].contactName}</nobr>
+            <div id="contactSelectorCheckboxes">
+            <img id="popup${i}${activeUserContacts[i].contactName}" src="./assets/img/icons/checkButton.png">
+          </div>
+          </div>
+        `;
+        }
+      }
+      document.getElementById("selectorContactRenderPopup").innerHTML += `
+          <div onclick="changeInputContact()" class="selectorCellContact">
+            <nobr>Invite new contact</nobr>
+            <div id="contactSelectorCheckboxes">
+            <img id="contactIconContacts" src="./assets/img/icons/contactIcon.png">
+          </div>
+          </div>`;
+      selectorContactIndex++;
+    } else {
+      
+      document.getElementById("selectorContactRenderPopup").innerHTML = ``;
+      selectorContactIndex--;
+    }
+  }
+  
+  function findContact(name) {
+      if (contactCheckedValue.contactName == name) {
+        return true;
+      }
+    }
+  /**
+ * save selected contactsPopup
+ */
+function selectedContactPopup(name, initiales, color, number) {
+    if (document.getElementById("popup" + number + name).classList == "checked") {
+      let index = -1;
+      contactCheckedValue.find(function (name, i) {
+        if (contactCheckedValue.name === name) {
+          index = i;
+        }
+      });
+      contactCheckedValue.splice(index, 1);
+      document
+        .getElementById("popup" + number + name)
+        .classList.remove("checked");
+      document.getElementById("popup" + number + name).src =
+        "./assets/img/icons/checkButton.png";
+      console.log(contactCheckedValue);
+    } else {
+      contactCheckedValue.push({
+        contactName: name,
+        abbreviation: initiales,
+        paint: color,
+      });
+      console.log(contactCheckedValue);
+      document.getElementById("popup" + number + name).src =
+        "./assets/img/icons/checkButtonChecked.png";
+      document.getElementById("popup" + number + name).classList.add("checked");
+    }
+  }

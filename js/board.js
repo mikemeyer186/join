@@ -402,7 +402,7 @@ function prioritySelectedEdit(i) {
  * rendering contacts in addTask Popup at board
  */
 function renderingContactsSelectorPopup(index) {
-  console.log(checkedSubtaskValue);
+  console.log(index);
   let activeUserContacts = userAccounts[activeUser].userContacts;
   if (selectorContactIndex == 0) {
     document.getElementById("selectorContactRenderPopup").innerHTML = ``;
@@ -432,7 +432,7 @@ function renderingContactsSelectorPopup(index) {
       `;
       }
     }
-    document.getElementById("selectorContactRender").innerHTML += `
+    document.getElementById("selectorContactRenderPopup").innerHTML += `
         <div onclick="changeInputContact()" class="selectorCellContact">
           <nobr>Invite new contact</nobr>
           <div id="contactSelectorCheckboxes">
