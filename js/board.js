@@ -485,3 +485,12 @@ function selectedContactPopup(name, initiales, color, number) {
     document.getElementById("popup" + number + name).classList.add("checked");
   }
 }
+
+function showAddTaskPopup() {
+  if(window.innerWidth < 800){
+  document.getElementById('addTaskPopup').classList.toggle('translate0');
+  document.getElementById('header-mobile-addTask').classList.toggle('d-none');
+} else {
+  addTaskPopup();
+}
+}

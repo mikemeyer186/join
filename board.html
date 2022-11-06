@@ -16,7 +16,7 @@
     <title>Join - Board</title>
   </head>
   <body onload="boardOnload()">
-    <!--- Test Popup  -->
+    <!--- Add Task Popup  -->
     <div id="popup-bg" class="d-none no-opacity" onclick="hidePopUps()">
       <div id="popup-addTask" class="d-none" onclick="stopPropagate(event)">
         <img
@@ -115,6 +115,8 @@
           </form>
         </div>
       </div>
+      <!--- Add Task Popup end  -->
+      <!--- Task Popup  -->
       <div class="width100">
         <div id="popup-Task" onclick="stopPropagate(event)">
           <img
@@ -127,7 +129,8 @@
         </div>
       </div>
     </div>
-    <!--- Test Popup  -->
+    <!--- Task Popup end   -->
+    <!-- end of popup background-->
     <div
       class="header-desktop"
       w3-include-html=".\assets\templates\headerDesktop.html"
@@ -140,15 +143,19 @@
       class="menu-mobile"
       w3-include-html=".\assets\templates\menuMobile.html"
     ></div>
+    <!-- add Task Mobile Popup -->
+      <div id="header-mobile-addTask" class="d-none" w3-include-html=".\assets\templates\addTaskHeaderMobile.html"></div>
+      <div id="addTaskPopup" w3-include-html="./addTaskPopup.html"></div>
+    <!-- add Task Mobile Popup end -->
     <div class="boardFindandAddtask">
       <input type="search" placeholder="Find Task"/>
-      <button class="pointer addButton" onclick="addTaskPopup()">Add task +</button>
+      <button class="pointer addButton" onclick="showAddTaskPopup()">Add task +</button>
     </div>
     <div class="boardContent">
       <div id="boardTodo" ondrop="drop('todo')" ondragover="allowDrop(event)">
         <div class="boxHeader">
           <h2>To do</h2>
-          <img class="pointer" src="./assets/img/plus button v1.png" />
+          <img onclick="showAddTaskPopup()" class="pointer" src="./assets/img/plus button v1.png" />
         </div>
         <div id="boardTodoContent"></div>
       </div>
@@ -159,7 +166,7 @@
       >
         <div class="boxHeader">
           <h2>In progress</h2>
-          <img class="pointer" src="./assets/img/plus button v1.png" />
+          <img onclick="showAddTaskPopup()" class="pointer" src="./assets/img/plus button v1.png" />
         </div>
         <div id="boardProgressContent"></div>
       </div>
@@ -170,14 +177,14 @@
       >
         <div class="boxHeader">
           <h2>Await feedback</h2>
-          <img class="pointer" src="./assets/img/plus button v1.png" />
+          <img onclick="showAddTaskPopup()" class="pointer" src="./assets/img/plus button v1.png" />
         </div>
         <div id="boardFeedbackContent"></div>
       </div>
       <div id="boardDone" ondrop="drop('done')" ondragover="allowDrop(event)">
         <div class="boxHeader">
           <h2>Done</h2>
-          <img class="pointer" src="./assets/img/plus button v1.png" />
+          <img onclick="showAddTaskPopup()" class="pointer" src="./assets/img/plus button v1.png" />
         </div>
         <div id="boardDoneContent"></div>
       </div>
