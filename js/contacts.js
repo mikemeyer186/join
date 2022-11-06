@@ -407,7 +407,6 @@ function showAddTaskPopup() {
  */
  function renderingContactsSelectorPopup(index) {
     contactCheckedValue = userAccounts[activeUser].userContacts[index];
-    let contactName = userAccounts[activeUser].userContacts[index].contactName;
     let activeUserContacts = userAccounts[activeUser].userContacts;
     if (selectorContactIndex == 0) {
       document.getElementById("selectorContactRenderPopup").innerHTML = ``;
