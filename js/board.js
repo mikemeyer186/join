@@ -116,7 +116,7 @@ function renderAbbrevaitionInBox(ident, b) {
   if (userTasksArray[b].assignedTo.length == 3) {
     document.getElementById(ident).innerHTML += `
     <div class="abbreviationIconsBox" id="abbreviationIconsBox1" style="background-color: ${userTasksArray[b].assignedTo[0].paint}">${userTasksArray[b].assignedTo[0].abbreviation}</div>
-    <div class="abbreviationIconsBox" id="abbreviationIconsBox2" style="back  ground-color: ${userTasksArray[b].assignedTo[1].paint}">${userTasksArray[b].assignedTo[1].abbreviation}</div>
+    <div class="abbreviationIconsBox" id="abbreviationIconsBox2" style="background-color: ${userTasksArray[b].assignedTo[1].paint}">${userTasksArray[b].assignedTo[1].abbreviation}</div>
     <div class="abbreviationIconsBox" id="abbreviationIconsBox3" style="background-color: ${userTasksArray[b].assignedTo[2].paint}">${userTasksArray[b].assignedTo[2].abbreviation}</div>
     `;
   }
