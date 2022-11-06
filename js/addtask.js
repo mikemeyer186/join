@@ -35,7 +35,7 @@ async function addTask() {
  */
 async function pushTasksinBackend() {
   await backend.setItem("tasks", JSON.stringify(tasks));
-  console.log('Pushed in backend succes!')
+  console.log('Pushed in backend succes!');
 }
 /**
  * Rendering the subtasks checkboxes at the footer

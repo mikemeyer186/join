@@ -10,17 +10,18 @@ async function boardOnload() {
  * this function is rendering the task boxes in the board
  */
 function renderTasksinBoard() {
+  userTasksArray = [];
+  let userTasksIds = userAccounts[activeUser].userTasks;
+  if (userTasksIds.length > 0) {
+    for (let i = 0; i < userTasksIds.length; i++) {
+      const taskId = userTasksIds[i];
+      userTasksArray.push(tasks[taskId]);
+    }
+  }
   document.getElementById("boardTodoContent").innerHTML = ``;
   document.getElementById("boardProgressContent").innerHTML = ``;
   document.getElementById("boardFeedbackContent").innerHTML = ``;
   document.getElementById("boardDoneContent").innerHTML = ``;
-  let userTasksIds = userAccounts[activeUser].userTasks;
-    if (userTasksIds.length > 0) {
-        for (let i = 0; i < userTasksIds.length; i++) {
-            const taskId = userTasksIds[i];
-            userTasksArray.push(tasks[taskId]);
-        }
-      }
   for (let i = 0; i < userTasksArray.length; i++) {
     if (userTasksArray[i].taskStatus == "todo") {
       document.getElementById("boardTodoContent").innerHTML += `
@@ -37,7 +38,7 @@ function renderTasksinBoard() {
         <img src="./assets/img/icon${userTasksArray[i].priority}.png" />
       </div>
     </div>`;
-    renderAbbrevaitionInBox(userTasksArray[i].taskID, i);
+      renderAbbrevaitionInBox(userTasksArray[i].taskID, i);
     }
     if (userTasksArray[i].taskStatus == "progress") {
       document.getElementById("boardProgressContent").innerHTML += `
@@ -54,7 +55,7 @@ function renderTasksinBoard() {
         <img src="./assets/img/icon${userTasksArray[i].priority}.png" />
       </div>
     </div>`;
-    renderAbbrevaitionInBox(userTasksArray[i].taskID, i);
+      renderAbbrevaitionInBox(userTasksArray[i].taskID, i);
     }
     if (userTasksArray[i].taskStatus == "feedback") {
       document.getElementById("boardFeedbackContent").innerHTML += `
@@ -71,7 +72,7 @@ function renderTasksinBoard() {
         <img src="./assets/img/icon${userTasksArray[i].priority}.png" />
       </div>
     </div>`;
-    renderAbbrevaitionInBox(userTasksArray[i].taskID, i);
+      renderAbbrevaitionInBox(userTasksArray[i].taskID, i);
     }
     if (userTasksArray[i].taskStatus == "done") {
       document.getElementById("boardDoneContent").innerHTML += `
@@ -88,52 +89,48 @@ function renderTasksinBoard() {
         <img src="./assets/img/icon${userTasksArray[i].priority}.png" />
       </div>
     </div>`;
-    renderAbbrevaitionInBox(userTasksArray[i].taskID, i);
+      renderAbbrevaitionInBox(userTasksArray[i].taskID, i);
     }
   }
   console.log("Tasks successfully loaded into board!");
 }
-/** 
- * Rendering the abbrevaition in the boxes 
- */
-function renderAbbrevaitionInBox(ident, b){
-  document.getElementById(ident).innerHTM = ``;
-  if(tasks[b].assignedTo.length > 3) { 
-  for(let i = 0; i < 2; i++){
-    document.getElementById(ident).innerHTML += `
-    <div class="abbreviationIconsBox" id="abbreviationIconsBox${i + 1}" style="background-color: ${tasks[b].assignedTo[i].paint}">${tasks[b].assignedTo[i].abbreviation}</div>`;
-  }
-  document.getElementById(ident).innerHTML += `
-  <div class="abbreviationIconsBox" id="abbreviationIconsBox3" style="background-color: ${tasks[b].assignedTo[2].paint}">+${tasks[b].assignedTo.length - 2}</div>`;
-}
-if(tasks[b].assignedTo.length == 3) {
-    document.getElementById(ident).innerHTML += `
-    <div class="abbreviationIconsBox" id="abbreviationIconsBox1" style="background-color: ${tasks[b].assignedTo[0].paint}">${tasks[b].assignedTo[0].abbreviation}</div>
-    <div class="abbreviationIconsBox" id="abbreviationIconsBox2" style="background-color: ${tasks[b].assignedTo[1].paint}">${tasks[b].assignedTo[1].abbreviation}</div>
-    <div class="abbreviationIconsBox" id="abbreviationIconsBox3" style="background-color: ${tasks[b].assignedTo[2].paint}">${tasks[b].assignedTo[2].abbreviation}</div>
-    `;
-}
-if(tasks[b].assignedTo.length == 2) {
-    document.getElementById(ident).innerHTML += `
-    <div class="abbreviationIconsBox" id="abbreviationIconsBox1" style="background-color: ${tasks[b].assignedTo[0].paint}">${tasks[b].assignedTo[0].abbreviation}</div>
-    <div class="abbreviationIconsBox" id="abbreviationIconsBox2" style="background-color: ${tasks[b].assignedTo[1].paint}">${tasks[b].assignedTo[1].abbreviation}</div>`;
-}
-if(tasks[b].assignedTo.length == 1) {
-    document.getElementById(ident).innerHTML += `
-    <div class="abbreviationIconsBox" id="abbreviationIconsBox1" style="background-color: ${tasks[b].assignedTo[0].paint}">${tasks[b].assignedTo[0].abbreviation}</div>`;
-}
-}
 /**
- * render abbreviation in boxes
+ * Rendering the abbrevaition in the boxes
  */
-function renderAbbreviationIcons() {
-  document.getElementById('').innerHTML = ``; 
-  for(let i = 0; i < this; i++){
-    document.getElementById('') += `
-    <span class="abbreviationIconsBox">${lorem}</span>
-    `; 
+function renderAbbrevaitionInBox(ident, b) {
+  document.getElementById(ident).innerHTM = ``;
+  if (userTasksArray[b].assignedTo.length > 3) {
+    for (let i = 0; i < 2; i++) {
+      document.getElementById(ident).innerHTML += `
+    <div class="abbreviationIconsBox" id="abbreviationIconsBox${
+      i + 1
+    }" style="background-color: ${userTasksArray[b].assignedTo[i].paint}">${
+        userTasksArray[b].assignedTo[i].abbreviation
+      }</div>`;
+    }
+    document.getElementById(ident).innerHTML += `
+  <div class="abbreviationIconsBox" id="abbreviationIconsBox3" style="background-color: ${
+    userTasksArray[b].assignedTo[2].paint
+  }">+${userTasksArray[b].assignedTo.length - 2}</div>`;
+  }
+  if (userTasksArray[b].assignedTo.length == 3) {
+    document.getElementById(ident).innerHTML += `
+    <div class="abbreviationIconsBox" id="abbreviationIconsBox1" style="background-color: ${userTasksArray[b].assignedTo[0].paint}">${userTasksArray[b].assignedTo[0].abbreviation}</div>
+    <div class="abbreviationIconsBox" id="abbreviationIconsBox2" style="back  ground-color: ${userTasksArray[b].assignedTo[1].paint}">${userTasksArray[b].assignedTo[1].abbreviation}</div>
+    <div class="abbreviationIconsBox" id="abbreviationIconsBox3" style="background-color: ${userTasksArray[b].assignedTo[2].paint}">${userTasksArray[b].assignedTo[2].abbreviation}</div>
+    `;
+  }
+  if (userTasksArray[b].assignedTo.length == 2) {
+    document.getElementById(ident).innerHTML += `
+    <div class="abbreviationIconsBox" id="abbreviationIconsBox1" style="background-color: ${userTasksArray[b].assignedTo[0].paint}">${userTasksArray[b].assignedTo[0].abbreviation}</div>
+    <div class="abbreviationIconsBox" id="abbreviationIconsBox2" style="background-color: ${userTasksArray[b].assignedTo[1].paint}">${userTasksArray[b].assignedTo[1].abbreviation}</div>`;
+  }
+  if (userTasksArray[b].assignedTo.length == 1) {
+    document.getElementById(ident).innerHTML += `
+    <div class="abbreviationIconsBox" id="abbreviationIconsBox1" style="background-color: ${userTasksArray[b].assignedTo[0].paint}">${userTasksArray[b].assignedTo[0].abbreviation}</div>`;
   }
 }
+
 /**
  * save the dragged element
  */
@@ -150,9 +147,9 @@ function allowDrop(ev) {
  * task status change by dropping
  */
 async function drop(status) {
-  tasks[currentDraggedElement]["taskStatus"] = status;
+  userTasksArray[currentDraggedElement]["taskStatus"] = status;
   renderTasksinBoard();
-  pushTasksinBackend();
+  addUsertaskInTask();
 }
 /**
  * showing popup Add task
@@ -161,7 +158,9 @@ function addTaskPopup() {
   document.getElementById("popup-bg").classList.remove("d-none");
   document.getElementById("popup-addTask").classList.remove("d-none");
   setTimeout(() => {
-    document.getElementById("popup-addTask").classList.add("popup-slideInAddTask");
+    document
+      .getElementById("popup-addTask")
+      .classList.add("popup-slideInAddTask");
     document.getElementById("popup-bg").classList.remove("no-opacity");
   }, 10);
 }
@@ -169,7 +168,9 @@ function addTaskPopup() {
  * hiding popup add Task
  */
 function hidePopUps() {
-  document.getElementById("popup-addTask").classList.remove("popup-slideInAddTask");
+  document
+    .getElementById("popup-addTask")
+    .classList.remove("popup-slideInAddTask");
   document.getElementById("popup-Task").classList.remove("popup-slideInTask");
   document.getElementById("popup-bg").classList.add("no-opacity");
   setTimeout(() => {
@@ -188,12 +189,12 @@ function taskEditPopup(taskIDused) {
     document.getElementById("popup-bg").classList.remove("no-opacity");
     document.getElementById("popup-Task").classList.add("popup-slideInTask");
   }, 10);
-  for(let i = 0; i < tasks.length; i++){
-    if(tasks[i].taskID == taskIDused) {
-      popupTaskContent = tasks[i];
+  for (let i = 0; i < userTasksArray.length; i++) {
+    if (userTasksArray[i].taskID == taskIDused) {
+      popupTaskContent = userTasksArray[i];
     }
   }
-  document.getElementById('taskPopUpContent').innerHTML = `
+  document.getElementById("taskPopUpContent").innerHTML = `
   <p class="boardBoxCategoryPopup ${popupTaskContent.taskCategory.TaskColor}">${popupTaskContent.taskCategory.Category}</p>
   <h1>${popupTaskContent.taskTitle}</h1>
   <p>${popupTaskContent.taskDescription}</p>
@@ -223,13 +224,13 @@ function taskEditPopup(taskIDused) {
   popupRenderContacts();
 }
 function editPopupTask(ident) {
-  contactCheckedValue = tasks[ident].assignedTo;
-  for(let i = 0; i < tasks.length; i++){
-    if(tasks[i].taskID == ident) {
-      popupTaskContent = tasks[i];
+  contactCheckedValue = userTasksArray[ident].assignedTo;
+  for (let i = 0; i < userTasksArray.length; i++) {
+    if (userTasksArray[i].taskID == ident) {
+      popupTaskContent = userTasksArray[i];
     }
   }
-  document.getElementById('taskPopUpContent').innerHTML = `
+  document.getElementById("taskPopUpContent").innerHTML = `
   <form>
         <input
           value="${popupTaskContent.taskTitle}"
@@ -299,80 +300,120 @@ function editPopupTask(ident) {
  * rendering contacts in footer of the Task Pupup
  */
 function popupRenderContacts() {
-  document.getElementById('popupContactsRender').innerHTML = ``;
-  for(let i = 0; i < popupTaskContent.assignedTo.length; i++) {
-    document.getElementById('popupContactsRender').innerHTML += `
+  document.getElementById("popupContactsRender").innerHTML = ``;
+  for (let i = 0; i < popupTaskContent.assignedTo.length; i++) {
+    document.getElementById("popupContactsRender").innerHTML += `
     <div class="popupContactsCell">
     <div class="contact-pic-Task" style="background-color: ${popupTaskContent.assignedTo[i].paint};">
       <span>${popupTaskContent.assignedTo[i].abbreviation}</span>
     </div>
       <span>${popupTaskContent.assignedTo[i].contactName}</span>
     </div>
-    `; 
+    `;
   }
 }
 /**
  * Push JSON in tasks from board
  */
- async function addTaskBoard(i) {
-  contactCheckedValue = tasks[i].assignedTo;
+async function addTaskBoard(i) {
+  contactCheckedValue = userTasksArray[i].assignedTo;
   console.log(contactCheckedValue);
   let taskInputTitle = document.getElementById("inputTitleEdit").value;
   let dueDate = document.getElementById("selectDateEdit").value;
   let description = document.getElementById("inputDescriptionEdit").value;
-  tasks[i].taskTitle = taskInputTitle;
-  tasks[i].taskDescription = description;
-  tasks[i].toDueDate = dueDate;
-  tasks[i].priority = prioritySelect;
-  tasks[i].assignedTo = contactCheckedValue;
-  await pushTasksinBackend();
+  userTasksArray[i].taskTitle = taskInputTitle;
+  userTasksArray[i].taskDescription = description;
+  userTasksArray[i].toDueDate = dueDate;
+  userTasksArray[i].priority = prioritySelect;
+  userTasksArray[i].assignedTo = contactCheckedValue;
+  addUsertaskInTask();
   window.location.reload();
 }
-
+/**
+ * add usertask in task array
+ */
+async function addUsertaskInTask() {
+  for(let i = 0; i < userTasksArray.length; i++){
+    let task = userTasksArray[i].taskID;
+    tasks[task] = userTasksArray[i];
+  }
+  await pushTasksinBackend();
+}
 /**
  * selected priority task popup !!!!!!!!
  */
- function prioritySelectedEdit(i) {
+function prioritySelectedEdit(i) {
   if (i == "Hard") {
     prioritySelect = "Hard";
-    document.getElementById("importanceEditIMGHard").classList.remove("importanceHard");
-    document.getElementById("importanceEditIMGLow").classList.add("importanceLow");
-    document.getElementById("importanceEditIMGMid").classList.add("importanceMid");
-    document.getElementById("importanceEditIMGHard").src ="./assets/img/TaskValueHardSelected.png";
-    document.getElementById("importanceEditIMGMid").src ="./assets/img/TaskValueMid.png";
-    document.getElementById("importanceEditIMGLow").src ="./assets/img/TaskValueLow.png";
+    document
+      .getElementById("importanceEditIMGHard")
+      .classList.remove("importanceHard");
+    document
+      .getElementById("importanceEditIMGLow")
+      .classList.add("importanceLow");
+    document
+      .getElementById("importanceEditIMGMid")
+      .classList.add("importanceMid");
+    document.getElementById("importanceEditIMGHard").src =
+      "./assets/img/TaskValueHardSelected.png";
+    document.getElementById("importanceEditIMGMid").src =
+      "./assets/img/TaskValueMid.png";
+    document.getElementById("importanceEditIMGLow").src =
+      "./assets/img/TaskValueLow.png";
   }
   if (i == "Mid") {
     prioritySelect = "Mid";
-    document.getElementById("importanceEditIMGMid").classList.remove("importanceMid");
-    document.getElementById("importanceEditIMGLow").classList.add("importanceLow");
-    document.getElementById("importanceEditIMGHard").classList.add("importanceHard");
-    document.getElementById("importanceEditIMGHard").src ="./assets/img/TaskValueHard.png";
-    document.getElementById("importanceEditIMGMid").src ="./assets/img/TaskValueMidSelected.png";
-    document.getElementById("importanceEditIMGLow").src ="./assets/img/TaskValueLow.png";
+    document
+      .getElementById("importanceEditIMGMid")
+      .classList.remove("importanceMid");
+    document
+      .getElementById("importanceEditIMGLow")
+      .classList.add("importanceLow");
+    document
+      .getElementById("importanceEditIMGHard")
+      .classList.add("importanceHard");
+    document.getElementById("importanceEditIMGHard").src =
+      "./assets/img/TaskValueHard.png";
+    document.getElementById("importanceEditIMGMid").src =
+      "./assets/img/TaskValueMidSelected.png";
+    document.getElementById("importanceEditIMGLow").src =
+      "./assets/img/TaskValueLow.png";
   }
   if (i == "Low") {
     prioritySelect = "Low";
-    document.getElementById("importanceEditIMGLow").classList.remove("importanceLow");
-    document.getElementById("importanceEditIMGMid").classList.add("importanceMid");
-    document.getElementById("importanceEditIMGHard").classList.add("importanceHard");
-    document.getElementById("importanceEditIMGHard").src ="./assets/img/TaskValueHard.png";
-    document.getElementById("importanceEditIMGMid").src ="./assets/img/TaskValueMid.png";
-    document.getElementById("importanceEditIMGLow").src ="./assets/img/TaskValueLowSelected.png";
+    document
+      .getElementById("importanceEditIMGLow")
+      .classList.remove("importanceLow");
+    document
+      .getElementById("importanceEditIMGMid")
+      .classList.add("importanceMid");
+    document
+      .getElementById("importanceEditIMGHard")
+      .classList.add("importanceHard");
+    document.getElementById("importanceEditIMGHard").src =
+      "./assets/img/TaskValueHard.png";
+    document.getElementById("importanceEditIMGMid").src =
+      "./assets/img/TaskValueMid.png";
+    document.getElementById("importanceEditIMGLow").src =
+      "./assets/img/TaskValueLowSelected.png";
   }
 }
 /**
  * rendering contacts in addTask Popup at board
  */
- function renderingContactsSelectorPopup(index) {
-  
+function renderingContactsSelectorPopup(index) {
   console.log(checkedSubtaskValue);
   let activeUserContacts = userAccounts[activeUser].userContacts;
-  if(selectorContactIndex == 0) {
-    document.getElementById('selectorContactRenderPopup').innerHTML = ``; 
-    for(let i = 0; i < activeUserContacts.length; i++) {
-      if(findContact(index, userAccounts[activeUser].userContacts[i].contactName) === true) {
-      document.getElementById('selectorContactRenderPopup').innerHTML += `
+  if (selectorContactIndex == 0) {
+    document.getElementById("selectorContactRenderPopup").innerHTML = ``;
+    for (let i = 0; i < activeUserContacts.length; i++) {
+      if (
+        findContact(
+          index,
+          userAccounts[activeUser].userContacts[i].contactName
+        ) === true
+      ) {
+        document.getElementById("selectorContactRenderPopup").innerHTML += `
         <div onclick="selectedContactPopup('${activeUserContacts[i].contactName}','${activeUserContacts[i].contactInitials}','${activeUserContacts[i].contactColor}','${i}')" class="selectorCellContact">
           <nobr>${activeUserContacts[i].contactName}</nobr>
           <div id="contactSelectorCheckboxes">
@@ -380,8 +421,8 @@ function popupRenderContacts() {
         </div>
         </div>
       `;
-    } else {
-        document.getElementById('selectorContactRenderPopup').innerHTML += `
+      } else {
+        document.getElementById("selectorContactRenderPopup").innerHTML += `
         <div onclick="selectedContactPopup('${activeUserContacts[i].contactName}','${activeUserContacts[i].contactInitials}','${activeUserContacts[i].contactColor}','${i}')" class="selectorCellContact">
           <nobr>${activeUserContacts[i].contactName}</nobr>
           <div id="contactSelectorCheckboxes">
@@ -389,9 +430,9 @@ function popupRenderContacts() {
         </div>
         </div>
       `;
-      }  
+      }
     }
-      document.getElementById('selectorContactRender').innerHTML += `
+    document.getElementById("selectorContactRender").innerHTML += `
         <div onclick="changeInputContact()" class="selectorCellContact">
           <nobr>Invite new contact</nobr>
           <div id="contactSelectorCheckboxes">
@@ -400,15 +441,15 @@ function popupRenderContacts() {
         </div>`;
     selectorContactIndex++;
   } else {
-    tasks[index].assignedTo = contactCheckedValue;
-    document.getElementById('selectorContactRenderPopup').innerHTML = ``; 
+    userTasksArray[index].assignedTo = contactCheckedValue;
+    document.getElementById("selectorContactRenderPopup").innerHTML = ``;
     selectorContactIndex--;
   }
 }
 
 function findContact(index, name) {
-  for(let i = 0; i < contactCheckedValue.length; i++){
-    if(contactCheckedValue[i].contactName == name){ 
+  for (let i = 0; i < contactCheckedValue.length; i++) {
+    if (contactCheckedValue[i].contactName == name) {
       return true;
     }
   }
@@ -416,27 +457,31 @@ function findContact(index, name) {
 
 /**
  * save selected contactsPopup
-*/  
+ */
 function selectedContactPopup(name, initiales, color, number) {
-  if(document.getElementById('popup'+number+name).classList == 'checked'){
-    let index = -1; 
-    contactCheckedValue.find(function(name, i) {
-      if(contactCheckedValue.name === name){
-        index = i;  
+  if (document.getElementById("popup" + number + name).classList == "checked") {
+    let index = -1;
+    contactCheckedValue.find(function (name, i) {
+      if (contactCheckedValue.name === name) {
+        index = i;
       }
-  });
-  contactCheckedValue.splice(index, 1);
-  document.getElementById('popup'+number+name).classList.remove('checked');
-  document.getElementById('popup'+number+name).src ="./assets/img/icons/checkButton.png";
-  console.log(contactCheckedValue); 
-} else {
-  contactCheckedValue.push({
-    contactName: name, 
-    abbreviation: initiales, 
-    paint: color
-  });
-  console.log(contactCheckedValue);
-  document.getElementById('popup'+number+name).src = "./assets/img/icons/checkButtonChecked.png";
-  document.getElementById('popup'+number+name).classList.add('checked');
-}
+    });
+    contactCheckedValue.splice(index, 1);
+    document
+      .getElementById("popup" + number + name)
+      .classList.remove("checked");
+    document.getElementById("popup" + number + name).src =
+      "./assets/img/icons/checkButton.png";
+    console.log(contactCheckedValue);
+  } else {
+    contactCheckedValue.push({
+      contactName: name,
+      abbreviation: initiales,
+      paint: color,
+    });
+    console.log(contactCheckedValue);
+    document.getElementById("popup" + number + name).src =
+      "./assets/img/icons/checkButtonChecked.png";
+    document.getElementById("popup" + number + name).classList.add("checked");
+  }
 }
