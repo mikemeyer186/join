@@ -409,6 +409,10 @@ input[type="date"]::-webkit-clear-button {
   margin-left: 300px;
   padding-top: 140px; 
 }
+.header-mobile-addTask {
+  width: 100vw;
+  display: none;
+}
 @media(max-width: 600px) {
   body {
     padding-left: 0 !important; 
@@ -416,6 +420,12 @@ input[type="date"]::-webkit-clear-button {
   }
 }
 @media(max-width: 800px) { 
+  .header-mobile-addTask {
+    display: block;
+  }
+  .menu-desktop {
+    display: none !important;
+}
   .checkAndCrossIcons {
     left: 380px; 
   }
