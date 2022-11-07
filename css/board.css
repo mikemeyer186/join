@@ -2,6 +2,11 @@ body {
   height: 100vh;
   overflow-x: hidden;
 }
+.page-container {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
 .width100 {
   width: 100%;
   display: flex;
