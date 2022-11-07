@@ -399,7 +399,7 @@ function editProfilPicTemplate(contact) {
 }
 function showAddTaskPopup() {
     document.getElementById('addTaskPopup').classList.toggle('translate0');
-    document.getElementById('header-mobile-addTask').classList.toggle('d-none');
+    document.getElementById('mobiletaskheader').classList.toggle('headerSlideIn');
 }
 
 /**

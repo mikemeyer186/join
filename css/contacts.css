@@ -522,6 +522,7 @@
     width: 45px;
     object-fit: cover;
 }
+
 #addTaskPopup {
     padding-left: 30px;
     margin-top: 90px;
@@ -534,11 +535,23 @@
     background-color: white;
     width: 100vw;
     height: 100vh;
-    transform: translateX(300vh);
-    transition: all 225ms;
- }
+    transform: translateX(300vw);
+    transition: all 300ms ease-out;
+}
+
+#mobiletaskheader {
+    transform: translateX(300vw);
+    transition: all 300ms ease-out;
+}
+
+.headerSlideIn {
+    transform: translateX(0) !important;
+    transition: all 300ms ease-in;
+}
+
 .translate0 {
     transform: translateX(0) !important;
+    transition: all 300ms ease-out !important;
 }
 
 .addTaskPopupIcon {
@@ -547,14 +560,16 @@
     right: 20px; 
     top: 20px; 
 }
+
 .addTaskPopupHeader  {
     width: 60%;
     display: flex;
     align-items: flex-start; 
     padding-top: 10px;
     padding-bottom: 10px; 
-    margin-left: 0; 
+    margin-left: 0;
 }
+
 .addTaskPopupHeader h1 {
     padding-left: 20px !important; 
     font-size: 48px;
@@ -562,7 +577,7 @@
     margin: 0; 
 }
 
-/* responsice section */
+/* responsive section */
 @media (max-width: 1300px) {
     .contacts-detail-top {
         flex-direction: column;
