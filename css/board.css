@@ -621,11 +621,34 @@ form h3 {
   }
 }
 @media(max-width: 800px) {
+  .bodyBoard {
+    padding-left: 0 !important; 
+    padding-right: 0 !important;
+  }
+  .boardContent {
+    margin-top: 20px !important; 
+    width: 100vw !important;
+  }
+  #boardTodo {
+    width: 80vw !important;
+    margin-left: 0px;
+  }
+  #boardProgress {
+    width: 80vw !important;
+    margin-left: 0px;
+  }
+  #boardFeedback {
+    width: 80vw !important;
+    margin-left: 0px;
+  }
+  #boardDone {
+    width: 80vw !important;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
   .boardContent {
     margin-left: 0; 
     align-items: center !important;
-    margin-left: 5vw; 
-    margin-right: 5vw;
   }
   .addButton {
     display: none;
