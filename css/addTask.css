@@ -465,6 +465,9 @@ input[type="date"]::-webkit-clear-button {
   width: 100%;
 }
 @media(max-width: 600px) {
+  form{
+    margin-bottom: 50px;
+  }
   body {
     padding-left: 0 !important; 
     padding-right: 0 !important; 
