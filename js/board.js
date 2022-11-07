@@ -4,7 +4,6 @@ async function boardOnload() {
   await loadTasksfromBackend();
   await downloadFromServer();
   renderTasksinBoard();
-  console.log(userAccounts[activeUser].userTasks);
 }
 /**
  * this function is rendering the task boxes in the board
@@ -154,7 +153,8 @@ async function drop(status) {
 /**
  * showing popup Add task
  */
-function addTaskPopup() {
+async function addTaskPopup(value) {
+  let taskStatusValue = value; 
   document.getElementById("popup-bg").classList.remove("d-none");
   document.getElementById("popup-addTask").classList.remove("d-none");
   setTimeout(() => {
@@ -163,7 +163,11 @@ function addTaskPopup() {
       .classList.add("popup-slideInAddTask");
     document.getElementById("popup-bg").classList.remove("no-opacity");
   }, 10);
+  document.getElementById('addTaskButtonValue').innerHTML = `
+  <h1>Add Task</h1>
+  <button class="buttonCreate pointer" onclick="addTaskBoardStatus(${taskStatusValue})">Create Task ✓</button>`;
 }
+
 /**
  * hiding popup add Task
  */
@@ -317,7 +321,6 @@ function popupRenderContacts() {
  */
 async function addTaskBoard(i) {
   contactCheckedValue = userTasksArray[i].assignedTo;
-  console.log(contactCheckedValue);
   let taskInputTitle = document.getElementById("inputTitleEdit").value;
   let dueDate = document.getElementById("selectDateEdit").value;
   let description = document.getElementById("inputDescriptionEdit").value;
@@ -486,11 +489,82 @@ function selectedContactPopup(name, initiales, color, number) {
   }
 }
 
-function showAddTaskPopup() {
+function showAddTaskPopup(value) {
   if(window.innerWidth < 800){
   document.getElementById('addTaskPopup').classList.toggle('translate0');
   document.getElementById('header-mobile-addTask').classList.toggle('d-none');
 } else {
-  addTaskPopup();
+  addTaskPopup(value);
 }
+}
+
+async function addTaskBoardStatus(value){
+  if(value == 1) {
+    let taskInputTitle = document.getElementById("inputTitle").value;
+    let dueDate = document.getElementById("selectDate").value;
+    let description = document.getElementById("inputDescription").value;
+    userAccounts[activeUser].userTasks.push(tasks.length); // User account get task id
+    tasks.push({ 
+      taskTitle: taskInputTitle,
+      taskDescription: description,
+      toDueDate: dueDate,
+      taskCategory: 
+                          {Category: taskCategoryFinaly, 
+                          TaskColor: taskCategoryColorFinaly},
+      subTask: checkedSubtaskValue,
+      taskID: tasks.length,
+      priority: prioritySelect,
+      assignedTo: contactCheckedValue,
+      taskStatus: "progress"
+    });
+    await saveAccountsToBackend();
+    await pushTasksinBackend();
+    window.location.reload();
+    } 
+    if(value == 2) {
+        let taskInputTitle = document.getElementById("inputTitle").value;
+        let dueDate = document.getElementById("selectDate").value;
+        let description = document.getElementById("inputDescription").value;
+        userAccounts[activeUser].userTasks.push(tasks.length); // User account get task id
+        tasks.push({ 
+          taskTitle: taskInputTitle,
+          taskDescription: description,
+          toDueDate: dueDate,
+          taskCategory: 
+                              {Category: taskCategoryFinaly, 
+                              TaskColor: taskCategoryColorFinaly},
+          subTask: checkedSubtaskValue,
+          taskID: tasks.length,
+          priority: prioritySelect,
+          assignedTo: contactCheckedValue,
+          taskStatus: "feedback"
+        });
+        await saveAccountsToBackend();
+        await pushTasksinBackend();
+        window.location.reload();
+    }
+    if(value == 3){
+        let taskInputTitle = document.getElementById("inputTitle").value;
+        let dueDate = document.getElementById("selectDate").value;
+        let description = document.getElementById("inputDescription").value;
+        userAccounts[activeUser].userTasks.push(tasks.length); // User account get task id
+        tasks.push({ 
+          taskTitle: taskInputTitle,
+          taskDescription: description,
+          toDueDate: dueDate,
+          taskCategory: 
+                              {Category: taskCategoryFinaly, 
+                              TaskColor: taskCategoryColorFinaly},
+          subTask: checkedSubtaskValue,
+          taskID: tasks.length,
+          priority: prioritySelect,
+          assignedTo: contactCheckedValue,
+          taskStatus: "done"
+        });
+        await saveAccountsToBackend();
+        await pushTasksinBackend();
+        window.location.reload();
+    } else {
+      addTask();
+    }
 }

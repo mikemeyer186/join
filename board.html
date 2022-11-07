@@ -25,9 +25,8 @@
           alt="Close"
           onclick="hidePopUps()"
         />
-        <div class="popup-addTask-top">
-          <h1>Add Task</h1>
-          <button class="buttonCreate pointer">Create Task ✓</button>
+        <div id="addTaskButtonValue" class="popup-addTask-top">
+          
         </div>
         <div class="inputFields">
           <form>
@@ -107,7 +106,7 @@
               <div id="addSubtaskCheckbox"></div>
               <div class="taskFooterButtons">
                 <button id="buttonClear" onclick="taskClear()">Clear X</button>
-                <button id="buttonCreate" onclick="addTask(); return false">
+                <button id="buttonCreate" onclick="addTaskBoardStatus(value)">
                   Create Task ✓
                 </button>
               </div>
@@ -166,7 +165,7 @@
       >
         <div class="boxHeader">
           <h2>In progress</h2>
-          <img onclick="showAddTaskPopup()" class="pointer" src="./assets/img/plus button v1.png" />
+          <img onclick="showAddTaskPopup(1)" class="pointer" src="./assets/img/plus button v1.png" />
         </div>
         <div id="boardProgressContent"></div>
       </div>
@@ -177,14 +176,14 @@
       >
         <div class="boxHeader">
           <h2>Await feedback</h2>
-          <img onclick="showAddTaskPopup()" class="pointer" src="./assets/img/plus button v1.png" />
+          <img onclick="showAddTaskPopup(2)" class="pointer" src="./assets/img/plus button v1.png" />
         </div>
         <div id="boardFeedbackContent"></div>
       </div>
       <div id="boardDone" ondrop="drop('done')" ondragover="allowDrop(event)">
         <div class="boxHeader">
           <h2>Done</h2>
-          <img onclick="showAddTaskPopup()" class="pointer" src="./assets/img/plus button v1.png" />
+          <img onclick="showAddTaskPopup(3)" class="pointer" src="./assets/img/plus button v1.png" />
         </div>
         <div id="boardDoneContent"></div>
       </div>
