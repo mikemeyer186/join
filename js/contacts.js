@@ -1,5 +1,6 @@
 let filterLetters = [];
 let contactList = [];
+
 /**
  * initial function
  */
@@ -209,6 +210,9 @@ function openContactDetailView(index) {
     changeColorOfSelectedCard();
 }
 
+/**
+ * closing setail view when clicking on close icon
+ */
 function closeContactDetailView(){
     document.getElementById('contacts-right').classList.remove('slided-in');
 }
@@ -397,13 +401,17 @@ function editProfilPicTemplate(contact) {
         </div>
     `;
 }
+
+/**
+ * showing add task popup with white header
+ */
 function showAddTaskPopup() {
     document.getElementById('addTaskPopup').classList.toggle('translate0');
     document.getElementById('mobiletaskheader').classList.toggle('headerSlideIn');
 }
 
 /**
- * rendering contacts in addTask Popup at board
+ * rendering contacts in addTask popup and selecting contact
  */
  function renderingContactsSelectorPopup(index) {
     contactCheckedValue = userAccounts[activeUser].userContacts[index];
@@ -446,12 +454,18 @@ function showAddTaskPopup() {
     }
   }
   
+  /**
+   * searching for contact name in contactCheckedValue
+   * @param {string} name - contact name
+   * @returns - boolean
+   */
   function findContact(name) {
       if (contactCheckedValue.contactName == name) {
         return true;
       }
     }
-  /**
+
+/**
  * save selected contactsPopup
  */
 function selectedContactPopup(name, initiales, color, number) {
