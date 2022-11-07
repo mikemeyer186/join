@@ -134,7 +134,13 @@ function renderAbbrevaitionInBox(ident, b) {
  * save the dragged element
  */
 function startDraggin(id) {
-  currentDraggedElement = id;
+  currentDraggedElement = -1;
+  for(let i = 0; userTasksArray.length; i++) {
+    currentDraggedElement++;
+   if(userTasksArray[i].taskID == id) {
+    break;
+   } 
+  }
 }
 /**
  * allows the drop in this area
