@@ -12,6 +12,9 @@ async function contactsInit() {
     renderContacts();
     renderContactList();
     showActiveUserIcon();
+    renderSubTask();
+    loadTasksfromBackend();
+    getSelectedSubtask();
 }
 
 /**
