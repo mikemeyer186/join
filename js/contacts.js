@@ -406,6 +406,16 @@ function editProfilPicTemplate(contact) {
  * showing add task popup with white header
  */
 function showAddTaskPopup() {
+    let activeUserContacts = userAccounts[activeUser].userContacts;
+    let index = localStorage.getItem('contactIndex');
+
+    contactCheckedValue = [{
+        contactName: activeUserContacts[index].contactName,
+        abbreviation: activeUserContacts[index].contactInitials,
+        paint: activeUserContacts[index].contactColor
+    }];
+
+    document.getElementById("selectorContactRenderPopup").innerHTML = ``;
     document.getElementById('addTaskPopup').classList.toggle('translate0');
     document.getElementById('mobiletaskheader').classList.toggle('headerSlideIn');
 }
@@ -414,11 +424,13 @@ function showAddTaskPopup() {
  * rendering contacts in addTask popup and selecting contact
  */
  function renderingContactsSelectorPopup(index) {
-    contactCheckedValue = userAccounts[activeUser].userContacts[index];
     let activeUserContacts = userAccounts[activeUser].userContacts;
+
     if (selectorContactIndex == 0) {
       document.getElementById("selectorContactRenderPopup").innerHTML = ``;
+      
       for (let i = 0; i < activeUserContacts.length; i++) {
+
         if (findContact(activeUserContacts[i].contactName) === true) {
           document.getElementById("selectorContactRenderPopup").innerHTML += `
           <div onclick="selectedContactPopup('${activeUserContacts[i].contactName}','${activeUserContacts[i].contactInitials}','${activeUserContacts[i].contactColor}','${i}')" class="selectorCellContact">
@@ -452,18 +464,20 @@ function showAddTaskPopup() {
       document.getElementById("selectorContactRenderPopup").innerHTML = ``;
       selectorContactIndex--;
     }
-  }
+}
   
-  /**
-   * searching for contact name in contactCheckedValue
-   * @param {string} name - contact name
-   * @returns - boolean
-   */
-  function findContact(name) {
-      if (contactCheckedValue.contactName == name) {
-        return true;
-      }
+/**
+ * searching for contact name in contactCheckedValue
+ * @param {string} name - contact name
+ * @returns - boolean
+ */
+function findContact(name) {
+    for (let i = 0; i < contactCheckedValue.length; i++) {
+        if (contactCheckedValue[i].contactName == name) {
+            return true;
+        }
     }
+}
 
 /**
  * save selected contactsPopup
@@ -477,21 +491,17 @@ function selectedContactPopup(name, initiales, color, number) {
         }
       });
       contactCheckedValue.splice(index, 1);
-      document
-        .getElementById("popup" + number + name)
-        .classList.remove("checked");
-      document.getElementById("popup" + number + name).src =
-        "./assets/img/icons/checkButton.png";
-      console.log(contactCheckedValue);
+      document.getElementById("popup" + number + name).classList.remove("checked");
+      document.getElementById("popup" + number + name).src = "./assets/img/icons/checkButton.png";
+
     } else {
       contactCheckedValue.push({
         contactName: name,
         abbreviation: initiales,
-        paint: color,
+        paint: color
       });
-      console.log(contactCheckedValue);
-      document.getElementById("popup" + number + name).src =
-        "./assets/img/icons/checkButtonChecked.png";
+      document.getElementById("popup" + number + name).src = "./assets/img/icons/checkButtonChecked.png";
       document.getElementById("popup" + number + name).classList.add("checked");
     }
+    console.log(contactCheckedValue);
   }
