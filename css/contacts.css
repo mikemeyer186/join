@@ -1,7 +1,12 @@
 body {
     padding: 0 !important;
 }
-
+.checkAndCrossIconsCategory {
+    left: 350px !important; 
+}
+.checkAndCrossIcons {
+    left: 350px !important;
+}
 .page-container {
     height: 100vh;
     overflow: hidden;
