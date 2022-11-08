@@ -1,4 +1,5 @@
 let idInLength = -1;
+
 // body onload functions
 async function boardOnload() {
   await init(2);
@@ -6,9 +7,240 @@ async function boardOnload() {
   await downloadFromServer();
   renderTasksinBoard();
 }
-/**
- * this function is rendering the task boxes in the board
- */
+
+/** Find the right ID in userTasksArray */
+function findLength(ident) {
+  idInLength = -1;
+  for (let i = 0; userTasksArray.length; i++) {
+    idInLength++;
+    if (userTasksArray[i].taskID == ident) {
+      break;
+    }
+  }
+}
+
+/** search and save the dragged element */
+function startDraggin(id) {
+  currentDraggedElement = -1;
+  for (let i = 0; userTasksArray.length; i++) {
+    currentDraggedElement++;
+    if (userTasksArray[i].taskID == id) {
+      break;
+    }
+  }
+}
+
+/** Allows the drop in this area */
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+/** Task status change by dropping */
+async function drop(status) {
+  userTasksArray[currentDraggedElement]["taskStatus"] = status;
+  renderTasksinBoard();
+  addUsertaskInTask();
+}
+
+/** Push JSON in tasks from board */
+async function addTaskBoard(i) {
+  findLength(i);
+  let indet = idInLength;
+  contactCheckedValue = userTasksArray[indet].assignedTo;
+  let taskInputTitle = document.getElementById("inputTitleEdit").value;
+  let dueDate = document.getElementById("selectDateEdit").value;
+  let description = document.getElementById("inputDescriptionEdit").value;
+  userTasksArray[indet].taskTitle = taskInputTitle;
+  userTasksArray[indet].taskDescription = description;
+  userTasksArray[indet].toDueDate = dueDate;
+  userTasksArray[indet].priority = prioritySelect;
+  userTasksArray[indet].assignedTo = contactCheckedValue;
+  await addUsertaskInTask();
+  window.location.reload();
+}
+
+/** Add usertask in task array */
+async function addUsertaskInTask() {
+  for (let i = 0; i < userTasksArray.length; i++) {
+    let task = userTasksArray[i].taskID;
+    tasks[task] = userTasksArray[i];
+  }
+  await pushTasksinBackend();
+}
+
+/** Selected priority task for Popup */
+function prioritySelectedEdit(i) {
+  if (i == "Hard") {
+    prioritySelect = "Hard";
+    document
+      .getElementById("importanceEditIMGHard")
+      .classList.remove("importanceHard");
+    document
+      .getElementById("importanceEditIMGLow")
+      .classList.add("importanceLow");
+    document
+      .getElementById("importanceEditIMGMid")
+      .classList.add("importanceMid");
+    document.getElementById("importanceEditIMGHard").src =
+      "./assets/img/TaskValueHardSelected.png";
+    document.getElementById("importanceEditIMGMid").src =
+      "./assets/img/TaskValueMid.png";
+    document.getElementById("importanceEditIMGLow").src =
+      "./assets/img/TaskValueLow.png";
+  }
+  if (i == "Mid") {
+    prioritySelect = "Mid";
+    document
+      .getElementById("importanceEditIMGMid")
+      .classList.remove("importanceMid");
+    document
+      .getElementById("importanceEditIMGLow")
+      .classList.add("importanceLow");
+    document
+      .getElementById("importanceEditIMGHard")
+      .classList.add("importanceHard");
+    document.getElementById("importanceEditIMGHard").src =
+      "./assets/img/TaskValueHard.png";
+    document.getElementById("importanceEditIMGMid").src =
+      "./assets/img/TaskValueMidSelected.png";
+    document.getElementById("importanceEditIMGLow").src =
+      "./assets/img/TaskValueLow.png";
+  }
+  if (i == "Low") {
+    prioritySelect = "Low";
+    document
+      .getElementById("importanceEditIMGLow")
+      .classList.remove("importanceLow");
+    document
+      .getElementById("importanceEditIMGMid")
+      .classList.add("importanceMid");
+    document
+      .getElementById("importanceEditIMGHard")
+      .classList.add("importanceHard");
+    document.getElementById("importanceEditIMGHard").src =
+      "./assets/img/TaskValueHard.png";
+    document.getElementById("importanceEditIMGMid").src =
+      "./assets/img/TaskValueMid.png";
+    document.getElementById("importanceEditIMGLow").src =
+      "./assets/img/TaskValueLowSelected.png";
+  }
+}
+/** Find used contacts */
+function findContact(index, name) {
+  for (let i = 0; i < contactCheckedValue.length; i++) {
+    if (contactCheckedValue[i].contactName == name) {
+      return true;
+    }
+  }
+}
+
+/** Save selected contactsPopup */
+function selectedContactPopup(name, initiales, color, number) {
+  if (document.getElementById("popup" + number + name).classList == "checked") {
+    let index = -1;
+    contactCheckedValue.find(function (name, i) {
+      if (contactCheckedValue.name === name) {
+        index = i;
+      }
+    });
+    contactCheckedValue.splice(index, 1);
+    document
+      .getElementById("popup" + number + name)
+      .classList.remove("checked");
+    document.getElementById("popup" + number + name).src =
+      "./assets/img/icons/checkButton.png";
+    console.log(contactCheckedValue);
+  } else {
+    contactCheckedValue.push({
+      contactName: name,
+      abbreviation: initiales,
+      paint: color,
+    });
+    console.log(contactCheckedValue);
+    document.getElementById("popup" + number + name).src =
+      "./assets/img/icons/checkButtonChecked.png";
+    document.getElementById("popup" + number + name).classList.add("checked");
+  }
+}
+
+/** Save new Task with other start status */
+async function addTaskBoardStatus(value) {
+  if (value == 1) {
+    let taskInputTitle = document.getElementById("inputTitle").value;
+    let dueDate = document.getElementById("selectDate").value;
+    let description = document.getElementById("inputDescription").value;
+    userAccounts[activeUser].userTasks.push(tasks.length); // User account get task id
+    tasks.push({
+      taskTitle: taskInputTitle,
+      taskDescription: description,
+      toDueDate: dueDate,
+      taskCategory: {
+        Category: taskCategoryFinaly,
+        TaskColor: taskCategoryColorFinaly,
+      },
+      subTask: checkedSubtaskValue,
+      taskID: tasks.length,
+      priority: prioritySelect,
+      assignedTo: contactCheckedValue,
+      taskStatus: "progress",
+    });
+    await saveAccountsToBackend();
+    await pushTasksinBackend();
+    window.location.reload();
+  }
+  if (value == 2) {
+    let taskInputTitle = document.getElementById("inputTitle").value;
+    let dueDate = document.getElementById("selectDate").value;
+    let description = document.getElementById("inputDescription").value;
+    userAccounts[activeUser].userTasks.push(tasks.length); // User account get task id
+    tasks.push({
+      taskTitle: taskInputTitle,
+      taskDescription: description,
+      toDueDate: dueDate,
+      taskCategory: {
+        Category: taskCategoryFinaly,
+        TaskColor: taskCategoryColorFinaly,
+      },
+      subTask: checkedSubtaskValue,
+      taskID: tasks.length,
+      priority: prioritySelect,
+      assignedTo: contactCheckedValue,
+      taskStatus: "feedback",
+    });
+    await saveAccountsToBackend();
+    await pushTasksinBackend();
+    window.location.reload();
+  }
+  if (value == 3) {
+    let taskInputTitle = document.getElementById("inputTitle").value;
+    let dueDate = document.getElementById("selectDate").value;
+    let description = document.getElementById("inputDescription").value;
+    userAccounts[activeUser].userTasks.push(tasks.length); // User account get task id
+    tasks.push({
+      taskTitle: taskInputTitle,
+      taskDescription: description,
+      toDueDate: dueDate,
+      taskCategory: {
+        Category: taskCategoryFinaly,
+        TaskColor: taskCategoryColorFinaly,
+      },
+      subTask: checkedSubtaskValue,
+      taskID: tasks.length,
+      priority: prioritySelect,
+      assignedTo: contactCheckedValue,
+      taskStatus: "done",
+    });
+    await saveAccountsToBackend();
+    await pushTasksinBackend();
+    window.location.reload();
+  } else {
+    addTask();
+  }
+}
+
+/**! RENDERINGS !*/
+
+/** This function is rendering the task boxes in the board */
 function renderTasksinBoard() {
   userTasksArray = [];
   let userTasksIds = userAccounts[activeUser].userTasks;
@@ -94,9 +326,8 @@ function renderTasksinBoard() {
   }
   console.log("Tasks successfully loaded into board!");
 }
-/**
- * Rendering the abbrevaition in the boxes
- */
+
+/** Rendering the abbrevaition in the boxes */
 function renderAbbrevaitionInBox(ident, b) {
   document.getElementById(ident).innerHTM = ``;
   if (userTasksArray[b].assignedTo.length > 3) {
@@ -130,49 +361,74 @@ function renderAbbrevaitionInBox(ident, b) {
     <div class="abbreviationIconsBox" id="abbreviationIconsBox1" style="background-color: ${userTasksArray[b].assignedTo[0].paint}">${userTasksArray[b].assignedTo[0].abbreviation}</div>`;
   }
 }
-/**
- * find the right ID
- */
-function findLength(ident) {
-  idInLength = -1;
-  for(let i = 0; userTasksArray.length; i++) {
-    idInLength++;
-    if(userTasksArray[i].taskID == ident) {
-      break;
+
+/** Rendering contacts in addTask Popup at board */
+function renderingContactsSelectorPopup(index) {
+  let activeUserContacts = userAccounts[activeUser].userContacts;
+  if (selectorContactIndex == 0) {
+    document.getElementById("selectorContactRenderPopup").innerHTML = ``;
+    for (let i = 0; i < activeUserContacts.length; i++) {
+      if (
+        findContact(
+          index,
+          userAccounts[activeUser].userContacts[i].contactName
+        ) === true
+      ) {
+        document.getElementById("selectorContactRenderPopup").innerHTML += `
+        <div onclick="selectedContactPopup('${activeUserContacts[i].contactName}','${activeUserContacts[i].contactInitials}','${activeUserContacts[i].contactColor}','${i}')" class="selectorCellContact">
+          <nobr>${activeUserContacts[i].contactName}</nobr>
+          <div id="contactSelectorCheckboxes">
+          <img id="popup${i}${activeUserContacts[i].contactName}" class="checked" src="./assets/img/icons/checkButtonChecked.png">
+        </div>
+        </div>
+      `;
+      } else {
+        document.getElementById("selectorContactRenderPopup").innerHTML += `
+        <div onclick="selectedContactPopup('${activeUserContacts[i].contactName}','${activeUserContacts[i].contactInitials}','${activeUserContacts[i].contactColor}','${i}')" class="selectorCellContact">
+          <nobr>${activeUserContacts[i].contactName}</nobr>
+          <div id="contactSelectorCheckboxes">
+          <img id="popup${i}${activeUserContacts[i].contactName}" src="./assets/img/icons/checkButton.png">
+        </div>
+        </div>
+      `;
+      }
     }
+    document.getElementById("selectorContactRenderPopup").innerHTML += `
+        <div onclick="changeInputContact()" class="selectorCellContact">
+          <nobr>Invite new contact</nobr>
+          <div id="contactSelectorCheckboxes">
+          <img id="contactIconContacts" src="./assets/img/icons/contactIcon.png">
+        </div>
+        </div>`;
+    selectorContactIndex++;
+  } else {
+    findLength(index);
+    userTasksArray[idInLength].assignedTo = contactCheckedValue;
+    document.getElementById("selectorContactRenderPopup").innerHTML = ``;
+    selectorContactIndex--;
   }
 }
-/**
- * save the dragged element
- */
-function startDraggin(id) {
-  currentDraggedElement = -1;
-  for(let i = 0; userTasksArray.length; i++) {
-    currentDraggedElement++;
-   if(userTasksArray[i].taskID == id) {
-    break;
-   } 
+
+/** Rendering contacts in footer of the Task Pupup */
+function popupRenderContacts() {
+  document.getElementById("popupContactsRender").innerHTML = ``;
+  for (let i = 0; i < popupTaskContent.assignedTo.length; i++) {
+    document.getElementById("popupContactsRender").innerHTML += `
+    <div class="popupContactsCell">
+    <div class="contact-pic-Task" style="background-color: ${popupTaskContent.assignedTo[i].paint};">
+      <span>${popupTaskContent.assignedTo[i].abbreviation}</span>
+    </div>
+      <span>${popupTaskContent.assignedTo[i].contactName}</span>
+    </div>
+    `;
   }
 }
-/**
- * allows the drop in this area
- */
-function allowDrop(ev) {
-  ev.preventDefault();
-}
-/**
- * task status change by dropping
- */
-async function drop(status) {
-  userTasksArray[currentDraggedElement]["taskStatus"] = status;
-  renderTasksinBoard();
-  addUsertaskInTask();
-}
-/**
- * showing popup Add task
- */
+
+/**! TEMPLATES !*/
+
+/** Template popup Add task */
 async function addTaskPopup(value) {
-  let taskStatusValue = value; 
+  let taskStatusValue = value;
   document.getElementById("popup-bg").classList.remove("d-none");
   document.getElementById("popup-addTask").classList.remove("d-none");
   setTimeout(() => {
@@ -181,70 +437,22 @@ async function addTaskPopup(value) {
       .classList.add("popup-slideInAddTask");
     document.getElementById("popup-bg").classList.remove("no-opacity");
   }, 10);
-  document.getElementById('addTaskButtonValue').innerHTML = `
+  document.getElementById("addTaskButtonValue").innerHTML = `
   <h1>Add Task</h1>
   <button class="buttonCreate pointer" onclick="addTaskBoardStatus(${taskStatusValue})">Create Task ✓</button>`;
 }
 
-/**
- * hiding popup add Task
- */
-function hidePopUps() {
-  document
-    .getElementById("popup-addTask")
-    .classList.remove("popup-slideInAddTask");
-  document.getElementById("popup-Task").classList.remove("popup-slideInTask");
-  document.getElementById("popup-bg").classList.add("no-opacity");
-  setTimeout(() => {
-    document.getElementById("popup-addTask").classList.add("d-none");
-    document.getElementById("popup-Task").classList.add("d-none");
-    document.getElementById("popup-bg").classList.add("d-none");
-  }, 250);
-}
-/**
- * showing popup from task // Comeback
- */
-function taskEditPopup(taskIDused) {
-  document.getElementById("popup-Task").classList.remove("d-none");
-  document.getElementById("popup-bg").classList.remove("d-none");
-  setTimeout(() => {
-    document.getElementById("popup-bg").classList.remove("no-opacity");
-    document.getElementById("popup-Task").classList.add("popup-slideInTask");
-  }, 10);
-  for (let i = 0; i < userTasksArray.length; i++) {
-    if (userTasksArray[i].taskID == taskIDused) {
-      popupTaskContent = userTasksArray[i];
-    }
+/** Template the addTask Popup */
+function showAddTaskPopup(value) {
+  if (window.innerWidth < 800) {
+    document.getElementById("addTaskPopup").classList.toggle("translate0");
+    document.getElementById("header-mobile-addTask").classList.toggle("d-none");
+  } else {
+    addTaskPopup(value);
   }
-  document.getElementById("taskPopUpContent").innerHTML = `
-  <p class="boardBoxCategoryPopup ${popupTaskContent.taskCategory.TaskColor}">${popupTaskContent.taskCategory.Category}</p>
-  <h1>${popupTaskContent.taskTitle}</h1>
-  <p>${popupTaskContent.taskDescription}</p>
-  <div class="popupTaskDateTitle">
-    <b>Due date:</b><id="popupTaskDate">
-    ${popupTaskContent.toDueDate}
-  </div>
-  <div class="popupTaskValue">
-    <b>Priority: </b>
-    <div>
-      <img style="object-fit: cover;"src="./assets/img/${popupTaskContent.priority}PopUpIcon.png">
-    </div>
-  </div>
-  <div class="popupTaskContacts">
-    <b>Assigned to:</b>
-    <div id="popupContactsRender">
-    </div>
-  </div>
-  <div class="popup-addTask-top"></div>
-    <img
-      onclick="editPopupTask(${popupTaskContent.taskID})"
-      class="editButton pointer"
-      src="./assets/img/editButton.png"
-    />
-  </div>
-  `;
-  popupRenderContacts();
 }
+
+/** Template the edit Popup */
 function editPopupTask(ident) {
   findLength(ident);
   let indet = idInLength;
@@ -319,273 +527,60 @@ function editPopupTask(ident) {
   `;
   prioritySelectedEdit(popupTaskContent.priority);
 }
-/**
- * rendering contacts in footer of the Task Pupup
- */
-function popupRenderContacts() {
-  document.getElementById("popupContactsRender").innerHTML = ``;
-  for (let i = 0; i < popupTaskContent.assignedTo.length; i++) {
-    document.getElementById("popupContactsRender").innerHTML += `
-    <div class="popupContactsCell">
-    <div class="contact-pic-Task" style="background-color: ${popupTaskContent.assignedTo[i].paint};">
-      <span>${popupTaskContent.assignedTo[i].abbreviation}</span>
+
+/** Hiding the template of popup add Task */
+function hidePopUps() {
+  document
+    .getElementById("popup-addTask")
+    .classList.remove("popup-slideInAddTask");
+  document.getElementById("popup-Task").classList.remove("popup-slideInTask");
+  document.getElementById("popup-bg").classList.add("no-opacity");
+  setTimeout(() => {
+    document.getElementById("popup-addTask").classList.add("d-none");
+    document.getElementById("popup-Task").classList.add("d-none");
+    document.getElementById("popup-bg").classList.add("d-none");
+  }, 250);
+}
+
+/* Template popup from task */
+function taskEditPopup(taskIDused) {
+  document.getElementById("popup-Task").classList.remove("d-none");
+  document.getElementById("popup-bg").classList.remove("d-none");
+  setTimeout(() => {
+    document.getElementById("popup-bg").classList.remove("no-opacity");
+    document.getElementById("popup-Task").classList.add("popup-slideInTask");
+  }, 10);
+  for (let i = 0; i < userTasksArray.length; i++) {
+    if (userTasksArray[i].taskID == taskIDused) {
+      popupTaskContent = userTasksArray[i];
+    }
+  }
+  document.getElementById("taskPopUpContent").innerHTML = `
+  <p class="boardBoxCategoryPopup ${popupTaskContent.taskCategory.TaskColor}">${popupTaskContent.taskCategory.Category}</p>
+  <h1>${popupTaskContent.taskTitle}</h1>
+  <p>${popupTaskContent.taskDescription}</p>
+  <div class="popupTaskDateTitle">
+    <b>Due date:</b><id="popupTaskDate">
+    ${popupTaskContent.toDueDate}
+  </div>
+  <div class="popupTaskValue">
+    <b>Priority: </b>
+    <div>
+      <img style="object-fit: cover;"src="./assets/img/${popupTaskContent.priority}PopUpIcon.png">
     </div>
-      <span>${popupTaskContent.assignedTo[i].contactName}</span>
+  </div>
+  <div class="popupTaskContacts">
+    <b>Assigned to:</b>
+    <div id="popupContactsRender">
     </div>
-    `;
-  }
-}
-/**
- * Push JSON in tasks from board
- */
-async function addTaskBoard(i) {
-  findLength(i);
-  let indet = idInLength;
-  contactCheckedValue = userTasksArray[indet].assignedTo;
-  let taskInputTitle = document.getElementById("inputTitleEdit").value;
-  let dueDate = document.getElementById("selectDateEdit").value;
-  let description = document.getElementById("inputDescriptionEdit").value;
-  userTasksArray[indet].taskTitle = taskInputTitle;
-  userTasksArray[indet].taskDescription = description;
-  userTasksArray[indet].toDueDate = dueDate;
-  userTasksArray[indet].priority = prioritySelect;
-  userTasksArray[indet].assignedTo = contactCheckedValue;
-  await addUsertaskInTask();
-  window.location.reload();
-}
-/**
- * add usertask in task array
- */
-async function addUsertaskInTask() {
-  for(let i = 0; i < userTasksArray.length; i++){
-    let task = userTasksArray[i].taskID;
-    tasks[task] = userTasksArray[i];
-  }
-  await pushTasksinBackend();
-}
-/**
- * selected priority task popup !!!!!!!!
- */
-function prioritySelectedEdit(i) {
-  if (i == "Hard") {
-    prioritySelect = "Hard";
-    document
-      .getElementById("importanceEditIMGHard")
-      .classList.remove("importanceHard");
-    document
-      .getElementById("importanceEditIMGLow")
-      .classList.add("importanceLow");
-    document
-      .getElementById("importanceEditIMGMid")
-      .classList.add("importanceMid");
-    document.getElementById("importanceEditIMGHard").src =
-      "./assets/img/TaskValueHardSelected.png";
-    document.getElementById("importanceEditIMGMid").src =
-      "./assets/img/TaskValueMid.png";
-    document.getElementById("importanceEditIMGLow").src =
-      "./assets/img/TaskValueLow.png";
-  }
-  if (i == "Mid") {
-    prioritySelect = "Mid";
-    document
-      .getElementById("importanceEditIMGMid")
-      .classList.remove("importanceMid");
-    document
-      .getElementById("importanceEditIMGLow")
-      .classList.add("importanceLow");
-    document
-      .getElementById("importanceEditIMGHard")
-      .classList.add("importanceHard");
-    document.getElementById("importanceEditIMGHard").src =
-      "./assets/img/TaskValueHard.png";
-    document.getElementById("importanceEditIMGMid").src =
-      "./assets/img/TaskValueMidSelected.png";
-    document.getElementById("importanceEditIMGLow").src =
-      "./assets/img/TaskValueLow.png";
-  }
-  if (i == "Low") {
-    prioritySelect = "Low";
-    document
-      .getElementById("importanceEditIMGLow")
-      .classList.remove("importanceLow");
-    document
-      .getElementById("importanceEditIMGMid")
-      .classList.add("importanceMid");
-    document
-      .getElementById("importanceEditIMGHard")
-      .classList.add("importanceHard");
-    document.getElementById("importanceEditIMGHard").src =
-      "./assets/img/TaskValueHard.png";
-    document.getElementById("importanceEditIMGMid").src =
-      "./assets/img/TaskValueMid.png";
-    document.getElementById("importanceEditIMGLow").src =
-      "./assets/img/TaskValueLowSelected.png";
-  }
-}
-/**
- * rendering contacts in addTask Popup at board
- */
-function renderingContactsSelectorPopup(index) {
-  let activeUserContacts = userAccounts[activeUser].userContacts;
-  if (selectorContactIndex == 0) {
-    document.getElementById("selectorContactRenderPopup").innerHTML = ``;
-    for (let i = 0; i < activeUserContacts.length; i++) {
-      if (
-        findContact(
-          index,
-          userAccounts[activeUser].userContacts[i].contactName
-        ) === true
-      ) {
-        document.getElementById("selectorContactRenderPopup").innerHTML += `
-        <div onclick="selectedContactPopup('${activeUserContacts[i].contactName}','${activeUserContacts[i].contactInitials}','${activeUserContacts[i].contactColor}','${i}')" class="selectorCellContact">
-          <nobr>${activeUserContacts[i].contactName}</nobr>
-          <div id="contactSelectorCheckboxes">
-          <img id="popup${i}${activeUserContacts[i].contactName}" class="checked" src="./assets/img/icons/checkButtonChecked.png">
-        </div>
-        </div>
-      `;
-      } else {
-        document.getElementById("selectorContactRenderPopup").innerHTML += `
-        <div onclick="selectedContactPopup('${activeUserContacts[i].contactName}','${activeUserContacts[i].contactInitials}','${activeUserContacts[i].contactColor}','${i}')" class="selectorCellContact">
-          <nobr>${activeUserContacts[i].contactName}</nobr>
-          <div id="contactSelectorCheckboxes">
-          <img id="popup${i}${activeUserContacts[i].contactName}" src="./assets/img/icons/checkButton.png">
-        </div>
-        </div>
-      `;
-      }
-    }
-    document.getElementById("selectorContactRenderPopup").innerHTML += `
-        <div onclick="changeInputContact()" class="selectorCellContact">
-          <nobr>Invite new contact</nobr>
-          <div id="contactSelectorCheckboxes">
-          <img id="contactIconContacts" src="./assets/img/icons/contactIcon.png">
-        </div>
-        </div>`;
-    selectorContactIndex++;
-  } else {
-    findLength(index);
-    userTasksArray[idInLength].assignedTo = contactCheckedValue;
-    document.getElementById("selectorContactRenderPopup").innerHTML = ``;
-    selectorContactIndex--;
-  }
-}
-
-function findContact(index, name) {
-  for (let i = 0; i < contactCheckedValue.length; i++) {
-    if (contactCheckedValue[i].contactName == name) {
-      return true;
-    }
-  }
-}
-
-/**
- * save selected contactsPopup
- */
-function selectedContactPopup(name, initiales, color, number) {
-  if (document.getElementById("popup" + number + name).classList == "checked") {
-    let index = -1;
-    contactCheckedValue.find(function (name, i) {
-      if (contactCheckedValue.name === name) {
-        index = i;
-      }
-    });
-    contactCheckedValue.splice(index, 1);
-    document
-      .getElementById("popup" + number + name)
-      .classList.remove("checked");
-    document.getElementById("popup" + number + name).src =
-      "./assets/img/icons/checkButton.png";
-    console.log(contactCheckedValue);
-  } else {
-    contactCheckedValue.push({
-      contactName: name,
-      abbreviation: initiales,
-      paint: color,
-    });
-    console.log(contactCheckedValue);
-    document.getElementById("popup" + number + name).src =
-      "./assets/img/icons/checkButtonChecked.png";
-    document.getElementById("popup" + number + name).classList.add("checked");
-  }
-}
-
-function showAddTaskPopup(value) {
-  if(window.innerWidth < 800){
-  document.getElementById('addTaskPopup').classList.toggle('translate0');
-  document.getElementById('header-mobile-addTask').classList.toggle('d-none');
-} else {
-  addTaskPopup(value);
-}
-}
-
-async function addTaskBoardStatus(value){
-  if(value == 1) {
-    let taskInputTitle = document.getElementById("inputTitle").value;
-    let dueDate = document.getElementById("selectDate").value;
-    let description = document.getElementById("inputDescription").value;
-    userAccounts[activeUser].userTasks.push(tasks.length); // User account get task id
-    tasks.push({ 
-      taskTitle: taskInputTitle,
-      taskDescription: description,
-      toDueDate: dueDate,
-      taskCategory: 
-                          {Category: taskCategoryFinaly, 
-                          TaskColor: taskCategoryColorFinaly},
-      subTask: checkedSubtaskValue,
-      taskID: tasks.length,
-      priority: prioritySelect,
-      assignedTo: contactCheckedValue,
-      taskStatus: "progress"
-    });
-    await saveAccountsToBackend();
-    await pushTasksinBackend();
-    window.location.reload();
-    } 
-    if(value == 2) {
-        let taskInputTitle = document.getElementById("inputTitle").value;
-        let dueDate = document.getElementById("selectDate").value;
-        let description = document.getElementById("inputDescription").value;
-        userAccounts[activeUser].userTasks.push(tasks.length); // User account get task id
-        tasks.push({ 
-          taskTitle: taskInputTitle,
-          taskDescription: description,
-          toDueDate: dueDate,
-          taskCategory: 
-                              {Category: taskCategoryFinaly, 
-                              TaskColor: taskCategoryColorFinaly},
-          subTask: checkedSubtaskValue,
-          taskID: tasks.length,
-          priority: prioritySelect,
-          assignedTo: contactCheckedValue,
-          taskStatus: "feedback"
-        });
-        await saveAccountsToBackend();
-        await pushTasksinBackend();
-        window.location.reload();
-    }
-    if(value == 3){
-        let taskInputTitle = document.getElementById("inputTitle").value;
-        let dueDate = document.getElementById("selectDate").value;
-        let description = document.getElementById("inputDescription").value;
-        userAccounts[activeUser].userTasks.push(tasks.length); // User account get task id
-        tasks.push({ 
-          taskTitle: taskInputTitle,
-          taskDescription: description,
-          toDueDate: dueDate,
-          taskCategory: 
-                              {Category: taskCategoryFinaly, 
-                              TaskColor: taskCategoryColorFinaly},
-          subTask: checkedSubtaskValue,
-          taskID: tasks.length,
-          priority: prioritySelect,
-          assignedTo: contactCheckedValue,
-          taskStatus: "done"
-        });
-        await saveAccountsToBackend();
-        await pushTasksinBackend();
-        window.location.reload();
-    } else {
-      addTask();
-    }
+  </div>
+  <div class="popup-addTask-top"></div>
+    <img
+      onclick="editPopupTask(${popupTaskContent.taskID})"
+      class="editButton pointer"
+      src="./assets/img/editButton.png"
+    />
+  </div>
+  `;
+  popupRenderContacts();
 }
