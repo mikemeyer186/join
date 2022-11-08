@@ -464,6 +464,7 @@ input[type="date"]::-webkit-clear-button {
 .formAddtaskPopup input {
   width: 100%;
 }
+/* Responsive part of style */
 @media(max-width: 600px) {
   form{
     margin-bottom: 50px;
