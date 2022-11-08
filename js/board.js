@@ -432,9 +432,7 @@ async function addTaskPopup(value) {
   document.getElementById("popup-bg").classList.remove("d-none");
   document.getElementById("popup-addTask").classList.remove("d-none");
   setTimeout(() => {
-    document
-      .getElementById("popup-addTask")
-      .classList.add("popup-slideInAddTask");
+    document.getElementById("popup-addTask").classList.add("popup-slideInAddTask");
     document.getElementById("popup-bg").classList.remove("no-opacity");
   }, 10);
   document.getElementById("addTaskButtonValue").innerHTML = `
@@ -530,9 +528,7 @@ function editPopupTask(ident) {
 
 /** Hiding the template of popup add Task */
 function hidePopUps() {
-  document
-    .getElementById("popup-addTask")
-    .classList.remove("popup-slideInAddTask");
+  document.getElementById("popup-addTask").classList.remove("popup-slideInAddTask");
   document.getElementById("popup-Task").classList.remove("popup-slideInTask");
   document.getElementById("popup-bg").classList.add("no-opacity");
   setTimeout(() => {

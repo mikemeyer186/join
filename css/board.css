@@ -626,7 +626,7 @@ form h3 {
   }
 }
 @media(max-width: 800px) {
-  .bodyBoard {
+  #bodyBoard {
     padding-left: 0 !important; 
     padding-right: 0 !important;
   }
