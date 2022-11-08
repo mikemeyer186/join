@@ -158,6 +158,7 @@ function selectedContact(name, initiales, color) {
 function renderingContactsSelector() {
   let activeUserContacts = userAccounts[activeUser].userContacts;
   if(selectorContactIndex == 0) {
+    contactCheckedValue = [];
     document.getElementById('selectorContactRender').innerHTML = ``; 
     for(let i = 0; i < activeUserContacts.length; i++) {
       document.getElementById('selectorContactRender').innerHTML += `

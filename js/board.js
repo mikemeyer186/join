@@ -1,3 +1,4 @@
+let idInLength = -1;
 // body onload functions
 async function boardOnload() {
   await init(2);
@@ -129,7 +130,18 @@ function renderAbbrevaitionInBox(ident, b) {
     <div class="abbreviationIconsBox" id="abbreviationIconsBox1" style="background-color: ${userTasksArray[b].assignedTo[0].paint}">${userTasksArray[b].assignedTo[0].abbreviation}</div>`;
   }
 }
-
+/**
+ * find the right ID
+ */
+function findLength(ident) {
+  idInLength = -1;
+  for(let i = 0; userTasksArray.length; i++) {
+    idInLength++;
+    if(userTasksArray[i].taskID == ident) {
+      break;
+    }
+  }
+}
 /**
  * save the dragged element
  */
@@ -234,7 +246,8 @@ function taskEditPopup(taskIDused) {
   popupRenderContacts();
 }
 function editPopupTask(ident) {
-  contactCheckedValue = userTasksArray[ident].assignedTo;
+  findLength(ident);
+  let indet = idInLength;
   for (let i = 0; i < userTasksArray.length; i++) {
     if (userTasksArray[i].taskID == ident) {
       popupTaskContent = userTasksArray[i];
@@ -326,16 +339,18 @@ function popupRenderContacts() {
  * Push JSON in tasks from board
  */
 async function addTaskBoard(i) {
-  contactCheckedValue = userTasksArray[i].assignedTo;
+  findLength(i);
+  let indet = idInLength;
+  contactCheckedValue = userTasksArray[indet].assignedTo;
   let taskInputTitle = document.getElementById("inputTitleEdit").value;
   let dueDate = document.getElementById("selectDateEdit").value;
   let description = document.getElementById("inputDescriptionEdit").value;
-  userTasksArray[i].taskTitle = taskInputTitle;
-  userTasksArray[i].taskDescription = description;
-  userTasksArray[i].toDueDate = dueDate;
-  userTasksArray[i].priority = prioritySelect;
-  userTasksArray[i].assignedTo = contactCheckedValue;
-  addUsertaskInTask();
+  userTasksArray[indet].taskTitle = taskInputTitle;
+  userTasksArray[indet].taskDescription = description;
+  userTasksArray[indet].toDueDate = dueDate;
+  userTasksArray[indet].priority = prioritySelect;
+  userTasksArray[indet].assignedTo = contactCheckedValue;
+  await addUsertaskInTask();
   window.location.reload();
 }
 /**
@@ -411,7 +426,6 @@ function prioritySelectedEdit(i) {
  * rendering contacts in addTask Popup at board
  */
 function renderingContactsSelectorPopup(index) {
-  console.log(index);
   let activeUserContacts = userAccounts[activeUser].userContacts;
   if (selectorContactIndex == 0) {
     document.getElementById("selectorContactRenderPopup").innerHTML = ``;
@@ -450,7 +464,8 @@ function renderingContactsSelectorPopup(index) {
         </div>`;
     selectorContactIndex++;
   } else {
-    userTasksArray[index].assignedTo = contactCheckedValue;
+    findLength(index);
+    userTasksArray[idInLength].assignedTo = contactCheckedValue;
     document.getElementById("selectorContactRenderPopup").innerHTML = ``;
     selectorContactIndex--;
   }
