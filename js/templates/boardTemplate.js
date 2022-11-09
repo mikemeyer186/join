@@ -192,6 +192,7 @@ function renderTasksinBoard() {
   /** Template popup Add task */
   async function addTaskPopup(value) {
     document.getElementById("popup-bg").classList.remove("d-none");
+    document.getElementById('bodyBoard').classList.add('overflowHidden');
     document.getElementById("popup-addTask").classList.remove("d-none");
     setTimeout(() => {
       document.getElementById("popup-addTask").classList.add("popup-slideInAddTask");
@@ -278,6 +279,7 @@ function renderTasksinBoard() {
 
   /** Hiding the template of popup add Task */
   function hidePopUps() {
+    document.getElementById('bodyBoard').classList.remove('overflowHidden');
     document.getElementById("popup-addTask").classList.remove("popup-slideInAddTask");
     document.getElementById("popup-Task").classList.remove("popup-slideInTask");
     document.getElementById("popup-bg").classList.add("no-opacity");

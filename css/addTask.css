@@ -49,6 +49,9 @@ input[type="date"]::-webkit-clear-button {
   overflow-x: hidden;
   position: relative;
 }
+.overflowHidden {
+  overflow: hidden !important;
+}
 #mistakeReportCategory {
   color: rgba(235, 0, 0, 0.699); 
   margin-left: 20px; 
