@@ -18,6 +18,7 @@ let taskCategoryColorFinaly = [];
 let contactSelected = [];
 let contactCheckedValue = [];
 let userTasksArray = [];
+let selectedTaskStatus;
 /**
  * pulling tasks from backend
  */

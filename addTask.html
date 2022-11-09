@@ -5,6 +5,8 @@
       src="https://kit.fontawesome.com/362dd1e776.js"
       crossorigin="anonymous"
     ></script>
+    <script src="./js/templates/addTaskTemplate.js"></script>
+    <script src="./js/templates/boardTemplate.js"></script>
     <link rel="icon" href="./assets/img/logo_join.png" type="image/png" />
     <link rel="stylesheet" href="./css/main.css" />
     <link rel="stylesheet" href="./css/addTask.css" />
@@ -131,7 +133,7 @@
             <div id="addSubtaskCheckbox"></div>
             <div class="taskFooterButtons">
               <button id="buttonClear" onclick="taskClear()">Clear X</button>
-              <button id="buttonCreate" onclick="addTask(); return false">
+              <button id="buttonCreate" onclick="addTask(4); return false">
                 Create Task ✓
               </button>
             </div>

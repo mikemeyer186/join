@@ -8,7 +8,8 @@ function addTaskOnload() {
 /**
  * Push JSON in tasks
  */
-async function addTask() {
+async function addTask(value) {
+  setTaskStatus(value);
   let taskInputTitle = document.getElementById("inputTitle").value;
   let dueDate = document.getElementById("selectDate").value;
   let description = document.getElementById("inputDescription").value;
@@ -24,7 +25,7 @@ async function addTask() {
     taskID: tasks.length,
     priority: prioritySelect,
     assignedTo: contactCheckedValue,
-    taskStatus: "todo"
+    taskStatus: selectedTaskStatus
   });
   await saveAccountsToBackend();
   await pushTasksinBackend();
