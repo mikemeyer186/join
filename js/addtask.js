@@ -10,27 +10,61 @@ function addTaskOnload() {
 /* Push JSON in tasks */
 async function addTask(value) {
   setTaskStatus(value);
-  let taskInputTitle = document.getElementById("inputTitle").value;
-  let dueDate = document.getElementById("selectDate").value;
-  let description = document.getElementById("inputDescription").value;
-  userAccounts[activeUser].userTasks.push(tasks.length); // User account get task id
-  tasks.push({
-    taskTitle: taskInputTitle,
-    taskDescription: description,
-    toDueDate: dueDate,
-    taskCategory: {
-      Category: taskCategoryFinaly,
-      TaskColor: taskCategoryColorFinaly,
-    },
-    subTask: checkedSubtaskValue,
-    taskID: tasks.length,
-    priority: prioritySelect,
-    assignedTo: contactCheckedValue,
-    taskStatus: selectedTaskStatus,
-  });
-  await saveAccountsToBackend();
-  await pushTasksinBackend();
-  window.location.href = "board.html"; // go to board side
+  if(checkingEmptyValues() == true) {
+    console.log(prioritySelect);
+    let taskInputTitle = document.getElementById("inputTitle").value;
+    let dueDate = document.getElementById("selectDate").value;
+    let description = document.getElementById("inputDescription").value;
+    userAccounts[activeUser].userTasks.push(tasks.length); // User account get task id
+    tasks.push({
+      taskTitle: taskInputTitle,
+      taskDescription: description,
+      toDueDate: dueDate,
+      taskCategory: {
+        Category: taskCategoryFinaly,
+        TaskColor: taskCategoryColorFinaly,
+      },
+      subTask: checkedSubtaskValue,
+      taskID: tasks.length,
+      priority: prioritySelect,
+      assignedTo: contactCheckedValue,
+      taskStatus: selectedTaskStatus,
+    });
+    await saveAccountsToBackend();
+    await pushTasksinBackend();
+    window.location.href = "board.html"; // go to board side
+  }
+}
+
+
+/* checking of empty values bevor adding task */
+function checkingEmptyValues() {
+  if(document.getElementById("inputTitle").value == false) {
+    document.getElementById('mistakeReportTitle').innerHTML = `Please give it a title!`;
+    return false; 
+  }
+  if(contactCheckedValue == false) {
+    document.getElementById('mistakeReportContact').innerHTML = `Please select a contact!`;
+    return false;
+  }
+  if(document.getElementById("selectDate").value == false) {
+    document.getElementById('mistakeReportDate').innerHTML = `Please select a date!`;
+    return false; 
+  }
+  if(taskCategoryFinaly == false) {
+    document.getElementById('mistakeReportCategory').innerHTML = `Please select a category!`;
+    return false; 
+  }
+  if(prioritySelect == undefined) {
+    document.getElementById('mistakeReportImportance').innerHTML = `Please select a urgency!`;
+    return false; 
+  }
+  if(document.getElementById("inputDescription").value == false) {
+    document.getElementById('mistakeReportDescription').innerHTML = `Please give it a description!`;
+    return false; 
+  } else {
+    return true;
+  }
 }
 
 
@@ -113,8 +147,7 @@ function selectedContact(name, initiales, color) {
       abbreviation: initiales,
       paint: color,
     });
-    document.getElementById(name).src =
-      "./assets/img/icons/checkButtonChecked.png";
+    document.getElementById(name).src ="./assets/img/icons/checkButtonChecked.png";
     document.getElementById(name).classList.add("checked");
   }
 }

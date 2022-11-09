@@ -56,6 +56,48 @@ input[type="date"]::-webkit-clear-button {
   margin-bottom: 0; 
   padding: 0; 
 }
+#mistakeReportDate{
+  color: rgba(235, 0, 0, 0.699); 
+  margin-left: 20px; 
+  margin-top: 10px; 
+  margin-bottom: 0; 
+  padding: 0; 
+}
+#mistakeReportImportance {
+  color: rgba(235, 0, 0, 0.699); 
+  margin-left: 20px; 
+  margin-top: 10px; 
+  margin-bottom: 0; 
+  padding: 0;
+}
+#mistakeReportTitle {
+  color: rgba(235, 0, 0, 0.699); 
+  margin-left: 20px; 
+  margin-top: 0px; 
+  margin-bottom: 0; 
+  padding: 0;
+}
+#mistakeReportContact {
+  color: rgba(235, 0, 0, 0.699); 
+  margin-left: 20px; 
+  margin-top: 10px; 
+  margin-bottom: 0; 
+  padding: 0;
+}
+#mistakeReportCategory {
+  color: rgba(235, 0, 0, 0.699); 
+  margin-left: 20px; 
+  margin-top: 10px; 
+  margin-bottom: 0; 
+  padding: 0;
+}
+#mistakeReportDescription {
+  color: rgba(235, 0, 0, 0.699); 
+  margin-left: 10px; 
+  margin-top: 0px; 
+  margin-bottom: 20px; 
+  padding: 0;
+}
 .selectorArrow {
   width: 10px;
   height: 10px;
