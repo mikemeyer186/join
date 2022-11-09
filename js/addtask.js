@@ -11,7 +11,6 @@ function addTaskOnload() {
 async function addTask(value) {
   setTaskStatus(value);
   if(checkingEmptyValues() == true) {
-    console.log(prioritySelect);
     let taskInputTitle = document.getElementById("inputTitle").value;
     let dueDate = document.getElementById("selectDate").value;
     let description = document.getElementById("inputDescription").value;

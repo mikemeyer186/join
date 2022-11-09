@@ -44,7 +44,7 @@ input[type="date"]::-webkit-inner-spin-button {
 input[type="date"]::-webkit-clear-button {
    z-index: 1;
 }
-.page-container {
+#page-container {
   height: 100vh;
   overflow-x: hidden;
   position: relative;
@@ -470,7 +470,6 @@ input[type="date"]::-webkit-clear-button {
   display: none;
 }
 #addTaskPopup {
-  overflow: hidden;
   padding-left: 30px;
   margin-top: 90px;
   margin-bottom: 30px; 

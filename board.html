@@ -21,15 +21,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Join - Board</title>
   </head>
-  <body id="bodyBoard" onload="boardOnload()">
-    <div class="page-container">
+  <body onload="boardOnload()">
+    <div id="page-container">
       <!--- Add Task Popup  -->
       <div id="popup-bg" class="d-none no-opacity" onclick="hidePopUps()">
         <div w3-include-html=".\assets\templates\addTaskPopupSlider.html"></div>
         <!--- Add Task Popup end  -->
         <!--- Task Popup  -->
         <div class="width100">
-          <div id="popup-Task" onclick="stopPropagate(event)">
+          <div id="popup-Task" class="d-none" onclick="stopPropagate(event)">
             <img
               class="popup-close-icon-gray"
               src="./assets/img/icons/XIconGray.png"
@@ -68,7 +68,7 @@
           Add task +
         </button>
       </div>
-      <div class="boardContent">
+      <div id="boardContentID" class="boardContent">
         <div id="boardTodo" ondrop="drop('todo')" ondragover="allowDrop(event)">
           <div class="boxHeader">
             <h2>To do</h2>
