@@ -8,6 +8,7 @@
     />
   </div>
   <input id="inputTitle" type="text" placeholder="Enter a title" required />
+  <div id="mistakeReportTitle"></div>
   <div id="selectorContact">
     <div
       onclick="renderingContactsSelectorPopup(localStorage.getItem('contactIndex'))"
@@ -19,6 +20,7 @@
     <div id="selectorContactRenderPopup">
       <!-- renderzone for contact selctor -->
     </div>
+    <div id="mistakeReportContact"></div>
   </div>
   <h3>Due date</h3>
   <i
@@ -33,6 +35,7 @@
     onblur="(this.type='text')"
     required
   />
+  <div id="mistakeReportDate"></div>
   <h3>Category</h3>
   <div id="selectorCategory">
     <div
@@ -45,6 +48,7 @@
     <div id="selectorCategoryRender">
       <!-- Rendering selector content here -->
     </div>
+    <div id="mistakeReportCategory"></div>
   </div>
   <div id="importanceLvl">
     <img
@@ -68,6 +72,7 @@
       onclick="prioritySelected(3)"
       src="./assets/img/TaskValueLow.png"
     />
+    <div id="mistakeReportImportance"></div>
   </div>
   <h3>Description</h3>
   <input
@@ -76,6 +81,7 @@
     placeholder="Enter a Description"
     required
   />
+  <div id="mistakeReportDescription"></div>
   <h3 id="subtaskTitle">Subtasks</h3>
   <div class="checkAndCrossIcons">
     <i onclick="clearSubtask()" class="fa-solid fa-xmark fa-xl pointer"></i>
@@ -90,7 +96,7 @@
     <div id="addSubtaskCheckbox"></div>
     <div class="taskFooterButtons">
       <button id="buttonClear" onclick="taskClear()">Clear X</button>
-      <button id="buttonCreate" onclick="addTask(); return false">
+      <button id="buttonCreate" onclick="addTask(4); return false">
         Create Task ✓
       </button>
     </div>

@@ -353,6 +353,8 @@ function slidePopupIntoView(id) {
     document.getElementById('mobiletaskheader').classList.toggle('headerSlideIn');
 }
 
+
+
 /**
  * rendering contacts in addTask popup and selecting contact
  */

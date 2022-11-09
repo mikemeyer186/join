@@ -37,6 +37,24 @@ async function addTask(value) {
 }
 
 
+/** Give task a status */
+function setTaskStatus(value){
+  if (value == 1) {
+    selectedTaskStatus = "progress";
+  }
+  if (value == 2) {
+    selectedTaskStatus = "feedback";
+  }
+  if (value == 3) {
+    selectedTaskStatus = "done";
+  }
+  if (value == 4) {
+    selectedTaskStatus = "todo";
+  }
+}
+
+
+
 /* checking of empty values bevor adding task */
 function checkingEmptyValues() {
   if(document.getElementById("inputTitle").value == false) {
