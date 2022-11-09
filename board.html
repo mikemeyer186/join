@@ -25,120 +25,7 @@
     <div class="page-container">
       <!--- Add Task Popup  -->
       <div id="popup-bg" class="d-none no-opacity" onclick="hidePopUps()">
-        <div id="popup-addTask" class="d-none" onclick="stopPropagate(event)">
-          <img
-            class="popup-close-icon-gray"
-            src="./assets/img/icons/XIconGray.png"
-            alt="Close"
-            onclick="hidePopUps()"
-          />
-          <div id="addTaskButtonValue" class="popup-addTask-top"></div>
-          <div class="inputFields">
-            <form>
-              <input
-                id="inputTitle"
-                type="text"
-                placeholder="Enter a title"
-                required
-              />
-              <div id="selectorContact">
-                <div
-                  onclick="renderingContactsSelector()"
-                  class="selectorHeader pointer"
-                >
-                  Select contacts to assign
-                  <img
-                    class="selectorArrow"
-                    src="./assets/img/selectorArrow.png"
-                  />
-                </div>
-                <div id="selectorContactRender">
-                  <!-- renderzone for contact selctor -->
-                </div>
-              </div>
-              <h3>Due date</h3>
-              <i
-                onclick="showDatePopUp()"
-                class="fa-regular fa-calendar-minus fa-xl pointer"
-              ></i>
-              <input
-                id="selectDate"
-                type="text"
-                placeholder="dd/mm/yyyy"
-                onfocus="(this.type='date')"
-                onblur="(this.type='text')"
-                required
-              />
-              <h3>Category</h3>
-              <div id="selectorCategory">
-                <div
-                  class="selectorHeader pointer"
-                  onclick="renderingTaskCategorySelector()"
-                >
-                  Select task category
-                  <img
-                    class="selectorArrow"
-                    src="./assets/img/selectorArrow.png"
-                  />
-                </div>
-                <div id="selectorCategoryRender">
-                  <!-- Rendering selector content here -->
-                </div>
-              </div>
-              <div id="importanceLvl">
-                <img
-                  class="importanceHard"
-                  id="importanceIMGHard"
-                  value="taskHard"
-                  onclick="prioritySelected(1)"
-                  src="./assets/img/TaskValueHard.png"
-                />
-                <img
-                  class="importanceMid"
-                  id="importanceIMGMid"
-                  value="taskMid"
-                  onclick="prioritySelected(2)"
-                  src="./assets/img/TaskValueMid.png"
-                />
-                <img
-                  class="importanceLow"
-                  id="importanceIMGLow"
-                  value="taskLow"
-                  onclick="prioritySelected(3)"
-                  src="./assets/img/TaskValueLow.png"
-                />
-              </div>
-              <h3>Description</h3>
-              <input
-                id="inputDescription"
-                type="text"
-                placeholder="Enter a Description"
-                required
-              />
-              <h3 id="subtaskTitle">Subtasks</h3>
-              <div class="checkAndCrossIcons">
-                <i
-                  onclick="clearSubtask()"
-                  class="fa-solid fa-xmark fa-xl pointer"
-                ></i>
-                <img src="./assets/img/icons/trennstrich.png" />
-                <i
-                  onclick="pushSubtaskLocalStorage()"
-                  class="fa-solid fa-check fa-xl pointer"
-                ></i>
-              </div>
-              <input
-                id="subtaskText"
-                type="text"
-                placeholder="Add new subtask"
-              />
-              <div class="taskFooter">
-                <div id="addSubtaskCheckbox"></div>
-                <div class="taskFooterButtons"></div>
-              </div>
-            </form>
-          </div>
-        </div>
+        <div w3-include-html=".\assets\templates\addTaskPopupSlider.html"></div>
         <!--- Add Task Popup end  -->
         <!--- Task Popup  -->
         <div class="width100">
@@ -177,7 +64,7 @@
       <!-- add Task Mobile Popup end -->
       <div class="boardFindandAddtask">
         <input type="search" placeholder="Find Task" />
-        <button class="pointer addButton" onclick="showAddTaskPopup()">
+        <button class="pointer addButton" onclick="showAddTaskPopup(4)">
           Add task +
         </button>
       </div>
