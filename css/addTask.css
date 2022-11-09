@@ -98,6 +98,13 @@ input[type="date"]::-webkit-clear-button {
   margin-bottom: 20px; 
   padding: 0;
 }
+#mistakeReportsubtask {
+  color: rgba(235, 0, 0, 0.699); 
+  margin-left: 10px; 
+  margin-top: 0px; 
+  margin-bottom: 0; 
+  padding: 0;
+}
 .selectorArrow {
   width: 10px;
   height: 10px;
@@ -478,7 +485,6 @@ input[type="date"]::-webkit-clear-button {
 .translate0 {
   transform: translateX(0) !important;
 }
-
 .addTaskPopupIcon {
   width: 20px;
   position: absolute;
@@ -511,10 +517,6 @@ input[type="date"]::-webkit-clear-button {
   form{
     margin-bottom: 50px;
   }
-  body {
-    padding-left: 0 !important; 
-    padding-right: 0 !important; 
-  }
 }
 @media(max-width: 800px) { 
   .fa-xmark {
@@ -534,10 +536,6 @@ input[type="date"]::-webkit-clear-button {
   }
   .checkAndCrossIconsCategory {
     left: 380px; 
-  }
-  body {
-    padding-left: 10vw; 
-    padding-right: 10vw;
   }
   .addtaskStatic {
     margin-left: 0;

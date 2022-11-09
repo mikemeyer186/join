@@ -122,10 +122,15 @@ function getSelectedSubtask() {
 
 /* pushing new subtask in the Localstorage */
 function pushSubtaskLocalStorage() {
-  subTasks.push(document.getElementById("subtaskText").value);
-  document.getElementById("subtaskText").value = ``;
-  localStorage.setItem("subtasks", JSON.stringify(subTasks));
-  renderSubTask();
+  if (document.getElementById("subtaskText").value) {
+    document.getElementById("mistakeReportsubtask").innerHTML = ``;
+    subTasks.push(document.getElementById("subtaskText").value);
+    document.getElementById("subtaskText").value = ``;
+    localStorage.setItem("subtasks", JSON.stringify(subTasks));
+    renderSubTask();
+  } else {
+    document.getElementById("mistakeReportsubtask").innerHTML = `Please enter value!`;
+  }
 }
 
 

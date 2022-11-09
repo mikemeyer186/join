@@ -1,5 +1,6 @@
 /**! RENDERINGS !*/
 
+
 /** This function is rendering the task boxes in the board */
 function renderTasksinBoard() {
     userTasksArray = [];
@@ -87,6 +88,7 @@ function renderTasksinBoard() {
     console.log("Tasks successfully loaded into board!");
   }
   
+
   /** Rendering the abbrevaition in the boxes */
   function renderAbbrevaitionInBox(ident, b) {
     document.getElementById(ident).innerHTM = ``;
@@ -122,6 +124,7 @@ function renderTasksinBoard() {
     }
   }
   
+
   /** Rendering contacts in addTask Popup at board */
   function renderingContactsSelectorPopup(index) {
     let activeUserContacts = userAccounts[activeUser].userContacts;
@@ -169,6 +172,7 @@ function renderTasksinBoard() {
     }
   }
   
+
   /** Rendering contacts in footer of the Task Pupup */
   function popupRenderContacts() {
     document.getElementById("popupContactsRender").innerHTML = ``;
@@ -184,8 +188,10 @@ function renderTasksinBoard() {
     }
   }
   
+
   /**! TEMPLATES !*/
   
+
   /** Template popup Add task */
   async function addTaskPopup(value) {
     document.getElementById("popup-bg").classList.remove("d-none");
@@ -198,17 +204,8 @@ function renderTasksinBoard() {
     <h1>Add Task</h1>
     <button class="buttonCreate pointer" onclick="addTask(${value})">Create Task ✓</button>`;
   }
-  
-  /** Template the addTask Popup */
-  function showAddTaskPopup(value) {
-    if (window.innerWidth < 800) {
-      document.getElementById("addTaskPopup").classList.toggle("translate0");
-      document.getElementById("header-mobile-addTask").classList.toggle("d-none");
-    } else {
-      addTaskPopup(value);
-    }
-  }
-  
+
+
   /** Template the edit Popup */
   function editPopupTask(ident) {
     findLength(ident);
@@ -281,6 +278,7 @@ function renderTasksinBoard() {
     prioritySelectedEdit(popupTaskContent.priority);
   }
   
+
   /** Hiding the template of popup add Task */
   function hidePopUps() {
     document.getElementById("popup-addTask").classList.remove("popup-slideInAddTask");
@@ -293,6 +291,7 @@ function renderTasksinBoard() {
     }, 250);
   }
   
+
   /* Template popup from task */
   function taskEditPopup(taskIDused) {
     document.getElementById("popup-Task").classList.remove("d-none");
