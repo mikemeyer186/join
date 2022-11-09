@@ -91,7 +91,7 @@ function prioritySelectedEdit(i) {
 
 
 /** Find used contacts */
-function findContact(name) {
+function findContact(index, name) {
   for (let i = 0; i < contactCheckedValue.length; i++) {
     if (contactCheckedValue[i].contactName == name) {
       return true;

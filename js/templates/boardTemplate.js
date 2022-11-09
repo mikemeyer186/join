@@ -1,3 +1,5 @@
+let taskUser = [];
+
 /**! RENDERINGS !*/
 
 
@@ -7,7 +9,7 @@ function renderTasksinBoard() {
     let userTasksIds = userAccounts[activeUser].userTasks;
     if (userTasksIds.length > 0) {
       for (let i = 0; i < userTasksIds.length; i++) {
-        const taskId = userTasksIds[i];
+        let taskId = userTasksIds[i];
         userTasksArray.push(tasks[taskId]);
       }
     }
@@ -127,16 +129,12 @@ function renderTasksinBoard() {
 
   /** Rendering contacts in addTask Popup at board */
   function renderingContactsSelectorPopup(index) {
+    contactCheckedValue = tasks[idInLength].assignedTo;
     let activeUserContacts = userAccounts[activeUser].userContacts;
     if (selectorContactIndex == 0) {
       document.getElementById("selectorContactRenderPopup").innerHTML = ``;
       for (let i = 0; i < activeUserContacts.length; i++) {
-        if (
-          findContact(
-            index,
-            userAccounts[activeUser].userContacts[i].contactName
-          ) === true
-        ) {
+        if (findContact(index, userAccounts[activeUser].userContacts[i].contactName)=== true) {
           document.getElementById("selectorContactRenderPopup").innerHTML += `
           <div onclick="selectedContactPopup('${activeUserContacts[i].contactName}','${activeUserContacts[i].contactInitials}','${activeUserContacts[i].contactColor}','${i}')" class="selectorCellContact">
             <nobr>${activeUserContacts[i].contactName}</nobr>
@@ -165,8 +163,7 @@ function renderTasksinBoard() {
           </div>`;
       selectorContactIndex++;
     } else {
-      findLength(index);
-      userTasksArray[idInLength].assignedTo = contactCheckedValue;
+      contactCheckedValue = tasks[idInLength].assignedTo;
       document.getElementById("selectorContactRenderPopup").innerHTML = ``;
       selectorContactIndex--;
     }
@@ -204,7 +201,7 @@ function renderTasksinBoard() {
     <h1>Add Task</h1>
     <button class="buttonCreate pointer" onclick="addTask(${value})">Create Task ✓</button>`;
   }
-
+  
 
   /** Template the edit Popup */
   function editPopupTask(ident) {
@@ -291,7 +288,7 @@ function renderTasksinBoard() {
     }, 250);
   }
   
-
+  
   /* Template popup from task */
   function taskEditPopup(taskIDused) {
     document.getElementById("popup-Task").classList.remove("d-none");
