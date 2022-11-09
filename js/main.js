@@ -19,14 +19,19 @@ let contactSelected = [];
 let contactCheckedValue = [];
 let userTasksArray = [];
 let selectedTaskStatus;
+
 /**
- * pulling tasks from backend
+ * loading tasks from backend
  */
 async function loadTasksfromBackend() {
     await downloadFromServer();
     tasks = JSON.parse(backend.getItem('tasks')) || [];
 }
-// Onload function
+
+/**
+ * initial function
+ * @param {number} i - number of navigation link
+ */
 async function init(i) {
     await includeHTML();
     await loadAccountsFromBackend();
@@ -34,6 +39,7 @@ async function init(i) {
     showActiveUserIcon();
     highlightedNavbar(i);
 }
+
 /**
  * Rendering the header and the sidebar in the page
  */
@@ -57,6 +63,7 @@ async function includeHTML() {
 async function saveAccountsToBackend() {
     await backend.setItem('userAccounts', JSON.stringify(userAccounts));
 }
+
 /**
  * loading user accounts from backend database
  */
@@ -64,12 +71,14 @@ async function loadAccountsFromBackend() {
     await downloadFromServer();
     userAccounts = JSON.parse(backend.getItem('userAccounts')) || [];
 }
+
 /**
  * loading active user from local storage
  */
 function loadActiveUserLocal() {
     activeUser = localStorage.getItem('activeUser');
 }
+
 /**
  * stopping propagation of child elements
  */
@@ -99,4 +108,17 @@ function toggleLogOutPopUp() {
 function logOutActiveUser() {
     window.location.href = './index.html';
     localStorage.setItem('introScreen', 0);
+}
+
+/**
+ * sliding the popup from the bottom of page into view
+ * sliding out of view after 4 seconds
+ * @param {string} id - id of html element
+ */
+ function slidePopupIntoView(id) {
+    document.getElementById(`${id}`).classList.add('slideIn');
+
+    setTimeout(() => {
+        document.getElementById(`${id}`).classList.remove('slideIn');
+    }, 4000);
 }
