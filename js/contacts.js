@@ -325,19 +325,6 @@ function saveAndRenderEdit(popup) {
 }
 
 /**
- * sliding the popup from the bottom of page into view
- * sliding out of view after 4 seconds
- * @param {string} id - id of html element
- */
-function slidePopupIntoView(id) {
-    document.getElementById(`${id}`).classList.add('slideIn');
-
-    setTimeout(() => {
-        document.getElementById(`${id}`).classList.remove('slideIn');
-    }, 4000);
-}
-
-/**
  * showing add task popup with white header
  */
  function showAddTaskPopup() {
