@@ -1,10 +1,11 @@
 body {
   height: 100vh;
-  overflow-x: hidden;
+  overflow: hidden !important;
 }
 #page-container {
   height: 100vh;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
+  overflow-y: scroll !important;
   position: relative;
 }
 .width100 {
@@ -172,8 +173,8 @@ body {
   object-fit: cover;
   width: 50px;
   height: 50px; 
-  top: 690px;
-  left: 500px;
+  right: 30px;
+  top: 720px;
 }
 .contact-initials-Task {
   text-transform: uppercase;
@@ -193,6 +194,7 @@ body {
   margin-bottom: 20px;
 }
 #taskPopUpContent{
+  position: relative;
   padding: 50px;
 }
 #popup-bg,
@@ -269,6 +271,7 @@ body {
   top: 22px;
   right: 22px;
   cursor: pointer;
+  z-index: 5;
 }
 .buttonCreate {
   margin-top: 25px;
@@ -566,9 +569,8 @@ form h3 {
 }
 .okButton {
   position: absolute;
-  z-index: -1;
-  top: 690px;
-  left: 490px;
+  right: 30px;
+  top: 720px;
   object-fit: cover;
   width: 70px;
   height: 50px; 
@@ -671,5 +673,11 @@ form h3 {
   }
   .boardFindandAddtask input {
     margin-left: 35px; 
+  }
+}
+
+@media(max-width: 600px) {
+  #popup-Task {
+    width: 100%;
   }
 }

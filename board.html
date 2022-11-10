@@ -22,26 +22,26 @@
     <title>Join - Board</title>
   </head>
   <body onload="boardOnload()">
-    <div id="page-container">
-      <!--- Add Task Popup  -->
-      <div id="popup-bg" class="d-none no-opacity" onclick="hidePopUps()">
-        <div w3-include-html=".\assets\templates\addTaskPopupSlider.html"></div>
-        <!--- Add Task Popup end  -->
-        <!--- Task Popup  -->
-        <div class="width100">
-          <div id="popup-Task" class="d-none" onclick="stopPropagate(event)">
-            <img
-              class="popup-close-icon-gray"
-              src="./assets/img/icons/XIconGray.png"
-              alt="Close"
-              onclick="hidePopUps()"
-            />
-            <div id="taskPopUpContent"></div>
-          </div>
+    <!--- Add Task Popup  -->
+    <div id="popup-bg" class="d-none no-opacity" onclick="hidePopUps()">
+      <div w3-include-html=".\assets\templates\addTaskPopupSlider.html"></div>
+      <!--- Add Task Popup end  -->
+      <!--- Task Popup  -->
+      <div class="width100">
+        <div id="popup-Task" class="d-none" onclick="stopPropagate(event)">
+          <img
+            class="popup-close-icon-gray"
+            src="./assets/img/icons/XIconGray.png"
+            alt="Close"
+            onclick="hidePopUps()"
+          />
+          <div id="taskPopUpContent"></div>
         </div>
       </div>
-      <!--- Task Popup end   -->
-      <!-- end of popup background-->
+    </div>
+    <!--- Task Popup end   -->
+    <!-- end of popup background-->    
+    <div id="page-container">
       <div
         class="header-desktop"
         w3-include-html=".\assets\templates\headerDesktop.html"
