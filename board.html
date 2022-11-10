@@ -63,7 +63,7 @@
       <div id="addTaskPopup" w3-include-html="./addTaskPopup.html"></div>
       <!-- add Task Mobile Popup end -->
       <div class="boardFindandAddtask">
-        <input type="search" placeholder="Find Task" />
+        <input id="searchInput" type="text" placeholder="Find Task" onkeyup="searchTasksInBoard()"/>
         <button class="pointer addButton" onclick="addTaskPopup(4)">
           Add task +
         </button>

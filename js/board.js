@@ -174,3 +174,33 @@ async function pushEditTask(i) {
   localStorage.setItem("reloadingEditPopup", true);
   window.location.reload();
 }
+
+/**
+ * filling usertasksArray with original tasks
+ */
+function fillUserTasksFromTasks() {
+  userTasksArray = [];
+  let userTasksIds = userAccounts[activeUser].userTasks;
+  if (userTasksIds.length > 0) {
+    for (let i = 0; i < userTasksIds.length; i++) {
+      let taskId = userTasksIds[i];
+      userTasksArray.push(tasks[taskId]);
+    }
+  }
+}
+
+/**
+ * searching for tasks in board
+ */
+ function searchTasksInBoard() {
+  let search = document.getElementById('searchInput');
+  search = search.value.toLowerCase().trim();
+  fillUserTasksFromTasks();
+
+  if (!search) {
+      renderTasksinBoard();
+  } else {
+      let searchResult = userTasksArray.filter((e) => e.taskTitle.toLowerCase().includes(search));
+      renderTasksinBoard(searchResult);
+  }
+}

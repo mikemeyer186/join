@@ -4,15 +4,12 @@ let taskUser = [];
 
 
 /** This function is rendering the task boxes in the board */
-function renderTasksinBoard() {
-    userTasksArray = [];
-    let userTasksIds = userAccounts[activeUser].userTasks;
-    if (userTasksIds.length > 0) {
-      for (let i = 0; i < userTasksIds.length; i++) {
-        let taskId = userTasksIds[i];
-        userTasksArray.push(tasks[taskId]);
-      }
-    }
+function renderTasksinBoard(searchResult) {
+  if (searchResult) {
+    userTasksArray = searchResult;
+  } else {
+    fillUserTasksFromTasks();
+  }
     document.getElementById("boardTodoContent").innerHTML = ``;
     document.getElementById("boardProgressContent").innerHTML = ``;
     document.getElementById("boardFeedbackContent").innerHTML = ``;
