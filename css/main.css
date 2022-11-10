@@ -226,6 +226,9 @@ nav {
 
 /* SIDEBAR CSS END */
 
+
+/* start popup css */
+
 .popup {
     display: flex;
     flex-direction: row;
@@ -256,6 +259,9 @@ nav {
 .popup > span {
     text-align: center;
 }
+
+/* end popup css */
+
 
 /* responsive section */
 @media (max-width: 800px) {

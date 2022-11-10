@@ -31,6 +31,7 @@ async function addTask(value) {
     });
     await saveAccountsToBackend();
     await pushTasksinBackend();
+    localStorage.setItem("reloadingNewPopup", true);
     window.location.href = "board.html"; // go to board side
   }
 }

@@ -122,3 +122,19 @@ function logOutActiveUser() {
         document.getElementById(`${id}`).classList.remove('slideIn');
     }, 4000);
 }
+
+/**
+ * checking if reload is true and sliding popup into view
+ */
+ function checkReload() {
+    let newTaskPopup = localStorage.getItem("reloadingNewPopup");
+    let editTaskPopup = localStorage.getItem("reloadingEditPopup");
+    if (newTaskPopup) {
+        localStorage.removeItem("reloadingNewPopup");
+        slidePopupIntoView('created-task-popup');
+    }
+    if (editTaskPopup) {
+        localStorage.removeItem("reloadingEditPopup");
+        slidePopupIntoView('edited-task-popup');
+    }
+  }

@@ -7,6 +7,7 @@ async function boardOnload() {
   await loadTasksfromBackend();
   await downloadFromServer();
   renderTasksinBoard();
+  checkReload();
 }
 
 
@@ -170,5 +171,6 @@ async function pushEditTask(i) {
   userTasksArray[indet].priority = prioritySelect;
   userTasksArray[indet].assignedTo = contactCheckedValue;
   await addUsertaskInTask();
+  localStorage.setItem("reloadingEditPopup", true);
   window.location.reload();
 }
