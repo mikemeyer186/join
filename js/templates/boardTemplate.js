@@ -132,15 +132,15 @@ function renderTasksinBoard(searchResult) {
 
 /**
  * Rendering contacts in addTask Popup at board
- * @param {number} index 
+ * @param {number} ID task
  */
   function renderingContactsSelectorPopup(index) {
-    contactCheckedValue = tasks[idInLength].assignedTo;
+    contactCheckedValue = tasks[index].assignedTo;
     let activeUserContacts = userAccounts[activeUser].userContacts;
     if (selectorContactIndex == 0) {
       document.getElementById("selectorContactRenderPopup").innerHTML = ``;
       for (let i = 0; i < activeUserContacts.length; i++) {
-        if (findContact(index, userAccounts[activeUser].userContacts[i].contactName)=== true) {
+        if (findContact(userAccounts[activeUser].userContacts[i].contactName)=== true) {
           document.getElementById("selectorContactRenderPopup").innerHTML += `
           <div onclick="selectedContactPopup('${activeUserContacts[i].contactName}','${activeUserContacts[i].contactInitials}','${activeUserContacts[i].contactColor}','${i}')" class="selectorCellContact">
             <nobr>${activeUserContacts[i].contactName}</nobr>
