@@ -569,6 +569,7 @@ form h3 {
   left: 54px;
 }
 .okButton {
+  z-index: -1;
   position: absolute;
   right: 30px;
   top: 720px;
