@@ -87,7 +87,6 @@ function renderTasksinBoard(searchResult) {
         renderAbbrevaitionInBox(userTasksArray[i].taskID, i);
       }
     }
-    console.log("Tasks successfully loaded into board!");
   }
   
 
