@@ -189,7 +189,7 @@ function renderTasksinBoard(searchResult) {
   /** Template popup Add task */
   async function addTaskPopup(value) {
     document.getElementById("popup-bg").classList.remove("d-none");
-    document.getElementById("popup-addTask").classList.add('overflowHidden');
+    document.getElementById("page-container").classList.add('overflowHidden');
     document.getElementById("boardContentID").classList.add('overflowHidden');
     document.getElementById("popup-addTask").classList.remove("d-none");
     setTimeout(() => {

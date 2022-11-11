@@ -4,8 +4,8 @@ body {
 }
 #page-container {
   height: 100vh;
-  overflow-x: hidden !important;
-  overflow-y: scroll !important;
+  overflow-x: hidden;
+  overflow-y: scroll;
   position: relative;
 }
 .width100 {
@@ -199,6 +199,7 @@ body {
 }
 #popup-bg,
 #popup-bg-edit {
+  overflow-y: scroll;
   position: absolute;
   right: 0;
   left: 0;
