@@ -1,6 +1,8 @@
 /* TEMPLATES */
 
-/* Change the Category selector in a input field */
+/**
+ * Change the Category selector in a input field
+ */
 function changeInputCategory() {
     document.getElementById("selectorCategory").innerHTML = `
     <div class="inputCategory">
@@ -23,7 +25,9 @@ function changeInputCategory() {
   }
 
 
-    /* rechange the category input */
+/**
+ * rechange the category input
+ */
 function rechangeCategoryInput() {
     document.getElementById("selectorCategory").innerHTML = `
     <div class="selectorHeader pointer" onclick="renderingTaskCategorySelector()">Select task category <img class="selectorArrow" src="./assets/img/selectorArrow.png"></div>
@@ -35,7 +39,9 @@ function rechangeCategoryInput() {
 
 
   
-/* Change the contact selector in a input field */
+/**
+ * Change the contact selector in a input field
+ */
 function changeInputContact() {
     document.getElementById("selectorContact").innerHTML = `
     <div>
@@ -48,7 +54,10 @@ function changeInputContact() {
     </div>`;
 }
 
-/* rechange the contact input in a selector */
+
+/**
+ * rechange the contact input in a selector
+ */
 function rechangeContactInput() {
     document.getElementById("selectorContact").innerHTML = `
     <div onclick="renderingContactsSelector()" class="selectorHeader pointer">Select contacts to assign <img class="selectorArrow" src="./assets/img/selectorArrow.png"></div>
@@ -57,8 +66,10 @@ function rechangeContactInput() {
     </div>`;
   }
   
-
-  /* rendering contacts in addTask */
+  
+/**
+ * rendering contacts in addTask
+ */
 function renderingContactsSelector() {
     let activeUserContacts = userAccounts[activeUser].userContacts;
     if (selectorContactIndex == 0) {
@@ -66,10 +77,10 @@ function renderingContactsSelector() {
       document.getElementById("selectorContactRender").innerHTML = ``;
       for (let i = 0; i < activeUserContacts.length; i++) {
         document.getElementById("selectorContactRender").innerHTML += `
-          <div onclick="selectedContact('${activeUserContacts[i].contactName}','${activeUserContacts[i].contactInitials}','${activeUserContacts[i].contactColor}')" class="selectorCellContact">
+          <div onclick="selectedContact('${activeUserContacts[i].contactName}','${activeUserContacts[i].contactInitials}','${activeUserContacts[i].contactColor}','${i}')" class="selectorCellContact">
             <nobr>${activeUserContacts[i].contactName}</nobr>
             <div id="contactSelectorCheckboxes">
-            <img id="${activeUserContacts[i].contactName}" src="./assets/img/icons/checkButton.png">
+            <img id="popup${i}${activeUserContacts[i].contactName}" src="./assets/img/icons/checkButton.png">
           </div>
           </div>
         `;
@@ -89,7 +100,9 @@ function renderingContactsSelector() {
 }
 
 
-/* rendering task cateogry´s in selector (Onclick) */
+/**
+ * rendering task cateogry´s in selector (Onclick) 
+ */
 function renderingTaskCategorySelector() {
     let staticCategorys = [
       { taskCategory: "New category", taskColor: "grayCategory", cagtegoryID: 0 },

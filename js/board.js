@@ -1,7 +1,9 @@
 let idInLength = -1;
 
 
-// body onload functions
+/**
+ * onload functions
+ */
 async function boardOnload() {
   await init(2);
   await loadTasksfromBackend();
@@ -11,7 +13,10 @@ async function boardOnload() {
 }
 
 
-/** Find the right ID in userTasksArray */
+/**
+ * Find the right ID in userTasksArray 
+ * @param {number} ident task
+ */
 function findLength(ident) {
   idInLength = -1;
   for (let i = 0; userTasksArray.length; i++) {
@@ -23,7 +28,10 @@ function findLength(ident) {
 }
 
 
-/** search and save the dragged element */
+/**
+ * search and save the dragged element 
+ * @param {number} id of dragged element
+ */
 function startDraggin(id) {
   currentDraggedElement = -1;
   for (let i = 0; userTasksArray.length; i++) {
@@ -35,13 +43,19 @@ function startDraggin(id) {
 }
 
 
-/** Allows the drop in this area */
+/**
+ * Allows the drop in this area
+ * @param {*} event allows the drop
+ */
 function allowDrop(ev) {
   ev.preventDefault();
 }
 
 
-/** Task status change by dropping */
+/**
+ * Task status change by dropping
+ * @param {string} status New status for task
+ */
 async function drop(status) {
   userTasksArray[currentDraggedElement]["taskStatus"] = status;
   renderTasksinBoard();
@@ -49,7 +63,9 @@ async function drop(status) {
 }
 
 
-/** Add usertask in task array */
+/**
+ * push usertask in task array 
+ */
 async function addUsertaskInTask() {
   for (let i = 0; i < userTasksArray.length; i++) {
     let task = userTasksArray[i].taskID;
@@ -59,7 +75,10 @@ async function addUsertaskInTask() {
 }
 
 
-/** Selected priority task for Popup */
+/**
+ * Selected priority task for Popup
+ * @param {string} value of priority 
+ */
 function prioritySelectedEdit(i) {
   if (i == "Hard") {
     prioritySelect = "Hard";
@@ -91,8 +110,12 @@ function prioritySelectedEdit(i) {
 }
 
 
-/** Find used contacts */
-function findContact(index, name) {
+/**
+ * find contact for checked users 
+ * @param {string} name of user
+ * @returns true
+ */
+function findContact(name) {
   for (let i = 0; i < contactCheckedValue.length; i++) {
     if (contactCheckedValue[i].contactName == name) {
       return true;
@@ -101,37 +124,74 @@ function findContact(index, name) {
 }
 
 
-/** Save selected contactsPopup */
-function selectedContactPopup(name, initiales, color, number) {
-  if (document.getElementById("popup" + number + name).classList == "checked") {
-    let index = -1;
-    contactCheckedValue.find(function (name, i) {
-      if (contactCheckedValue.name === name) {
-        index = i;
-      }
-    });
-    contactCheckedValue.splice(index, 1);
-    document
-      .getElementById("popup" + number + name)
-      .classList.remove("checked");
-    document.getElementById("popup" + number + name).src =
-      "./assets/img/icons/checkButton.png";
-    console.log(contactCheckedValue);
-  } else {
-    contactCheckedValue.push({
-      contactName: name,
-      abbreviation: initiales,
-      paint: color,
-    });
-    console.log(contactCheckedValue);
-    document.getElementById("popup" + number + name).src =
-      "./assets/img/icons/checkButtonChecked.png";
-    document.getElementById("popup" + number + name).classList.add("checked");
-  }
+/**
+ * delet the contact from the contactCheckedValue
+ * @param {number} index of contact
+ * @param {number} number id of contact in html-id
+ * @param {string} contactName name of contact
+ */
+function deletContact(index, contactName, number) {
+  contactCheckedValue.splice(index, 1);
+  document.getElementById("popup" + number + contactName).classList.remove("checked");
+  document.getElementById("popup" + number + contactName).src ="./assets/img/icons/checkButton.png";
 }
 
 
-/** Give task a status */
+/**
+ * push the contact in the contactCheckedValue
+ * @param {number} index of contact
+ * @param {number} number id of contact in html-id
+ * @param {string} contactName name of contact
+ */
+function addContact(contactName, initiales, color, number) {
+  contactCheckedValue.push({
+    contactName: contactName,
+    abbreviation: initiales,
+    paint: color,
+  });
+  document.getElementById("popup" + number + contactName).src ="./assets/img/icons/checkButtonChecked.png";
+  document.getElementById("popup" + number + contactName).classList.add("checked");
+}
+
+
+/**
+ * finding index of contact in contactCheckedValue
+ * @param {string} contactname - name of contact
+ * @returns - index
+ */
+ function findContactIndex(contactName) {
+  let index;
+  for (let i = 0; i < contactCheckedValue.length; i++) {
+      if (contactCheckedValue[i].contactName == contactName) {
+          index = i;
+      }
+  }
+  return index;
+}
+
+
+/**
+ * delet the contact from the contactCheckedValue
+ * @param {string} contactName name of contact
+ * @param {string} initiales of name 
+ * @param {color} color of user
+ * @param {number} ID of user
+ */
+function selectedContactPopup(contactName, initiales, color, number) {
+  let index = findContactIndex(contactName);
+
+    if (document.getElementById("popup" + number + contactName).classList.contains("checked")) {
+      deletContact(index, contactName, number);
+    } else {
+      addContact(contactName, initiales, color, number);
+    }
+}
+
+
+/**
+ * Give task a status
+ * @param {number} value of status
+ */
 function setTaskStatus(value){
   if (value == 1) {
     selectedTaskStatus = "progress";
@@ -147,7 +207,10 @@ function setTaskStatus(value){
   }
 }
 
-/** get popup content */
+/**
+ * get popup content
+ * @param {number} taskID from array
+ */
 function getPopupContent(taskIDused) {
   for (let i = 0; i < userTasksArray.length; i++) {
     if (userTasksArray[i].taskID == taskIDused) {
@@ -157,7 +220,10 @@ function getPopupContent(taskIDused) {
 }
 
 
-/** Push JSON in tasks from board */
+/**
+ * Push JSON in tasks from board
+ * @param {number} ID of Task
+ */
 async function pushEditTask(i) {
   findLength(i);
   let indet = idInLength;
@@ -175,6 +241,7 @@ async function pushEditTask(i) {
   window.location.reload();
 }
 
+
 /**
  * filling usertasksArray with original tasks
  */
@@ -188,6 +255,7 @@ function fillUserTasksFromTasks() {
     }
   }
 }
+
 
 /**
  * searching for tasks in board

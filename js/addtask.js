@@ -1,4 +1,6 @@
-/* body onload functions */
+/**
+ * body onload functions
+ */
 function addTaskOnload() {
   init(3);
   renderSubTask();
@@ -7,7 +9,10 @@ function addTaskOnload() {
 }
 
 
-/* Push JSON in tasks */
+/**
+ * Push JSON in tasks
+ * @param {number} index of status 
+ */
 async function addTask(value) {
   setTaskStatus(value);
   if(checkingEmptyValues() == true) {
@@ -37,7 +42,10 @@ async function addTask(value) {
 }
 
 
-/** Give task a status */
+/**
+ * Give task a status
+ * @param {number} index of status 
+ */
 function setTaskStatus(value){
   if (value == 1) {
     selectedTaskStatus = "progress";
@@ -55,7 +63,10 @@ function setTaskStatus(value){
 
 
 
-/* checking of empty values bevor adding task */
+/**
+ * checking of empty values bevor adding task
+ * @returns true // false
+ */
 function checkingEmptyValues() {
   if(document.getElementById("inputTitle").value == false) {
     document.getElementById('mistakeReportTitle').innerHTML = `Please give it a title!`;
@@ -86,14 +97,17 @@ function checkingEmptyValues() {
 }
 
 
-/* Push the tasks in the backend and gives report. */
+/**
+ * Push the tasks in the backend and gives report.
+ */
 async function pushTasksinBackend() {
   await backend.setItem("tasks", JSON.stringify(tasks));
-  console.log("Pushed in backend succes!");
 }
 
 
-/* Rendering the subtasks checkboxes at the footer */
+/**
+ * Rendering the subtasks checkboxes at the footer 
+ */
 function renderSubTask() {
   subTasks = JSON.parse(localStorage.getItem("subtasks")) || [];
   document.getElementById("addSubtaskCheckbox").innerHTML = ``;
@@ -107,7 +121,9 @@ function renderSubTask() {
 }
 
 
-/* gettin the checked subtask */
+/**
+ * gettin the checked subtask
+ */
 function getSelectedSubtask() {
   let subtaskCheckboxes = document.querySelectorAll(".subtaskCheckbox");
   subtaskCheckboxes.forEach((checkbox) => {
@@ -120,7 +136,9 @@ function getSelectedSubtask() {
 }
 
 
-/* pushing new subtask in the Localstorage */
+/**
+ * pushing new subtask in the Localstorage
+ */
 function pushSubtaskLocalStorage() {
   if (document.getElementById("subtaskText").value) {
     document.getElementById("mistakeReportsubtask").innerHTML = ``;
@@ -134,13 +152,17 @@ function pushSubtaskLocalStorage() {
 }
 
 
-/* clear subtask input */
+/**
+ * clear subtask input
+ */
 function clearSubtask() {
   document.getElementById("subtaskText").value = ``;
 }
 
 
-/* Clear the input / selectors */
+/**
+ * Clear the input / selectors
+ */
 function taskClear() {
   document.getElementById("inputTitle").value = ``;
   document.getElementById("selectContact").value = ``;
@@ -152,31 +174,29 @@ function taskClear() {
 }
 
 
-/* save selected contacts */
-function selectedContact(name, initiales, color) {
-  if (document.getElementById(name).classList == "checked") {
-    let index = -1;
-    contactCheckedValue.find(function (name, i) {
-      if (contactCheckedValue.name === name) {
-        index = i;
-      }
-    });
-    contactCheckedValue.splice(index, 1);
-    document.getElementById(name).classList.remove("checked");
-    document.getElementById(name).src = "./assets/img/icons/checkButton.png";
-  } else {
-    contactCheckedValue.push({
-      contactName: name,
-      abbreviation: initiales,
-      paint: color,
-    });
-    document.getElementById(name).src ="./assets/img/icons/checkButtonChecked.png";
-    document.getElementById(name).classList.add("checked");
-  }
+/**
+ * delet the contact from the contactCheckedValue
+ * @param {string} contactName name of contact
+ * @param {string} initiales of name 
+ * @param {color} color of user 
+ * @param {number} ID of user
+ */
+function selectedContact(contactName, initiales, color, number) {
+  let index = findContactIndex(contactName);
+
+    if (document.getElementById("popup" + number + contactName).classList.contains("checked")) {
+      deletContact(index, contactName, number);
+    } else {
+      addContact(contactName, initiales, color, number);
+    }
 }
 
 
-/* getting selected Category */
+/**
+ * getting selected Category 
+ * @param {string} category text
+ * @param {color} color of category
+ */
 function selectedCategory(category, color) {
   if (category == "New category") {
     changeInputCategory();
@@ -197,7 +217,10 @@ function selectedCategory(category, color) {
 }
 
 
-/* Add new category color in selector */
+/**
+ * Add new category color in selector
+ * @param {string} color 
+ */
 function addCategoryColor(value) {
   if (document.getElementById("newCategoryText").value) {
     categorySelectedColor = value;
@@ -212,7 +235,9 @@ function addCategoryColor(value) {
 }
 
 
-/* Add new category in selector */
+/**
+ * Add new category in selector
+ */
 function addCategory() {
   newCategory = document.getElementById("newCategoryText").value;
   if (categorySelectedColor && newCategory) {
@@ -230,7 +255,10 @@ function addCategory() {
 }
 
 
-/* priority change color and gives value */
+/**
+ * priority change color and gives value
+ * @param {number} value of selected priority
+ */
 function prioritySelected(i) {
   if (i == 1) {
     prioritySelect = "Hard";
@@ -239,43 +267,26 @@ function prioritySelected(i) {
       .classList.remove("importanceHard");
     document.getElementById("importanceIMGLow").classList.add("importanceLow");
     document.getElementById("importanceIMGMid").classList.add("importanceMid");
-    document.getElementById("importanceIMGHard").src =
-      "./assets/img/TaskValueHardSelected.png";
-    document.getElementById("importanceIMGMid").src =
-      "./assets/img/TaskValueMid.png";
-    document.getElementById("importanceIMGLow").src =
-      "./assets/img/TaskValueLow.png";
+    document.getElementById("importanceIMGHard").src ="./assets/img/TaskValueHardSelected.png";
+    document.getElementById("importanceIMGMid").src ="./assets/img/TaskValueMid.png";
+    document.getElementById("importanceIMGLow").src ="./assets/img/TaskValueLow.png";
   }
   if (i == 2) {
     prioritySelect = "Mid";
-    document
-      .getElementById("importanceIMGMid")
-      .classList.remove("importanceMid");
+    document.getElementById("importanceIMGMid").classList.remove("importanceMid");
     document.getElementById("importanceIMGLow").classList.add("importanceLow");
-    document
-      .getElementById("importanceIMGHard")
-      .classList.add("importanceHard");
-    document.getElementById("importanceIMGHard").src =
-      "./assets/img/TaskValueHard.png";
-    document.getElementById("importanceIMGMid").src =
-      "./assets/img/TaskValueMidSelected.png";
-    document.getElementById("importanceIMGLow").src =
-      "./assets/img/TaskValueLow.png";
+    document.getElementById("importanceIMGHard").classList.add("importanceHard");
+    document.getElementById("importanceIMGHard").src ="./assets/img/TaskValueHard.png";
+    document.getElementById("importanceIMGMid").src ="./assets/img/TaskValueMidSelected.png";
+    document.getElementById("importanceIMGLow").src ="./assets/img/TaskValueLow.png";
   }
   if (i == 3) {
     prioritySelect = "Low";
-    document
-      .getElementById("importanceIMGLow")
-      .classList.remove("importanceLow");
+    document.getElementById("importanceIMGLow").classList.remove("importanceLow");
     document.getElementById("importanceIMGMid").classList.add("importanceMid");
-    document
-      .getElementById("importanceIMGHard")
-      .classList.add("importanceHard");
-    document.getElementById("importanceIMGHard").src =
-      "./assets/img/TaskValueHard.png";
-    document.getElementById("importanceIMGMid").src =
-      "./assets/img/TaskValueMid.png";
-    document.getElementById("importanceIMGLow").src =
-      "./assets/img/TaskValueLowSelected.png";
+    document.getElementById("importanceIMGHard").classList.add("importanceHard");
+    document.getElementById("importanceIMGHard").src ="./assets/img/TaskValueHard.png";
+    document.getElementById("importanceIMGMid").src ="./assets/img/TaskValueMid.png";
+    document.getElementById("importanceIMGLow").src ="./assets/img/TaskValueLowSelected.png";
   }
 }

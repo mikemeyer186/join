@@ -3,7 +3,10 @@ let taskUser = [];
 /**! RENDERINGS !*/
 
 
-/** This function is rendering the task boxes in the board */
+/**
+ * This function is rendering the task boxes in the board
+ * @param {string} searchResult 
+ */
 function renderTasksinBoard(searchResult) {
   if (searchResult) {
     userTasksArray = searchResult;
@@ -88,7 +91,11 @@ function renderTasksinBoard(searchResult) {
   }
   
 
-  /** Rendering the abbrevaition in the boxes */
+ /**
+  * Rendering the abbrevaition in the boxes
+  * @param {number} ID of box
+  * @param {number} index of usertaskarray value 
+  */
   function renderAbbrevaitionInBox(ident, b) {
     document.getElementById(ident).innerHTM = ``;
     if (userTasksArray[b].assignedTo.length > 3) {
@@ -124,7 +131,10 @@ function renderTasksinBoard(searchResult) {
   }
   
 
-  /** Rendering contacts in addTask Popup at board */
+/**
+ * Rendering contacts in addTask Popup at board
+ * @param {number} index 
+ */
   function renderingContactsSelectorPopup(index) {
     contactCheckedValue = tasks[idInLength].assignedTo;
     let activeUserContacts = userAccounts[activeUser].userContacts;
@@ -167,7 +177,9 @@ function renderTasksinBoard(searchResult) {
   }
   
 
-  /** Rendering contacts in footer of the Task Pupup */
+/**
+ * Rendering contacts in footer of the Task Pupup
+ */
   function popupRenderContacts() {
     document.getElementById("popupContactsRender").innerHTML = ``;
     for (let i = 0; i < popupTaskContent.assignedTo.length; i++) {
@@ -186,7 +198,10 @@ function renderTasksinBoard(searchResult) {
   /**! TEMPLATES !*/
   
 
-  /** Template popup Add task */
+/**
+ * Template popup Add task
+ * @param {string} value of task status
+ */
   async function addTaskPopup(value) {
     document.getElementById("popup-bg").classList.remove("d-none");
     document.getElementById("page-container").classList.add('overflowHidden');
@@ -202,7 +217,10 @@ function renderTasksinBoard(searchResult) {
   }
   
 
-  /** Template the edit Popup */
+  /**
+   * Template the edit Popup
+   * @param {number} ident of task
+   */
   function editPopupTask(ident) {
     findLength(ident);
     let indet = idInLength;
@@ -275,7 +293,9 @@ function renderTasksinBoard(searchResult) {
   }
   
 
-  /** Hiding the template of popup add Task */
+/**
+ * Hiding the template of popup add Task
+ */
   function hidePopUps() {
     document.getElementById('page-container').classList.remove('overflowHidden');
     document.getElementById("popup-addTask").classList.remove("popup-slideInAddTask");
@@ -289,7 +309,10 @@ function renderTasksinBoard(searchResult) {
   }
   
   
-  /* Template popup from task */
+ /**
+  * Template popup from task
+  * @param {number} taskID 
+  */
   function taskEditPopup(taskIDused) {
     document.getElementById('page-container').classList.add('overflowHidden');
     document.getElementById("popup-Task").classList.remove("d-none");
