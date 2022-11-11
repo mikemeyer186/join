@@ -89,6 +89,9 @@ function darkCloseIcon() {
     document.getElementById('button-close').src = './assets/img/icons/icon_close_dark.png';
 }
 
+/**
+ * validation of input for contact name
+ */
 function inputValidation() {
     let inputName = document.getElementById('contact-name');
     if(inputName.value) {
@@ -211,7 +214,7 @@ function getIndexOfFirstLetter(firstLetter) {
 }
 
 /**
- * opening detail view of selected contact
+ * opening detail view of selected contact if there is any contact in array
  * @param {number} index - index of selected user for identifying in array
  */
 function openContactDetailView(index) {

@@ -81,6 +81,7 @@ function loadActiveUserLocal() {
 
 /**
  * stopping propagation of child elements
+ * @param {object} event 
  */
 function stopPropagate(event) {
     event.stopPropagation();
