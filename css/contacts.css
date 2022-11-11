@@ -574,6 +574,10 @@ body {
     margin: 0; 
 }
 
+.fault-name::placeholder {
+    color: #ff4949 !important;
+}
+
 /* responsive section */
 @media (max-width: 1300px) {
     .contacts-detail-top {

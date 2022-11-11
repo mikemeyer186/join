@@ -30,7 +30,6 @@ function renderContacts() {
         const letter = filterLetters[f];
         let alphabet = contactsArray.filter((l) => l.contactInitials.charAt(0) == letter);
         contactList.push(alphabetCardTemplate(letter));
-
         for (let i = 0; i < alphabet.length; i++) {
             const contact = alphabet[i];
             let index = getIndexOfContact(contact.contactEmail);
@@ -90,6 +89,16 @@ function darkCloseIcon() {
     document.getElementById('button-close').src = './assets/img/icons/icon_close_dark.png';
 }
 
+function inputValidation() {
+    let inputName = document.getElementById('contact-name');
+    if(inputName.value) {
+        addContactToUser();
+    } else {
+        document.getElementById('contact-name').placeholder = "Please enter a contact name!";
+        document.getElementById('contact-name').classList.add('fault-name');
+    }
+}
+
 /**
  * adding new contact to user account and show details
  */
@@ -129,6 +138,8 @@ function clearAndHidePopUp() {
     document.getElementById('contact-name').value = '';
     document.getElementById('contact-email').value = '';
     document.getElementById('contact-phone').value = '';
+    document.getElementById('contact-name').placeholder = "Name";
+    document.getElementById('contact-name').classList.remove('fault-name');
     hideNewContactPopUp();
 }
 
@@ -177,11 +188,11 @@ function randomInteger(max) {
 function getFirstLetter() {
     let contactsArray = userAccounts[activeUser].userContacts;
     filterLetters = [];
+
     for (let i = 0; i < contactsArray.length; i++) {
         const initials = contactsArray[i].contactInitials;
         let firstLetter = initials.charAt(0);
         let index = getIndexOfFirstLetter(firstLetter);
-
         if (index < 0) {
             filterLetters.push(firstLetter.toString());
         }
@@ -206,11 +217,15 @@ function getIndexOfFirstLetter(firstLetter) {
 function openContactDetailView(index) {
     let contact = userAccounts[activeUser].userContacts[index];
     let detailContent = document.getElementById('contacts-detail');
-    localStorage.setItem('contactIndex', index);
-    document.getElementById('contacts-right').classList.add('slided-in');
-    detailContent.innerHTML = '';
-    detailContent.innerHTML = contactDetailViewTemplate(contact, index);
-    changeColorOfSelectedCard();
+    if (contact) {
+        localStorage.setItem('contactIndex', index);
+        document.getElementById('contacts-right').classList.add('slided-in');
+        detailContent.innerHTML = '';
+        detailContent.innerHTML = contactDetailViewTemplate(contact, index);
+        changeColorOfSelectedCard();
+    } else {
+        document.getElementById('contacts-right').classList.remove('slided-in');
+    }
 }
 
 /**
