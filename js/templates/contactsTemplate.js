@@ -1,5 +1,8 @@
 /**
  * html-template for contact card
+ * @param {JSON} contact - userContact
+ * @param {number} index - index of contact
+ * @returns - html
  */
  function contactCardTemplate(contact, index) {
     return /*html*/ `
@@ -17,6 +20,8 @@
 
 /**
  * html-template for alphabetical headline
+ * @param {string} letter - alphabetical letter
+ * @returns - html
  */
 function alphabetCardTemplate(letter) {
     return /*html*/ `
@@ -28,6 +33,9 @@ function alphabetCardTemplate(letter) {
 
 /**
  * html-template for contact detail view
+ * @param {JSON} contact - userContact
+ * @param {number} index - index of contact
+ * @returns - html
  */
 function contactDetailViewTemplate(contact, index) {
     return /*html*/ `
@@ -60,6 +68,8 @@ function contactDetailViewTemplate(contact, index) {
 
 /**
  * html-template for profil pic in edit popup
+ * @param {JSON} contact - userContact
+ * @returns - html
  */
 function editProfilPicTemplate(contact) {
     return /*html*/ `
@@ -71,6 +81,9 @@ function editProfilPicTemplate(contact) {
 
 /**
  * html-template for checked contacts
+ * @param {JSON} activeUserContacts - userContacts for selectors
+ * @param {number} i - index of contact
+ * @returns - html
  */
 function checkedContactsTemplate(activeUserContacts, i) {
     return /*html*/ `
@@ -85,6 +98,9 @@ function checkedContactsTemplate(activeUserContacts, i) {
 
 /**
  * html-template for unchecked contacts
+ * @param {JSON} activeUserContacts - userContacts for selectors
+ * @param {number} i - index of contact
+ * @returns - html
  */
 function uncheckedContactsTemplate(activeUserContacts, i) {
     return /*html*/`
@@ -99,6 +115,7 @@ function uncheckedContactsTemplate(activeUserContacts, i) {
 
 /**
  * html-template for new contact
+ * @returns - html
  */
 function newContactTemplate() {
     return /*html*/`
