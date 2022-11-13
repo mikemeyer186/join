@@ -4,7 +4,7 @@
  * Change the Category selector in a input field
  */
 function changeInputCategory() {
-    document.getElementById("selectorCategory").innerHTML = `
+    document.getElementById('selectorCategory').innerHTML = `
     <div class="inputCategory">
     <div class="checkAndCrossIconsCategory">
           <i onclick="rechangeCategoryInput()" class="fa-solid fa-xmark fa-xl pointer"></i> 
@@ -22,14 +22,13 @@ function changeInputCategory() {
     </div>
     <div id="mistakeReportCategory"></div>
     </div>`;
-  }
-
+}
 
 /**
  * rechange the category input
  */
 function rechangeCategoryInput() {
-    document.getElementById("selectorCategory").innerHTML = `
+    document.getElementById('selectorCategory').innerHTML = `
     <div class="selectorHeader pointer" onclick="renderingTaskCategorySelector()">Select task category <img class="selectorArrow" src="./assets/img/selectorArrow.png"></div>
     <div id="selectorCategoryRender">
       <!-- Rendering selector content here -->
@@ -37,46 +36,42 @@ function rechangeCategoryInput() {
     renderingTaskCategorySelector();
 }
 
-
-  
 /**
  * Change the contact selector in a input field
  */
 function changeInputContact() {
-    document.getElementById("selectorContact").innerHTML = `
+    document.getElementById('selectorContact').innerHTML = `
     <div>
     <div class="checkAndCrossIconsEmail">
           <i onclick="rechangeContactInput()" class="fa-solid fa-xmark fa-xl contactX pointer"></i> 
           <img src="./assets/img/icons/trennstrich.png">
-          <i onclick="" class=" pointer fa-solid fa-check fa-xl contactCheck"></i>
+          <i onclick="addContactToUserFromTask(); rechangeContactInput();" class=" pointer fa-solid fa-check fa-xl contactCheck"></i>
           </div>
     <input id="selectContact" type="email" placeholder="Contact email" required>
     </div>`;
 }
 
-
 /**
  * rechange the contact input in a selector
  */
 function rechangeContactInput() {
-    document.getElementById("selectorContact").innerHTML = `
+    document.getElementById('selectorContact').innerHTML = `
     <div onclick="renderingContactsSelector()" class="selectorHeader pointer">Select contacts to assign <img class="selectorArrow" src="./assets/img/selectorArrow.png"></div>
     <div id="selectorContactRender">
       <!-- renderzone for contact selctor -->
     </div>`;
-  }
-  
-  
+}
+
 /**
  * rendering contacts in addTask
  */
 function renderingContactsSelector() {
     let activeUserContacts = userAccounts[activeUser].userContacts;
     if (selectorContactIndex == 0) {
-      contactCheckedValue = [];
-      document.getElementById("selectorContactRender").innerHTML = ``;
-      for (let i = 0; i < activeUserContacts.length; i++) {
-        document.getElementById("selectorContactRender").innerHTML += `
+        contactCheckedValue = [];
+        document.getElementById('selectorContactRender').innerHTML = ``;
+        for (let i = 0; i < activeUserContacts.length; i++) {
+            document.getElementById('selectorContactRender').innerHTML += `
           <div onclick="selectedContact('${activeUserContacts[i].contactName}','${activeUserContacts[i].contactInitials}','${activeUserContacts[i].contactColor}','${i}')" class="selectorCellContact">
             <nobr>${activeUserContacts[i].contactName}</nobr>
             <div id="contactSelectorCheckboxes">
@@ -84,55 +79,52 @@ function renderingContactsSelector() {
           </div>
           </div>
         `;
-      }
-      document.getElementById("selectorContactRender").innerHTML += `
+        }
+        document.getElementById('selectorContactRender').innerHTML += `
           <div onclick="changeInputContact()" class="selectorCellContact">
             <nobr>Invite new contact</nobr>
             <div id="contactSelectorCheckboxes">
             <img id="contactIconContacts" src="./assets/img/icons/contactIcon.png">
           </div>
           </div>`;
-      selectorContactIndex++;
+        selectorContactIndex++;
     } else {
-      document.getElementById("selectorContactRender").innerHTML = ``;
-      selectorContactIndex--;
+        document.getElementById('selectorContactRender').innerHTML = ``;
+        selectorContactIndex--;
     }
 }
 
-
 /**
- * rendering task cateogry´s in selector (Onclick) 
+ * rendering task cateogry´s in selector (Onclick)
  */
 function renderingTaskCategorySelector() {
     let staticCategorys = [
-      { taskCategory: "New category", taskColor: "grayCategory", cagtegoryID: 0 },
-      { taskCategory: "Sales", taskColor: "purpleCategory", cagtegoryID: 1 },
-      { taskCategory: "Backoffice", taskColor: "blueCategory", cagtegoryID: 2 },
+        { taskCategory: 'New category', taskColor: 'grayCategory', cagtegoryID: 0 },
+        { taskCategory: 'Sales', taskColor: 'purpleCategory', cagtegoryID: 1 },
+        { taskCategory: 'Backoffice', taskColor: 'blueCategory', cagtegoryID: 2 },
     ];
-    taskCategorySelector = JSON.parse(localStorage.getItem("taskCategory")) || [];
+    taskCategorySelector = JSON.parse(localStorage.getItem('taskCategory')) || [];
     if (selectorCategoryIndex == 0) {
-      document.getElementById("selectorCategoryRender").innerHTML = ``;
-      for (let j = 0; j < staticCategorys.length; j++) {
-        document.getElementById("selectorCategoryRender").innerHTML += `
+        document.getElementById('selectorCategoryRender').innerHTML = ``;
+        for (let j = 0; j < staticCategorys.length; j++) {
+            document.getElementById('selectorCategoryRender').innerHTML += `
           <div onclick="selectedCategory('${staticCategorys[j].taskCategory}','${staticCategorys[j].taskColor}')" class="selectorCell pointer">
             <div>${staticCategorys[j].taskCategory}</div>
             <div><img src="./assets/img/categoryColors/${staticCategorys[j].taskColor}.png"</div>
           </div>
         `;
-      }
-      for (let i = 0; i < taskCategorySelector.length; i++) {
-        document.getElementById("selectorCategoryRender").innerHTML += `
+        }
+        for (let i = 0; i < taskCategorySelector.length; i++) {
+            document.getElementById('selectorCategoryRender').innerHTML += `
         <div onclick="selectedCategory('${taskCategorySelector[i].taskCategory}','${taskCategorySelector[i].taskColor}')" class="selectorCell pointer">
         <div class="selectorCellCategory">${taskCategorySelector[i].taskCategory}</div>
         <div class="selectorCellColor"><img src="./assets/img/categoryColors/${taskCategorySelector[i].taskColor}.png"/></div>
         </div>
         `;
-      }
-      selectorCategoryIndex++;
+        }
+        selectorCategoryIndex++;
     } else {
-      document.getElementById("selectorCategoryRender").innerHTML = ``;
-      selectorCategoryIndex--;
+        document.getElementById('selectorCategoryRender').innerHTML = ``;
+        selectorCategoryIndex--;
     }
-  }
-  
-  
+}

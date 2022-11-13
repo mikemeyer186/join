@@ -94,10 +94,10 @@ function darkCloseIcon() {
  */
 function inputValidation() {
     let inputName = document.getElementById('contact-name');
-    if(inputName.value) {
+    if (inputName.value) {
         addContactToUser();
     } else {
-        document.getElementById('contact-name').placeholder = "Please enter a contact name!";
+        document.getElementById('contact-name').placeholder = 'Please enter a contact name!';
         document.getElementById('contact-name').classList.add('fault-name');
     }
 }
@@ -124,6 +124,26 @@ function addContactToUser() {
 }
 
 /**
+ * adding new contact to user account and show details
+ */
+function addContactToUserFromTask() {
+    let inputName = document.getElementById('selectContact');
+    let inputEmail = document.getElementById('selectContact');
+    let inputPhone = '123456789';
+    let inputInitials = getContactInitials('New Contact');
+    let inputColor = getRandomColor();
+    let contactObject = {
+        contactName: inputName.value,
+        contactEmail: inputEmail.value,
+        contactPhone: inputPhone,
+        contactInitials: inputInitials,
+        contactColor: inputColor,
+    };
+    userAccounts[activeUser].userContacts.push(contactObject);
+    saveAccountsToBackend();
+}
+
+/**
  * saving, clearing and rendering contacts after adding new contact
  */
 function saveAndRender() {
@@ -141,7 +161,7 @@ function clearAndHidePopUp() {
     document.getElementById('contact-name').value = '';
     document.getElementById('contact-email').value = '';
     document.getElementById('contact-phone').value = '';
-    document.getElementById('contact-name').placeholder = "Name";
+    document.getElementById('contact-name').placeholder = 'Name';
     document.getElementById('contact-name').classList.remove('fault-name');
     hideNewContactPopUp();
 }
@@ -234,7 +254,7 @@ function openContactDetailView(index) {
 /**
  * closing detail view when clicking on close icon
  */
-function closeContactDetailView(){
+function closeContactDetailView() {
     document.getElementById('contacts-right').classList.remove('slided-in');
 }
 
@@ -345,16 +365,18 @@ function saveAndRenderEdit(popup) {
 /**
  * showing add task popup with white header
  */
- function showAddTaskPopup() {
+function showAddTaskPopup() {
     let activeUserContacts = userAccounts[activeUser].userContacts;
     let index = localStorage.getItem('contactIndex');
-    contactCheckedValue = [{
-        contactName: activeUserContacts[index].contactName,
-        abbreviation: activeUserContacts[index].contactInitials,
-        paint: activeUserContacts[index].contactColor
-    }];
+    contactCheckedValue = [
+        {
+            contactName: activeUserContacts[index].contactName,
+            abbreviation: activeUserContacts[index].contactInitials,
+            paint: activeUserContacts[index].contactColor,
+        },
+    ];
 
-    document.getElementById("selectorContactRenderPopup").innerHTML = ``;
+    document.getElementById('selectorContactRenderPopup').innerHTML = ``;
     document.getElementById('addTaskPopup').classList.toggle('translate0');
     document.getElementById('mobiletaskheader').classList.toggle('headerSlideIn');
 }
@@ -362,12 +384,12 @@ function saveAndRenderEdit(popup) {
 /**
  * rendering contacts in addTask popup and selecting contact
  */
- function renderingContactsSelectorPopup(index) {
+function renderingContactsSelectorPopup(index) {
     let activeUserContacts = userAccounts[activeUser].userContacts;
-    let selectorContactPopup = document.getElementById("selectorContactRenderPopup");
+    let selectorContactPopup = document.getElementById('selectorContactRenderPopup');
 
     if (selectorContactIndex == 0) {
-        document.getElementById("selectorContactRenderPopup").innerHTML = ``;
+        document.getElementById('selectorContactRenderPopup').innerHTML = ``;
         fillContactPopUp(activeUserContacts, selectorContactPopup);
         selectorContactIndex++;
     } else {
@@ -381,7 +403,7 @@ function saveAndRenderEdit(popup) {
  * @param {JSON} activeUserContacts - userContacts
  * @param {object} selectorContactPopup - html-id
  */
-function fillContactPopUp(activeUserContacts, selectorContactPopup){
+function fillContactPopUp(activeUserContacts, selectorContactPopup) {
     for (let i = 0; i < activeUserContacts.length; i++) {
         if (findContact(activeUserContacts[i].contactName) === true) {
             selectorContactPopup.innerHTML += checkedContactsTemplate(activeUserContacts, i);
@@ -391,7 +413,7 @@ function fillContactPopUp(activeUserContacts, selectorContactPopup){
     }
     selectorContactPopup.innerHTML += newContactTemplate();
 }
-  
+
 /**
  * searching for contact name in contactCheckedValue
  * @param {string} name - contact name
@@ -415,7 +437,7 @@ function findContact(name) {
 function selectedContactPopup(contactname, initiales, color, number) {
     let index = findContactIndex(contactname);
 
-    if (document.getElementById("popup" + number + contactname).classList.contains("checked")) {
+    if (document.getElementById('popup' + number + contactname).classList.contains('checked')) {
         spliceContact(index, contactname, number);
     } else {
         pushContact(contactname, initiales, color, number);
@@ -430,8 +452,8 @@ function selectedContactPopup(contactname, initiales, color, number) {
  */
 function spliceContact(index, contactname, number) {
     contactCheckedValue.splice(index, 1);
-    document.getElementById("popup" + number + contactname).classList.remove("checked");
-    document.getElementById("popup" + number + contactname).src = "./assets/img/icons/checkButton.png";
+    document.getElementById('popup' + number + contactname).classList.remove('checked');
+    document.getElementById('popup' + number + contactname).src = './assets/img/icons/checkButton.png';
 }
 
 /**
@@ -445,10 +467,10 @@ function pushContact(contactname, initiales, color, number) {
     contactCheckedValue.push({
         contactName: contactname,
         abbreviation: initiales,
-        paint: color
+        paint: color,
     });
-    document.getElementById("popup" + number + contactname).src = "./assets/img/icons/checkButtonChecked.png";
-    document.getElementById("popup" + number + contactname).classList.add("checked");
+    document.getElementById('popup' + number + contactname).src = './assets/img/icons/checkButtonChecked.png';
+    document.getElementById('popup' + number + contactname).classList.add('checked');
 }
 
 /**
