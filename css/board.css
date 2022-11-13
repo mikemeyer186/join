@@ -69,8 +69,10 @@ body {
 }
 .boxHeader {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  margin-left: 20%;
+  margin-right: 20%;
 }
 .boxHeader h2 {
   color: #42526e;
