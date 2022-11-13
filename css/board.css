@@ -685,3 +685,48 @@ form h3 {
     width: 100%;
   }
 }
+@media(max-height: 600px) {
+  #popup-Task {
+    height: 80vh; 
+    width: 60vw;
+  }
+  .popupContactsCell {
+    margin-top: 10px;
+  }
+  .contact-pic-Task {
+    width: 30px;
+    height: 30px;
+  }
+  .contact-pic-Task span{
+    font-size: 12px;
+  }
+  .popupTaskContacts b {
+    font-size: 16px;
+  }
+  .popupTaskContacts {
+    margin-top: 15px;
+  }
+  .popupTaskValue img {
+    margin-top: 3px;
+    width: 70px;
+    height: 20px;
+  }
+  .popupTaskValue{
+    font-size: 16px;
+  }
+  .popupTaskDateTitle {
+    font-size: 16px; 
+    margin-top: 15px; 
+    margin-bottom: 15px;
+  }
+  #popup-Task h1{
+    font-size: 28px;
+    margin-bottom: 18px;
+    margin-top: 18px;
+  }
+  .editButton {
+    top: 410px;
+    width: 40px; 
+    height: 40px;
+  }
+}
