@@ -521,9 +521,9 @@ input[type="date"]::-webkit-clear-button {
   }
 }
 @media(max-width: 800px) { 
-  .fa-xmark {
+  /*.fa-xmark {
     display: none;
-  }
+  }*/
   .checkAndCrossIcons img {
     display: none;
   }
@@ -555,9 +555,8 @@ input[type="date"]::-webkit-clear-button {
   #buttonCreate {
     display: none;
   }
-  input {
+  .inputFields input {
     max-width: 100%;
-
   }
   #importanceIMGHard {
     width: 120px;

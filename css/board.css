@@ -586,8 +586,15 @@ form h3 {
   overflow-y: scroll;
   white-space: nowrap;
 }
+@media(max-width: 950px) {
+  input {
+    width: 45vw !important;
+  }
+  .selectorHeader{
+    width: 45vw !important;
+  }
+}
 @media(max-width: 1100px) {
-  
   .boardContent {
     width: 60vw !important;
     display: flex; 
@@ -636,6 +643,9 @@ form h3 {
   }
 }
 @media(max-width: 800px) {
+  form {
+    width: 50vw !important;
+  }
   #bodyBoard {
     padding-left: 0 !important; 
     padding-right: 0 !important;
@@ -681,6 +691,9 @@ form h3 {
 }
 
 @media(max-width: 600px) {
+  input {
+    width: 60% !important;
+  }
   #popup-Task {
     width: 100%;
   }
@@ -728,5 +741,41 @@ form h3 {
     top: 410px;
     width: 40px; 
     height: 40px;
+  }
+  #inputTitleEdit {
+    font-size: 22px !important;
+    height: 40px;
+    margin-bottom: 10px;
+  }
+  #inputDescriptionEdit {
+    padding-bottom: 30px !important;
+    font-size: 16px !important;
+    margin-bottom: 5px !important;
+  }
+  form h3 {
+    margin-top: 10px !important;
+    margin-bottom: 0 !important;
+  }
+  #selectDateEdit {
+    height: 40px !important; 
+    font-size: 16px !important;
+    margin-top: 0px !important; 
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+  }
+  #importanceEditIMGHard {
+    width: 100px; 
+    height: 40px; 
+  }
+  #importanceEditIMGMid {
+    width: 100px; 
+    height: 40px; 
+  }
+  #importanceEditIMGLow {
+    width: 100px; 
+    height: 40px; 
+  }
+  #importanceLvlEdit {
+    margin-top: 0px !important;
   }
 }
