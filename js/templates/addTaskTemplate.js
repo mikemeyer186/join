@@ -45,7 +45,7 @@ function changeInputContact() {
     <div class="checkAndCrossIconsEmail">
           <i onclick="rechangeContactInput()" class="fa-solid fa-xmark fa-xl contactX pointer"></i> 
           <img src="./assets/img/icons/trennstrich.png">
-          <i onclick="addContactToUserFromTask(); rechangeContactInput();" class=" pointer fa-solid fa-check fa-xl contactCheck"></i>
+          <i onclick="addContactToUserFromTask()" class=" pointer fa-solid fa-check fa-xl contactCheck"></i>
           </div>
     <input id="selectContact" type="email" placeholder="Contact email" required>
     </div>`;

@@ -579,7 +579,7 @@ body {
 }
 
 /* responsive section */
-@media (max-width: 1300px) {
+@media (max-width: 1350px) {
     .contacts-detail-top {
         flex-direction: column;
         justify-content: center;
@@ -610,7 +610,7 @@ body {
     }
 }
 
-@media (max-width: 1050px) {
+@media (max-width: 1150px) {
     #contacts-right {
         z-index: 3;
         left: 235px;

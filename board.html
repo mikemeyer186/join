@@ -1,133 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <script
-      src="https://kit.fontawesome.com/362dd1e776.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="./js/templates/addTaskTemplate.js"></script>
-    <script src="./js/templates/boardTemplate.js"></script>
-    <link rel="icon" href="./assets/img/logo_join.png" type="image/png" />
-    <link rel="stylesheet" href="./css/board.css" />
-    <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet" href="./css/addTask.css" />
-    <script src="./js/addtask.js"></script>
-    <script src="./js/board.js"></script>
-    <script src="./js/sidebar.js"></script>
-    <script src="./js/main.js"></script>
-    <script src="./js/mini_backend.js"></script>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Join - Board</title>
-  </head>
-  <body onload="boardOnload()">
-    <!--- Add Task Popup  -->
-    <div id="popup-bg" class="d-none no-opacity" onclick="hidePopUps()">
-      <div w3-include-html=".\assets\templates\addTaskPopupSlider.html"></div>
-      <!--- Add Task Popup end  -->
-      <!--- Task Popup  -->
-      <div class="width100">
-        <div id="popup-Task" class="d-none" onclick="stopPropagate(event)">
-          <img
-            class="popup-close-icon-gray"
-            src="./assets/img/icons/XIconGray.png"
-            alt="Close"
-            onclick="hidePopUps()"
-          />
-          <div id="taskPopUpContent"></div>
+<html lang="de">
+    <head>
+        <script src="https://kit.fontawesome.com/362dd1e776.js" crossorigin="anonymous"></script>
+        <script src="./js/templates/addTaskTemplate.js"></script>
+        <script src="./js/templates/boardTemplate.js"></script>
+        <link rel="icon" href="./assets/img/logo_join.png" type="image/png" />
+        <link rel="stylesheet" href="./css/board.css" />
+        <link rel="stylesheet" href="./css/main.css" />
+        <link rel="stylesheet" href="./css/addTask.css" />
+        <script src="./js/addtask.js"></script>
+        <script src="./js/board.js"></script>
+        <script src="./js/sidebar.js"></script>
+        <script src="./js/main.js"></script>
+        <script src="./js/mini_backend.js"></script>
+        <script src="./js/contacts.js"></script>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Join - Board</title>
+    </head>
+    <body onload="boardOnload()">
+        <!--- Add Task Popup  -->
+        <div id="popup-bg" class="d-none no-opacity" onclick="hidePopUps()">
+            <div w3-include-html=".\assets\templates\addTaskPopupSlider.html"></div>
+            <!--- Add Task Popup end  -->
+            <!--- Task Popup  -->
+            <div class="width100">
+                <div id="popup-Task" class="d-none" onclick="stopPropagate(event)">
+                    <img class="popup-close-icon-gray" src="./assets/img/icons/XIconGray.png" alt="Close" onclick="hidePopUps()" />
+                    <div id="taskPopUpContent"></div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <!--- Task Popup end   -->
-    <!-- end of popup background-->    
-    <div id="page-container">
-      <div
-        class="header-desktop"
-        w3-include-html=".\assets\templates\headerDesktop.html"
-      ></div>
-      <div
-        class="menu-desktop"
-        w3-include-html=".\assets\templates\menuDesktop.html"
-      ></div>
-      <div
-        class="menu-mobile"
-        w3-include-html=".\assets\templates\menuMobile.html"
-      ></div>
-      <!-- add Task Mobile Popup -->
-      <div
-        id="header-mobile-addTask"
-        class="d-none"
-        w3-include-html=".\assets\templates\addTaskHeaderMobile.html"
-      ></div>
-      <div id="addTaskPopup" w3-include-html="./addTaskPopup.html"></div>
-      <!-- add Task Mobile Popup end -->
-      <div class="boardFindandAddtask">
-        <input id="searchInput" type="text" placeholder="Find Task" onkeyup="searchTasksInBoard()"/>
-        <button class="pointer addButton" onclick="addTaskPopup(4)">
-          Add task +
-        </button>
-      </div>
-      <div id="boardContentID" class="boardContent">
-        <div id="boardTodo" ondrop="drop('todo')" ondragover="allowDrop(event)">
-          <div class="boxHeader">
-            <h2>To do</h2>
-            <img
-              onclick="addTaskPopup(4)"
-              class="pointer"
-              src="./assets/img/plus button v1.png"
-            />
-          </div>
-          <div id="boardTodoContent"></div>
+        <!--- Task Popup end   -->
+        <!-- end of popup background-->
+        <div id="page-container">
+            <div class="header-desktop" w3-include-html=".\assets\templates\headerDesktop.html"></div>
+            <div class="menu-desktop" w3-include-html=".\assets\templates\menuDesktop.html"></div>
+            <div class="menu-mobile" w3-include-html=".\assets\templates\menuMobile.html"></div>
+            <!-- add Task Mobile Popup -->
+            <div id="header-mobile-addTask" class="d-none" w3-include-html=".\assets\templates\addTaskHeaderMobile.html"></div>
+            <div id="addTaskPopup" w3-include-html="./addTaskPopup.html"></div>
+            <!-- add Task Mobile Popup end -->
+            <div class="boardFindandAddtask">
+                <input id="searchInput" type="text" placeholder="Find Task" onkeyup="searchTasksInBoard()" />
+                <button class="pointer addButton" onclick="addTaskPopup(4)">Add task +</button>
+            </div>
+            <div id="boardContentID" class="boardContent">
+                <div id="boardTodo" ondrop="drop('todo')" ondragover="allowDrop(event)">
+                    <div class="boxHeader">
+                        <h2>To do</h2>
+                        <img onclick="addTaskPopup(4)" class="pointer" src="./assets/img/plus button v1.png" />
+                    </div>
+                    <div id="boardTodoContent"></div>
+                </div>
+                <div id="boardProgress" ondrop="drop('progress')" ondragover="allowDrop(event)">
+                    <div class="boxHeader">
+                        <h2>In progress</h2>
+                        <img onclick="addTaskPopup(1)" class="pointer" src="./assets/img/plus button v1.png" />
+                    </div>
+                    <div id="boardProgressContent"></div>
+                </div>
+                <div id="boardFeedback" ondrop="drop('feedback')" ondragover="allowDrop(event)">
+                    <div class="boxHeader">
+                        <h2>Await feedback</h2>
+                        <img onclick="addTaskPopup(2)" class="pointer" src="./assets/img/plus button v1.png" />
+                    </div>
+                    <div id="boardFeedbackContent"></div>
+                </div>
+                <div id="boardDone" ondrop="drop('done')" ondragover="allowDrop(event)">
+                    <div class="boxHeader">
+                        <h2>Done</h2>
+                        <img onclick="addTaskPopup(3)" class="pointer" src="./assets/img/plus button v1.png" />
+                    </div>
+                    <div id="boardDoneContent"></div>
+                </div>
+            </div>
         </div>
-        <div
-          id="boardProgress"
-          ondrop="drop('progress')"
-          ondragover="allowDrop(event)"
-        >
-          <div class="boxHeader">
-            <h2>In progress</h2>
-            <img
-              onclick="addTaskPopup(1)"
-              class="pointer"
-              src="./assets/img/plus button v1.png"
-            />
-          </div>
-          <div id="boardProgressContent"></div>
+        <div id="created-task-popup" class="popup">
+            <span>Your task has been created successfully.</span>
         </div>
-        <div
-          id="boardFeedback"
-          ondrop="drop('feedback')"
-          ondragover="allowDrop(event)"
-        >
-          <div class="boxHeader">
-            <h2>Await feedback</h2>
-            <img
-              onclick="addTaskPopup(2)"
-              class="pointer"
-              src="./assets/img/plus button v1.png"
-            />
-          </div>
-          <div id="boardFeedbackContent"></div>
+        <div id="edited-task-popup" class="popup">
+            <span>Your task has been edited successfully.</span>
         </div>
-        <div id="boardDone" ondrop="drop('done')" ondragover="allowDrop(event)">
-          <div class="boxHeader">
-            <h2>Done</h2>
-            <img
-              onclick="addTaskPopup(3)"
-              class="pointer"
-              src="./assets/img/plus button v1.png"
-            />
-          </div>
-          <div id="boardDoneContent"></div>
-        </div>
-      </div>
-    </div>
-    <div id="created-task-popup" class="popup">
-      <span>Your task has been created successfully.</span>
-    </div>
-    <div id="edited-task-popup" class="popup">
-      <span>Your task has been edited successfully.</span>
-    </div>
-  </body>
+    </body>
 </html>
