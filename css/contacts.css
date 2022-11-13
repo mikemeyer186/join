@@ -26,7 +26,7 @@ body {
 .contacts-box {
     width: 450px;
     height: 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
     box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.08);
     padding: 48px;
 }
@@ -333,6 +333,7 @@ body {
 }
 
 .contact-pic {
+    flex-shrink: 0;
     width: 42px;
     height: 42px;
     border-radius: 100%;

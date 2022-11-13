@@ -66,10 +66,10 @@ function returnGreetingSlogan(hours) {
     if (hours >= 6 && hours < 10) {
         greetingSlogan = 'Good morning, ';
     }
-    if (hours >= 10 && hours < 18) {
+    if (hours >= 10 && hours < 17) {
         greetingSlogan = 'Have a nice day, ';
     }
-    if (hours >= 18 && hours <= 22) {
+    if (hours >= 17 && hours <= 22) {
         greetingSlogan = 'Good evening, ';
     }
     return greetingSlogan;
