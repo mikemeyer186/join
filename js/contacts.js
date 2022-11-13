@@ -336,6 +336,7 @@ function saveEditContact() {
     contact.contactName = document.getElementById('contact-name-edit').value;
     contact.contactEmail = document.getElementById('contact-email-edit').value;
     contact.contactPhone = document.getElementById('contact-phone-edit').value;
+    contact.contactInitials = getContactInitials(contact.contactName);
     openContactDetailView(index);
     saveAndRenderEdit('edited-popup');
     changeColorOfSelectedCard();
