@@ -3,7 +3,7 @@ body {
 }
 
 .checkAndCrossIconsCategory {
-    left: 350px !important; 
+    left: 350px !important;
 }
 
 .checkAndCrossIcons {
@@ -508,7 +508,7 @@ body {
     overflow-y: scroll !important;
     padding-left: 30px;
     margin-top: 90px;
-    margin-bottom: 30px; 
+    padding-bottom: 30px !important;
     position: absolute !important;
     top: 10px !important;
     bottom: 0 !important;
@@ -554,24 +554,24 @@ body {
 .addTaskPopupIcon {
     width: 20px;
     position: absolute;
-    right: 20px; 
-    top: 20px; 
+    right: 20px;
+    top: 20px;
 }
 
-.addTaskPopupHeader  {
+.addTaskPopupHeader {
     width: 60%;
     display: flex;
-    align-items: flex-start; 
+    align-items: flex-start;
     padding-top: 10px;
-    padding-bottom: 10px; 
+    padding-bottom: 10px;
     margin-left: 0;
 }
 
 .addTaskPopupHeader h1 {
-    padding-left: 20px !important; 
+    padding-left: 20px !important;
     font-size: 48px;
-    padding: 0; 
-    margin: 0; 
+    padding: 0;
+    margin: 0;
 }
 
 .fault-name::placeholder {
@@ -584,6 +584,13 @@ body {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .contact-detail-info {
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
     .contact-detail-name-box {
@@ -603,7 +610,7 @@ body {
     }
 }
 
-@media (max-width: 1150px) {
+@media (max-width: 1050px) {
     #contacts-right {
         z-index: 3;
         left: 235px;
