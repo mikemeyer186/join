@@ -507,6 +507,7 @@ body {
 
 #addTaskPopup {
     overflow-y: scroll !important;
+    overflow-x: hidden;
     padding-left: 30px;
     margin-top: 90px;
     padding-bottom: 30px !important;
