@@ -29,6 +29,8 @@ function showSignUpBox() {
     document.getElementById('login-logo-blue').classList.add('no-opacity');
     document.getElementById('login-page').classList.remove('pageColorChange');
     document.getElementById('login-signup-box').classList.add('d-none');
+    hideLoginFault();
+    hideLoginFaultMail();
 }
 
 /**
@@ -175,9 +177,19 @@ function saveActiveUserLocal(user) {
  * showing login fault "wrong password"
  */
 function showLoginFault() {
-    document.getElementById('login-fault').classList.remove('d-none');
-    document.getElementById('login-input-password').value = '';
-    document.getElementById('login-input-password').placeholder = 'Ups! Try again';
+    let signUpEmail = document.getElementById('login-input-email');
+    let signUpPassword = document.getElementById('login-input-password');
+    let mail = userAccounts.find((m) => m.userEmail == signUpEmail.value);
+    let password = userAccounts.find((p) => p.userPassword == signUpPassword.value);
+
+    if (!mail) {
+        document.getElementById('login-fault-email').classList.remove('d-none');
+    } else {
+        document.getElementById('login-fault-password').classList.remove('d-none');
+        signUpPassword.value = '';
+        signUpPassword.placeholder = 'Ups! Try again';
+    }
+
     showVisibilityIcon('login');
 }
 
@@ -185,8 +197,12 @@ function showLoginFault() {
  * hiding the login fault when user types password
  */
 function hideLoginFault() {
-    document.getElementById('login-fault').classList.add('d-none');
+    document.getElementById('login-fault-password').classList.add('d-none');
     document.getElementById('login-input-password').placeholder = 'Password';
+}
+
+function hideLoginFaultMail() {
+    document.getElementById('login-fault-email').classList.add('d-none');
 }
 
 /**

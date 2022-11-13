@@ -38,7 +38,6 @@
     top: 7.81% !important;
     bottom: 80.28% !important;
     transform: translate(0) !important;
-
 }
 
 .pageColorChange {
@@ -241,7 +240,7 @@
     font-size: 23px;
 }
 
-#login-fault {
+.login-fault {
     position: absolute;
     top: 50px;
     left: 24px;
@@ -343,7 +342,7 @@
 }
 
 /** responsive section **/
-@media(max-width: 1200px) {
+@media (max-width: 1200px) {
     .login-box {
         height: 60%;
         width: 55%;
@@ -354,7 +353,7 @@
     }
 }
 
-@media(max-width: 1000px) {
+@media (max-width: 1000px) {
     .login-box {
         height: 60%;
         width: 60%;
@@ -374,7 +373,7 @@
     }
 }
 
-@media(max-width: 900px) {
+@media (max-width: 900px) {
     .login-box {
         height: 62%;
         width: 65%;
@@ -389,7 +388,7 @@
     }
 }
 
-@media(max-width: 750px) {
+@media (max-width: 750px) {
     .login-box {
         height: 65%;
         width: 90%;
@@ -415,7 +414,7 @@
     }
 }
 
-@media(max-width: 550px) {
+@media (max-width: 550px) {
     .login-box {
         height: 72%;
     }
@@ -510,7 +509,7 @@
     }
 }
 
-@media(max-width: 350px) {
+@media (max-width: 350px) {
     .forgot-headline {
         padding: 0;
     }
@@ -520,7 +519,7 @@
     }
 }
 
-@media(max-height: 900px){
+@media (max-height: 900px) {
     .login-box {
         gap: 15px;
     }
