@@ -399,9 +399,9 @@
     }
 
     #login-signup-box {
-        right: 50%;
-        top: 90%;
-        transform: translateX(50%);
+        right: 50% !important;
+        top: 90% !important;
+        transform: translateX(50%) !important;
     }
 
     .signup-text {
@@ -540,5 +540,64 @@
 
     .forgot-button {
         margin-top: 10px;
+    }
+}
+
+@media (max-height: 600px) {
+    .login-box {
+        position: absolute;
+        overflow: auto;
+        height: 70%;
+    }
+
+    .logoMovement {
+        width: 30px !important;
+        top: 1.81% !important;
+        left: 2% !important;
+    }
+
+    #login-signup-box {
+        top: 2%;
+        right: 2%;
+    }
+
+    .signup-text {
+        font-size: 18px;
+    }
+}
+
+@media (max-height: 600px) and (min-width: 551px) {
+    .login-box {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-height: 600px) and (max-width: 550px) {
+    .login-box {
+        justify-content: flex-start;
+    }
+
+    .logoMovement {
+        display: none !important;
+    }
+
+    .login-box {
+        height: 83%;
+        top: 10px;
+        margin: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-height: 500px) {
+    #login-signup-box {
+        display: none;
+    }
+
+    .login-box {
+        height: 100%;
+        width: 100%;
+        top: 0px;
     }
 }
