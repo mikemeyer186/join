@@ -248,7 +248,7 @@
 @media (max-width: 1150px) {
     .page-wrapper {
         gap: 15px;
-        justify-content: center;
+        justify-content: flex-start;
         overflow-y: auto;
         height: 100vh;
     }
@@ -304,13 +304,17 @@
     .greeting {
         display: none;
     }
+
+    .summary-box {
+        margin-top: 110px;
+    }
 }
 
 @media (max-width: 800px) {
     .page-wrapper {
         padding-left: 0;
         padding-bottom: 95px;
-        padding-top: 80px;
+        padding-top: 0;
     }
 
     .show-greeting {
@@ -410,38 +414,15 @@
     }
 }
 
-@media (max-height: 920px) and (max-width: 1150px) {
-    .summary-box {
-        padding-top: 100px;
+@media (max-height: 900px) {
+    .page-wrapper {
+        justify-content: flex-start;
     }
 }
 
-@media (max-height: 830px) and (max-width: 1150px) {
+@media (max-height: 900px) and (max-width: 800px) {
     .summary-box {
-        padding-top: 200px;
-    }
-}
-
-@media (max-height: 740px) and (max-width: 1150px) {
-    .summary-box {
-        padding-top: 300px;
-    }
-}
-
-@media (max-height: 640px) and (max-width: 1150px) {
-    .summary-box {
-        padding-top: 400px;
-    }
-}
-
-@media (max-height: 540px) and (max-width: 1150px) {
-    .summary-box {
-        padding-top: 500px;
-    }
-}
-
-@media (max-height: 440px) and (max-width: 1150px) {
-    .summary-box {
-        padding-top: 600px;
+        margin-top: 100px;
+        padding-bottom: 20px;
     }
 }
