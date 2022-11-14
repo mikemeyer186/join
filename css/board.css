@@ -711,9 +711,29 @@ form h3 {
   }
 }
 @media(max-height: 600px) {
+  .okButton {
+    top: 530px;
+    left: 730px;
+  }
+  #inputTitleEdit {
+    width: 90%;
+  }
+  #inputDescriptionEdit {
+    width: 90%;
+  }
+  .selectorHeader {
+    width: 90% !important;
+  }
+  #selectDateEdit {
+    width: 90%;
+  }
+  .fa-calendar-minus {
+    left: 620px !important;
+  }
   #popup-Task {
     height: 80vh; 
     width: 60vw;
+    padding-bottom: 90px !important;
   }
   .popupContactsCell {
     margin-top: 10px;
