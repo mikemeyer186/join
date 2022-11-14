@@ -333,6 +333,7 @@ function fillContactEditInputs(index) {
 function saveEditContact() {
     let index = localStorage.getItem('contactIndex');
     let contact = userAccounts[activeUser].userContacts[index];
+    let oldContactName = contact.contactName;
     contact.contactName = document.getElementById('contact-name-edit').value;
     contact.contactEmail = document.getElementById('contact-email-edit').value;
     contact.contactPhone = document.getElementById('contact-phone-edit').value;
@@ -340,6 +341,7 @@ function saveEditContact() {
     openContactDetailView(index);
     saveAndRenderEdit('edited-popup');
     changeColorOfSelectedCard();
+    changeContactDataInTasks(index, oldContactName);
 }
 
 /**
@@ -488,4 +490,20 @@ function findContactIndex(contactname) {
         }
     }
     return index;
+}
+
+/**
+ * changing contact data in tasks (initials, contactname)
+ */
+async function changeContactDataInTasks(index, oldContactName) {
+    for (let i = 0; i < tasks.length; i++) {
+        for (let j = 0; j < tasks[i].assignedTo.length; j++) {
+            const contact = tasks[i].assignedTo[j];
+            if (contact.contactName == oldContactName) {
+                tasks[i].assignedTo[j].abbreviation = userAccounts[activeUser].userContacts[index].contactInitials;
+                tasks[i].assignedTo[j].contactName = userAccounts[activeUser].userContacts[index].contactName;
+            }
+        }
+    }
+    await pushTasksinBackend();
 }
