@@ -61,6 +61,7 @@ body {
   width: 25%;
 }
 .boxHeader {
+  height: 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
