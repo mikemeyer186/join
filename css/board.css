@@ -588,13 +588,16 @@ form h3 {
 }
 @media(max-width: 950px) {
   input {
-    width: 45vw !important;
+    width: 45vw;
   }
   .selectorHeader{
     width: 45vw !important;
   }
 }
 @media(max-width: 1100px) {
+  .boardFindandAddtask  {
+    margin-left: 330px;
+  }
   .boardContent {
     width: 60vw !important;
     display: flex; 
@@ -643,6 +646,10 @@ form h3 {
   }
 }
 @media(max-width: 800px) {
+  #searchInput {
+    width: 100vw;
+    margin: 0;
+  }
   form {
     width: 50vw !important;
   }
@@ -681,18 +688,17 @@ form h3 {
   .boardFindandAddtask {
     padding-top: 150px; 
     margin-bottom: 50px; 
-    margin-left: 0;
+    margin-left: 30vw;
+    margin-right: 30vw;
     display: flex; 
     justify-content: center;
   }
-  .boardFindandAddtask input {
-    margin-left: 35px; 
-  }
+  
 }
 
 @media(max-width: 600px) {
   input {
-    width: 60% !important;
+    width: 60%;
   }
   #popup-Task {
     width: 100%;
@@ -777,5 +783,29 @@ form h3 {
   }
   #importanceLvlEdit {
     margin-top: 0px !important;
+  }
+}
+@media(max-width: 950px) {
+  .boardFindandAddtask {
+    max-width: 40%;
+    width: 50vw;
+  }
+  .boardFindandAddtask button {
+    width: 80%;
+  }
+}
+@media(max-width: 880px) {
+  .addButton {
+    font-size: 16px !important;
+  }
+}
+@media(max-width: 300px) {
+  .boardFindandAddtask button{
+    width: 100% !important;
+  }
+  .searchInput {
+    margin-left: 30vw !important; 
+    margin-right: 30vw !important; 
+    justify-content: center;
   }
 }
