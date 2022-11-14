@@ -263,8 +263,8 @@ function searchTasksInBoard() {
 function addContactToUserFromTask() {
     let inputName = document.getElementById('selectContact');
     let inputEmail = document.getElementById('selectContact');
-    let inputPhone = '123456789';
-    let inputInitials = getContactInitials('New Contact');
+    let inputPhone = '';
+    let inputInitials = getContactInitials(inputName.value).toUpperCase();
     let inputColor = getRandomColor();
     let contactObject = {
         contactName: inputName.value,
