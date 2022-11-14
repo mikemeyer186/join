@@ -26,6 +26,9 @@ body {
   width: 140px;
   height: 50px;
 }
+#boardContentID {
+  margin-bottom: 10vh;
+}
 .boardFindandAddtask input {
   border-radius: 10px;
   border: 1px solid #d1d1d1;
@@ -123,6 +126,7 @@ body {
 }
 .boardBoxContent {
   margin-left: 20px;
+  margin-right: 20px;
 }
 .boardBoxContent h4 {
   color: #4589ff;
@@ -218,6 +222,7 @@ body {
   transition: all 225ms ease-in-out;
 }
 #popup-Task {
+  overflow-y: auto;
   position: fixed;
   transform: translate(-20%, -20%);
   margin-top: 8vh;
@@ -808,5 +813,14 @@ form h3 {
     margin-left: 30vw !important; 
     margin-right: 30vw !important; 
     justify-content: center;
+  }
+}
+@media(max-height: 820px) {
+  #popup-Task {
+    height: 80vh !important;
+    padding-bottom: 220px;
+  }
+  .editButton {
+    margin-bottom: 20px;
   }
 }
