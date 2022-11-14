@@ -47,6 +47,7 @@ input[type="date"]::-webkit-clear-button {
 #page-container {
   height: 100vh;
   overflow-x: hidden;
+  overflow-y: auto;
   position: relative;
 }
 .overflowHidden {
@@ -155,7 +156,7 @@ input[type="date"]::-webkit-clear-button {
   margin-left: 20px; 
 }
 .boardContent {
-  margin-top: 100px; 
+  height: 60vh;
 }
 #inputTitle {
   font-size: 40px;

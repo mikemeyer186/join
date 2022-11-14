@@ -2,12 +2,6 @@ body {
   height: 100vh;
   overflow: hidden !important;
 }
-#page-container {
-  height: 100vh;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  position: relative;
-}
 .width100 {
   width: 100%;
   display: flex;
@@ -20,7 +14,7 @@ body {
   display: flex;
   padding-top: 170px; 
   align-items: center;
-  margin-bottom: 70px;
+  margin-bottom: 60px;
   margin-left: 285px;
 }
 .boardFindandAddtask button {
@@ -216,6 +210,7 @@ body {
 #popup-addTask-edit {
   position: relative;
   justify-content: center;
+  overflow-x: hidden;
   z-index: 6;
   float: right;
   width: 570px;
