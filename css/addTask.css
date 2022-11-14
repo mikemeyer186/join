@@ -44,6 +44,10 @@ input[type="date"]::-webkit-inner-spin-button {
 input[type="date"]::-webkit-clear-button {
    z-index: 1;
 }
+#selectorContactRender {
+  max-height: 200px;
+  overflow-y: scroll;
+}
 #page-container {
   height: 100vh;
   overflow-x: hidden;
