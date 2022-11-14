@@ -165,11 +165,11 @@ function clearSubtask() {
  */
 function taskClear() {
   document.getElementById("inputTitle").value = ``;
-  document.getElementById("selectContact").value = ``;
   document.getElementById("selectDate").value = ``;
-  document.getElementById("selectCategory").value = ``;
   document.getElementById("inputDescription").value = ``;
   document.getElementById("subtaskText").value = ``;
+  renderingContactsSelector();
+  renderingTaskCategorySelector()
   window.location.reload();
 }
 
