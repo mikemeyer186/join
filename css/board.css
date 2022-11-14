@@ -586,6 +586,16 @@ form h3 {
   overflow-y: scroll;
   white-space: nowrap;
 }
+@media(max-width: 820px) {
+  .boardFindandAddtask button {
+    font-size: 14px !important;
+  }
+}
+@media(max-width: 1600px) {
+  .boxHeader {
+    gap: 30px;
+}
+}
 @media(max-width: 950px) {
   input {
     width: 45vw;

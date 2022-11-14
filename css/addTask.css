@@ -135,7 +135,7 @@ input[type="date"]::-webkit-clear-button {
   border-top: none; 
   border-left: none; 
   border-right: none; 
-  width: 100%;
+  width: 500px;
 }
 .selectorCell {
   padding-top: 10px;
@@ -521,12 +521,6 @@ input[type="date"]::-webkit-clear-button {
   }
 }
 @media(max-width: 800px) { 
-  /*.fa-xmark {
-    display: none;
-  }*/
-  .checkAndCrossIcons img {
-    display: none;
-  }
   .header-mobile-addTask {
     display: block;
   }
@@ -534,10 +528,14 @@ input[type="date"]::-webkit-clear-button {
     display: none !important;
 }
   .checkAndCrossIcons {
-    left: 380px; 
+    left: 430px; 
   }
   .checkAndCrossIconsCategory {
-    left: 380px; 
+    left: 430px; 
+    top: 55px;
+  }
+  .taskFooter {
+    margin-bottom: 50px;
   }
   .addtaskStatic {
     margin-left: 0;
@@ -554,9 +552,6 @@ input[type="date"]::-webkit-clear-button {
   }
   #buttonCreate {
     display: none;
-  }
-  .inputFields input {
-    max-width: 100%;
   }
   #importanceIMGHard {
     width: 120px;
