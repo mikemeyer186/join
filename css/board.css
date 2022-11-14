@@ -711,6 +711,9 @@ form h3 {
   }
 }
 @media(max-height: 600px) {
+  #taskPopUpContent {
+    padding-bottom: 0;
+  }
   .okButton {
     top: 530px;
     left: 730px;
@@ -733,7 +736,7 @@ form h3 {
   #popup-Task {
     height: 80vh; 
     width: 60vw;
-    padding-bottom: 90px !important;
+    padding-bottom: 0 !important;
   }
   .popupContactsCell {
     margin-top: 10px;
@@ -838,7 +841,7 @@ form h3 {
 @media(max-height: 820px) {
   #popup-Task {
     height: 80vh !important;
-    padding-bottom: 220px;
+    padding-bottom: 150px;
   }
   .editButton {
     margin-bottom: 20px;
