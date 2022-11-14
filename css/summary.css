@@ -414,7 +414,7 @@
     }
 }
 
-@media (max-height: 900px) {
+@media (max-height: 700px) {
     .page-wrapper {
         justify-content: flex-start;
     }
