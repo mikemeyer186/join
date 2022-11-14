@@ -276,6 +276,7 @@ function addContactToUserFromTask() {
     userAccounts[activeUser].userContacts.push(contactObject);
     saveAccountsToBackend();
     rechangeContactInput();
+    selectorContactIndex--;
 }
 
 /**
