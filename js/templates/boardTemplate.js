@@ -202,6 +202,7 @@ function renderTasksinBoard(searchResult) {
  * @param {string} value of task status
  */
   async function addTaskPopup(value) {
+    document.getElementById("addTaskPopup").classList.remove("d-none");
     document.getElementById("popup-bg").classList.remove("d-none");
     document.getElementById("page-container").classList.add('overflowHidden');
     document.getElementById("boardContentID").classList.add('overflowHidden');
@@ -304,6 +305,7 @@ function renderTasksinBoard(searchResult) {
       document.getElementById("popup-addTask").classList.add("d-none");
       document.getElementById("popup-Task").classList.add("d-none");
       document.getElementById("popup-bg").classList.add("d-none");
+      document.getElementById("addTaskPopup").classList.add("d-none");
     }, 250);
   }
   
