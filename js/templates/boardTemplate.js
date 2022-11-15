@@ -243,7 +243,7 @@ function renderTasksinBoard(searchResult) {
             required
           />
           <h3 style="margin-bottom: 10px;">Due date</h3>
-          <i onclick="showDatePopUp()" class="fa-regular fa-calendar-minus fa-xl pointer"></i>
+          <i class="fa-regular fa-calendar-minus fa-xl"></i>
           <input
             id="selectDateEdit"
             type="text"
