@@ -107,6 +107,8 @@
 
 .tile-big:hover {
     background-color: #ffffff;
+    border-top-left-radius: 0;
+    transform: scale(1.01);
     color: #4589ff;
     transition: all 225ms ease-in-out;
 }
@@ -134,6 +136,8 @@
 }
 
 .tile-blue:hover {
+    border-top-left-radius: 0;
+    transform: scale(1.03);
     background-color: #ffffff;
     color: #4589ff;
     transition: all 225ms ease-in-out;
@@ -159,6 +163,8 @@
 }
 
 .tile-white:hover {
+    border-top-left-radius: 0;
+    transform: scale(1.03);
     background-color: #4589ff;
     color: #ffffff;
     transition: all 225ms ease-in-out;
@@ -232,6 +238,7 @@
 /* responsive section */
 
 @media (max-width: 1250px) {
+
     .information,
     .information-top,
     .information-bottom,
@@ -331,6 +338,7 @@
 }
 
 @media (max-width: 500px) {
+
     .tile-big,
     .tile-blue {
         width: calc(100vw - 24px) !important;
@@ -352,6 +360,7 @@
 }
 
 @media (max-width: 450px) {
+
     .tile-big,
     .tile-blue,
     .tile {

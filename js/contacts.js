@@ -97,8 +97,21 @@ function inputValidation() {
     if (inputName.value) {
         addContactToUser();
     } else {
-        document.getElementById('contact-name').placeholder = 'Please enter a contact name!';
+        document.getElementById('contact-name').placeholder = 'Please enter contact name!';
         document.getElementById('contact-name').classList.add('fault-name');
+    }
+}
+
+/**
+ * validation of input for contact name
+ */
+function inputValidationEdit() {
+    let inputNameEdit = document.getElementById('contact-name-edit');
+    if (inputNameEdit.value) {
+        saveEditContact();
+    } else {
+        document.getElementById('contact-name-edit').placeholder = 'Please enter contact name!';
+        document.getElementById('contact-name-edit').classList.add('fault-name');
     }
 }
 

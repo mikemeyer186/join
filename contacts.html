@@ -1,135 +1,142 @@
 <!DOCTYPE html>
 <html lang="de">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="icon" href="./assets/img/logo_join.png" type="image/png" />
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="stylesheet" href="./css/fontFamily.css" />
-        <link rel="stylesheet" href="./css/main.css" />
-        <link rel="stylesheet" href="./css/contacts.css" />
-        <link rel="stylesheet" href="./css/addTask.css" />
+    <link rel="icon" href="./assets/img/logo_join.png" type="image/png" />
 
-        <script src="./js/main.js"></script>
-        <script src="./js/mini_backend.js"></script>
-        <script src="./js/contacts.js"></script>
-        <script src="./js/sidebar.js"></script>
-        <script src="./js/addtask.js"></script>
-        <script src="./js/board.js"></script>
-        <script src="./js/templates/addTaskTemplate.js"></script>
-        <script src="./js/templates/contactsTemplate.js"></script>
-        <script src="https://kit.fontawesome.com/362dd1e776.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/fontFamily.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/contacts.css" />
+    <link rel="stylesheet" href="./css/addTask.css" />
 
-        <title>Join - Contacts</title>
-    </head>
-    <body onload="contactsInit()">
-        <div class="page-container">
-            <div class="header-desktop" w3-include-html=".\assets\templates\headerDesktop.html"></div>
-            <div class="menu-desktop" w3-include-html=".\assets\templates\menuDesktop.html"></div>
-            <div class="menu-mobile" w3-include-html=".\assets\templates\menuMobile.html"></div>
-            <!-- Add Task Popup -->
-            <div id="header-mobile-addTask" w3-include-html=".\assets\templates\addTaskHeaderMobile.html"></div>
-            <div id="addTaskPopup" w3-include-html="./addTaskPopup.html"></div>
-            <!---->
-            <div id="popup-bg" class="d-none no-opacity" onclick="hideNewContactPopUp()">
-                <div id="popup-contact" onclick="stopPropagate(event)">
-                    <img class="popup-close-icon" src="./assets/img/icons/icon_close_white.png" alt="Close" onclick="hideNewContactPopUp()" />
-                    <div class="popup-contact-top">
-                        <img class="contact-top-logo" src="./assets/img/logo_join_small_white.png" alt="Join Logo" />
-                        <span class="contact-top-headline">Add contact</span>
-                        <span class="contact-top-subtext">Tasks are better with a team!</span>
-                    </div>
-                    <div class="popup-contact-bottom">
-                        <div class="contact-profil-box">
-                            <img class="contact-profil-img" src="./assets/img/user_white.png" alt="User" />
-                        </div>
-                        <div class="contact-input-box">
-                            <input id="contact-name" type="text" class="contact-input" placeholder="Name" />
-                            <img class="contact-icon" src="./assets/img/icons/icon_user_grey.png" alt="Name" />
-                        </div>
-                        <div class="contact-input-box">
-                            <input id="contact-email" type="text" class="contact-input" placeholder="Email" />
-                            <img class="contact-icon" src="./assets/img/icons/icon_mail_grey.png" alt="Email" />
-                        </div>
-                        <div class="contact-input-box">
-                            <input id="contact-phone" type="text" class="contact-input" placeholder="Phone" />
-                            <img class="contact-icon" src="./assets/img/icons/icon_phone_grey.png" alt="Phone" />
-                        </div>
-                        <div class="contact-button-box">
-                            <button class="contact-button-white" onmouseover="blueCloseIcon()" onmouseleave="darkCloseIcon()" onclick="clearAndHidePopUp()">
-                                Cancel
-                                <img id="button-close" src="./assets/img/icons/icon_close_dark.png" alt="Close" />
-                            </button>
-                            <button class="contact-button-blue" onclick="inputValidation(); return false;">
-                                Create contact
-                                <img src="./assets/img/icons/icon_check_white.png" alt="Create" />
-                            </button>
-                        </div>
-                    </div>
+    <script src="./js/main.js"></script>
+    <script src="./js/mini_backend.js"></script>
+    <script src="./js/contacts.js"></script>
+    <script src="./js/sidebar.js"></script>
+    <script src="./js/addtask.js"></script>
+    <script src="./js/board.js"></script>
+    <script src="./js/templates/addTaskTemplate.js"></script>
+    <script src="./js/templates/contactsTemplate.js"></script>
+    <script src="https://kit.fontawesome.com/362dd1e776.js" crossorigin="anonymous"></script>
+
+    <title>Join - Contacts</title>
+</head>
+
+<body onload="contactsInit()">
+    <div class="page-container">
+        <div class="header-desktop" w3-include-html=".\assets\templates\headerDesktop.html"></div>
+        <div class="menu-desktop" w3-include-html=".\assets\templates\menuDesktop.html"></div>
+        <div class="menu-mobile" w3-include-html=".\assets\templates\menuMobile.html"></div>
+        <!-- Add Task Popup -->
+        <div id="header-mobile-addTask" w3-include-html=".\assets\templates\addTaskHeaderMobile.html"></div>
+        <div id="addTaskPopup" w3-include-html="./addTaskPopup.html"></div>
+        <!---->
+        <div id="popup-bg" class="d-none no-opacity" onclick="hideNewContactPopUp()">
+            <div id="popup-contact" onclick="stopPropagate(event)">
+                <img class="popup-close-icon" src="./assets/img/icons/icon_close_white.png" alt="Close"
+                    onclick="hideNewContactPopUp()" />
+                <div class="popup-contact-top">
+                    <img class="contact-top-logo" src="./assets/img/logo_join_small_white.png" alt="Join Logo" />
+                    <span class="contact-top-headline">Add contact</span>
+                    <span class="contact-top-subtext">Tasks are better with a team!</span>
                 </div>
-            </div>
-
-            <div id="popup-bg-edit" class="d-none no-opacity" onclick="hideEditContactPopUp()">
-                <div id="popup-contact-edit" onclick="stopPropagate(event)">
-                    <img class="popup-close-icon" src="./assets/img/icons/icon_close_white.png" alt="Close" onclick="hideEditContactPopUp()" />
-                    <div class="popup-contact-top">
-                        <img class="contact-top-logo" src="./assets/img/logo_join_small_white.png" alt="Join Logo" />
-                        <span class="contact-top-headline">Edit contact</span>
-                        <span class="contact-top-subtext">Tasks are better with a team!</span>
+                <div class="popup-contact-bottom">
+                    <div class="contact-profil-box">
+                        <img class="contact-profil-img" src="./assets/img/user_white.png" alt="User" />
                     </div>
-                    <div class="popup-contact-bottom">
-                        <div id="contact-profil-edit"></div>
-                        <div class="contact-input-box">
-                            <input id="contact-name-edit" type="text" class="contact-input" placeholder="Name" />
-                            <img class="contact-icon" src="./assets/img/icons/icon_user_grey.png" alt="Name" />
-                        </div>
-                        <div class="contact-input-box">
-                            <input id="contact-email-edit" type="text" class="contact-input" placeholder="Email" />
-                            <img class="contact-icon" src="./assets/img/icons/icon_mail_grey.png" alt="Email" />
-                        </div>
-                        <div class="contact-input-box">
-                            <input id="contact-phone-edit" type="text" class="contact-input" placeholder="Phone" />
-                            <img class="contact-icon" src="./assets/img/icons/icon_phone_grey.png" alt="Phone" />
-                        </div>
-                        <div class="contact-button-box">
-                            <button class="contact-button-red" onclick="deleteContact()">
-                                Delete
-                                <img class="contact-delete-icon" src="./assets/img/icons/icon_close_white.png" alt="Delete" />
-                            </button>
-                            <button class="contact-button-blue" onclick="saveEditContact()">
-                                Save
-                                <img src="./assets/img/icons/icon_check_white.png" alt="Create" />
-                            </button>
-                        </div>
+                    <div class="contact-input-box">
+                        <input id="contact-name" type="text" class="contact-input" placeholder="Name" />
+                        <img class="contact-icon" src="./assets/img/icons/icon_user_grey.png" alt="Name" />
+                    </div>
+                    <div class="contact-input-box">
+                        <input id="contact-email" type="text" class="contact-input" placeholder="Email" />
+                        <img class="contact-icon" src="./assets/img/icons/icon_mail_grey.png" alt="Email" />
+                    </div>
+                    <div class="contact-input-box">
+                        <input id="contact-phone" type="text" class="contact-input" placeholder="Phone" />
+                        <img class="contact-icon" src="./assets/img/icons/icon_phone_grey.png" alt="Phone" />
+                    </div>
+                    <div class="contact-button-box">
+                        <button class="contact-button-white" onmouseover="blueCloseIcon()"
+                            onmouseleave="darkCloseIcon()" onclick="clearAndHidePopUp()">
+                            Cancel
+                            <img id="button-close" src="./assets/img/icons/icon_close_dark.png" alt="Close" />
+                        </button>
+                        <button class="contact-button-blue" onclick="inputValidation(); return false;">
+                            Create contact
+                            <img src="./assets/img/icons/icon_check_white.png" alt="Create" />
+                        </button>
                     </div>
                 </div>
-            </div>
-
-            <div class="contacts-wrapper">
-                <div class="contacts-box">
-                    <div id="contacts-content"></div>
-                </div>
-                <div id="contacts-right">
-                    <div id="contacts-detail"></div>
-                </div>
-            </div>
-
-            <button class="addContact-button" onclick="showNewContactPopUp()">
-                <span>New Contact</span>
-                <img src="./assets/img/icons/icon_addContact.png" alt="New Contact" />
-            </button>
-
-            <div id="created-popup" class="popup">
-                <span>Your contact has been created successfully.</span>
-            </div>
-            <div id="edited-popup" class="popup">
-                <span>Your contact has been edited successfully.</span>
-            </div>
-            <div id="deleted-popup" class="popup">
-                <span>Your contact has been deleted successfully.</span>
             </div>
         </div>
-    </body>
+
+        <div id="popup-bg-edit" class="d-none no-opacity" onclick="hideEditContactPopUp()">
+            <div id="popup-contact-edit" onclick="stopPropagate(event)">
+                <img class="popup-close-icon" src="./assets/img/icons/icon_close_white.png" alt="Close"
+                    onclick="hideEditContactPopUp()" />
+                <div class="popup-contact-top">
+                    <img class="contact-top-logo" src="./assets/img/logo_join_small_white.png" alt="Join Logo" />
+                    <span class="contact-top-headline">Edit contact</span>
+                    <span class="contact-top-subtext">Tasks are better with a team!</span>
+                </div>
+                <div class="popup-contact-bottom">
+                    <div id="contact-profil-edit"></div>
+                    <div class="contact-input-box">
+                        <input id="contact-name-edit" type="text" class="contact-input" placeholder="Name" />
+                        <img class="contact-icon" src="./assets/img/icons/icon_user_grey.png" alt="Name" />
+                    </div>
+                    <div class="contact-input-box">
+                        <input id="contact-email-edit" type="text" class="contact-input" placeholder="Email" />
+                        <img class="contact-icon" src="./assets/img/icons/icon_mail_grey.png" alt="Email" />
+                    </div>
+                    <div class="contact-input-box">
+                        <input id="contact-phone-edit" type="text" class="contact-input" placeholder="Phone" />
+                        <img class="contact-icon" src="./assets/img/icons/icon_phone_grey.png" alt="Phone" />
+                    </div>
+                    <div class="contact-button-box">
+                        <button class="contact-button-red" onclick="deleteContact()">
+                            Delete
+                            <img class="contact-delete-icon" src="./assets/img/icons/icon_close_white.png"
+                                alt="Delete" />
+                        </button>
+                        <button class="contact-button-blue" onclick="inputValidationEdit()">
+                            Save
+                            <img src="./assets/img/icons/icon_check_white.png" alt="Create" />
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contacts-wrapper">
+            <div class="contacts-box">
+                <div id="contacts-content"></div>
+            </div>
+            <div id="contacts-right">
+                <div id="contacts-detail"></div>
+            </div>
+        </div>
+
+        <button class="addContact-button" onclick="showNewContactPopUp()">
+            <span>New Contact</span>
+            <img src="./assets/img/icons/icon_addContact.png" alt="New Contact" />
+        </button>
+
+        <div id="created-popup" class="popup">
+            <span>Your contact has been created successfully.</span>
+        </div>
+        <div id="edited-popup" class="popup">
+            <span>Your contact has been edited successfully.</span>
+        </div>
+        <div id="deleted-popup" class="popup">
+            <span>Your contact has been deleted successfully.</span>
+        </div>
+    </div>
+</body>
+
 </html>
