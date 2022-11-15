@@ -146,6 +146,7 @@ body {
   gap: 25px; 
 }
 .popupTaskContacts {
+  min-height: 250px;
   margin-top: 20px;
 }
 .popupContactsCell {
@@ -166,12 +167,11 @@ body {
 }
 
 .editButton {
-  position: absolute;
+  position: sticky;
+  float: right;
   object-fit: cover;
   width: 50px;
-  height: 50px; 
-  right: 30px;
-  top: 720px;
+  padding-bottom: 20px;
 }
 .contact-initials-Task {
   text-transform: uppercase;
@@ -192,7 +192,7 @@ body {
 }
 #taskPopUpContent{
   position: relative;
-  padding: 50px;
+  padding: 50px 20px 50px 50px;
 }
 #popup-bg,
 #popup-bg-edit {
@@ -661,9 +661,6 @@ form h3 {
   .selectorHeader {
     width: 60vw;
   }
-  #popup-Task {
-    padding-bottom: 10vh;
-  }
   .okButton {
     top: 700px;
   }
@@ -746,9 +743,6 @@ form h3 {
   input {
     width: 60%;
   }
-  #popup-Task {
-    width: 100%;
-  }
 }
 @media(max-height: 600px) {
   
@@ -811,9 +805,7 @@ form h3 {
     margin-top: 18px;
   }
   .editButton {
-    top: 410px;
     width: 40px; 
-    height: 40px;
   }
   #inputTitleEdit {
     width: 90%;
@@ -880,7 +872,6 @@ form h3 {
 @media(max-height: 820px) {
   #popup-Task {
     height: 80vh !important;
-    padding-bottom: 150px;
   }
   .editButton {
     margin-bottom: 20px;
@@ -920,9 +911,6 @@ form h3 {
   }
   .okButton {
     top: 620px;
-  }
-  .editButton {
-    top: 750px;
   }
 }
 @media(max-width: 550px) {  
