@@ -581,6 +581,7 @@ form h3 {
   height: 50px; 
 }
 .selectorPupupContacts {
+  width: 500px;
   scrollbar-width: none;
   max-height: 100px; 
   overflow-x: hidden; 
@@ -600,9 +601,6 @@ form h3 {
 @media(max-width: 950px) {
   input {
     width: 45vw;
-  }
-  .selectorHeader{
-    width: 45vw !important;
   }
 }
 @media(max-width: 1100px) {
@@ -637,7 +635,7 @@ form h3 {
     height: 100%;
     width: 50vw;
     margin-top: 0;
-    margin-bottom: 100px;
+    padding-bottom: 100px; 
   }
   #boardDone h2 {
     margin-bottom: 10px;
@@ -657,6 +655,25 @@ form h3 {
   }
 }
 @media(max-width: 800px) {
+  .selectorContactPopup {
+    width: 100vw !important;
+  }
+  .selectorHeader {
+    width: 60vw;
+  }
+  #popup-Task {
+    padding-bottom: 10vh;
+  }
+  .okButton {
+    top: 700px;
+  }
+  #importanceLvlEdit {
+    width: 80vw;
+    margin-top: 20px;
+  }
+  #importanceLvlEdit img {
+   width: 150px; 
+  }
   #searchInput {
     width: 100vw;
     margin: 0;
@@ -708,6 +725,24 @@ form h3 {
 }
 
 @media(max-width: 600px) {
+  .selectorPupupContacts {
+    width: 60vw;
+  }
+  .selectorHeader  {
+    width: 60vw !important;
+  }
+  #selectDateEdit {
+    width: 60vw;
+  }
+  #inputTitleEdit {
+    width: 60vw;
+  }
+  #inputDescriptionEdit {
+    width: 60vw;
+  }
+  #importanceLvlEdit img{
+    width: 120px;
+  }
   input {
     width: 60%;
   }
@@ -716,15 +751,13 @@ form h3 {
   }
 }
 @media(max-height: 600px) {
+  
   #taskPopUpContent {
     padding-bottom: 0;
   }
   .okButton {
     top: 530px;
     left: 730px;
-  }
-  #inputTitleEdit {
-    width: 90%;
   }
   #inputDescriptionEdit {
     width: 90%;
@@ -783,6 +816,7 @@ form h3 {
     height: 40px;
   }
   #inputTitleEdit {
+    width: 90%;
     font-size: 22px !important;
     height: 40px;
     margin-bottom: 10px;
@@ -850,5 +884,61 @@ form h3 {
   }
   .editButton {
     margin-bottom: 20px;
+  }
+}
+@media(max-width: 600px) {
+  #popup-Task {
+    width: 80vw;
+    height: 80vh;
+  }
+}
+@media(max-width: 450px) {
+  #importanceLvlEdit img{
+    width: 80px !important;
+  }
+  #popup-Task {
+    padding-bottom: 0; 
+  }
+  #inputTitleEdit {
+    font-size: 22px !important;
+  }
+  #inputDescriptionEdit {
+    font-size: 12px !important;
+  }
+  #selectDateEdit {
+    font-size: 16px !important;
+  }
+  #importanceLvlEdit img{
+    margin-top: 0;
+  }
+  .checkAndCrossIcons {
+    left: 250px;
+  }
+  .selectorHeader  {
+    font-size: 16px !important;
+    margin-top: 30px !important;
+  }
+  .okButton {
+    top: 620px;
+  }
+  .editButton {
+    top: 620px;
+  }
+}
+@media(max-width: 550px) {  
+  #importanceLvlEdit img{
+    width: 100px;
+  }
+  #popup-addTask {
+    width: 100vw;
+  }
+  #inputTitle {
+    width: 90vw;
+  }
+  .selectorHeader {
+    width: 90vw;
+  }
+  #selectDate {
+    width: 90vw;
   }
 }

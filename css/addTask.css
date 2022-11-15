@@ -579,13 +579,13 @@ input[type="date"]::-webkit-clear-button {
     left: 270px; 
   }
   #importanceIMGHard {
-    width: 100px;
+    width: 70px;
   }
   #importanceIMGMid {
-    width: 100px;
+    width: 70px;
   }
   #importanceIMGLow {
-    width: 100px;
+    width: 70px;
   }
 }
 @media(max-width: 1300px) {
@@ -602,5 +602,36 @@ input[type="date"]::-webkit-clear-button {
     position: relative;
     top: 100px;
     left: -100px;  
+  }
+}
+@media(max-width: 550px) {
+  .checkAndCrossIconsCategory {
+    left: 75vw;
+  }
+  #newCategoryText {
+    width: 90vw;
+  }
+  #inputTitle {
+    width: 90vw;
+  }
+  .selectorHeader  {
+    width: 90vw;
+  }
+  #selectDate {
+    width: 90vw;
+  }
+  #inputDescription {
+    width: 90vw;
+  }
+  #subtaskText {
+    width: 90vw;
+  }
+  .checkAndCrossIcons {
+    left: 75vw;
+  }
+}
+@media(max-width: 450px){
+  #importanceLvl img{
+    width: 100px;
   }
 }
