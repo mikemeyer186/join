@@ -146,7 +146,8 @@ body {
   gap: 25px; 
 }
 .popupTaskContacts {
-  min-height: 250px;
+  height: 430px;
+  min-height: 150px;
   margin-top: 20px;
 }
 .popupContactsCell {
@@ -785,6 +786,7 @@ form h3 {
   }
   .popupTaskContacts {
     margin-top: 15px;
+    height: 0;
   }
   .popupTaskValue img {
     margin-top: 3px;
