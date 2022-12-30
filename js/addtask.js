@@ -169,7 +169,7 @@ function taskClear() {
   document.getElementById("inputDescription").value = ``;
   document.getElementById("subtaskText").value = ``;
   renderingContactsSelector();
-  renderingTaskCategorySelector()
+  renderingTaskCategorySelector();
   window.location.reload();
 }
 
