@@ -21,14 +21,6 @@ let userTasksArray = [];
 let selectedTaskStatus;
 
 /**
- * loading tasks from backend
- */
-async function loadTasksfromBackend() {
-    await downloadFromServer();
-    tasks = JSON.parse(backend.getItem('tasks')) || [];
-}
-
-/**
  * initial function
  * @param {number} i - number of navigation link
  */
@@ -58,10 +50,11 @@ async function includeHTML() {
 }
 
 /**
- * saving user accounts in backend database
+ * loading tasks from backend
  */
-async function saveAccountsToBackend() {
-    await backend.setItem('userAccounts', JSON.stringify(userAccounts));
+async function loadTasksfromBackend() {
+    await downloadFromServer();
+    tasks = JSON.parse(backend.getItem('tasks')) || [];
 }
 
 /**
@@ -73,6 +66,13 @@ async function loadAccountsFromBackend() {
 }
 
 /**
+ * saving user accounts in backend database
+ */
+async function saveAccountsToBackend() {
+    await backend.setItem('userAccounts', JSON.stringify(userAccounts));
+}
+
+/**
  * loading active user from local storage
  */
 function loadActiveUserLocal() {
@@ -81,7 +81,7 @@ function loadActiveUserLocal() {
 
 /**
  * stopping propagation of child elements
- * @param {object} event 
+ * @param {object} event
  */
 function stopPropagate(event) {
     event.stopPropagation();
@@ -116,7 +116,7 @@ function logOutActiveUser() {
  * sliding out of view after 4 seconds
  * @param {string} id - id of html element
  */
- function slidePopupIntoView(id) {
+function slidePopupIntoView(id) {
     document.getElementById(`${id}`).classList.add('slideIn');
 
     setTimeout(() => {
@@ -125,17 +125,17 @@ function logOutActiveUser() {
 }
 
 /**
- * checking if reload is true and sliding popup into view
+ * checking if reload is true and sliding popup into view (popup while forwarding to board from another page)
  */
- function checkReload() {
-    let newTaskPopup = localStorage.getItem("reloadingNewPopup");
-    let editTaskPopup = localStorage.getItem("reloadingEditPopup");
+function checkReload() {
+    let newTaskPopup = localStorage.getItem('reloadingNewPopup');
+    let editTaskPopup = localStorage.getItem('reloadingEditPopup');
     if (newTaskPopup) {
-        localStorage.removeItem("reloadingNewPopup");
+        localStorage.removeItem('reloadingNewPopup');
         slidePopupIntoView('created-task-popup');
     }
     if (editTaskPopup) {
-        localStorage.removeItem("reloadingEditPopup");
+        localStorage.removeItem('reloadingEditPopup');
         slidePopupIntoView('edited-task-popup');
     }
-  }
+}

@@ -1,131 +1,156 @@
 <!DOCTYPE html>
 <html lang="de">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="icon" href="./assets/img/logo_join.png" type="image/png" />
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="stylesheet" href="./css/fontFamily.css" />
-        <link rel="stylesheet" href="./css/main.css" />
-        <link rel="stylesheet" href="./css/login.css" />
+    <link rel="icon" href="./assets/img/logo_join.png" type="image/png" />
 
-        <script src="./js/main.js"></script>
-        <script src="./js/mini_backend.js"></script>
-        <script src="./js/login.js"></script>
+    <link rel="stylesheet" href="./css/fontFamily.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/login.css" />
 
-        <title>Join - Login</title>
-    </head>
-    <body onload="loginInit()">
-        <div id="login-page">
-            <img id="login-logo-white" src="./assets/img/login_logo_white.png" alt="Join Logo" />
-            <img id="login-logo-blue" class="no-opacity" src="./assets/img/login_logo_blue.png" alt="Join Logo" />
-            <div id="login-signup-box" class="no-opacity">
-                <span class="signup-text">Not a Join user?</span>
-                <button class="login-button-blue signup-button" onclick="showSignUpBox()">Sign up</button>
-            </div>
-            <!-- login box -->
-            <div id="login-box" class="login-box no-opacity">
-                <span class="login-box-headline">Log in</span>
-                <form class="login-form" onsubmit="loginUser(); return false;">
-                    <div class="login-input-box">
-                        <input id="login-input-email" class="login-input" type="email" placeholder="Email" onkeydown="hideLoginFaultMail()" required />
-                        <img class="login-icon" src="./assets/img/icons/icon_email.png" alt="E-Mail" />
-                    </div>
-                    <div class="login-input-box">
-                        <input id="login-input-password" class="login-input" type="password" placeholder="Password" onkeyup="showVisibilityIcon('login')" required />
-                        <img id="login-icon-password" class="login-icon" src="./assets/img/icons/icon_password.png" alt="Password" />
-                        <img id="login-icon-password-visibility" class="login-icon visibility-icon d-none" src="./assets/img/icons/icon_password_nonvisible.png" alt="Password" onclick="setInputToText('login')" />
-                        <div id="login-fault-password" class="login-fault d-none">Wrong password</div>
-                        <div id="login-fault-email" class="login-fault d-none">This Email is not signed up yet. Please sign up first.</div>
-                    </div>
-                    <div class="login-options">
-                        <label class="checkbox">
-                            <input type="checkbox" />
-                            <span class="checkmark">Remember me</span>
-                        </label>
-                        <span class="login-forgot" onclick="showForgotBox()">Forgot my password</span>
-                    </div>
-                    <div class="login-button">
-                        <button class="login-button-blue">Log in</button>
-                        <button class="login-button-white" onclick="loginGuest()">Guest log in</button>
-                    </div>
-                </form>
-            </div>
-            <!-- sign up box -->
-            <div id="signup-box" class="login-box d-none">
-                <img src="./assets/img/arrow_left.png" alt="Back" class="arrow-back" onclick="backToLoginBox()" />
-                <span class="login-box-headline">Sign up</span>
-                <form class="login-form" onsubmit="signUpNewUser(); return false;">
-                    <div class="login-input-box">
-                        <input id="signup-input-name" class="login-input" type="text" placeholder="Name" required />
-                        <img class="login-icon" src="./assets/img/icons/icon_name.png" alt="Name" />
-                    </div>
-                    <div class="login-input-box">
-                        <input id="signup-input-email" class="login-input" type="email" placeholder="Email" required />
-                        <img class="login-icon" src="./assets/img/icons/icon_email.png" alt="E-Mail" />
-                    </div>
-                    <div class="login-input-box">
-                        <input id="signup-input-password" class="login-input" type="password" placeholder="Password" onkeyup="showVisibilityIcon('signup')" required minlength="8" />
-                        <img id="signup-icon-password" class="login-icon" src="./assets/img/icons/icon_password.png" alt="Password" />
-                        <img id="signup-icon-password-visibility" class="login-icon visibility-icon d-none" src="./assets/img/icons/icon_password_nonvisible.png" alt="Password" onclick="setInputToText('signup')" />
-                    </div>
-                    <div class="login-button">
-                        <button class="login-button-blue">Sign up</button>
-                    </div>
-                </form>
-            </div>
-            <!-- forgot password box -->
-            <div id="forgot-box" class="login-box d-none">
-                <img src="./assets/img/arrow_left.png" alt="Back" class="arrow-back" onclick="backToLoginBox()" />
-                <span class="login-box-headline forgot-headline">Forgot my password</span>
-                <form class="login-form" onsubmit="sendResetEmail(); return false;">
-                    <p class="forgot-box-text">Don't worry! We will send you an email with the instructions to reset your password.</p>
-                    <div class="login-input-box">
-                        <input id="forgot-input-email" class="login-input" type="email" placeholder="Email" onkeyup="hideFault('forgot')" required />
-                        <img class="login-icon" src="./assets/img/icons/icon_email.png" alt="E-Mail" />
-                        <div id="forgot-fault" class="d-none">This Email is not signed up yet</div>
-                    </div>
+    <script src="./js/main.js"></script>
+    <script src="./js/mini_backend.js"></script>
+    <script src="./js/login.js"></script>
 
-                    <div class="login-button">
-                        <button class="login-button-blue forgot-button">Send me the email</button>
-                    </div>
-                </form>
-            </div>
-            <!-- reset box -->
-            <div id="reset-box" class="login-box d-none">
-                <img src="./assets/img/arrow_left.png" alt="Back" class="arrow-back" onclick="backToLoginBox()" />
-                <span class="login-box-headline reset-headline">Reset your password</span>
-                <form class="login-form" onsubmit="resetPassword(); return false;">
-                    <p class="reset-box-text">Change your account password here</p>
-                    <div class="login-input-box">
-                        <input id="resetNew-input-password" class="login-input" type="password" placeholder="New password" onkeyup="showVisibilityIcon('resetNew')" required minlength="8" />
-                        <img id="resetNew-icon-password" class="login-icon" src="./assets/img/icons/icon_password.png" alt="Password" />
-                        <img id="resetNew-icon-password-visibility" class="login-icon visibility-icon d-none" src="./assets/img/icons/icon_password_nonvisible.png" alt="Password" onclick="setInputToText('resetNew')" />
-                    </div>
-                    <div class="login-input-box">
-                        <input id="resetConf-input-password" class="login-input" type="password" placeholder="Confirm password" onkeyup="showVisibilityIcon('resetConf'); matchResetPasswords();" />
-                        <img id="resetConf-icon-password" class="login-icon" src="./assets/img/icons/icon_password.png" alt="Password" />
-                        <img id="resetConf-icon-password-visibility" class="login-icon visibility-icon d-none" src="./assets/img/icons/icon_password_nonvisible.png" alt="Password" onclick="setInputToText('resetConf')" />
-                        <div id="reset-fault" class="d-none">Make sure the second password you typed matches the first</div>
-                        <div id="reset-accept" class="d-none">Both passwords match</div>
-                    </div>
-                    <div class="login-button">
-                        <button id="reset-button" class="login-button-blue forgot-button deactivated-button">Continue</button>
-                    </div>
-                </form>
-            </div>
+    <title>Join - Login</title>
+</head>
 
-            <div id="signup-popup" class="popup">
-                <span>Your account has been successfully created</span>
-            </div>
-            <div id="forgot-popup" class="popup popup-white">
-                <span>We have sent you an email. Check your inbox.</span>
-            </div>
-            <div id="reset-popup" class="popup">
-                <span>Your password has been successfully changed</span>
-            </div>
+<body onload="loginInit()">
+    <div id="login-page">
+        <img id="login-logo-white" src="./assets/img/login_logo_white.png" alt="Join Logo" />
+        <img id="login-logo-blue" class="no-opacity" src="./assets/img/login_logo_blue.png" alt="Join Logo" />
+        <div id="login-signup-box" class="no-opacity">
+            <span class="signup-text">Not a Join user?</span>
+            <button class="login-button-blue signup-button" onclick="showSignUpBox()">Sign up</button>
         </div>
-    </body>
+        <!-- login box -->
+        <div id="login-box" class="login-box no-opacity">
+            <span class="login-box-headline">Log in</span>
+            <form class="login-form" onsubmit="loginUser(); return false;">
+                <div class="login-input-box">
+                    <input id="login-input-email" class="login-input" type="email" placeholder="Email"
+                        onkeydown="hideLoginFaultMail()" required />
+                    <img class="login-icon" src="./assets/img/icons/icon_email.png" alt="E-Mail" />
+                </div>
+                <div class="login-input-box">
+                    <input id="login-input-password" class="login-input" type="password" placeholder="Password"
+                        onkeyup="showVisibilityIcon('login')" required />
+                    <img id="login-icon-password" class="login-icon" src="./assets/img/icons/icon_password.png"
+                        alt="Password" />
+                    <img id="login-icon-password-visibility" class="login-icon visibility-icon d-none"
+                        src="./assets/img/icons/icon_password_nonvisible.png" alt="Password"
+                        onclick="setInputToText('login')" />
+                    <div id="login-fault-password" class="login-fault d-none">Wrong password</div>
+                    <div id="login-fault-email" class="login-fault d-none">This Email is not signed up yet. Please sign
+                        up first.</div>
+                </div>
+                <div class="login-options">
+                    <label class="checkbox">
+                        <input type="checkbox" />
+                        <span class="checkmark">Remember me</span>
+                    </label>
+                    <span class="login-forgot" onclick="showForgotBox()">Forgot my password</span>
+                </div>
+                <div class="login-button">
+                    <button class="login-button-blue">Log in</button>
+                    <button class="login-button-white" onclick="loginGuest()">Guest log in</button>
+                </div>
+            </form>
+        </div>
+        <!-- sign up box -->
+        <div id="signup-box" class="login-box d-none">
+            <img src="./assets/img/arrow_left.png" alt="Back" class="arrow-back" onclick="backToLoginBox()" />
+            <span class="login-box-headline">Sign up</span>
+            <form class="login-form" onsubmit="signUpNewUser(); return false;">
+                <div class="login-input-box">
+                    <input id="signup-input-name" class="login-input" type="text" placeholder="Name" required />
+                    <img class="login-icon" src="./assets/img/icons/icon_name.png" alt="Name" />
+                </div>
+                <div class="login-input-box">
+                    <input id="signup-input-email" class="login-input" type="email" placeholder="Email" required />
+                    <img class="login-icon" src="./assets/img/icons/icon_email.png" alt="E-Mail" />
+                </div>
+                <div class="login-input-box">
+                    <input id="signup-input-password" class="login-input" type="password" placeholder="Password"
+                        onkeyup="showVisibilityIcon('signup')" required minlength="8" />
+                    <img id="signup-icon-password" class="login-icon" src="./assets/img/icons/icon_password.png"
+                        alt="Password" />
+                    <img id="signup-icon-password-visibility" class="login-icon visibility-icon d-none"
+                        src="./assets/img/icons/icon_password_nonvisible.png" alt="Password"
+                        onclick="setInputToText('signup')" />
+                </div>
+                <div class="login-button">
+                    <button class="login-button-blue">Sign up</button>
+                </div>
+            </form>
+        </div>
+        <!-- forgot password box -->
+        <div id="forgot-box" class="login-box d-none">
+            <img src="./assets/img/arrow_left.png" alt="Back" class="arrow-back" onclick="backToLoginBox()" />
+            <span class="login-box-headline forgot-headline">Forgot my password</span>
+            <form class="login-form" onsubmit="sendResetEmail(); return false;">
+                <p class="forgot-box-text">Don't worry! We will send you an email with the instructions to reset your
+                    password.</p>
+                <div class="login-input-box">
+                    <input id="forgot-input-email" class="login-input" type="email" placeholder="Email"
+                        onkeyup="hideFault('forgot')" required />
+                    <img class="login-icon" src="./assets/img/icons/icon_email.png" alt="E-Mail" />
+                    <div id="forgot-fault" class="d-none">This Email is not signed up yet</div>
+                </div>
+
+                <div class="login-button">
+                    <button class="login-button-blue forgot-button">Send me the email</button>
+                </div>
+            </form>
+        </div>
+        <!-- reset box -->
+        <div id="reset-box" class="login-box d-none">
+            <img src="./assets/img/arrow_left.png" alt="Back" class="arrow-back" onclick="backToLoginBox()" />
+            <span class="login-box-headline reset-headline">Reset your password</span>
+            <form class="login-form" onsubmit="resetPassword(); return false;">
+                <p class="reset-box-text">Change your account password here</p>
+                <div class="login-input-box">
+                    <input id="resetNew-input-password" class="login-input" type="password" placeholder="New password"
+                        onkeyup="showVisibilityIcon('resetNew')" required minlength="8" />
+                    <img id="resetNew-icon-password" class="login-icon" src="./assets/img/icons/icon_password.png"
+                        alt="Password" />
+                    <img id="resetNew-icon-password-visibility" class="login-icon visibility-icon d-none"
+                        src="./assets/img/icons/icon_password_nonvisible.png" alt="Password"
+                        onclick="setInputToText('resetNew')" />
+                </div>
+                <div class="login-input-box">
+                    <input id="resetConf-input-password" class="login-input" type="password"
+                        placeholder="Confirm password"
+                        onkeyup="showVisibilityIcon('resetConf'); matchResetPasswords();" />
+                    <img id="resetConf-icon-password" class="login-icon" src="./assets/img/icons/icon_password.png"
+                        alt="Password" />
+                    <img id="resetConf-icon-password-visibility" class="login-icon visibility-icon d-none"
+                        src="./assets/img/icons/icon_password_nonvisible.png" alt="Password"
+                        onclick="setInputToText('resetConf')" />
+                    <div id="reset-fault" class="d-none">Make sure the second password you typed matches the first</div>
+                    <div id="reset-accept" class="d-none">Both passwords match</div>
+                </div>
+                <div class="login-button">
+                    <button id="reset-button"
+                        class="login-button-blue forgot-button deactivated-button">Continue</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="signup-popup" class="popup">
+            <span>Your account has been successfully created</span>
+        </div>
+        <div id="forgot-popup" class="popup popup-white">
+            <span>We have sent you an email. Check your inbox.</span>
+        </div>
+        <div id="reset-popup" class="popup">
+            <span>Your password has been successfully changed</span>
+        </div>
+    </div>
+</body>
+
 </html>
