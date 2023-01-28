@@ -73,7 +73,7 @@ async function addUsertaskInTask() {
  * @param {string} value of priority
  */
 function prioritySelectedEdit(i) {
-    if (i == 'Hard') {
+    if (i == 'hard') {
         prioritySelect = 'hard';
         document.getElementById('importanceEditIMGHard').classList.remove('importanceHard');
         document.getElementById('importanceEditIMGLow').classList.add('importanceLow');
@@ -82,7 +82,7 @@ function prioritySelectedEdit(i) {
         document.getElementById('importanceEditIMGMid').src = './assets/img/taskValueMid.png';
         document.getElementById('importanceEditIMGLow').src = './assets/img/taskValueLow.png';
     }
-    if (i == 'Mid') {
+    if (i == 'mid') {
         prioritySelect = 'mid';
         document.getElementById('importanceEditIMGMid').classList.remove('importanceMid');
         document.getElementById('importanceEditIMGLow').classList.add('importanceLow');
@@ -91,7 +91,7 @@ function prioritySelectedEdit(i) {
         document.getElementById('importanceEditIMGMid').src = './assets/img/taskValueMidSelected.png';
         document.getElementById('importanceEditIMGLow').src = './assets/img/taskValueLow.png';
     }
-    if (i == 'Low') {
+    if (i == 'low') {
         prioritySelect = 'low';
         document.getElementById('importanceEditIMGLow').classList.remove('importanceLow');
         document.getElementById('importanceEditIMGMid').classList.add('importanceMid');

@@ -249,21 +249,21 @@ function editPopupTask(ident) {
               class="importanceHard"
               id="importanceEditIMGHard"
               value="taskHard"
-              onclick="prioritySelectedEdit('Hard')"
+              onclick="prioritySelectedEdit('hard')"
               src="./assets/img/taskValueHard.png"
             />
             <img
               class="importanceMid"
               id="importanceEditIMGMid"
               value="taskMid"
-              onclick="prioritySelectedEdit('Mid')"
+              onclick="prioritySelectedEdit('mid')"
               src="./assets/img/taskValueMid.png"
             />
             <img
               class="importanceLow"
               id="importanceEditIMGLow"
               value="taskLow"
-              onclick="prioritySelectedEdit('Low')"
+              onclick="prioritySelectedEdit('low')"
               src="./assets/img/taskValueLow.png"
             />
             </div>
