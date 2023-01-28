@@ -1,5 +1,5 @@
 <div id="popup-addTask" class="d-none" onclick="stopPropagate(event)">
-    <img class="popup-close-icon-gray" src="./assets/img/icons/XIconGray.png" alt="Close" onclick="hidePopUps()" />
+    <img class="popup-close-icon-gray" src="./assets/img/icons/xIconGray.png" alt="Close" onclick="hidePopUps()" />
     <div id="addTaskButtonValue" class="popup-addTask-top"></div>
     <div class="inputFields">
         <form>
@@ -17,7 +17,8 @@
             <div id="mistakeReportContact"></div>
             <h3>Due date</h3>
             <i class="fa-regular fa-calendar-minus fa-xl"></i>
-            <input id="selectDate" type="text" placeholder="dd/mm/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')" required />
+            <input id="selectDate" type="text" placeholder="dd/mm/yyyy" onfocus="(this.type='date')"
+                onblur="(this.type='text')" required />
             <div id="mistakeReportDate"></div>
             <h3>Category</h3>
             <div id="selectorCategory">
@@ -31,9 +32,12 @@
                 <div id="mistakeReportCategory"></div>
             </div>
             <div id="importanceLvl">
-                <img class="importanceHard" id="importanceIMGHard" value="taskHard" onclick="prioritySelected(1)" src="./assets/img/TaskValueHard.png" />
-                <img class="importanceMid" id="importanceIMGMid" value="taskMid" onclick="prioritySelected(2)" src="./assets/img/TaskValueMid.png" />
-                <img class="importanceLow" id="importanceIMGLow" value="taskLow" onclick="prioritySelected(3)" src="./assets/img/TaskValueLow.png" />
+                <img class="importanceHard" id="importanceIMGHard" value="taskHard" onclick="prioritySelected(1)"
+                    src="./assets/img/taskValueHard.png" />
+                <img class="importanceMid" id="importanceIMGMid" value="taskMid" onclick="prioritySelected(2)"
+                    src="./assets/img/taskValueMid.png" />
+                <img class="importanceLow" id="importanceIMGLow" value="taskLow" onclick="prioritySelected(3)"
+                    src="./assets/img/taskValueLow.png" />
                 <div id="mistakeReportImportance"></div>
             </div>
             <h3>Description</h3>

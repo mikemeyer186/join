@@ -78,27 +78,27 @@ function prioritySelectedEdit(i) {
         document.getElementById('importanceEditIMGHard').classList.remove('importanceHard');
         document.getElementById('importanceEditIMGLow').classList.add('importanceLow');
         document.getElementById('importanceEditIMGMid').classList.add('importanceMid');
-        document.getElementById('importanceEditIMGHard').src = './assets/img/TaskValueHardSelected.png';
-        document.getElementById('importanceEditIMGMid').src = './assets/img/TaskValueMid.png';
-        document.getElementById('importanceEditIMGLow').src = './assets/img/TaskValueLow.png';
+        document.getElementById('importanceEditIMGHard').src = './assets/img/taskValueHardSelected.png';
+        document.getElementById('importanceEditIMGMid').src = './assets/img/taskValueMid.png';
+        document.getElementById('importanceEditIMGLow').src = './assets/img/taskValueLow.png';
     }
     if (i == 'Mid') {
         prioritySelect = 'Mid';
         document.getElementById('importanceEditIMGMid').classList.remove('importanceMid');
         document.getElementById('importanceEditIMGLow').classList.add('importanceLow');
         document.getElementById('importanceEditIMGHard').classList.add('importanceHard');
-        document.getElementById('importanceEditIMGHard').src = './assets/img/TaskValueHard.png';
-        document.getElementById('importanceEditIMGMid').src = './assets/img/TaskValueMidSelected.png';
-        document.getElementById('importanceEditIMGLow').src = './assets/img/TaskValueLow.png';
+        document.getElementById('importanceEditIMGHard').src = './assets/img/taskValueHard.png';
+        document.getElementById('importanceEditIMGMid').src = './assets/img/taskValueMidSelected.png';
+        document.getElementById('importanceEditIMGLow').src = './assets/img/taskValueLow.png';
     }
     if (i == 'Low') {
         prioritySelect = 'Low';
         document.getElementById('importanceEditIMGLow').classList.remove('importanceLow');
         document.getElementById('importanceEditIMGMid').classList.add('importanceMid');
         document.getElementById('importanceEditIMGHard').classList.add('importanceHard');
-        document.getElementById('importanceEditIMGHard').src = './assets/img/TaskValueHard.png';
-        document.getElementById('importanceEditIMGMid').src = './assets/img/TaskValueMid.png';
-        document.getElementById('importanceEditIMGLow').src = './assets/img/TaskValueLowSelected.png';
+        document.getElementById('importanceEditIMGHard').src = './assets/img/taskValueHard.png';
+        document.getElementById('importanceEditIMGMid').src = './assets/img/taskValueMid.png';
+        document.getElementById('importanceEditIMGLow').src = './assets/img/taskValueLowSelected.png';
     }
 }
 
