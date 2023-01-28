@@ -246,7 +246,7 @@ function addCategory() {
  */
 function prioritySelected(i) {
     if (i == 1) {
-        prioritySelect = 'Hard';
+        prioritySelect = 'hard';
         document.getElementById('importanceIMGHard').classList.remove('importanceHard');
         document.getElementById('importanceIMGLow').classList.add('importanceLow');
         document.getElementById('importanceIMGMid').classList.add('importanceMid');
@@ -255,7 +255,7 @@ function prioritySelected(i) {
         document.getElementById('importanceIMGLow').src = './assets/img/taskValueLow.png';
     }
     if (i == 2) {
-        prioritySelect = 'Mid';
+        prioritySelect = 'mid';
         document.getElementById('importanceIMGMid').classList.remove('importanceMid');
         document.getElementById('importanceIMGLow').classList.add('importanceLow');
         document.getElementById('importanceIMGHard').classList.add('importanceHard');
@@ -264,7 +264,7 @@ function prioritySelected(i) {
         document.getElementById('importanceIMGLow').src = './assets/img/taskValueLow.png';
     }
     if (i == 3) {
-        prioritySelect = 'Low';
+        prioritySelect = 'low';
         document.getElementById('importanceIMGLow').classList.remove('importanceLow');
         document.getElementById('importanceIMGMid').classList.add('importanceMid');
         document.getElementById('importanceIMGHard').classList.add('importanceHard');

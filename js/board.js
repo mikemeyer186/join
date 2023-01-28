@@ -74,7 +74,7 @@ async function addUsertaskInTask() {
  */
 function prioritySelectedEdit(i) {
     if (i == 'Hard') {
-        prioritySelect = 'Hard';
+        prioritySelect = 'hard';
         document.getElementById('importanceEditIMGHard').classList.remove('importanceHard');
         document.getElementById('importanceEditIMGLow').classList.add('importanceLow');
         document.getElementById('importanceEditIMGMid').classList.add('importanceMid');
@@ -83,7 +83,7 @@ function prioritySelectedEdit(i) {
         document.getElementById('importanceEditIMGLow').src = './assets/img/taskValueLow.png';
     }
     if (i == 'Mid') {
-        prioritySelect = 'Mid';
+        prioritySelect = 'mid';
         document.getElementById('importanceEditIMGMid').classList.remove('importanceMid');
         document.getElementById('importanceEditIMGLow').classList.add('importanceLow');
         document.getElementById('importanceEditIMGHard').classList.add('importanceHard');
@@ -92,7 +92,7 @@ function prioritySelectedEdit(i) {
         document.getElementById('importanceEditIMGLow').src = './assets/img/taskValueLow.png';
     }
     if (i == 'Low') {
-        prioritySelect = 'Low';
+        prioritySelect = 'low';
         document.getElementById('importanceEditIMGLow').classList.remove('importanceLow');
         document.getElementById('importanceEditIMGMid').classList.add('importanceMid');
         document.getElementById('importanceEditIMGHard').classList.add('importanceHard');
