@@ -9,11 +9,14 @@
     <div id="selectorContact">
         <div onclick="renderingContactsSelectorPopup(localStorage.getItem('contactIndex'))"
             class="selectorHeader pointer">
-            Select contacts to assign
+            <div>
+                <span>Selected contacts to assign</span>
+                <span id="selectorContactAssigned"></span>
+            </div>
             <img class="selectorArrow" src="./assets/img/selectorArrow.png" />
         </div>
         <div id="selectorContactRenderPopup">
-            <!-- renderzone for contact selctor -->
+            <!-- renderzone for contact selector -->
         </div>
     </div>
     <div id="mistakeReportContact"></div>

@@ -137,7 +137,7 @@ function addContactToUser() {
 }
 
 /**
- * adding new contact to user account and show details
+ * adding new contact to user account
  */
 function addContactToUserFromTask() {
     let inputName = document.getElementById('selectContact');
@@ -155,8 +155,10 @@ function addContactToUserFromTask() {
     userAccounts[activeUser].userContacts.push(contactObject);
     saveAccountsToBackend();
     rechangeContactInput();
-    selectorContactIndex--;
-    renderingContactsSelector();
+    selectorContactIndex = 0;
+    addNewContactToSelector(userAccounts[activeUser].userContacts.length - 1);
+    //renderingContactsSelectorPopup();
+    showAssignedContacts();
 }
 
 /**
@@ -398,6 +400,29 @@ function showAddTaskPopup() {
     document.getElementById('selectorContactRenderPopup').innerHTML = ``;
     document.getElementById('addTaskPopup').classList.toggle('translate0');
     document.getElementById('mobiletaskheader').classList.toggle('headerSlideIn');
+    showAssignedContacts();
+}
+
+/**
+ * adding new contact to selected contacts of task
+ * @param {number} contactIndex - index of new conact in userContacts
+ */
+function addNewContactToSelector(contactIndex) {
+    let activeUserContacts = userAccounts[activeUser].userContacts;
+    newContactCheckedValue = {
+        contactName: activeUserContacts[contactIndex].contactName,
+        abbreviation: activeUserContacts[contactIndex].contactInitials,
+        paint: activeUserContacts[contactIndex].contactColor,
+    };
+    contactCheckedValue.push(newContactCheckedValue);
+    showAssignedContacts();
+}
+
+/**
+ * showing assigned contacts in task popup
+ */
+function showAssignedContacts() {
+    document.getElementById('selectorContactAssigned').innerHTML = contactCheckedValue.length;
 }
 
 /**
@@ -406,13 +431,12 @@ function showAddTaskPopup() {
 function renderingContactsSelectorPopup(index) {
     let activeUserContacts = userAccounts[activeUser].userContacts;
     let selectorContactPopup = document.getElementById('selectorContactRenderPopup');
+    selectorContactPopup.innerHTML = ``;
 
     if (selectorContactIndex == 0) {
-        document.getElementById('selectorContactRenderPopup').innerHTML = ``;
         fillContactPopUp(activeUserContacts, selectorContactPopup);
         selectorContactIndex++;
     } else {
-        selectorContactPopup.innerHTML = ``;
         selectorContactIndex--;
     }
 }
@@ -461,6 +485,7 @@ function selectedContactPopup(contactname, initiales, color, number) {
     } else {
         pushContact(contactname, initiales, color, number);
     }
+    showAssignedContacts();
 }
 
 /**

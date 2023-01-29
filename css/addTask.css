@@ -1,32 +1,39 @@
-body{
+body {
   overflow-x: hidden;
   overflow-y: auto;
 }
+
 form {
   display: flex;
   flex-direction: column;
 }
+
 form input {
   padding: 10px 20px;
   width: 500px;
   margin-bottom: 20px;
 }
+
 form h3 {
   color: #42526e;
   margin-top: 20px;
   margin-bottom: 0;
 }
+
 input[type="date"] {
   position: relative;
 }
+
 input[type="date"]:after {
-  content: "\25BC"; 
+  content: "\25BC";
   color: #555;
   padding: 0 5px;
 }
+
 input[type="date"]:hover:after {
   color: #bf1400;
 }
+
 input[type="date"]::-webkit-calendar-picker-indicator {
   position: absolute;
   top: 0;
@@ -38,130 +45,152 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   color: transparent;
   background: transparent;
 }
+
 input[type="date"]::-webkit-inner-spin-button {
   z-index: 1;
 }
+
 input[type="date"]::-webkit-clear-button {
-   z-index: 1;
+  z-index: 1;
 }
+
 #selectorContactRender {
   max-height: 200px;
   overflow-y: scroll;
 }
+
 #page-container {
   height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
   position: relative;
 }
+
 .overflowHidden {
   overflow: hidden !important;
 }
+
 #mistakeReportCategory {
-  color: rgba(235, 0, 0, 0.699); 
-  margin-left: 20px; 
-  margin-top: 10px; 
-  margin-bottom: 0; 
-  padding: 0; 
+  color: rgba(235, 0, 0, 0.699);
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 0;
+  padding: 0;
 }
-#mistakeReportDate{
-  color: rgba(235, 0, 0, 0.699); 
-  margin-left: 20px; 
-  margin-top: 10px; 
-  margin-bottom: 0; 
-  padding: 0; 
+
+#mistakeReportDate {
+  color: rgba(235, 0, 0, 0.699);
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 0;
+  padding: 0;
 }
+
 #mistakeReportImportance {
-  color: rgba(235, 0, 0, 0.699); 
-  margin-left: 20px; 
-  margin-top: 10px; 
-  margin-bottom: 0; 
+  color: rgba(235, 0, 0, 0.699);
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 0;
   padding: 0;
 }
+
 #mistakeReportTitle {
-  color: rgba(235, 0, 0, 0.699); 
-  margin-left: 20px; 
-  margin-top: 0px; 
-  margin-bottom: 0; 
+  color: rgba(235, 0, 0, 0.699);
+  margin-left: 20px;
+  margin-top: 0px;
+  margin-bottom: 0;
   padding: 0;
 }
+
 #mistakeReportContact {
-  color: rgba(235, 0, 0, 0.699); 
-  margin-left: 20px; 
-  margin-top: 10px; 
-  margin-bottom: 0; 
+  color: rgba(235, 0, 0, 0.699);
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 0;
   padding: 0;
 }
+
 #mistakeReportCategory {
-  color: rgba(235, 0, 0, 0.699); 
-  margin-left: 20px; 
-  margin-top: 10px; 
-  margin-bottom: 0; 
+  color: rgba(235, 0, 0, 0.699);
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 0;
   padding: 0;
 }
+
 #mistakeReportDescription {
-  color: rgba(235, 0, 0, 0.699); 
-  margin-left: 10px; 
-  margin-top: 0px; 
-  margin-bottom: 20px; 
+  color: rgba(235, 0, 0, 0.699);
+  margin-left: 10px;
+  margin-top: 0px;
+  margin-bottom: 20px;
   padding: 0;
 }
+
 #mistakeReportsubtask {
-  color: rgba(235, 0, 0, 0.699); 
-  margin-left: 10px; 
-  margin-top: 0px; 
-  margin-bottom: 0; 
+  color: rgba(235, 0, 0, 0.699);
+  margin-left: 10px;
+  margin-top: 0px;
+  margin-bottom: 0;
   padding: 0;
 }
+
 .selectorArrow {
   width: 10px;
   height: 10px;
-  margin-right: 10px; 
+  margin-right: 10px;
 }
-.thisColor{
+
+.thisColor {
   position: relative;
   bottom: 43px;
-  left: -20px; 
+  left: -20px;
 }
-.selected{
+
+.selected {
   gap: 20px;
-  display: flex; 
+  display: flex;
   align-items: center;
 }
+
 .selectorHeader {
-  display: flex; 
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 10px; 
-  margin-top: 20px; 
-  padding-left: 20px; 
+  padding-bottom: 10px;
+  margin-top: 20px;
+  padding-left: 20px;
   font-size: 20px;
   border: 1px solid #d1d1d1;
-  border-top: none; 
-  border-left: none; 
-  border-right: none; 
+  border-top: none;
+  border-left: none;
+  border-right: none;
   width: 500px;
 }
+
 .selectorCell {
   padding-top: 10px;
-  padding-bottom: 10px; 
-  padding-left: 20px;  
-  font-size: 20px; 
-  display: flex; 
+  padding-bottom: 10px;
+  padding-left: 20px;
+  font-size: 20px;
+  display: flex;
   justify-content: start;
   align-items: center;
 }
+
 .selectorCell:hover {
   transition: 500ms;
   background-color: #D2E3FF;
 }
+
 .selectorCell img {
-  padding-top: 3px; 
-  margin-left: 20px; 
+  padding-top: 3px;
+  margin-left: 20px;
 }
+
 .boardContent {
   height: 60vh;
 }
+
 #inputTitle {
   font-size: 40px;
   border: 1px solid #d1d1d1;
@@ -169,6 +198,7 @@ input[type="date"]::-webkit-clear-button {
   border-left: none;
   border-right: none;
 }
+
 #inputTitleEdit {
   font-size: 40px;
   border: 1px solid #d1d1d1;
@@ -176,17 +206,21 @@ input[type="date"]::-webkit-clear-button {
   border-left: none;
   border-right: none;
 }
+
 .inputFields input::placeholder {
   color: #d1d1d1;
 }
+
 .inputFields {
   width: 500px;
   margin-left: 40px;
   padding-bottom: 50px;
 }
+
 #importanceLvl {
   margin-top: 30px;
 }
+
 #selectDate {
   border: 1px solid #d1d1d1;
   margin-top: 0;
@@ -195,6 +229,7 @@ input[type="date"]::-webkit-clear-button {
   border-right: none;
   font-size: 20px;
 }
+
 #selectDateEdit {
   border: 1px solid #d1d1d1;
   margin-top: 0;
@@ -203,9 +238,11 @@ input[type="date"]::-webkit-clear-button {
   border-right: none;
   font-size: 20px;
 }
+
 .selectDate::placeholder {
   color: gray;
 }
+
 #inputDescription {
   border-style: solid;
   border: 1px solid #d1d1d1;
@@ -219,6 +256,7 @@ input[type="date"]::-webkit-clear-button {
   border-bottom-left-radius: 0.5em;
   border-bottom-right-radius: 0.5em;
 }
+
 #inputDescriptionEdit {
   border-style: solid;
   border: 1px solid #d1d1d1;
@@ -232,54 +270,66 @@ input[type="date"]::-webkit-clear-button {
   border-bottom-left-radius: 0.5em;
   border-bottom-right-radius: 0.5em;
 }
+
 #subtaskTitle {
   margin-top: 0px !important;
 }
+
 #subtaskText {
   margin-bottom: 8px;
   border-top: none;
   border-left: none;
   border-right: none;
 }
+
 #subtaskText::placeholder {
   font-size: 16px;
 }
+
 .taskFooter {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 #addSubtaskCheckbox input {
   border-color: #4589ff;
   margin-right: 20px;
   width: 16px;
 }
+
 #addSubtaskCheckbox {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
 }
+
 .subtaskList {
   display: flex;
   margin-top: 10px;
 }
+
 .subtaskList input {
   margin: 0;
   padding: 0;
 }
+
 .subtaskList p {
   margin: 0;
   padding: 0;
 }
+
 .taskFooterButtons {
-  display: flex; 
+  display: flex;
   position: fixed;
   top: 90vh;
-  left: 73vw; 
+  left: 73vw;
 }
+
 .taskFooterButtons button {
   margin-left: 25px;
 }
+
 #buttonClear {
   padding: 15px 30px;
   border-style: solid;
@@ -290,6 +340,7 @@ input[type="date"]::-webkit-clear-button {
   border: 1px solid #647188;
   border-color: #647188;
 }
+
 #buttonCreate {
   padding: 15px 20px;
   color: white;
@@ -298,12 +349,15 @@ input[type="date"]::-webkit-clear-button {
   border-radius: 0.5em;
   border: none;
 }
+
 #buttonCreate:hover {
   cursor: pointer;
 }
+
 #buttonClear:hover {
   cursor: pointer;
 }
+
 #selectContact {
   margin-top: 10px;
   border: 1px solid #d1d1d1;
@@ -311,12 +365,19 @@ input[type="date"]::-webkit-clear-button {
   border-left: none;
   border-right: none;
 }
+
+#selectContact::placeholder {
+  font-size: 18px;
+}
+
 #newContactText::placeholder {
   font-size: 16px;
 }
+
 #newCategoryText::placeholder {
   font-size: 16px;
 }
+
 #newCategoryText {
   font-size: 20px;
   margin-top: 15px;
@@ -326,6 +387,7 @@ input[type="date"]::-webkit-clear-button {
   border-left: none;
   border-right: none;
 }
+
 .importanceHard {
   border: 2px solid #ffffff;
   border-bottom-left-radius: 1em;
@@ -334,6 +396,7 @@ input[type="date"]::-webkit-clear-button {
   border-left: none;
   border-right: none;
 }
+
 .importanceMid {
   border: 2px solid #ffffff;
   border-bottom-left-radius: 1em;
@@ -342,6 +405,7 @@ input[type="date"]::-webkit-clear-button {
   border-left: none;
   border-right: none;
 }
+
 .importanceLow {
   border: 2px solid #ffffff;
   border-bottom-left-radius: 1em;
@@ -350,6 +414,7 @@ input[type="date"]::-webkit-clear-button {
   border-left: none;
   border-right: none;
 }
+
 .importanceHard:hover {
   border: 2px solid #ff3d00;
   border-bottom-left-radius: 1em;
@@ -359,6 +424,7 @@ input[type="date"]::-webkit-clear-button {
   border-right: none;
   cursor: pointer;
 }
+
 .importanceMid:hover {
   border: 2px solid #ffa800;
   border-bottom-left-radius: 1em;
@@ -368,6 +434,7 @@ input[type="date"]::-webkit-clear-button {
   border-right: none;
   cursor: pointer;
 }
+
 .importanceLow:hover {
   border: 2px solid #7ae229;
   border-bottom-left-radius: 1em;
@@ -377,19 +444,23 @@ input[type="date"]::-webkit-clear-button {
   border-right: none;
   cursor: pointer;
 }
+
 .inputCategory {
   display: flex;
   flex-direction: column;
 }
+
 .categoryColor:hover {
   cursor: pointer;
   border-radius: 3em;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+
 .checkSelector {
   width: 20px;
   position: relative;
 }
+
 .fa-calendar-minus {
   color: #4589ff;
   position: relative;
@@ -397,91 +468,108 @@ input[type="date"]::-webkit-clear-button {
   left: 470px;
   top: 35px;
 }
+
 .fa-check {
   padding-left: 10px;
   padding-top: 3px;
   width: 23px;
   color: #4589ff;
 }
+
 .checkAndCrossIcons {
   display: flex;
   position: relative;
   top: 33px;
   left: 430px;
 }
+
 .checkAndCrossIcons p {
   padding: 5px;
 }
+
 .fa-xmark {
   color: #4589ff;
   padding-right: 12px;
   padding-top: 3px;
 }
+
 .checkAndCrossIconsEmail {
   position: relative;
   width: 100px;
   top: 49px;
   left: 430px;
 }
+
 .contactX {
   padding-bottom: 10px;
   padding-right: 8px;
 }
+
 .contactCheck {
   padding-bottom: 10px;
   padding-left: 5px;
 }
+
 .checkAndCrossIconsCategory {
   display: flex;
   position: relative;
   top: 49px;
   left: 430px;
 }
+
 .pointer {
   cursor: pointer;
 }
+
 .selectorCellContact {
   background-color: #ffffff;
   padding-left: 20px;
-  padding-top: 10px; 
-  height: 50px; 
-  padding-bottom: 10px; 
+  padding-top: 10px;
+  height: 50px;
+  padding-bottom: 10px;
   max-height: 50px;
-  display: flex; 
+  display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .selectorCellContact:hover {
   background-color: #D2E3FF;
 }
-#contactSelectorCheckboxes{ 
+
+#contactSelectorCheckboxes {
   margin: 0;
-  margin-right: 10px; 
+  margin-right: 10px;
 }
-#contactIconContacts{
+
+#contactIconContacts {
   width: 30px;
   margin-right: -8px;
   object-fit: cover;
 }
+
 .selectorContact {
   max-height: 100px !important;
 }
+
 .addtaskStatic {
   margin-left: 300px;
-  padding-top: 140px; 
+  padding-top: 140px;
 }
+
 .header-mobile-addTask {
   width: 100vw;
   display: none;
 }
+
 #addTaskPopup {
   padding-left: 30px;
   margin-top: 90px;
-  margin-bottom: 30px; 
+  margin-bottom: 30px;
   position: absolute;
-  top: 0; 
+  top: 0;
   left: 0;
-  right: 0; 
+  right: 0;
   z-index: 5;
   background-color: white;
   width: 100vw;
@@ -489,59 +577,82 @@ input[type="date"]::-webkit-clear-button {
   transform: translateX(300vh);
   transition: all 225ms;
 }
+
 .translate0 {
   transform: translateX(0) !important;
 }
+
 .addTaskPopupIcon {
   width: 20px;
   position: absolute;
-  right: 20px; 
-  top: 20px; 
+  right: 20px;
+  top: 20px;
 }
 
-.addTaskPopupHeader  {
+.addTaskPopupHeader {
   width: 60%;
   display: flex;
-  align-items: flex-start; 
+  align-items: flex-start;
   padding-top: 10px;
-  padding-bottom: 10px; 
-  margin-left: 0; 
+  padding-bottom: 10px;
+  margin-left: 0;
 }
+
 .addTaskPopupHeader h1 {
-  padding-left: 20px !important; 
+  padding-left: 20px !important;
   font-size: 48px;
-  padding: 0; 
-  margin: 0; 
+  padding: 0;
+  margin: 0;
 }
+
 .formAddtaskPopup {
   width: 90vw;
 }
+
 .formAddtaskPopup input {
   width: 100%;
 }
+
+#selectorContactAssigned {
+  color: #4589ff;
+  margin: 0 0 0 20px;
+}
+
+#selectorContactRenderPopup {
+  background-color: #ffffff;
+  max-height: 200px;
+  overflow: scroll;
+}
+
 /* Responsive part of style */
 @media(max-width: 600px) {
-  form{
+  form {
     margin-bottom: 50px;
   }
 }
-@media(max-width: 800px) { 
+
+@media(max-width: 800px) {
   .header-mobile-addTask {
     display: block;
   }
+
   .menu-desktop {
     display: none !important;
-}
-  .checkAndCrossIcons {
-    left: 430px; 
   }
+
+  .checkAndCrossIcons {
+    left: 430px;
+  }
+
   .checkAndCrossIconsCategory {
-    left: 430px; 
+    left: 430px;
     top: 55px;
   }
+
   .taskFooter {
     margin-bottom: 50px;
   }
+
   .addtaskStatic {
     margin-left: 0;
     padding-top: 100px;
@@ -549,89 +660,113 @@ input[type="date"]::-webkit-clear-button {
     padding-left: 5vw;
     padding-right: 5vw;
   }
+
   .fa-calendar-minus {
-    display: none; 
+    display: none;
   }
+
   #buttonClear {
     display: none;
   }
+
   #buttonCreate {
     display: none;
   }
+
   #importanceIMGHard {
     width: 120px;
   }
+
   #importanceIMGMid {
     width: 120px;
   }
+
   #importanceIMGLow {
     width: 120px;
   }
+
   .importanceLvl {
     width: 100vw;
   }
 }
+
 @media(max-width: 380px) {
   .checkAndCrossIcons {
-    left: 270px; 
+    left: 270px;
   }
+
   .checkAndCrossIconsCategory {
-    left: 270px; 
+    left: 270px;
   }
+
   #importanceIMGHard {
     width: 70px;
   }
+
   #importanceIMGMid {
     width: 70px;
   }
+
   #importanceIMGLow {
     width: 70px;
   }
 }
+
 @media(max-width: 1300px) {
-  #buttonClear{
+  #buttonClear {
     font-size: 16px;
   }
-  #buttonCreate{
+
+  #buttonCreate {
     font-size: 16px;
   }
 }
+
 @media(max-width: 1120px) {
   .taskFooterButtons {
     display: flex;
     position: relative;
     top: 100px;
-    left: -100px;  
+    left: -100px;
   }
 }
+
 @media(max-width: 550px) {
   .checkAndCrossIconsCategory {
     left: 75vw;
   }
+
   #newCategoryText {
     width: 90vw;
   }
+
   #inputTitle {
     width: 90vw;
   }
-  .selectorHeader  {
+
+  .selectorHeader {
     width: 90vw;
   }
+
   #selectDate {
     width: 90vw;
   }
+
   #inputDescription {
     width: 90vw;
   }
+
   #subtaskText {
     width: 90vw;
   }
+
   .checkAndCrossIcons {
     left: 75vw;
   }
 }
-@media(max-width: 450px){
-  #importanceLvl img{
+
+@media(max-width: 450px) {
+  #importanceLvl img {
     width: 100px;
   }
 }

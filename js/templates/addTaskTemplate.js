@@ -43,11 +43,11 @@ function changeInputContact() {
     document.getElementById('selectorContact').innerHTML = `
     <div>
     <div class="checkAndCrossIconsEmail">
-          <i onclick="rechangeContactInput()" class="fa-solid fa-xmark fa-xl contactX pointer"></i> 
+          <i onclick="rechangeContactInput(); showAssignedContacts()" class="fa-solid fa-xmark fa-xl contactX pointer"></i> 
           <img src="./assets/img/icons/trennstrich.png">
           <i onclick="addContactToUserFromTask()" class=" pointer fa-solid fa-check fa-xl contactCheck"></i>
           </div>
-    <input id="selectContact" type="email" placeholder="Contact email" required>
+    <input id="selectContact" type="email" placeholder="Enter E-mail of new contact" required>
     </div>`;
 }
 
@@ -55,10 +55,16 @@ function changeInputContact() {
  * rechange the contact input in a selector
  */
 function rechangeContactInput() {
-    document.getElementById('selectorContact').innerHTML = `
-    <div onclick="renderingContactsSelector()" class="selectorHeader pointer">Select contacts to assign <img class="selectorArrow" src="./assets/img/selectorArrow.png"></div>
-    <div id="selectorContactRender">
-      <!-- renderzone for contact selctor -->
+    document.getElementById('selectorContact').innerHTML = /*html*/ `
+    <div onclick="renderingContactsSelectorPopup(localStorage.getItem('contactIndex'))" class="selectorHeader pointer">
+      <div>
+        <span>Selected contacts to assign</span>
+        <span id="selectorContactAssigned"></span>
+      </div>
+      <img class="selectorArrow" src="./assets/img/selectorArrow.png" />
+    </div>
+    <div id="selectorContactRenderPopup">
+      <!-- renderzone for contact selector -->
     </div>`;
 }
 

@@ -173,6 +173,7 @@ function selectedContactPopup(contactName, initiales, color, number) {
     } else {
         addContact(contactName, initiales, color, number);
     }
+    showAssignedContacts();
 }
 
 /**
@@ -276,8 +277,10 @@ function addContactToUserFromTask() {
     userAccounts[activeUser].userContacts.push(contactObject);
     saveAccountsToBackend();
     rechangeContactInput();
-    selectorContactIndex--;
-    renderingContactsSelector();
+    selectorContactIndex = 0;
+    addNewContactToSelector(userAccounts[activeUser].userContacts.length - 1);
+    //renderingContactsSelectorPopup();
+    showAssignedContacts();
 }
 
 /**
