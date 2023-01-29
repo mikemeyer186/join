@@ -1,105 +1,110 @@
 <!DOCTYPE html>
 <html lang="de">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="icon" href="./assets/img/logo_join.png" type="image/png" />
-        <link rel="stylesheet" href="./css/fontFamily.css" />
-        <link rel="stylesheet" href="./css/main.css" />
-        <link rel="stylesheet" href="./css/summary.css" />
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <script src="./js/sidebar.js"></script>
-        <script src="./js/main.js"></script>
-        <script src="./js/mini_backend.js"></script>
-        <script src="./js/summary.js"></script>
+    <link rel="icon" href="./assets/img/logo_join.png" type="image/png" />
+    <link rel="stylesheet" href="./css/fontFamily.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/summary.css" />
 
-        <title>Join - Summary</title>
-    </head>
-    <body onload="summaryInit(); showMobileGreeting();">
-        <div class="header-desktop" w3-include-html=".\assets\templates\headerDesktop.html"></div>
-        <div class="menu-desktop" w3-include-html=".\assets\templates\menuDesktop.html"></div>
-        <div class="menu-mobile" w3-include-html=".\assets\templates\menuMobile.html"></div>
+    <script src="./js/sidebar.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/mini_backend.js"></script>
+    <script src="./js/summary.js"></script>
 
-        <div class="page-wrapper">
-            <div class="summary-box">
-                <div class="greeting"><span id="greeting-slogan" class="greeting-slogan"></span><span id="greeting-name" class="greeting-name"></span></div>
-                <div id="greeting-mobile" class="show-greeting"><span id="greeting-slogan-mobile" class="greeting-slogan"></span><span id="greeting-name-mobile" class="greeting-name"></span></div>
-                <div class="information">
-                    <div class="information-top">
-                        <div class="tile-big" onclick="goToBoard()">
-                            <div class="tile">
-                                <div class="info-box-top">
-                                    <img class="info-icon" src="./assets/img/icons/icon_urgent.png" alt="Urgent" />
-                                    <span id="info-number-Hard" class="info-number white-text">0</span>
-                                </div>
-                                <div class="info-box-bottom">
-                                    <span class="info-text white-text">Tasks urgent</span>
-                                </div>
-                            </div>
-                            <div class="vertical-object"></div>
-                            <div class="info-deadline">
-                                <div id="info-date-deadline" class="info-date">-</div>
-                                <div class="info-box-bottom">
-                                    <span class="info-text white-text">Upcoming deadline</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tile tile-blue" onclick="goToBoard()">
+    <title>Join - Summary</title>
+</head>
+
+<body onload="summaryInit(); showMobileGreeting();">
+    <div class="header-desktop" w3-include-html=".\assets\templates\headerDesktop.html"></div>
+    <div class="menu-desktop" w3-include-html=".\assets\templates\menuDesktop.html"></div>
+    <div class="menu-mobile" w3-include-html=".\assets\templates\menuMobile.html"></div>
+
+    <div class="page-wrapper">
+        <div class="summary-box">
+            <div class="greeting"><span id="greeting-slogan" class="greeting-slogan"></span><span id="greeting-name"
+                    class="greeting-name"></span></div>
+            <div id="greeting-mobile" class="show-greeting"><span id="greeting-slogan-mobile"
+                    class="greeting-slogan"></span><span id="greeting-name-mobile" class="greeting-name"></span></div>
+            <div class="information">
+                <div class="information-top">
+                    <div class="tile-big" onclick="goToBoard()">
+                        <div class="tile">
                             <div class="info-box-top">
-                                <img class="info-icon" src="./assets/img/icons/icon_todo.png" alt="ToDo" />
-                                <span id="info-number-todo" class="info-number blue-margin">0</span>
+                                <img class="info-icon" src="./assets/img/icons/icon_urgent.png" alt="Urgent" />
+                                <span id="info-number-hard" class="info-number white-text">0</span>
                             </div>
                             <div class="info-box-bottom">
-                                <span class="info-text">Tasks To-do</span>
+                                <span class="info-text white-text">Tasks urgent</span>
+                            </div>
+                        </div>
+                        <div class="vertical-object"></div>
+                        <div class="info-deadline">
+                            <div id="info-date-deadline" class="info-date">-</div>
+                            <div class="info-box-bottom">
+                                <span class="info-text white-text">Upcoming deadline</span>
                             </div>
                         </div>
                     </div>
-                    <div class="information-bottom">
-                        <div class="information-bottom-left">
-                            <div class="tile tile-white" onclick="goToBoard()">
-                                <div class="info-box-top">
-                                    <img class="info-icon" src="./assets/img/icons/icon_board.png" alt="Board" />
-                                    <span id="info-number-board" class="info-number">0</span>
-                                </div>
-                                <div class="info-box-bottom">
-                                    <span class="info-text">Tasks in<br />board</span>
-                                </div>
+                    <div class="tile tile-blue" onclick="goToBoard()">
+                        <div class="info-box-top">
+                            <img class="info-icon" src="./assets/img/icons/icon_todo.png" alt="ToDo" />
+                            <span id="info-number-todo" class="info-number blue-margin">0</span>
+                        </div>
+                        <div class="info-box-bottom">
+                            <span class="info-text">Tasks To-do</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="information-bottom">
+                    <div class="information-bottom-left">
+                        <div class="tile tile-white" onclick="goToBoard()">
+                            <div class="info-box-top">
+                                <img class="info-icon" src="./assets/img/icons/icon_board.png" alt="Board" />
+                                <span id="info-number-board" class="info-number">0</span>
                             </div>
-                            <div class="tile tile-white" onclick="goToBoard()">
-                                <div class="info-box-top">
-                                    <img class="info-icon" src="./assets/img/icons/icon_progress.png" alt="Progress" />
-                                    <span id="info-number-progress" class="info-number">0</span>
-                                </div>
-                                <div class="info-box-bottom">
-                                    <span class="info-text">Tasks in<br />progress</span>
-                                </div>
+                            <div class="info-box-bottom">
+                                <span class="info-text">Tasks in<br />board</span>
                             </div>
                         </div>
-                        <div class="information-bottom-right">
-                            <div class="tile tile-white" onclick="goToBoard()">
-                                <div class="info-box-top">
-                                    <img class="info-icon" src="./assets/img/icons/icon_feedback.png" alt="Feedback" />
-                                    <span id="info-number-feedback" class="info-number">0</span>
-                                </div>
-                                <div class="info-box-bottom">
-                                    <span class="info-text">Awaiting<br />feedback</span>
-                                </div>
+                        <div class="tile tile-white" onclick="goToBoard()">
+                            <div class="info-box-top">
+                                <img class="info-icon" src="./assets/img/icons/icon_progress.png" alt="Progress" />
+                                <span id="info-number-progress" class="info-number">0</span>
                             </div>
-                            <div class="tile tile-white" onclick="goToBoard()">
-                                <div class="info-box-top">
-                                    <img class="info-icon" src="./assets/img/icons/icon_done.png" alt="Done" />
-                                    <span id="info-number-done" class="info-number">0</span>
-                                </div>
-                                <div class="info-box-bottom">
-                                    <span class="info-text">Tasks<br />done</span>
-                                </div>
+                            <div class="info-box-bottom">
+                                <span class="info-text">Tasks in<br />progress</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="information-bottom-right">
+                        <div class="tile tile-white" onclick="goToBoard()">
+                            <div class="info-box-top">
+                                <img class="info-icon" src="./assets/img/icons/icon_feedback.png" alt="Feedback" />
+                                <span id="info-number-feedback" class="info-number">0</span>
+                            </div>
+                            <div class="info-box-bottom">
+                                <span class="info-text">Awaiting<br />feedback</span>
+                            </div>
+                        </div>
+                        <div class="tile tile-white" onclick="goToBoard()">
+                            <div class="info-box-top">
+                                <img class="info-icon" src="./assets/img/icons/icon_done.png" alt="Done" />
+                                <span id="info-number-done" class="info-number">0</span>
+                            </div>
+                            <div class="info-box-bottom">
+                                <span class="info-text">Tasks<br />done</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </body>
+    </div>
+</body>
+
 </html>

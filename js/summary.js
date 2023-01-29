@@ -60,16 +60,14 @@ function hideMobileGreeting() {
  */
 function returnGreetingSlogan(hours) {
     let greetingSlogan;
+
     if (hours < 6 || hours > 22) {
         greetingSlogan = 'Good night, ';
-    }
-    if (hours >= 6 && hours < 10) {
+    } else if (hours >= 6 && hours < 10) {
         greetingSlogan = 'Good morning, ';
-    }
-    if (hours >= 10 && hours < 17) {
+    } else if (hours >= 10 && hours < 17) {
         greetingSlogan = 'Have a nice day, ';
-    }
-    if (hours >= 17 && hours <= 22) {
+    } else if (hours >= 17 && hours <= 22) {
         greetingSlogan = 'Good evening, ';
     }
     return greetingSlogan;
@@ -85,7 +83,7 @@ function showTasksInformation(userTasksArray) {
     showTasksWithStatus(userTasksArray, 'feedback');
     showTasksWithStatus(userTasksArray, 'done');
     showTasksWithStatus(userTasksArray, 'todo');
-    showTasksWithPriority(userTasksArray, 'Hard');
+    showTasksWithPriority(userTasksArray, 'hard');
 }
 
 /**
