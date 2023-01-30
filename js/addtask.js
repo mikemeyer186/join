@@ -9,7 +9,7 @@ function addTaskOnload() {
 }
 
 /**
- * Push JSON in tasks
+ * push JSON in tasks
  * @param {number} index of status
  */
 async function addTask(value) {
@@ -41,7 +41,7 @@ async function addTask(value) {
 }
 
 /**
- * Give task a status
+ * setting status of task
  * @param {number} index of status
  */
 function setTaskStatus(value) {
@@ -60,12 +60,12 @@ function setTaskStatus(value) {
 }
 
 /**
- * checking of empty values bevor adding task
+ * checking empty inputs
  * @returns true // false
  */
 function checkingEmptyValues() {
     if (document.getElementById('inputTitle').value == false) {
-        document.getElementById('mistakeReportTitle').innerHTML = `Please give it a title!`;
+        document.getElementById('mistakeReportTitle').innerHTML = `Please enter a title!`;
         return false;
     }
     if (contactCheckedValue == false) {
@@ -81,11 +81,11 @@ function checkingEmptyValues() {
         return false;
     }
     if (prioritySelect == undefined) {
-        document.getElementById('mistakeReportImportance').innerHTML = `Please select a urgency!`;
+        document.getElementById('mistakeReportImportance').innerHTML = `Please select an urgency!`;
         return false;
     }
     if (document.getElementById('inputDescription').value == false) {
-        document.getElementById('mistakeReportDescription').innerHTML = `Please give it a description!`;
+        document.getElementById('mistakeReportDescription').innerHTML = `Please enter a description!`;
         return false;
     } else {
         return true;
@@ -93,14 +93,14 @@ function checkingEmptyValues() {
 }
 
 /**
- * Push the tasks in the backend and gives report.
+ * pushing tasks in backend
  */
 async function pushTasksinBackend() {
     await backend.setItem('tasks', JSON.stringify(tasks));
 }
 
 /**
- * Rendering the subtasks checkboxes at the footer
+ * rendering subtasks checkboxes at the footer
  */
 function renderSubTask() {
     subTasks = JSON.parse(localStorage.getItem('subtasks')) || [];
@@ -115,7 +115,7 @@ function renderSubTask() {
 }
 
 /**
- * gettin the checked subtask
+ * getting the checked subtask
  */
 function getSelectedSubtask() {
     let subtaskCheckboxes = document.querySelectorAll('.subtaskCheckbox');
@@ -129,7 +129,7 @@ function getSelectedSubtask() {
 }
 
 /**
- * pushing new subtask in the Localstorage
+ * pushing new subtask in the localstorage
  */
 function pushSubtaskLocalStorage() {
     if (document.getElementById('subtaskText').value) {
@@ -151,7 +151,7 @@ function clearSubtask() {
 }
 
 /**
- * Clear the input / selectors
+ * clear the input and selectors
  */
 function taskClear() {
     document.getElementById('inputTitle').value = ``;
@@ -164,7 +164,7 @@ function taskClear() {
 }
 
 /**
- * delet the contact from the contactCheckedValue
+ * deleting the contact from the contactCheckedValue
  * @param {string} contactName name of contact
  * @param {string} initiales of name
  * @param {color} color of user
@@ -181,7 +181,7 @@ function selectedContact(contactName, initiales, color, number) {
 }
 
 /**
- * getting selected Category
+ * getting selected category
  * @param {string} category text
  * @param {color} color of category
  */
@@ -205,7 +205,7 @@ function selectedCategory(category, color) {
 }
 
 /**
- * Add new category color in selector
+ * adding new category color in selector
  * @param {string} color
  */
 function addCategoryColor(value) {
@@ -222,7 +222,7 @@ function addCategoryColor(value) {
 }
 
 /**
- * Add new category in selector
+ * adding new category in selector
  */
 function addCategory() {
     newCategory = document.getElementById('newCategoryText').value;
@@ -241,7 +241,7 @@ function addCategory() {
 }
 
 /**
- * priority change color and gives value
+ * changing priority color and setting value
  * @param {number} value of selected priority
  */
 function prioritySelected(i) {
