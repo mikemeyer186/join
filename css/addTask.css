@@ -608,7 +608,7 @@ input[type="date"]::-webkit-clear-button {
 .addTaskPopupIcon {
   width: 20px;
   position: absolute;
-  right: 20px;
+  right: 28px;
   top: 20px;
 }
 
