@@ -126,51 +126,6 @@ function renderAbbrevaitionInBox(ident, b) {
 }
 
 /**
- * Rendering contacts in addTask Popup at board
- * @param {number} ID task
- */
-function renderingContactsSelectorPopup(index) {
-    contactCheckedValue = tasks[index].assignedTo;
-    let activeUserContacts = userAccounts[activeUser].userContacts;
-    if (selectorContactIndex == 0) {
-        document.getElementById('selectorContactRenderPopup').innerHTML = ``;
-        for (let i = 0; i < activeUserContacts.length; i++) {
-            if (findContact(userAccounts[activeUser].userContacts[i].contactName) === true) {
-                document.getElementById('selectorContactRenderPopup').innerHTML += `
-          <div onclick="selectedContactPopup('${activeUserContacts[i].contactName}','${activeUserContacts[i].contactInitials}','${activeUserContacts[i].contactColor}','${i}')" class="selectorCellContact">
-            <nobr>${activeUserContacts[i].contactName}</nobr>
-            <div id="contactSelectorCheckboxes">
-            <img id="popup${i}${activeUserContacts[i].contactName}" class="checked" src="./assets/img/icons/checkButtonChecked.png">
-          </div>
-          </div>
-        `;
-            } else {
-                document.getElementById('selectorContactRenderPopup').innerHTML += `
-          <div onclick="selectedContactPopup('${activeUserContacts[i].contactName}','${activeUserContacts[i].contactInitials}','${activeUserContacts[i].contactColor}','${i}')" class="selectorCellContact">
-            <nobr>${activeUserContacts[i].contactName}</nobr>
-            <div id="contactSelectorCheckboxes">
-            <img id="popup${i}${activeUserContacts[i].contactName}" src="./assets/img/icons/checkButton.png">
-          </div>
-          </div>
-        `;
-            }
-        }
-        document.getElementById('selectorContactRenderPopup').innerHTML += `
-          <div onclick="changeInputContact()" class="selectorCellContact">
-            <nobr>Invite new contact</nobr>
-            <div id="contactSelectorCheckboxes">
-            <img id="contactIconContacts" src="./assets/img/icons/contactIcon.png">
-          </div>
-          </div>`;
-        selectorContactIndex++;
-    } else {
-        contactCheckedValue = tasks[idInLength].assignedTo;
-        document.getElementById('selectorContactRenderPopup').innerHTML = ``;
-        selectorContactIndex--;
-    }
-}
-
-/**
  * Rendering contacts in footer of the Task Pupup
  */
 function popupRenderContacts() {
@@ -198,12 +153,12 @@ async function addTaskPopup(value) {
     document.getElementById('popup-bg').classList.remove('d-none');
     document.getElementById('page-container').classList.add('overflowHidden');
     document.getElementById('boardContentID').classList.add('overflowHidden');
-    document.getElementById('popup-addTask').classList.remove('d-none');
+    document.getElementById('popup-Task').classList.remove('d-none');
     setTimeout(() => {
-        document.getElementById('popup-addTask').classList.add('popup-slideInAddTask');
+        document.getElementById('popup-Task').classList.add('popup-slideInAddTask');
         document.getElementById('popup-bg').classList.remove('no-opacity');
     }, 10);
-    document.getElementById('addTaskButtonValue').innerHTML = `
+    document.getElementById('addTaskPopupHeader').innerHTML = `
     <h1>Add Task</h1>
     <button class="buttonCreate pointer" onclick="addTask(${value})">Create Task ✓</button>`;
 }
@@ -288,14 +243,13 @@ function editPopupTask(ident) {
  */
 function hidePopUps() {
     document.getElementById('page-container').classList.remove('overflowHidden');
-    document.getElementById('popup-addTask').classList.remove('popup-slideInAddTask');
+    document.getElementById('popup-Task').classList.remove('popup-slideInAddTask');
     document.getElementById('popup-Task').classList.remove('popup-slideInTask');
     document.getElementById('popup-bg').classList.add('no-opacity');
     setTimeout(() => {
-        document.getElementById('popup-addTask').classList.add('d-none');
+        document.getElementById('popup-Task').classList.add('d-none');
         document.getElementById('popup-Task').classList.add('d-none');
         document.getElementById('popup-bg').classList.add('d-none');
-        document.getElementById('addTaskPopup').classList.add('d-none');
     }, 250);
 }
 

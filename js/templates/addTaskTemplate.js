@@ -55,6 +55,7 @@ function changeInputContact() {
  * rechange the contact input in a selector
  */
 function rechangeContactInput() {
+    selectorContactIndex = 0;
     document.getElementById('selectorContact').innerHTML = /*html*/ `
     <div onclick="renderingContactsSelectorPopup(localStorage.getItem('contactIndex'))" class="selectorHeader pointer">
       <div>

@@ -103,19 +103,6 @@ function prioritySelectedEdit(i) {
 }
 
 /**
- * find contact for checked users
- * @param {string} name of user
- * @returns true
- */
-function findContact(name) {
-    for (let i = 0; i < contactCheckedValue.length; i++) {
-        if (contactCheckedValue[i].contactName == name) {
-            return true;
-        }
-    }
-}
-
-/**
  * delet the contact from the contactCheckedValue
  * @param {number} index of contact
  * @param {number} number id of contact in html-id
@@ -141,39 +128,6 @@ function addContact(contactName, initiales, color, number) {
     });
     document.getElementById('popup' + number + contactName).src = './assets/img/icons/checkButtonChecked.png';
     document.getElementById('popup' + number + contactName).classList.add('checked');
-}
-
-/**
- * finding index of contact in contactCheckedValue
- * @param {string} contactname - name of contact
- * @returns - index
- */
-function findContactIndex(contactName) {
-    let index;
-    for (let i = 0; i < contactCheckedValue.length; i++) {
-        if (contactCheckedValue[i].contactName == contactName) {
-            index = i;
-        }
-    }
-    return index;
-}
-
-/**
- * delet the contact from the contactCheckedValue
- * @param {string} contactName name of contact
- * @param {string} initiales of name
- * @param {color} color of user
- * @param {number} ID of user
- */
-function selectedContactPopup(contactName, initiales, color, number) {
-    let index = findContactIndex(contactName);
-
-    if (document.getElementById('popup' + number + contactName).classList.contains('checked')) {
-        deletContact(index, contactName, number);
-    } else {
-        addContact(contactName, initiales, color, number);
-    }
-    showAssignedContacts();
 }
 
 /**
@@ -256,31 +210,6 @@ function searchTasksInBoard() {
         let searchResult = userTasksArray.filter((e) => e.taskTitle.toLowerCase().includes(search));
         renderTasksinBoard(searchResult);
     }
-}
-
-/**
- * adding new contact to user account and show details
- */
-function addContactToUserFromTask() {
-    let inputName = document.getElementById('selectContact');
-    let inputEmail = document.getElementById('selectContact');
-    let inputPhone = '';
-    let inputInitials = getContactInitials(inputName.value).toUpperCase();
-    let inputColor = getRandomColor();
-    let contactObject = {
-        contactName: inputName.value,
-        contactEmail: inputEmail.value,
-        contactPhone: inputPhone,
-        contactInitials: inputInitials,
-        contactColor: inputColor,
-    };
-    userAccounts[activeUser].userContacts.push(contactObject);
-    saveAccountsToBackend();
-    rechangeContactInput();
-    selectorContactIndex = 0;
-    addNewContactToSelector(userAccounts[activeUser].userContacts.length - 1);
-    //renderingContactsSelectorPopup();
-    showAssignedContacts();
 }
 
 /**
