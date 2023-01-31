@@ -25,21 +25,29 @@ function addContactToUserFromTask() {
 /**
  * showing add task popup with white header
  */
-function showAddTaskPopup() {
-    let activeUserContacts = userAccounts[activeUser].userContacts;
+function showAddTaskPopup(mode) {
     let index = localStorage.getItem('contactIndex');
-    contactCheckedValue = [
-        {
-            contactName: activeUserContacts[index].contactName,
-            abbreviation: activeUserContacts[index].contactInitials,
-            paint: activeUserContacts[index].contactColor,
-        },
-    ];
+    let activeUserContacts = userAccounts[activeUser].userContacts;
 
+    setCheckedContacts(mode, index, activeUserContacts);
     document.getElementById('selectorContactRenderPopup').innerHTML = ``;
     document.getElementById('addTaskPopup').classList.toggle('translate0');
     document.getElementById('mobiletaskheader').classList.toggle('headerSlideIn');
     showAssignedContacts();
+}
+
+function setCheckedContacts(mode, index, activeUserContacts) {
+    if (mode == 1) {
+        contactCheckedValue = [
+            {
+                contactName: activeUserContacts[index].contactName,
+                abbreviation: activeUserContacts[index].contactInitials,
+                paint: activeUserContacts[index].contactColor,
+            },
+        ];
+    } else {
+        contactCheckedValue = [];
+    }
 }
 
 /**

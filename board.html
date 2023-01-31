@@ -49,7 +49,7 @@
 
         <div class="boardFindandAddtask">
             <input id="searchInput" type="text" placeholder="Find Task" onkeyup="searchTasksInBoard()" />
-            <button class="pointer addButton" onclick="showAddTaskPopup()">Add task +</button>
+            <button class="pointer addButton" onclick="showAddTaskPopup(0)">Add task +</button>
         </div>
         <div id="boardContentID" class="boardContent">
             <div id="boardTodo" ondrop="drop('todo')" ondragover="allowDrop(event)">

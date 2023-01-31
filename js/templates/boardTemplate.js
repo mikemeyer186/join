@@ -21,11 +21,11 @@ function renderTasksinBoard(searchResult) {
             document.getElementById('boardTodoContent').innerHTML += `
         <div onclick="taskEditPopup(${userTasksArray[i].taskID})" draggable="true" ondragstart="startDraggin(${userTasksArray[i].taskID})" class="boardBox pointer">
         <div class="boardBoxContent">
-        <p class="boardBoxCategory ${userTasksArray[i].taskCategory.TaskColor}">${userTasksArray[i].taskCategory.Category}</p>
-        <h4 class="boardBoxTitle">${userTasksArray[i].taskTitle}</h4>
-        <p class="boardBoxDescription">
-          ${userTasksArray[i].taskDescription}
-        </p>
+        <div class="boardBoxContent-top">
+          <p class="boardBoxCategory ${userTasksArray[i].taskCategory.TaskColor}">${userTasksArray[i].taskCategory.Category}</p>
+          <h4 class="boardBoxTitle">${userTasksArray[i].taskTitle}</h4>
+          <p class="boardBoxDescription">${userTasksArray[i].taskDescription}</p>
+        </div>
         <div class="boardBoxFooter">
           <div id="${userTasksArray[i].taskID}" class="boxContacts">
             </div>
@@ -38,11 +38,11 @@ function renderTasksinBoard(searchResult) {
             document.getElementById('boardProgressContent').innerHTML += `
         <div onclick="taskEditPopup(${userTasksArray[i].taskID})" draggable="true" ondragstart="startDraggin(${userTasksArray[i].taskID})" class="boardBox pointer">
         <div class="boardBoxContent">
-        <p class="boardBoxCategory ${userTasksArray[i].taskCategory.TaskColor}">${userTasksArray[i].taskCategory.Category}</p>
-        <h4 class="boardBoxTitle">${userTasksArray[i].taskTitle}</h4>
-        <p class="boardBoxDescription">
-          ${userTasksArray[i].taskDescription}
-        </p>
+        <div class="boardBoxContent-top">
+          <p class="boardBoxCategory ${userTasksArray[i].taskCategory.TaskColor}">${userTasksArray[i].taskCategory.Category}</p>
+          <h4 class="boardBoxTitle">${userTasksArray[i].taskTitle}</h4>
+          <p class="boardBoxDescription">${userTasksArray[i].taskDescription}</p>
+        </div>
         <div class="boardBoxFooter">
           <div id="${userTasksArray[i].taskID}" class="boxContacts">
             </div>
@@ -55,11 +55,11 @@ function renderTasksinBoard(searchResult) {
             document.getElementById('boardFeedbackContent').innerHTML += `
         <div onclick="taskEditPopup(${userTasksArray[i].taskID})" draggable="true" ondragstart="startDraggin(${userTasksArray[i].taskID})" class="boardBox pointer">
         <div class="boardBoxContent">
-        <p class="boardBoxCategory ${userTasksArray[i].taskCategory.TaskColor}">${userTasksArray[i].taskCategory.Category}</p>
-        <h4 class="boardBoxTitle">${userTasksArray[i].taskTitle}</h4>
-        <p class="boardBoxDescription">
-          ${userTasksArray[i].taskDescription}
-        </p>
+        <div class="boardBoxContent-top">
+          <p class="boardBoxCategory ${userTasksArray[i].taskCategory.TaskColor}">${userTasksArray[i].taskCategory.Category}</p>
+          <h4 class="boardBoxTitle">${userTasksArray[i].taskTitle}</h4>
+          <p class="boardBoxDescription">${userTasksArray[i].taskDescription}</p>
+        </div>
         <div class="boardBoxFooter">
           <div id="${userTasksArray[i].taskID}" class="boxContacts">
             </div>
@@ -72,11 +72,11 @@ function renderTasksinBoard(searchResult) {
             document.getElementById('boardDoneContent').innerHTML += `
         <div onclick="taskEditPopup(${userTasksArray[i].taskID})" draggable="true" ondragstart="startDraggin(${userTasksArray[i].taskID})" class="boardBox pointer">
         <div class="boardBoxContent">
-        <p class="boardBoxCategory ${userTasksArray[i].taskCategory.TaskColor}">${userTasksArray[i].taskCategory.Category}</p>
-        <h4 class="boardBoxTitle">${userTasksArray[i].taskTitle}</h4>
-        <p class="boardBoxDescription">
-          ${userTasksArray[i].taskDescription}
-        </p>
+        <div class="boardBoxContent-top">
+          <p class="boardBoxCategory ${userTasksArray[i].taskCategory.TaskColor}">${userTasksArray[i].taskCategory.Category}</p>
+          <h4 class="boardBoxTitle">${userTasksArray[i].taskTitle}</h4>
+          <p class="boardBoxDescription">${userTasksArray[i].taskDescription}</p>
+        </div>
         <div class="boardBoxFooter">
           <div id="${userTasksArray[i].taskID}" class="boxContacts">
             </div>
