@@ -1,128 +1,51 @@
-let taskUser = [];
-
-/**! RENDERINGS !*/
-
 /**
- * This function is rendering the task boxes in the board
- * @param {string} searchResult
+ * template for task cards
+ * @param {number} i - index of iteration
+ * @returns - html-template
  */
-function renderTasksinBoard(searchResult) {
-    if (searchResult) {
-        userTasksArray = searchResult;
-    } else {
-        fillUserTasksFromTasks();
-    }
-    document.getElementById('boardTodoContent').innerHTML = ``;
-    document.getElementById('boardProgressContent').innerHTML = ``;
-    document.getElementById('boardFeedbackContent').innerHTML = ``;
-    document.getElementById('boardDoneContent').innerHTML = ``;
-    for (let i = 0; i < userTasksArray.length; i++) {
-        if (userTasksArray[i].taskStatus == 'todo') {
-            document.getElementById('boardTodoContent').innerHTML += `
-        <div onclick="taskEditPopup(${userTasksArray[i].taskID})" draggable="true" ondragstart="startDraggin(${userTasksArray[i].taskID})" class="boardBox pointer">
+function taskCardTemplate(i) {
+    return /*html*/ `
+      <div onclick="taskEditPopup(${userTasksArray[i].taskID})" draggable="true" ondragstart="startDraggin(${userTasksArray[i].taskID})" class="boardBox pointer">
         <div class="boardBoxContent">
-        <div class="boardBoxContent-top">
-          <p class="boardBoxCategory ${userTasksArray[i].taskCategory.TaskColor}">${userTasksArray[i].taskCategory.Category}</p>
-          <h4 class="boardBoxTitle">${userTasksArray[i].taskTitle}</h4>
-          <p class="boardBoxDescription">${userTasksArray[i].taskDescription}</p>
+          <div class="boardBoxContent-top">
+            <p class="boardBoxCategory ${userTasksArray[i].taskCategory.TaskColor}">${userTasksArray[i].taskCategory.Category}</p>
+            <h4 class="boardBoxTitle">${userTasksArray[i].taskTitle}</h4>
+            <p class="boardBoxDescription">${userTasksArray[i].taskDescription}</p>
+          </div>
+          <div class="boardBoxFooter">
+            <div id="${userTasksArray[i].taskID}" class="boxContacts"></div>
+            <img src="./assets/img/icon${userTasksArray[i].priority}.png" />
+          </div>
         </div>
-        <div class="boardBoxFooter">
-          <div id="${userTasksArray[i].taskID}" class="boxContacts">
-            </div>
-          <img src="./assets/img/icon${userTasksArray[i].priority}.png" />
-        </div>
-      </div>`;
-            renderAbbrevaitionInBox(userTasksArray[i].taskID, i);
-        }
-        if (userTasksArray[i].taskStatus == 'progress') {
-            document.getElementById('boardProgressContent').innerHTML += `
-        <div onclick="taskEditPopup(${userTasksArray[i].taskID})" draggable="true" ondragstart="startDraggin(${userTasksArray[i].taskID})" class="boardBox pointer">
-        <div class="boardBoxContent">
-        <div class="boardBoxContent-top">
-          <p class="boardBoxCategory ${userTasksArray[i].taskCategory.TaskColor}">${userTasksArray[i].taskCategory.Category}</p>
-          <h4 class="boardBoxTitle">${userTasksArray[i].taskTitle}</h4>
-          <p class="boardBoxDescription">${userTasksArray[i].taskDescription}</p>
-        </div>
-        <div class="boardBoxFooter">
-          <div id="${userTasksArray[i].taskID}" class="boxContacts">
-            </div>
-          <img src="./assets/img/icon${userTasksArray[i].priority}.png" />
-        </div>
-      </div>`;
-            renderAbbrevaitionInBox(userTasksArray[i].taskID, i);
-        }
-        if (userTasksArray[i].taskStatus == 'feedback') {
-            document.getElementById('boardFeedbackContent').innerHTML += `
-        <div onclick="taskEditPopup(${userTasksArray[i].taskID})" draggable="true" ondragstart="startDraggin(${userTasksArray[i].taskID})" class="boardBox pointer">
-        <div class="boardBoxContent">
-        <div class="boardBoxContent-top">
-          <p class="boardBoxCategory ${userTasksArray[i].taskCategory.TaskColor}">${userTasksArray[i].taskCategory.Category}</p>
-          <h4 class="boardBoxTitle">${userTasksArray[i].taskTitle}</h4>
-          <p class="boardBoxDescription">${userTasksArray[i].taskDescription}</p>
-        </div>
-        <div class="boardBoxFooter">
-          <div id="${userTasksArray[i].taskID}" class="boxContacts">
-            </div>
-          <img src="./assets/img/icon${userTasksArray[i].priority}.png" />
-        </div>
-      </div>`;
-            renderAbbrevaitionInBox(userTasksArray[i].taskID, i);
-        }
-        if (userTasksArray[i].taskStatus == 'done') {
-            document.getElementById('boardDoneContent').innerHTML += `
-        <div onclick="taskEditPopup(${userTasksArray[i].taskID})" draggable="true" ondragstart="startDraggin(${userTasksArray[i].taskID})" class="boardBox pointer">
-        <div class="boardBoxContent">
-        <div class="boardBoxContent-top">
-          <p class="boardBoxCategory ${userTasksArray[i].taskCategory.TaskColor}">${userTasksArray[i].taskCategory.Category}</p>
-          <h4 class="boardBoxTitle">${userTasksArray[i].taskTitle}</h4>
-          <p class="boardBoxDescription">${userTasksArray[i].taskDescription}</p>
-        </div>
-        <div class="boardBoxFooter">
-          <div id="${userTasksArray[i].taskID}" class="boxContacts">
-            </div>
-          <img src="./assets/img/icon${userTasksArray[i].priority}.png" />
-        </div>
-      </div>`;
-            renderAbbrevaitionInBox(userTasksArray[i].taskID, i);
-        }
-    }
+      </div>
+    `;
 }
 
 /**
- * Rendering the abbrevaition in the boxes
- * @param {number} ID of box
- * @param {number} index of usertaskarray value
+ * template for abbreviation of assigned contacts in task card
+ * @param {number} i - iteration of user tasks
+ * @param {number} contactId - index of contact
+ * @returns - html-template
  */
-function renderAbbrevaitionInBox(ident, b) {
-    document.getElementById(ident).innerHTM = ``;
-    if (userTasksArray[b].assignedTo.length > 3) {
-        for (let i = 0; i < 2; i++) {
-            document.getElementById(ident).innerHTML += `
-      <div class="abbreviationIconsBox" id="abbreviationIconsBox${i + 1}" style="background-color: ${userTasksArray[b].assignedTo[i].paint}">${
-                userTasksArray[b].assignedTo[i].abbreviation
-            }</div>`;
-        }
-        document.getElementById(ident).innerHTML += `
-    <div class="abbreviationIconsBox" id="abbreviationIconsBox3" style="background-color: ${userTasksArray[b].assignedTo[2].paint}">+${
-            userTasksArray[b].assignedTo.length - 2
-        }</div>`;
-    }
-    if (userTasksArray[b].assignedTo.length == 3) {
-        document.getElementById(ident).innerHTML += `
-      <div class="abbreviationIconsBox" id="abbreviationIconsBox1" style="background-color: ${userTasksArray[b].assignedTo[0].paint}">${userTasksArray[b].assignedTo[0].abbreviation}</div>
-      <div class="abbreviationIconsBox" id="abbreviationIconsBox2" style="background-color: ${userTasksArray[b].assignedTo[1].paint}">${userTasksArray[b].assignedTo[1].abbreviation}</div>
-      <div class="abbreviationIconsBox" id="abbreviationIconsBox3" style="background-color: ${userTasksArray[b].assignedTo[2].paint}">${userTasksArray[b].assignedTo[2].abbreviation}</div>
-      `;
-    }
-    if (userTasksArray[b].assignedTo.length == 2) {
-        document.getElementById(ident).innerHTML += `
-      <div class="abbreviationIconsBox" id="abbreviationIconsBox1" style="background-color: ${userTasksArray[b].assignedTo[0].paint}">${userTasksArray[b].assignedTo[0].abbreviation}</div>
-      <div class="abbreviationIconsBox" id="abbreviationIconsBox2" style="background-color: ${userTasksArray[b].assignedTo[1].paint}">${userTasksArray[b].assignedTo[1].abbreviation}</div>`;
-    }
-    if (userTasksArray[b].assignedTo.length == 1) {
-        document.getElementById(ident).innerHTML += `
-      <div class="abbreviationIconsBox" id="abbreviationIconsBox1" style="background-color: ${userTasksArray[b].assignedTo[0].paint}">${userTasksArray[b].assignedTo[0].abbreviation}</div>`;
-    }
+function abbreviationTaskTemplate(i, contactId) {
+    return /*html*/ `
+      <div class="abbreviationIconsBox" id="abbreviationIconsBox${contactId + 1}" style="background-color: ${
+        userTasksArray[i].assignedTo[contactId].paint
+    }">${userTasksArray[i].assignedTo[contactId].abbreviation}</div>
+    `;
+}
+
+/**
+ * template for abbreviation of assigned contacts in task card if more than 3 contacts assigned
+ * @param {number} i - iteration of user tasks
+ * @returns - html-template
+ */
+function abbreviationTaskTemplateMore(i) {
+    return /*html*/ `
+    <div class="abbreviationIconsBox" id="abbreviationIconsBox3" style="background-color: ${userTasksArray[i].assignedTo[2].paint}">+${
+        userTasksArray[i].assignedTo.length - 2
+    }</div>
+  `;
 }
 
 /**

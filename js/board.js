@@ -1,4 +1,5 @@
 let idInLength = -1;
+let taskUser = [];
 
 /**
  * onload functions
@@ -12,7 +13,7 @@ async function boardOnload() {
 }
 
 /**
- * Find the right ID in userTasksArray
+ *find the right ID in userTasksArray
  * @param {number} ident task
  */
 function findLength(ident) {
@@ -48,7 +49,7 @@ function allowDrop(ev) {
 }
 
 /**
- * Task status change by dropping
+ * task status change by dropping
  * @param {string} status New status for task
  */
 async function drop(status) {
@@ -69,7 +70,7 @@ async function addUsertaskInTask() {
 }
 
 /**
- * Selected priority task for Popup
+ * selected priority task for Popup
  * @param {string} value of priority
  */
 function prioritySelectedEdit(i) {
@@ -103,7 +104,7 @@ function prioritySelectedEdit(i) {
 }
 
 /**
- * delet the contact from the contactCheckedValue
+ * delete the contact from the contactCheckedValue
  * @param {number} index of contact
  * @param {number} number id of contact in html-id
  * @param {string} contactName name of contact
@@ -131,7 +132,7 @@ function addContact(contactName, initiales, color, number) {
 }
 
 /**
- * Give task a status
+ * setting status of task
  * @param {number} value of status
  */
 function setTaskStatus(value) {
@@ -162,7 +163,7 @@ function getPopupContent(taskIDused) {
 }
 
 /**
- * Push JSON in tasks from board
+ * push JSON in tasks from board
  * @param {number} ID of Task
  */
 async function pushEditTask(i) {
@@ -249,4 +250,65 @@ function getRandomColor() {
  */
 function randomInteger(max) {
     return Math.floor(Math.random() * (max + 1));
+}
+
+/**
+ * This function is rendering the task boxes in the board
+ * @param {string} searchResult - value from search input
+ */
+function renderTasksinBoard(searchResult) {
+    if (searchResult) {
+        userTasksArray = searchResult;
+    } else {
+        fillUserTasksFromTasks();
+    }
+    cleanBoardContent();
+    renderTasksinBoardStatus('todo');
+    renderTasksinBoardStatus('progress');
+    renderTasksinBoardStatus('feedback');
+    renderTasksinBoardStatus('done');
+}
+
+/**
+ * rendering tasks in right status area in board
+ * @param {string} status - status of task
+ */
+function renderTasksinBoardStatus(status) {
+    for (let i = 0; i < userTasksArray.length; i++) {
+        if (userTasksArray[i].taskStatus == status) {
+            let capStatus = status.charAt(0).toUpperCase() + status.slice(1);
+            document.getElementById(`board${capStatus}Content`).innerHTML += taskCardTemplate(i);
+            renderAbbrevaitionInBox(userTasksArray[i].taskID, i);
+        }
+    }
+}
+
+/**
+ * rendering abbreviation of assigned contacts in task card
+ * @param {number} taskId - id of task
+ * @param {number} i - iteration of user task
+ */
+function renderAbbrevaitionInBox(taskId, i) {
+    document.getElementById(taskId).innerHTML = ``;
+
+    if (userTasksArray[i].assignedTo.length <= 3) {
+        for (let j = 0; j < userTasksArray[i].assignedTo.length; j++) {
+            document.getElementById(taskId).innerHTML += abbreviationTaskTemplate(i, j);
+        }
+    } else {
+        for (let j = 0; j < 2; j++) {
+            document.getElementById(taskId).innerHTML += abbreviationTaskTemplate(i, j);
+            document.getElementById(taskId).innerHTML += abbreviationTaskTemplateMore(i);
+        }
+    }
+}
+
+/**
+ * cleaning the html-content
+ */
+function cleanBoardContent() {
+    document.getElementById('boardTodoContent').innerHTML = ``;
+    document.getElementById('boardProgressContent').innerHTML = ``;
+    document.getElementById('boardFeedbackContent').innerHTML = ``;
+    document.getElementById('boardDoneContent').innerHTML = ``;
 }
