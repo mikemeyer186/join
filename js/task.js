@@ -25,7 +25,7 @@ function addContactToUserFromTask() {
 /**
  * showing add task popup with white header
  */
-function showAddTaskPopup(mode) {
+function showAddTaskPopup(mode, status) {
     let index = localStorage.getItem('contactIndex');
     let activeUserContacts = userAccounts[activeUser].userContacts;
 
@@ -34,8 +34,16 @@ function showAddTaskPopup(mode) {
     document.getElementById('addTaskPopup').classList.toggle('translate0');
     document.getElementById('mobiletaskheader').classList.toggle('headerSlideIn');
     showAssignedContacts();
+    setTaskStatus(status);
+    console.log(selectedTaskStatus);
 }
 
+/**
+ * setting assigned contacts in drop down
+ * @param {number} mode - 0 for no contacts, 1 for checked assigned contacts
+ * @param {number} index - contact index
+ * @param {object} activeUserContacts - array of contacts
+ */
 function setCheckedContacts(mode, index, activeUserContacts) {
     if (mode == 1) {
         contactCheckedValue = [
@@ -193,4 +201,23 @@ async function changeContactDataInTasks(index, oldContactName) {
         }
     }
     await pushTasksinBackend();
+}
+
+/**
+ * setting the status of new task
+ * @param {number} value - 1 - 4 for status
+ */
+function setTaskStatus(value) {
+    if (value == 1) {
+        selectedTaskStatus = 'todo';
+    }
+    if (value == 2) {
+        selectedTaskStatus = 'progress';
+    }
+    if (value == 3) {
+        selectedTaskStatus = 'feedback';
+    }
+    if (value == 4) {
+        selectedTaskStatus = 'done';
+    }
 }

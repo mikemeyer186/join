@@ -132,27 +132,8 @@ function addContact(contactName, initiales, color, number) {
 }
 
 /**
- * setting status of task
- * @param {number} value of status
- */
-function setTaskStatus(value) {
-    if (value == 1) {
-        selectedTaskStatus = 'progress';
-    }
-    if (value == 2) {
-        selectedTaskStatus = 'feedback';
-    }
-    if (value == 3) {
-        selectedTaskStatus = 'done';
-    }
-    if (value == 4) {
-        selectedTaskStatus = 'todo';
-    }
-}
-
-/**
  * get popup content
- * @param {number} taskID from array
+ * @param {number} taskID - from array
  */
 function getPopupContent(taskIDused) {
     for (let i = 0; i < userTasksArray.length; i++) {
@@ -163,8 +144,8 @@ function getPopupContent(taskIDused) {
 }
 
 /**
- * push JSON in tasks from board
- * @param {number} ID of Task
+ * pushing JSON in tasks from board
+ * @param {number} i - id of task
  */
 async function pushEditTask(i) {
     findLength(i);
@@ -253,7 +234,7 @@ function randomInteger(max) {
 }
 
 /**
- * This function is rendering the task boxes in the board
+ * rendering the task cards in the board
  * @param {string} searchResult - value from search input
  */
 function renderTasksinBoard(searchResult) {
@@ -311,4 +292,33 @@ function cleanBoardContent() {
     document.getElementById('boardProgressContent').innerHTML = ``;
     document.getElementById('boardFeedbackContent').innerHTML = ``;
     document.getElementById('boardDoneContent').innerHTML = ``;
+}
+
+/**
+ * sliding edit popup and rendering the content
+ * @param {number} taskId - id of task
+ */
+function taskEditPopup(taskId) {
+    getPopupContent(taskId);
+    document.getElementById('page-container').classList.add('overflowHidden');
+    document.getElementById('popup-Task').classList.remove('d-none');
+    document.getElementById('popup-bg').classList.remove('d-none');
+    document.getElementById('taskPopUpContent').innerHTML = taskEditTemplate();
+    taskEditPopupContacts();
+
+    setTimeout(() => {
+        document.getElementById('popup-bg').classList.remove('no-opacity');
+        document.getElementById('popup-Task').classList.add('popup-slideInTask');
+    }, 10);
+}
+
+/**
+ * rendering assigned contacts in edit task popup
+ */
+function taskEditPopupContacts() {
+    document.getElementById('popupContactsRender').innerHTML = ``;
+
+    for (let i = 0; i < popupTaskContent.assignedTo.length; i++) {
+        document.getElementById('popupContactsRender').innerHTML += taskEditContactsTemplate(i);
+    }
 }

@@ -49,23 +49,52 @@ function abbreviationTaskTemplateMore(i) {
 }
 
 /**
- * Rendering contacts in footer of the Task Pupup
+ * template for task edit popup
+ * @returns - html-template
  */
-function popupRenderContacts() {
-    document.getElementById('popupContactsRender').innerHTML = ``;
-    for (let i = 0; i < popupTaskContent.assignedTo.length; i++) {
-        document.getElementById('popupContactsRender').innerHTML += `
-      <div class="popupContactsCell">
-      <div class="contact-pic-Task" style="background-color: ${popupTaskContent.assignedTo[i].paint};">
-        <span>${popupTaskContent.assignedTo[i].abbreviation}</span>
+function taskEditTemplate() {
+    return /*html*/ `
+      <div>
+        <p class="boardBoxCategoryPopup ${popupTaskContent.taskCategory.TaskColor}">${popupTaskContent.taskCategory.Category}</p>
+        <h1>${popupTaskContent.taskTitle}</h1>
+        <p>${popupTaskContent.taskDescription}</p>
+        <div class="popupTaskDateTitle">
+          <b>Due date:</b><span id="popupTaskDate">${popupTaskContent.toDueDate}</span>
+        </div>
+        <div class="popupTaskValue">
+          <b>Priority: </b>
+          <div>
+            <img style="object-fit: cover;"src="./assets/img/${popupTaskContent.priority}PopUpIcon.png">
+          </div>
+        </div>
+        <div class="popupTaskContacts">
+          <b>Assigned to:</b>
+          <div id="popupContactsRender"></div>
+        </div>
+        <div class="popup-addTask-top">
+          <img onclick="editPopupTask(${popupTaskContent.taskID})" class="editButton pointer" src="./assets/img/editButton.png"/>
+        </div>
       </div>
-        <span>${popupTaskContent.assignedTo[i].contactName}</span>
-      </div>
-      `;
-    }
+    `;
 }
 
-/**! TEMPLATES !*/
+/**
+ * template for assigned contacts for edit task popup
+ * @param {*} i - iteration of assigned contacts
+ * @returns - html-template
+ */
+function taskEditContactsTemplate(i) {
+    return /*html*/ `
+      <div class="popupContactsCell">
+        <div class="contact-pic-Task" style="background-color: ${popupTaskContent.assignedTo[i].paint};">
+          <span>${popupTaskContent.assignedTo[i].abbreviation}</span>
+        </div>
+        <span>${popupTaskContent.assignedTo[i].contactName}</span>
+      </div>
+    `;
+}
+
+/*****  old code  ******/
 
 /**
  * Template popup Add task
@@ -174,47 +203,4 @@ function hidePopUps() {
         document.getElementById('popup-Task').classList.add('d-none');
         document.getElementById('popup-bg').classList.add('d-none');
     }, 250);
-}
-
-/**
- * Template popup from task
- * @param {number} taskID
- */
-function taskEditPopup(taskIDused) {
-    document.getElementById('page-container').classList.add('overflowHidden');
-    document.getElementById('popup-Task').classList.remove('d-none');
-    document.getElementById('popup-bg').classList.remove('d-none');
-    setTimeout(() => {
-        document.getElementById('popup-bg').classList.remove('no-opacity');
-        document.getElementById('popup-Task').classList.add('popup-slideInTask');
-    }, 10);
-    getPopupContent(taskIDused);
-    document.getElementById('taskPopUpContent').innerHTML = `
-    <p class="boardBoxCategoryPopup ${popupTaskContent.taskCategory.TaskColor}">${popupTaskContent.taskCategory.Category}</p>
-    <h1>${popupTaskContent.taskTitle}</h1>
-    <p>${popupTaskContent.taskDescription}</p>
-    <div class="popupTaskDateTitle">
-      <b>Due date:</b><id="popupTaskDate">
-      ${popupTaskContent.toDueDate}
-    </div>
-    <div class="popupTaskValue">
-      <b>Priority: </b>
-      <div>
-        <img style="object-fit: cover;"src="./assets/img/${popupTaskContent.priority}PopUpIcon.png">
-      </div>
-    </div>
-    <div class="popupTaskContacts">
-      <b>Assigned to:</b>
-      <div id="popupContactsRender">
-      </div>
-    </div>
-    <div class="popup-addTask-top"></div>
-      <img
-        onclick="editPopupTask(${popupTaskContent.taskID})"
-        class="editButton pointer"
-        src="./assets/img/editButton.png"
-      />
-    </div>
-    `;
-    popupRenderContacts();
 }
