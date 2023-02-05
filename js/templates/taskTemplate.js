@@ -130,6 +130,10 @@ function reachangeCategoryTemplate() {
     `;
 }
 
+/**
+ * html-template for category color
+ * @returns - html-template
+ */
 function categoryColorTemplate() {
     return /*html*/ `
         <img class="thisColor" src="./assets/img/categoryColors/${categorySelectedColor}.png">
