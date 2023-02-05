@@ -12,8 +12,7 @@ function addTaskOnload() {
  * push JSON in tasks
  * @param {number} index of status
  */
-async function addTask(value) {
-    setTaskStatus(value);
+async function addTask() {
     if (checkingEmptyValues() == true) {
         let taskInputTitle = document.getElementById('inputTitle').value;
         let dueDate = document.getElementById('selectDate').value;
@@ -158,66 +157,6 @@ function selectedContact(contactName, initiales, color, number) {
         deletContact(index, contactName, number);
     } else {
         addContact(contactName, initiales, color, number);
-    }
-}
-
-/**
- * getting selected category
- * @param {string} category text
- * @param {color} color of category
- */
-function selectedCategory(category, color) {
-    if (category == 'New category') {
-        changeInputCategory();
-    } else {
-        taskCategoryFinaly = category;
-        taskCategoryColorFinaly = color;
-        document.getElementById('selectorCategory').innerHTML = `
-    <div class="selectorHeader pointer" onclick="renderingTaskCategorySelector()">
-    <div class="selected">
-    ${category}
-    <img src="./assets/img/categoryColors/${color}.png" />
-    </div>
-    <img class="selectorArrow" src="./assets/img/selectorArrow.png"></div>
-    <div id="selectorCategoryRender">
-      <!-- Rendering selector content here -->
-    </div>`;
-    }
-}
-
-/**
- * adding new category color in selector
- * @param {string} color
- */
-function addCategoryColor(value) {
-    if (document.getElementById('newCategoryText').value) {
-        categorySelectedColor = value;
-        document.getElementById('categoryColorCells').innerHTML = ``;
-        document.getElementById('categoryColorCells').innerHTML = `
-    <img class="thisColor" src="./assets/img/categoryColors/${categorySelectedColor}.png"/>
-    `;
-        document.getElementById('mistakeReportCategory').innerHTML = ``;
-    } else {
-        document.getElementById('mistakeReportCategory').innerHTML = `Please enter category first!`;
-    }
-}
-
-/**
- * adding new category in selector
- */
-function addCategory() {
-    newCategory = document.getElementById('newCategoryText').value;
-    if (categorySelectedColor && newCategory) {
-        taskCategorySelector = JSON.parse(localStorage.getItem('taskCategory')) || [];
-        taskCategorySelector.push({
-            taskCategory: newCategory,
-            taskColor: categorySelectedColor,
-        });
-        localStorage.setItem('taskCategory', JSON.stringify(taskCategorySelector));
-        rechangeCategoryInput();
-        renderingTaskCategorySelector();
-    } else {
-        document.getElementById('mistakeReportCategory').innerHTML = `Please select color!`;
     }
 }
 

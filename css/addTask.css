@@ -171,14 +171,15 @@ input[type="date"]::-webkit-clear-button {
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 20px;
-  font-size: 20px;
+  font-size: 16px;
   display: flex;
   justify-content: start;
   align-items: center;
+  transition: all 225ms ease-in-out;
 }
 
 .selectorCell:hover {
-  transition: 500ms;
+  transition: all 225ms ease-in-out;
   background-color: #D2E3FF;
 }
 
@@ -223,12 +224,20 @@ input[type="date"]::-webkit-clear-button {
 
 #selectDate {
   border: 1px solid #d1d1d1;
-  margin-top: 0;
+  height: 40px;
+  margin: 0 0 10px 0;
   border-top: none;
   border-left: none;
   border-right: none;
   font-size: 20px;
+  cursor: pointer;
+  outline: none;
 }
+
+#selectDate::after {
+  display: none;
+}
+
 
 #selectDateEdit {
   border: 1px solid #d1d1d1;
@@ -241,6 +250,31 @@ input[type="date"]::-webkit-clear-button {
 
 .selectDate::placeholder {
   color: gray;
+}
+
+.inputTextGrey {
+  color: gray;
+  font-size: 19px;
+  font-weight: 500;
+}
+
+#selectorCategoryRender {
+  background-color: #ffffff;
+  max-height: 200px;
+  overflow: scroll;
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+  box-shadow: 0 8px 10px rgba(200, 200, 200, 0.2);
+  position: absolute;
+  width: 500px;
+  z-index: 2;
+}
+
+#selectorCategoryRender::-webkit-scrollbar {
+  display: none;
 }
 
 #inputDescription {
@@ -371,11 +405,11 @@ input[type="date"]::-webkit-clear-button {
 }
 
 #newContactText::placeholder {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 #newCategoryText::placeholder {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 #newCategoryText {
@@ -466,7 +500,7 @@ input[type="date"]::-webkit-clear-button {
   position: relative;
   width: 30px;
   left: 470px;
-  top: 35px;
+  top: 29px;
 }
 
 .fa-check {
@@ -526,14 +560,17 @@ input[type="date"]::-webkit-clear-button {
   padding-left: 20px;
   padding-top: 10px;
   height: 50px;
+  font-size: 16px;
   padding-bottom: 10px;
   max-height: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: all 225ms ease-in-out;
 }
 
 .selectorCellContact:hover {
+  transition: all 225ms ease-in-out;
   background-color: #D2E3FF;
 }
 
@@ -633,7 +670,7 @@ input[type="date"]::-webkit-clear-button {
 }
 
 .formAddtaskPopup input {
-  width: 100%;
+  width: 500px;
 }
 
 #selectorContactAssigned {
@@ -645,6 +682,23 @@ input[type="date"]::-webkit-clear-button {
   background-color: #ffffff;
   max-height: 200px;
   overflow: scroll;
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+  box-shadow: 0 8px 10px rgba(200, 200, 200, 0.2);
+  position: absolute;
+  width: 500px;
+  z-index: 2;
+}
+
+#selectorContactRenderPopup::-webkit-scrollbar {
+  display: none;
+}
+
+.noBorder {
+  border: 0 !important;
 }
 
 /* Responsive part of style */

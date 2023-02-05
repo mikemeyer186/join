@@ -10,29 +10,29 @@
         <div onclick="renderingContactsSelectorPopup(localStorage.getItem('contactIndex'))"
             class="selectorHeader pointer">
             <div>
-                <span>Selected contacts to assign</span>
+                <span class="inputTextGrey">Selected contacts to assign</span>
                 <span id="selectorContactAssigned"></span>
             </div>
             <img class="selectorArrow" src="./assets/img/selectorArrow.png" />
         </div>
         <div id="selectorContactRenderPopup">
-            <!-- renderzone for contact selector -->
+            <!-- rendering contact selector -->
         </div>
     </div>
     <div id="mistakeReportContact"></div>
     <h3>Due date</h3>
-    <i class="fa-regular fa-calendar-minus fa-xl"></i>
-    <input id="selectDate" type="text" placeholder="dd/mm/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')"
-        required />
+    <i class="fa-regular fa-calendar-minus fa-xl" onclick="openCalendar()" style="cursor:pointer"></i>
+    <input id="selectDate" class="inputTextGrey" type="text" placeholder="Enter date" onfocus="(this.type='date')"
+        onblur="(this.type='text')" required />
     <div id="mistakeReportDate"></div>
     <h3>Category</h3>
     <div id="selectorCategory">
-        <div class="selectorHeader pointer" onclick="renderingTaskCategorySelector()">
+        <div class="selectorHeader pointer inputTextGrey" onclick="renderingTaskCategorySelector()">
             Select task category
             <img class="selectorArrow" src="./assets/img/selectorArrow.png" />
         </div>
         <div id="selectorCategoryRender">
-            <!-- Rendering selector content here -->
+            <!-- rendering category selector -->
         </div>
         <div id="mistakeReportCategory"></div>
     </div>
@@ -60,7 +60,7 @@
         <div id="addSubtaskCheckbox"></div>
         <div class="taskFooterButtons">
             <button id="buttonClear" onclick="taskClear()">Clear X</button>
-            <button id="buttonCreate" onclick="addTask(4); return false">Create Task ✓</button>
+            <button id="buttonCreate" onclick="addTask(); return false">Create Task ✓</button>
         </div>
     </div>
 </form>

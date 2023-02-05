@@ -1,41 +1,3 @@
-/* TEMPLATES */
-
-/**
- * Change the Category selector in a input field
- */
-function changeInputCategory() {
-    document.getElementById('selectorCategory').innerHTML = `
-    <div class="inputCategory">
-    <div class="checkAndCrossIconsCategory">
-          <i onclick="rechangeCategoryInput()" class="fa-solid fa-xmark fa-xl pointer"></i> 
-          <img src="./assets/img/icons/trennstrich.png">
-          <i onclick="addCategory()" class="fa-solid fa-check fa-xl pointer"></i>
-        </div>
-    <input id="newCategoryText" type="text" placeholder="New category name" required>
-    <div id="categoryColorCells"style="margin-top: 10px; margin-left: 20px; ">
-    <img onclick="addCategoryColor('grayCategory')" class="categoryColor" style="margin-right: 20px;" src="./assets/img/categoryColors/grayCategory.png">
-    <img onclick="addCategoryColor('redCategory')" class="categoryColor" style="margin-right: 20px;" src="./assets/img/categoryColors/redCategory.png">
-    <img onclick="addCategoryColor('greenCategory')" class="categoryColor" style="margin-right: 20px;" src="./assets/img/categoryColors/greenCategory.png">
-    <img onclick="addCategoryColor('orangeCategory')" class="categoryColor" style="margin-right: 20px;" src="./assets/img/categoryColors/orangeCategory.png">
-    <img onclick="addCategoryColor('purpleCategory')" class="categoryColor" style="margin-right: 20px;" src="./assets/img/categoryColors/purpleCategory.png">
-    <img onclick="addCategoryColor('blueCategory')" class="categoryColor" src="./assets/img/categoryColors/blueCategory.png">
-    </div>
-    <div id="mistakeReportCategory"></div>
-    </div>`;
-}
-
-/**
- * rechange the category input
- */
-function rechangeCategoryInput() {
-    document.getElementById('selectorCategory').innerHTML = `
-    <div class="selectorHeader pointer" onclick="renderingTaskCategorySelector()">Select task category <img class="selectorArrow" src="./assets/img/selectorArrow.png"></div>
-    <div id="selectorCategoryRender">
-      <!-- Rendering selector content here -->
-    </div>`;
-    renderingTaskCategorySelector();
-}
-
 /**
  * Change the contact selector in a input field
  */
@@ -98,40 +60,5 @@ function renderingContactsSelector() {
     } else {
         document.getElementById('selectorContactRender').innerHTML = ``;
         selectorContactIndex--;
-    }
-}
-
-/**
- * rendering task cateogry´s in selector (Onclick)
- */
-function renderingTaskCategorySelector() {
-    let staticCategorys = [
-        { taskCategory: 'New category', taskColor: 'grayCategory', cagtegoryID: 0 },
-        { taskCategory: 'Sales', taskColor: 'purpleCategory', cagtegoryID: 1 },
-        { taskCategory: 'Backoffice', taskColor: 'blueCategory', cagtegoryID: 2 },
-    ];
-    taskCategorySelector = JSON.parse(localStorage.getItem('taskCategory')) || [];
-    if (selectorCategoryIndex == 0) {
-        document.getElementById('selectorCategoryRender').innerHTML = ``;
-        for (let j = 0; j < staticCategorys.length; j++) {
-            document.getElementById('selectorCategoryRender').innerHTML += `
-          <div onclick="selectedCategory('${staticCategorys[j].taskCategory}','${staticCategorys[j].taskColor}')" class="selectorCell pointer">
-            <div>${staticCategorys[j].taskCategory}</div>
-            <div><img src="./assets/img/categoryColors/${staticCategorys[j].taskColor}.png"</div>
-          </div>
-        `;
-        }
-        for (let i = 0; i < taskCategorySelector.length; i++) {
-            document.getElementById('selectorCategoryRender').innerHTML += `
-        <div onclick="selectedCategory('${taskCategorySelector[i].taskCategory}','${taskCategorySelector[i].taskColor}')" class="selectorCell pointer">
-        <div class="selectorCellCategory">${taskCategorySelector[i].taskCategory}</div>
-        <div class="selectorCellColor"><img src="./assets/img/categoryColors/${taskCategorySelector[i].taskColor}.png"/></div>
-        </div>
-        `;
-        }
-        selectorCategoryIndex++;
-    } else {
-        document.getElementById('selectorCategoryRender').innerHTML = ``;
-        selectorCategoryIndex--;
     }
 }

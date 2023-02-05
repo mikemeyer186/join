@@ -103,27 +103,27 @@ body {
 }
 
 .blueCategory {
-  background-color: #0038FF !important;
+  background-color: #5170e2 !important;
 }
 
 .grayCategory {
-  background-color: #8AA4FF !important;
+  background-color: #727da7 !important;
 }
 
 .greenCategory {
-  background-color: #2AD300 !important;
+  background-color: #37d56b !important;
 }
 
 .orangeCategory {
-  background-color: #FF8A00 !important;
+  background-color: #f09c3d !important;
 }
 
 .purpleCategory {
-  background-color: #E200BE !important;
+  background-color: #ce4ab8 !important;
 }
 
 .redCategory {
-  background-color: #FF0000 !important;
+  background-color: #da4545 !important;
 }
 
 .boardBoxCategory {
@@ -136,7 +136,7 @@ body {
   margin-top: 20px;
   padding-left: 30px;
   padding-right: 30px;
-  width: 100px;
+  width: 100%;
 }
 
 .boardBoxCategoryPopup {
@@ -407,11 +407,14 @@ form h3 {
 
 #selectDate {
   border: 1px solid #d1d1d1;
-  margin-top: 15px;
+  height: 40px;
+  margin: 0;
   border-top: none;
   border-left: none;
   border-right: none;
   font-size: 20px;
+  cursor: pointer;
+  outline: none;
 }
 
 .selectDate::placeholder {
@@ -597,7 +600,7 @@ form h3 {
   position: relative;
   width: 30px;
   left: 460px;
-  top: 47px;
+  top: 29px;
 }
 
 .fa-check {
@@ -691,7 +694,7 @@ form h3 {
   height: 50px;
 }
 
-.selectorPupupContacts {
+.selectorPopupContacts {
   width: 500px;
   scrollbar-width: none;
   max-height: 100px;
@@ -862,7 +865,7 @@ form h3 {
 }
 
 @media(max-width: 600px) {
-  .selectorPupupContacts {
+  .selectorPopupContacts {
     width: 60vw;
   }
 

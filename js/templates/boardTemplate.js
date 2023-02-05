@@ -180,7 +180,7 @@ function editPopupTask(ident) {
                 Select contacts to assign 
                 <img class="selectorArrow" src="./assets/img/selectorArrow.png">
               </div>
-              <div class="selectorPupupContacts" id="selectorContactRenderPopup">
+              <div class="selectorPopupContacts" id="selectorContactRenderPopup">
                 <!-- renderzone for contact selctor -->
               </div>
             </div>

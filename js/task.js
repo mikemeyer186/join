@@ -30,12 +30,12 @@ function showAddTaskPopup(mode, status) {
     let activeUserContacts = userAccounts[activeUser].userContacts;
 
     setCheckedContacts(mode, index, activeUserContacts);
+    document.getElementById('selectorContactRenderPopup').classList.add('noBorder');
     document.getElementById('selectorContactRenderPopup').innerHTML = ``;
     document.getElementById('addTaskPopup').classList.toggle('translate0');
     document.getElementById('mobiletaskheader').classList.toggle('headerSlideIn');
     showAssignedContacts();
     setTaskStatus(status);
-    console.log(selectedTaskStatus);
 }
 
 /**
@@ -89,9 +89,11 @@ function renderingContactsSelectorPopup(index) {
     selectorContactPopup.innerHTML = ``;
 
     if (selectorContactIndex == 0) {
+        document.getElementById('selectorContactRenderPopup').classList.remove('noBorder');
         fillContactPopUp(activeUserContacts, selectorContactPopup);
         selectorContactIndex++;
     } else {
+        document.getElementById('selectorContactRenderPopup').classList.add('noBorder');
         selectorContactIndex--;
     }
 }
@@ -219,5 +221,110 @@ function setTaskStatus(value) {
     }
     if (value == 4) {
         selectedTaskStatus = 'done';
+    }
+}
+
+/**
+ * opening date picker
+ */
+function openCalendar() {
+    document.getElementById('selectDate').type = 'date';
+    document.getElementById('selectDate').focus();
+}
+
+/**
+ * rendering categories in selector
+ */
+function renderingTaskCategorySelector() {
+    taskCategorySelector = JSON.parse(localStorage.getItem('taskCategory')) || [];
+    document.getElementById('selectorCategoryRender').innerHTML = ``;
+
+    if (selectorCategoryIndex == 0) {
+        fillStaticCategories();
+        fillNewCategories();
+        selectorCategoryIndex++;
+    } else {
+        selectorCategoryIndex--;
+    }
+}
+
+/**
+ * filling static categories template
+ */
+function fillStaticCategories() {
+    for (let j = 0; j < staticCategorys.length; j++) {
+        document.getElementById('selectorCategoryRender').innerHTML += staticCategoryTemplate(j);
+    }
+}
+
+/**
+ * filling new categories template
+ */
+function fillNewCategories() {
+    for (let i = 0; i < taskCategorySelector.length; i++) {
+        document.getElementById('selectorCategoryRender').innerHTML += newCategoryTemplate(i);
+    }
+}
+
+/**
+ * checking if selected category is "new category" or static category
+ * @param {string} category - category name
+ * @param {string} color - category color
+ */
+function selectedCategory(category, color) {
+    if (category == 'New category') {
+        changeInputCategory();
+    } else {
+        taskCategoryFinaly = category;
+        taskCategoryColorFinaly = color;
+        document.getElementById('selectorCategory').innerHTML = selectedCategoryTemplate(category, color);
+    }
+}
+
+/**
+ * changing input of category to make entering of new category available
+ */
+function changeInputCategory() {
+    document.getElementById('selectorCategory').innerHTML = newCategoryInputTemplate();
+}
+
+/**
+ * changing input of category back to selector
+ */
+function rechangeCategoryInput() {
+    document.getElementById('selectorCategory').innerHTML = reachangeCategoryTemplate();
+    renderingTaskCategorySelector();
+}
+
+/**
+ * adding new category to selector and shows it directly in input field
+ */
+function addCategory() {
+    newCategory = document.getElementById('newCategoryText').value;
+
+    if (categorySelectedColor && newCategory) {
+        taskCategorySelector.push({ taskCategory: newCategory, taskColor: categorySelectedColor });
+        localStorage.setItem('taskCategory', JSON.stringify(taskCategorySelector));
+        rechangeCategoryInput();
+        renderingTaskCategorySelector();
+        selectedCategory(newCategory, categorySelectedColor);
+        selectorCategoryIndex--;
+    } else {
+        document.getElementById('mistakeReportCategory').innerHTML = `Please select color!`;
+    }
+}
+
+/**
+ * adding category color to new category text
+ * @param {string} value - color class of selected category color
+ */
+function addCategoryColor(value) {
+    if (document.getElementById('newCategoryText').value) {
+        categorySelectedColor = value;
+        document.getElementById('categoryColorCells').innerHTML = ``;
+        document.getElementById('categoryColorCells').innerHTML = categoryColorTemplate();
+        document.getElementById('mistakeReportCategory').innerHTML = ``;
+    } else {
+        document.getElementById('mistakeReportCategory').innerHTML = `Please enter category first!`;
     }
 }

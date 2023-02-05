@@ -19,6 +19,15 @@ let contactSelected = [];
 let contactCheckedValue = [];
 let userTasksArray = [];
 let selectedTaskStatus;
+let staticCategorys = [
+    { taskCategory: 'New category', taskColor: 'grayCategory', cagtegoryID: 0 },
+    { taskCategory: 'Sales', taskColor: 'purpleCategory', cagtegoryID: 1 },
+    { taskCategory: 'Backoffice', taskColor: 'blueCategory', cagtegoryID: 2 },
+    { taskCategory: 'Design', taskColor: 'orangeCategory', cagtegoryID: 3 },
+    { taskCategory: 'Development', taskColor: 'greenCategory', cagtegoryID: 4 },
+    { taskCategory: 'Media', taskColor: 'redCategory', cagtegoryID: 5 },
+    { taskCategory: 'Marketing', taskColor: 'grayCategory', cagtegoryID: 6 },
+];
 
 /**
  * initial function
