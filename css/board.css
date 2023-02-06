@@ -390,6 +390,9 @@ form h3 {
 }
 
 #importanceLvl {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
   margin-top: 10px;
   margin-bottom: 20px;
 }
@@ -430,9 +433,8 @@ form h3 {
   padding-left: 25px;
   padding-right: 50px;
   padding-bottom: 75px;
-  border-top-right-radius: 0.5em;
-  border-bottom-left-radius: 0.5em;
-  border-bottom-right-radius: 0.5em;
+  border-radius: 0.5em;
+  outline: none;
 }
 
 #subtaskTitle {

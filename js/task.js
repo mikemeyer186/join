@@ -31,9 +31,11 @@ function showAddTaskPopup(mode, status) {
 
     setCheckedContacts(mode, index, activeUserContacts);
     document.getElementById('selectorContactRenderPopup').classList.add('noBorder');
+    document.getElementById('selectorCategoryRender').classList.add('noBorder');
     document.getElementById('selectorContactRenderPopup').innerHTML = ``;
     document.getElementById('addTaskPopup').classList.toggle('translate0');
     document.getElementById('mobiletaskheader').classList.toggle('headerSlideIn');
+    document.getElementById('page-container').classList.toggle('overflowHidden');
     showAssignedContacts();
     setTaskStatus(status);
 }
@@ -240,10 +242,12 @@ function renderingTaskCategorySelector() {
     document.getElementById('selectorCategoryRender').innerHTML = ``;
 
     if (selectorCategoryIndex == 0) {
+        document.getElementById('selectorCategoryRender').classList.remove('noBorder');
         fillStaticCategories();
         fillNewCategories();
         selectorCategoryIndex++;
     } else {
+        document.getElementById('selectorCategoryRender').classList.add('noBorder');
         selectorCategoryIndex--;
     }
 }
@@ -327,4 +331,50 @@ function addCategoryColor(value) {
     } else {
         document.getElementById('mistakeReportCategory').innerHTML = `Please enter category first!`;
     }
+}
+
+/**
+ * setting prority in task popup
+ * @param {number} i - 1 to 3 for importance level
+ */
+function prioritySelected(i) {
+    if (i == 1) {
+        setPriorityHigh();
+    }
+    if (i == 2) {
+        setPriorityMid();
+    }
+    if (i == 3) {
+        setPriorityLow();
+    }
+}
+
+/**
+ * setting prority to high
+ */
+function setPriorityHigh() {
+    prioritySelect = 'hard';
+    document.getElementById('importanceIMGHard').src = './assets/img/taskValueHardSelected.png';
+    document.getElementById('importanceIMGMid').src = './assets/img/taskValueMid.png';
+    document.getElementById('importanceIMGLow').src = './assets/img/taskValueLow.png';
+}
+
+/**
+ * setting prority to medium
+ */
+function setPriorityMid() {
+    prioritySelect = 'mid';
+    document.getElementById('importanceIMGHard').src = './assets/img/taskValueHard.png';
+    document.getElementById('importanceIMGMid').src = './assets/img/taskValueMidSelected.png';
+    document.getElementById('importanceIMGLow').src = './assets/img/taskValueLow.png';
+}
+
+/**
+ * setting prority to low
+ */
+function setPriorityLow() {
+    prioritySelect = 'low';
+    document.getElementById('importanceIMGHard').src = './assets/img/taskValueHard.png';
+    document.getElementById('importanceIMGMid').src = './assets/img/taskValueMid.png';
+    document.getElementById('importanceIMGLow').src = './assets/img/taskValueLowSelected.png';
 }

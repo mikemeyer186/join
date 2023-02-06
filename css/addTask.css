@@ -262,9 +262,9 @@ input[type="date"]::-webkit-clear-button {
   background-color: #ffffff;
   max-height: 200px;
   overflow: scroll;
-  border-left: 1px solid rgba(0, 0, 0, 0.2);
-  border-right: 1px solid rgba(0, 0, 0, 0.2);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
   box-shadow: 0 8px 10px rgba(200, 200, 200, 0.2);
@@ -286,9 +286,8 @@ input[type="date"]::-webkit-clear-button {
   padding-left: 25px;
   padding-right: 50px;
   padding-bottom: 75px;
-  border-top-right-radius: 0.5em;
-  border-bottom-left-radius: 0.5em;
-  border-bottom-right-radius: 0.5em;
+  border-radius: 0.5em;
+  outline: none;
 }
 
 #inputDescriptionEdit {
@@ -300,9 +299,8 @@ input[type="date"]::-webkit-clear-button {
   padding-left: 25px;
   padding-right: 50px;
   padding-bottom: 75px;
-  border-top-right-radius: 0.5em;
-  border-bottom-left-radius: 0.5em;
-  border-bottom-right-radius: 0.5em;
+  border-radius: 0.5em;
+  outline: none;
 }
 
 #subtaskTitle {
@@ -311,13 +309,15 @@ input[type="date"]::-webkit-clear-button {
 
 #subtaskText {
   margin-bottom: 8px;
+  border-bottom: 1px solid #d1d1d1;
   border-top: none;
   border-left: none;
   border-right: none;
+  outline: none;
 }
 
 #subtaskText::placeholder {
-  font-size: 16px;
+  font-size: 19px;
 }
 
 .taskFooter {
@@ -423,6 +423,7 @@ input[type="date"]::-webkit-clear-button {
 }
 
 .importanceHard {
+  width: 138px;
   border: 2px solid #ffffff;
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
@@ -432,6 +433,7 @@ input[type="date"]::-webkit-clear-button {
 }
 
 .importanceMid {
+  width: 138px;
   border: 2px solid #ffffff;
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
@@ -441,6 +443,7 @@ input[type="date"]::-webkit-clear-button {
 }
 
 .importanceLow {
+  width: 138px;
   border: 2px solid #ffffff;
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
@@ -682,9 +685,9 @@ input[type="date"]::-webkit-clear-button {
   background-color: #ffffff;
   max-height: 200px;
   overflow: scroll;
-  border-left: 1px solid rgba(0, 0, 0, 0.2);
-  border-right: 1px solid rgba(0, 0, 0, 0.2);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
   box-shadow: 0 8px 10px rgba(200, 200, 200, 0.2);

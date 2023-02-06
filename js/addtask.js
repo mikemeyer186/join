@@ -17,6 +17,7 @@ async function addTask() {
         let taskInputTitle = document.getElementById('inputTitle').value;
         let dueDate = document.getElementById('selectDate').value;
         let description = document.getElementById('inputDescription').value;
+        document.getElementById('page-container').classList.toggle('overflowHidden');
         userAccounts[activeUser].userTasks.push(tasks.length); // User account get task id
         tasks.push({
             taskTitle: taskInputTitle,
@@ -157,39 +158,5 @@ function selectedContact(contactName, initiales, color, number) {
         deletContact(index, contactName, number);
     } else {
         addContact(contactName, initiales, color, number);
-    }
-}
-
-/**
- * changing priority color and setting value
- * @param {number} value of selected priority
- */
-function prioritySelected(i) {
-    if (i == 1) {
-        prioritySelect = 'hard';
-        document.getElementById('importanceIMGHard').classList.remove('importanceHard');
-        document.getElementById('importanceIMGLow').classList.add('importanceLow');
-        document.getElementById('importanceIMGMid').classList.add('importanceMid');
-        document.getElementById('importanceIMGHard').src = './assets/img/taskValueHardSelected.png';
-        document.getElementById('importanceIMGMid').src = './assets/img/taskValueMid.png';
-        document.getElementById('importanceIMGLow').src = './assets/img/taskValueLow.png';
-    }
-    if (i == 2) {
-        prioritySelect = 'mid';
-        document.getElementById('importanceIMGMid').classList.remove('importanceMid');
-        document.getElementById('importanceIMGLow').classList.add('importanceLow');
-        document.getElementById('importanceIMGHard').classList.add('importanceHard');
-        document.getElementById('importanceIMGHard').src = './assets/img/taskValueHard.png';
-        document.getElementById('importanceIMGMid').src = './assets/img/taskValueMidSelected.png';
-        document.getElementById('importanceIMGLow').src = './assets/img/taskValueLow.png';
-    }
-    if (i == 3) {
-        prioritySelect = 'low';
-        document.getElementById('importanceIMGLow').classList.remove('importanceLow');
-        document.getElementById('importanceIMGMid').classList.add('importanceMid');
-        document.getElementById('importanceIMGHard').classList.add('importanceHard');
-        document.getElementById('importanceIMGHard').src = './assets/img/taskValueHard.png';
-        document.getElementById('importanceIMGMid').src = './assets/img/taskValueMid.png';
-        document.getElementById('importanceIMGLow').src = './assets/img/taskValueLowSelected.png';
     }
 }
