@@ -50,33 +50,39 @@
             <button class="pointer addButton" onclick="showAddTaskPopup(0, 1)">Add task +</button>
         </div>
         <div id="boardContentID" class="boardContent">
-            <div id="boardTodo" ondrop="drop('todo')" ondragover="allowDrop(event)">
+            <div id="boardTodo" ondrop="drop('todo', 'boardTodoContent')"
+                ondragover="allowDrop(event, 'boardTodoContent')" ondragleave="removeDragZone('boardTodoContent')">
                 <div class="boxHeader">
                     <h2>To do</h2>
                     <img onclick="showAddTaskPopup(0, 1)" class="pointer" src="./assets/img/plus button v1.png" />
                 </div>
-                <div id="boardTodoContent"></div>
+                <div class="boardDragZone" id="boardTodoContent"></div>
             </div>
-            <div id="boardProgress" ondrop="drop('progress')" ondragover="allowDrop(event)">
+            <div id="boardProgress" ondrop="drop('progress', 'boardProgressContent')"
+                ondragover="allowDrop(event, 'boardProgressContent')"
+                ondragleave="removeDragZone('boardProgressContent')">
                 <div class="boxHeader">
                     <h2>In progress</h2>
                     <img onclick="showAddTaskPopup(0, 2)" class="pointer" src="./assets/img/plus button v1.png" />
                 </div>
-                <div id="boardProgressContent"></div>
+                <div class="boardDragZone" id="boardProgressContent"></div>
             </div>
-            <div id="boardFeedback" ondrop="drop('feedback')" ondragover="allowDrop(event)">
+            <div id="boardFeedback" ondrop="drop('feedback', 'boardFeedbackContent')"
+                ondragover="allowDrop(event, 'boardFeedbackContent')"
+                ondragleave="removeDragZone('boardFeedbackContent')">
                 <div class="boxHeader">
                     <h2>Await feedback</h2>
                     <img onclick="showAddTaskPopup(0, 3)" class="pointer" src="./assets/img/plus button v1.png" />
                 </div>
-                <div id="boardFeedbackContent"></div>
+                <div class="boardDragZone" id="boardFeedbackContent"></div>
             </div>
-            <div id="boardDone" ondrop="drop('done')" ondragover="allowDrop(event)">
+            <div id="boardDone" ondrop="drop('done', 'boardDoneContent')"
+                ondragover="allowDrop(event, 'boardDoneContent')" ondragleave="removeDragZone('boardDoneContent')">
                 <div class="boxHeader">
                     <h2>Done</h2>
                     <img onclick="showAddTaskPopup(0, 4)" class="pointer" src="./assets/img/plus button v1.png" />
                 </div>
-                <div id="boardDoneContent"></div>
+                <div class="boardDragZone" id="boardDoneContent"></div>
             </div>
         </div>
     </div>

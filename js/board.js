@@ -14,7 +14,7 @@ async function boardOnload() {
 
 /**
  *find the right ID in userTasksArray
- * @param {number} ident task
+ * @param {number} ident - id of task
  */
 function findLength(ident) {
     idInLength = -1;
@@ -27,8 +27,8 @@ function findLength(ident) {
 }
 
 /**
- * search and save the dragged element
- * @param {number} id of dragged element
+ * starting drag event
+ * @param {number} id - id of dragged element
  */
 function startDraggin(id) {
     currentDraggedElement = -1;
@@ -41,19 +41,30 @@ function startDraggin(id) {
 }
 
 /**
- * Allows the drop in this area
- * @param {*} event allows the drop
+ * shows drop area
+ * @param {event} ev - event
+ * @param {string} zone - html-element
  */
-function allowDrop(ev) {
+function allowDrop(ev, zone) {
     ev.preventDefault();
+    document.getElementById(zone).classList.add('boardDragArea');
 }
 
 /**
- * task status change by dropping
- * @param {string} status New status for task
+ * hides drop area
+ * @param {string} zone - html-element
  */
-async function drop(status) {
+function removeDragZone(zone) {
+    document.getElementById(zone).classList.remove('boardDragArea');
+}
+
+/**
+ * changing status when dropping task card
+ * @param {string} status - new status for task
+ */
+async function drop(status, zone) {
     userTasksArray[currentDraggedElement]['taskStatus'] = status;
+    removeDragZone(zone);
     renderTasksinBoard();
     addUsertaskInTask();
 }

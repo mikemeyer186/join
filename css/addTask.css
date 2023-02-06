@@ -188,10 +188,6 @@ input[type="date"]::-webkit-clear-button {
   margin-left: 20px;
 }
 
-.boardContent {
-  height: 60vh;
-}
-
 #inputTitle {
   font-size: 40px;
   border: 1px solid #d1d1d1;
