@@ -47,7 +47,9 @@ function startDraggin(id) {
  */
 function allowDrop(ev, zone) {
     ev.preventDefault();
-    document.getElementById(zone).classList.add('boardDragArea');
+    document.getElementById(zone + 'Drop').classList.add('dropZone');
+    document.getElementById(zone + 'Content').classList.add('halfOpacity');
+    document.getElementById(zone + 'DropText').classList.remove('d-none');
 }
 
 /**
@@ -55,7 +57,9 @@ function allowDrop(ev, zone) {
  * @param {string} zone - html-element
  */
 function removeDragZone(zone) {
-    document.getElementById(zone).classList.remove('boardDragArea');
+    document.getElementById(zone + 'Drop').classList.remove('dropZone');
+    document.getElementById(zone + 'Content').classList.remove('halfOpacity');
+    document.getElementById(zone + 'DropText').classList.add('d-none');
 }
 
 /**

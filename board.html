@@ -50,39 +50,49 @@
             <button class="pointer addButton" onclick="showAddTaskPopup(0, 1)">Add task +</button>
         </div>
         <div id="boardContentID" class="boardContent">
-            <div id="boardTodo" ondrop="drop('todo', 'boardTodoContent')"
-                ondragover="allowDrop(event, 'boardTodoContent')" ondragleave="removeDragZone('boardTodoContent')">
+            <div class="boardCollumn" id="boardTodo" ondrop="drop('todo', 'boardTodo')"
+                ondragover="allowDrop(event, 'boardTodo')" ondragleave="removeDragZone('boardTodo')">
                 <div class="boxHeader">
                     <h2>To do</h2>
                     <img onclick="showAddTaskPopup(0, 1)" class="pointer" src="./assets/img/plus button v1.png" />
                 </div>
-                <div class="boardDragZone" id="boardTodoContent"></div>
+                <div id="boardTodoContent"></div>
+                <div class="boardDragZone" id="boardTodoDrop">
+                    <div id="boardTodoDropText" class="dropZoneText d-none"><span>Drop your task here</span></div>
+                </div>
             </div>
-            <div id="boardProgress" ondrop="drop('progress', 'boardProgressContent')"
-                ondragover="allowDrop(event, 'boardProgressContent')"
-                ondragleave="removeDragZone('boardProgressContent')">
+            <div class="boardCollumn" id="boardProgress" ondrop="drop('progress', 'boardProgress')"
+                ondragover="allowDrop(event, 'boardProgress')" ondragleave="removeDragZone('boardProgress')">
                 <div class="boxHeader">
                     <h2>In progress</h2>
                     <img onclick="showAddTaskPopup(0, 2)" class="pointer" src="./assets/img/plus button v1.png" />
                 </div>
-                <div class="boardDragZone" id="boardProgressContent"></div>
+                <div id="boardProgressContent"></div>
+                <div class="boardDragZone" id="boardProgressDrop">
+                    <div id="boardProgressDropText" class="dropZoneText d-none"><span>Drop your task here</span></div>
+                </div>
             </div>
-            <div id="boardFeedback" ondrop="drop('feedback', 'boardFeedbackContent')"
-                ondragover="allowDrop(event, 'boardFeedbackContent')"
-                ondragleave="removeDragZone('boardFeedbackContent')">
+            <div class="boardCollumn" id="boardFeedback" ondrop="drop('feedback', 'boardFeedback')"
+                ondragover="allowDrop(event, 'boardFeedback')" ondragleave="removeDragZone('boardFeedback')">
                 <div class="boxHeader">
                     <h2>Await feedback</h2>
                     <img onclick="showAddTaskPopup(0, 3)" class="pointer" src="./assets/img/plus button v1.png" />
                 </div>
-                <div class="boardDragZone" id="boardFeedbackContent"></div>
+                <div id="boardFeedbackContent"></div>
+                <div class="boardDragZone" id="boardFeedbackDrop">
+                    <div id="boardFeedbackDropText" class="dropZoneText d-none"><span>Drop your task here</span></div>
+                </div>
             </div>
-            <div id="boardDone" ondrop="drop('done', 'boardDoneContent')"
-                ondragover="allowDrop(event, 'boardDoneContent')" ondragleave="removeDragZone('boardDoneContent')">
+            <div class="boardCollumn" id="boardDone" ondrop="drop('done', 'boardDone')"
+                ondragover="allowDrop(event, 'boardDone')" ondragleave="removeDragZone('boardDone')">
                 <div class="boxHeader">
                     <h2>Done</h2>
                     <img onclick="showAddTaskPopup(0, 4)" class="pointer" src="./assets/img/plus button v1.png" />
                 </div>
-                <div class="boardDragZone" id="boardDoneContent"></div>
+                <div id="boardDoneContent"></div>
+                <div class="boardDragZone" id="boardDoneDrop">
+                    <div id="boardDoneDropText" class="dropZoneText d-none"><span>Drop your task here</span></div>
+                </div>
             </div>
         </div>
     </div>

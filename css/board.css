@@ -35,6 +35,10 @@ body {
   margin-bottom: 10vh;
 }
 
+.boardCollumn {
+  position: relative;
+}
+
 .boardFindandAddtask input {
   border-radius: 10px;
   border: 1px solid #d1d1d1;
@@ -57,13 +61,36 @@ body {
 
 .boardDragZone {
   height: 100%;
+  width: 110%;
+  position: absolute;
+  top: 100px;
+  left: -10px;
+  z-index: -1;
 }
 
-.boardDragArea {
-  background-color: #eff8ff;
+.halfOpacity {
+  opacity: 0.1;
+}
+
+.dropZone {
+  background-color: rgba(239, 248, 255, 0.9);
   border-radius: 16px;
-  border: 1px dotted rgba(0, 0, 0, 0.16);
-  z-index: 3;
+  border: 1px dashed rgba(180, 180, 180, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.dropZoneText {
+  color: #a8a8a8;
+  font-size: 32px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 200px;
+  padding-top: 50px;
 }
 
 #boardTodo {
