@@ -378,3 +378,34 @@ function setPriorityLow() {
     document.getElementById('importanceIMGMid').src = './assets/img/taskValueMid.png';
     document.getElementById('importanceIMGLow').src = './assets/img/taskValueLowSelected.png';
 }
+
+/**
+ * adding new tasks to account and backend
+ */
+async function addTask() {
+    if (checkingEmptyValues() == true) {
+        let taskInputTitle = document.getElementById('inputTitle').value;
+        let dueDate = document.getElementById('selectDate').value;
+        let description = document.getElementById('inputDescription').value;
+        document.getElementById('page-container').classList.toggle('overflowHidden');
+        userAccounts[activeUser].userTasks.push(tasks.length);
+        tasks.push({
+            taskTitle: taskInputTitle,
+            taskDescription: description,
+            toDueDate: dueDate,
+            taskCategory: {
+                Category: taskCategoryFinaly,
+                TaskColor: taskCategoryColorFinaly,
+            },
+            subTask: checkedSubtaskValue,
+            taskID: tasks.length,
+            priority: prioritySelect,
+            assignedTo: contactCheckedValue,
+            taskStatus: selectedTaskStatus,
+        });
+        await saveAccountsToBackend();
+        await pushTasksinBackend();
+        localStorage.setItem('reloadingNewPopup', true);
+        window.location.href = 'board.html';
+    }
+}

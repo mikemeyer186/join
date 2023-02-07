@@ -59,6 +59,13 @@ async function includeHTML() {
 }
 
 /**
+ * pushing tasks in backend
+ */
+async function pushTasksinBackend() {
+    await backend.setItem('tasks', JSON.stringify(tasks));
+}
+
+/**
  * loading tasks from backend
  */
 async function loadTasksfromBackend() {

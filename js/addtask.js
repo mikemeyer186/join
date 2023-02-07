@@ -9,38 +9,6 @@ function addTaskOnload() {
 }
 
 /**
- * push JSON in tasks
- * @param {number} index of status
- */
-async function addTask() {
-    if (checkingEmptyValues() == true) {
-        let taskInputTitle = document.getElementById('inputTitle').value;
-        let dueDate = document.getElementById('selectDate').value;
-        let description = document.getElementById('inputDescription').value;
-        document.getElementById('page-container').classList.toggle('overflowHidden');
-        userAccounts[activeUser].userTasks.push(tasks.length); // User account get task id
-        tasks.push({
-            taskTitle: taskInputTitle,
-            taskDescription: description,
-            toDueDate: dueDate,
-            taskCategory: {
-                Category: taskCategoryFinaly,
-                TaskColor: taskCategoryColorFinaly,
-            },
-            subTask: checkedSubtaskValue,
-            taskID: tasks.length,
-            priority: prioritySelect,
-            assignedTo: contactCheckedValue,
-            taskStatus: selectedTaskStatus,
-        });
-        await saveAccountsToBackend();
-        await pushTasksinBackend();
-        localStorage.setItem('reloadingNewPopup', true);
-        window.location.href = 'board.html'; // go to board side
-    }
-}
-
-/**
  * checking empty inputs
  * @returns true // false
  */
@@ -71,13 +39,6 @@ function checkingEmptyValues() {
     } else {
         return true;
     }
-}
-
-/**
- * pushing tasks in backend
- */
-async function pushTasksinBackend() {
-    await backend.setItem('tasks', JSON.stringify(tasks));
 }
 
 /**
