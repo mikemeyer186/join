@@ -13,7 +13,7 @@ let selectorCategoryIndex = 0;
 let selectorContactIndex = 0;
 let categorySelectedColor;
 let selectedCategoryValue = [];
-let taskCategoryFinaly = [];
+let taskCategoryFinaly;
 let taskCategoryColorFinaly = [];
 let contactSelected = [];
 let contactCheckedValue = [];

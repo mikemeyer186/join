@@ -70,7 +70,13 @@ input[type="date"]::-webkit-clear-button {
   overflow: hidden !important;
 }
 
+.formGroup {
+  position: relative;
+}
+
 #mistakeReportCategory {
+  position: absolute;
+  top: 47px;
   color: rgba(235, 0, 0, 0.699);
   margin-left: 20px;
   margin-top: 10px;
@@ -79,6 +85,8 @@ input[type="date"]::-webkit-clear-button {
 }
 
 #mistakeReportDate {
+  position: absolute;
+  top: 55px;
   color: rgba(235, 0, 0, 0.699);
   margin-left: 20px;
   margin-top: 10px;
@@ -87,6 +95,8 @@ input[type="date"]::-webkit-clear-button {
 }
 
 #mistakeReportImportance {
+  position: absolute;
+  top: 97px;
   color: rgba(235, 0, 0, 0.699);
   margin-left: 20px;
   margin-top: 10px;
@@ -95,6 +105,9 @@ input[type="date"]::-webkit-clear-button {
 }
 
 #mistakeReportTitle {
+  position: absolute;
+  top: 68px;
+  left: 2px;
   color: rgba(235, 0, 0, 0.699);
   margin-left: 20px;
   margin-top: 0px;
@@ -103,14 +116,8 @@ input[type="date"]::-webkit-clear-button {
 }
 
 #mistakeReportContact {
-  color: rgba(235, 0, 0, 0.699);
-  margin-left: 20px;
-  margin-top: 10px;
-  margin-bottom: 0;
-  padding: 0;
-}
-
-#mistakeReportCategory {
+  position: absolute;
+  top: 49px;
   color: rgba(235, 0, 0, 0.699);
   margin-left: 20px;
   margin-top: 10px;
@@ -119,6 +126,8 @@ input[type="date"]::-webkit-clear-button {
 }
 
 #mistakeReportDescription {
+  position: absolute;
+  top: 131px;
   color: rgba(235, 0, 0, 0.699);
   margin-left: 10px;
   margin-top: 0px;
@@ -147,6 +156,8 @@ input[type="date"]::-webkit-clear-button {
 }
 
 .selected {
+  color: gray;
+  font-size: 19px;
   gap: 20px;
   display: flex;
   align-items: center;
@@ -165,6 +176,7 @@ input[type="date"]::-webkit-clear-button {
   border-left: none;
   border-right: none;
   width: 500px;
+  color: gray;
 }
 
 .selectorCell {
@@ -215,13 +227,17 @@ input[type="date"]::-webkit-clear-button {
 }
 
 #importanceLvl {
-  margin-top: 30px;
+  margin-top: 45px;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 20px;
 }
 
 #selectDate {
   border: 1px solid #d1d1d1;
   height: 40px;
-  margin: 0 0 10px 0;
+  margin: 0 0 20px 0;
   border-top: none;
   border-left: none;
   border-right: none;
@@ -260,7 +276,6 @@ input[type="date"]::-webkit-clear-button {
   overflow: scroll;
   border-left: 1px solid rgba(0, 0, 0, 0.1);
   border-right: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
   box-shadow: 0 8px 10px rgba(200, 200, 200, 0.2);
@@ -297,10 +312,6 @@ input[type="date"]::-webkit-clear-button {
   padding-bottom: 75px;
   border-radius: 0.5em;
   outline: none;
-}
-
-#subtaskTitle {
-  margin-top: 0px !important;
 }
 
 #subtaskText {
@@ -410,7 +421,6 @@ input[type="date"]::-webkit-clear-button {
 
 #newCategoryText {
   font-size: 20px;
-  margin-top: 15px;
   margin-bottom: 0;
   border: 1px solid #d1d1d1;
   border-top: none;
@@ -419,7 +429,7 @@ input[type="date"]::-webkit-clear-button {
 }
 
 .importanceHard {
-  width: 138px;
+  width: 150px;
   border: 2px solid #ffffff;
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
@@ -429,7 +439,7 @@ input[type="date"]::-webkit-clear-button {
 }
 
 .importanceMid {
-  width: 138px;
+  width: 150px;
   border: 2px solid #ffffff;
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
@@ -439,7 +449,7 @@ input[type="date"]::-webkit-clear-button {
 }
 
 .importanceLow {
-  width: 138px;
+  width: 150px;
   border: 2px solid #ffffff;
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
@@ -546,7 +556,7 @@ input[type="date"]::-webkit-clear-button {
 .checkAndCrossIconsCategory {
   display: flex;
   position: relative;
-  top: 49px;
+  top: 38px;
   left: 430px;
 }
 
@@ -698,6 +708,14 @@ input[type="date"]::-webkit-clear-button {
 
 .noBorder {
   border: 0 !important;
+}
+
+.margin-t-35 {
+  margin-top: 35px !important;
+}
+
+.margin-t-25 {
+  margin-top: 25px !important;
 }
 
 /* Responsive part of style */

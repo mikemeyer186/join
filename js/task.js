@@ -28,7 +28,8 @@ function addContactToUserFromTask() {
 function showAddTaskPopup(mode, status) {
     let index = localStorage.getItem('contactIndex');
     let activeUserContacts = userAccounts[activeUser].userContacts;
-
+    taskCategoryFinaly = '';
+    clearMistakeReports();
     setCheckedContacts(mode, index, activeUserContacts);
     document.getElementById('selectorContactRenderPopup').classList.add('noBorder');
     document.getElementById('selectorCategoryRender').classList.add('noBorder');
@@ -276,6 +277,9 @@ function fillNewCategories() {
  * @param {string} color - category color
  */
 function selectedCategory(category, color) {
+    selectorCategoryIndex--;
+    document.getElementById('selectorCategoryRender').classList.add('noBorder');
+
     if (category == 'New category') {
         changeInputCategory();
     } else {
@@ -383,7 +387,7 @@ function setPriorityLow() {
  * adding new tasks to account and backend
  */
 async function addTask() {
-    if (checkingEmptyValues() == true) {
+    if (checkingEmptyValues()) {
         let taskInputTitle = document.getElementById('inputTitle').value;
         let dueDate = document.getElementById('selectDate').value;
         let description = document.getElementById('inputDescription').value;
@@ -408,4 +412,38 @@ async function addTask() {
         localStorage.setItem('reloadingNewPopup', true);
         window.location.href = 'board.html';
     }
+}
+
+/**
+ * form validation in add task popup
+ * @returns - true if all inputs are true, else shows alert
+ */
+function checkingEmptyValues() {
+    if (!document.getElementById('inputTitle').value) {
+        document.getElementById('mistakeReportTitle').innerHTML = `Please enter a title!`;
+    } else if (contactCheckedValue.length == 0) {
+        document.getElementById('mistakeReportContact').innerHTML = `Please select a contact!`;
+    } else if (!document.getElementById('selectDate').value) {
+        document.getElementById('mistakeReportDate').innerHTML = `Please select a date!`;
+    } else if (!taskCategoryFinaly) {
+        document.getElementById('mistakeReportCategory').innerHTML = `Please select a category!`;
+    } else if (prioritySelect == undefined) {
+        document.getElementById('mistakeReportImportance').innerHTML = `Please select an urgency!`;
+    } else if (document.getElementById('inputDescription').value == false) {
+        document.getElementById('mistakeReportDescription').innerHTML = `Please enter a description!`;
+    } else {
+        return true;
+    }
+}
+
+/**
+ * clearing all validation alerts
+ */
+function clearMistakeReports() {
+    document.getElementById('mistakeReportTitle').innerHTML = '';
+    document.getElementById('mistakeReportContact').innerHTML = '';
+    document.getElementById('mistakeReportDate').innerHTML = '';
+    document.getElementById('mistakeReportCategory').innerHTML = '';
+    document.getElementById('mistakeReportImportance').innerHTML = '';
+    document.getElementById('mistakeReportDescription').innerHTML = '';
 }

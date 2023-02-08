@@ -9,39 +9,6 @@ function addTaskOnload() {
 }
 
 /**
- * checking empty inputs
- * @returns true // false
- */
-function checkingEmptyValues() {
-    if (document.getElementById('inputTitle').value == false) {
-        document.getElementById('mistakeReportTitle').innerHTML = `Please enter a title!`;
-        return false;
-    }
-    if (contactCheckedValue == false) {
-        document.getElementById('mistakeReportContact').innerHTML = `Please select a contact!`;
-        return false;
-    }
-    if (document.getElementById('selectDate').value == false) {
-        document.getElementById('mistakeReportDate').innerHTML = `Please select a date!`;
-        return false;
-    }
-    if (taskCategoryFinaly == false) {
-        document.getElementById('mistakeReportCategory').innerHTML = `Please select a category!`;
-        return false;
-    }
-    if (prioritySelect == undefined) {
-        document.getElementById('mistakeReportImportance').innerHTML = `Please select an urgency!`;
-        return false;
-    }
-    if (document.getElementById('inputDescription').value == false) {
-        document.getElementById('mistakeReportDescription').innerHTML = `Please enter a description!`;
-        return false;
-    } else {
-        return true;
-    }
-}
-
-/**
  * rendering subtasks checkboxes at the footer
  */
 function renderSubTask() {

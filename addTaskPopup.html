@@ -4,51 +4,63 @@
         <img onclick="showAddTaskPopup(0, 1)" class="addTaskPopupIcon pointer"
             src="./assets/img/icons/icon_close_dark.png" />
     </div>
-    <input id="inputTitle" type="text" placeholder="Enter a title" required />
-    <div id="mistakeReportTitle"></div>
-    <div id="selectorContact">
-        <div onclick="renderingContactsSelectorPopup(localStorage.getItem('contactIndex'))"
-            class="selectorHeader pointer">
-            <div>
-                <span class="inputTextGrey">Selected contacts to assign</span>
-                <span id="selectorContactAssigned"></span>
-            </div>
-            <img class="selectorArrow" src="./assets/img/selectorArrow.png" />
-        </div>
-        <div id="selectorContactRenderPopup">
-            <!-- rendering contact selector -->
-        </div>
+    <div class="formGroup">
+        <input id="inputTitle" type="text" placeholder="Enter a title" required />
+        <div id="mistakeReportTitle"></div>
     </div>
-    <div id="mistakeReportContact"></div>
-    <h3>Due date</h3>
-    <i class="fa-regular fa-calendar-minus fa-xl" onclick="openCalendar()" style="cursor:pointer"></i>
-    <input id="selectDate" class="inputTextGrey" type="text" placeholder="Enter date" onfocus="(this.type='date')"
-        onblur="(this.type='text')" required />
-    <div id="mistakeReportDate"></div>
-    <h3>Category</h3>
-    <div id="selectorCategory">
-        <div class="selectorHeader pointer inputTextGrey" onclick="renderingTaskCategorySelector()">
-            Select task category
-            <img class="selectorArrow" src="./assets/img/selectorArrow.png" />
+    <div class="formGroup">
+        <div id="selectorContact">
+            <div onclick="renderingContactsSelectorPopup(localStorage.getItem('contactIndex'))"
+                class="selectorHeader pointer">
+                <div>
+                    <span class="inputTextGrey">Selected contacts to assign</span>
+                    <span id="selectorContactAssigned"></span>
+                </div>
+                <img class="selectorArrow" src="./assets/img/selectorArrow.png" />
+            </div>
+            <div id="selectorContactRenderPopup">
+                <!-- rendering contact selector -->
+            </div>
         </div>
-        <div id="selectorCategoryRender">
-            <!-- rendering category selector -->
+        <div id="mistakeReportContact"></div>
+    </div>
+    <h3 class="margin-t-35">Due date</h3>
+    <div class="formGroup">
+        <i class="fa-regular fa-calendar-minus fa-xl" onclick="openCalendar()" style="cursor:pointer"></i>
+        <input id="selectDate" class="inputTextGrey" type="text" placeholder="Enter date" onfocus="(this.type='date')"
+            onblur="(this.type='text')" required />
+        <div id="mistakeReportDate"></div>
+    </div>
+    <h3>Category</h3>
+    <div class="formGroup">
+        <div id="selectorCategory">
+            <div class="selectorHeader pointer inputTextGrey" onclick="renderingTaskCategorySelector()">
+                Select task category
+                <img class="selectorArrow" src="./assets/img/selectorArrow.png" />
+            </div>
+            <div id="selectorCategoryRender">
+                <!-- rendering category selector -->
+            </div>
         </div>
         <div id="mistakeReportCategory"></div>
     </div>
-    <div id="importanceLvl">
-        <img class="importanceHard" id="importanceIMGHard" value="taskHard" onclick="prioritySelected(1)"
-            src="./assets/img/taskValueHard.png" />
-        <img class="importanceMid" id="importanceIMGMid" value="taskMid" onclick="prioritySelected(2)"
-            src="./assets/img/taskValueMid.png" />
-        <img class="importanceLow" id="importanceIMGLow" value="taskLow" onclick="prioritySelected(3)"
-            src="./assets/img/taskValueLow.png" />
+    <div class="formGroup">
+        <div id="importanceLvl">
+            <img class="importanceHard" id="importanceIMGHard" value="taskHard" onclick="prioritySelected(1)"
+                src="./assets/img/taskValueHard.png" />
+            <img class="importanceMid" id="importanceIMGMid" value="taskMid" onclick="prioritySelected(2)"
+                src="./assets/img/taskValueMid.png" />
+            <img class="importanceLow" id="importanceIMGLow" value="taskLow" onclick="prioritySelected(3)"
+                src="./assets/img/taskValueLow.png" />
+        </div>
+        <div id="mistakeReportImportance"></div>
     </div>
-    <div id="mistakeReportImportance"></div>
-    <h3>Description</h3>
-    <input id="inputDescription" type="text" placeholder="Enter a Description" required />
-    <div id="mistakeReportDescription"></div>
-    <h3 id="subtaskTitle">Subtasks</h3>
+    <h3 class="margin-t-25">Description</h3>
+    <div class="formGroup">
+        <input id="inputDescription" type="text" placeholder="Enter a Description" required />
+        <div id="mistakeReportDescription"></div>
+    </div>
+    <h3 class="margin-t-25" id="subtaskTitle">Subtasks</h3>
     <div class="checkAndCrossIcons">
         <i onclick="clearSubtask()" class="fa-solid fa-xmark fa-xl pointer"></i>
         <img src="./assets/img/icons/trennstrich.png" />

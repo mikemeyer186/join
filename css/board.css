@@ -427,14 +427,6 @@ form h3 {
   margin-left: 40px;
 }
 
-#importanceLvl {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 10px;
-  margin-bottom: 20px;
-}
-
 .selectors {
   border: 1px solid #d1d1d1;
   border-top: none;
@@ -473,10 +465,6 @@ form h3 {
   padding-bottom: 75px;
   border-radius: 0.5em;
   outline: none;
-}
-
-#subtaskTitle {
-  margin-top: 0px !important;
 }
 
 #subtaskText {
@@ -576,7 +564,6 @@ form h3 {
 }
 
 #newCategoryText {
-  margin-top: 15px;
   margin-bottom: 0;
   border: 1px solid #d1d1d1;
   border-top: none;
