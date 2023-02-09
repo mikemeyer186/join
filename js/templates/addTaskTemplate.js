@@ -34,7 +34,7 @@ function rechangeContactInput() {
 /**
  * rendering contacts in addTask
  */
-function renderingContactsSelector() {
+/* function renderingContactsSelector() {
     let activeUserContacts = userAccounts[activeUser].userContacts;
     if (selectorContactIndex == 0) {
         contactCheckedValue = [];
@@ -62,3 +62,4 @@ function renderingContactsSelector() {
         selectorContactIndex--;
     }
 }
+ */

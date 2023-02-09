@@ -467,17 +467,6 @@ form h3 {
   outline: none;
 }
 
-#subtaskText {
-  margin-bottom: 8px;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-}
-
-#subtaskText::placeholder {
-  font-size: 16px;
-}
-
 .taskFooter {
   display: flex;
   align-items: center;
@@ -494,21 +483,6 @@ form h3 {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-}
-
-.subtaskList {
-  display: flex;
-  margin-top: 10px;
-}
-
-.subtaskList input {
-  margin: 0;
-  padding: 0;
-}
-
-.subtaskList p {
-  margin: 0;
-  padding: 0;
 }
 
 .taskFooterButtons {

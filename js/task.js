@@ -30,6 +30,7 @@ function showAddTaskPopup(mode, status) {
     let activeUserContacts = userAccounts[activeUser].userContacts;
     taskCategoryFinaly = '';
     clearMistakeReports();
+    deleteSubTasksArray();
     setCheckedContacts(mode, index, activeUserContacts);
     document.getElementById('selectorContactRenderPopup').classList.add('noBorder');
     document.getElementById('selectorCategoryRender').classList.add('noBorder');
@@ -401,7 +402,7 @@ async function addTask() {
                 Category: taskCategoryFinaly,
                 TaskColor: taskCategoryColorFinaly,
             },
-            subTask: checkedSubtaskValue,
+            subTask: subTasks,
             taskID: tasks.length,
             priority: prioritySelect,
             assignedTo: contactCheckedValue,
@@ -409,6 +410,7 @@ async function addTask() {
         });
         await saveAccountsToBackend();
         await pushTasksinBackend();
+        deleteSubTasksArray();
         localStorage.setItem('reloadingNewPopup', true);
         window.location.href = 'board.html';
     }
@@ -446,4 +448,76 @@ function clearMistakeReports() {
     document.getElementById('mistakeReportCategory').innerHTML = '';
     document.getElementById('mistakeReportImportance').innerHTML = '';
     document.getElementById('mistakeReportDescription').innerHTML = '';
+}
+
+/**
+ * rendering subtasks at the footer of task popup
+ */
+function renderSubTask() {
+    subTasks = JSON.parse(localStorage.getItem('subtasks')) || [];
+    document.getElementById('addSubtaskCheckbox').innerHTML = '';
+
+    for (let i = 0; i < subTasks.length; i++) {
+        let box = subTasks[i].checkbox;
+        document.getElementById('addSubtaskCheckbox').innerHTML += subtaskTemplate(i, box);
+    }
+}
+
+/**
+ * setting checkbox value to subtask (checked or unchecked)
+ * @param {number} i - iteration checkboxes in subtasks
+ */
+function checkSubTask(i) {
+    let box = document.getElementById(`checkbox${i}`);
+    if (box.checked) {
+        subTasks[i].checkbox = 'checked';
+    } else if (!box.checked) {
+        subTasks[i].checkbox = 'unchecked';
+    }
+    localStorage.setItem('subtasks', JSON.stringify(subTasks));
+}
+
+/**
+ * pushing new subtask in localStorage
+ */
+function pushSubtaskLocalStorage() {
+    if (document.getElementById('subtaskText').value) {
+        let newSubtask = {
+            value: document.getElementById('subtaskText').value,
+            checkbox: 'unchecked',
+        };
+        subTasks.push(newSubtask);
+        localStorage.setItem('subtasks', JSON.stringify(subTasks));
+        clearSubtask();
+        renderSubTask();
+    } else {
+        document.getElementById('mistakeReportsubtask').innerHTML = 'Please enter value!';
+    }
+}
+
+/**
+ * clearing subtask input
+ */
+function clearSubtask() {
+    document.getElementById('subtaskText').value = '';
+    document.getElementById('mistakeReportsubtask').innerHTML = '';
+}
+
+/**
+ * deleting subtasks array and localStorage
+ */
+function deleteSubTasksArray() {
+    document.getElementById('addSubtaskCheckbox').innerHTML = '';
+    localStorage.removeItem('subtasks');
+    subTasks = [];
+}
+
+/**
+ * clearing the inputs and selectors
+ */
+function taskClear() {
+    document.getElementById('inputTitle').value = '';
+    document.getElementById('selectDate').value = '';
+    document.getElementById('inputDescription').value = '';
+    clearSubtask();
 }

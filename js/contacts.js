@@ -14,7 +14,6 @@ async function contactsInit() {
     showActiveUserIcon();
     renderSubTask();
     loadTasksfromBackend();
-    getSelectedSubtask();
 }
 
 /**

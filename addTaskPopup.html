@@ -1,7 +1,7 @@
 <form class="formAddtaskPopup">
     <div class="addTaskPopupHeader">
         <h1>Add Task</h1>
-        <img onclick="showAddTaskPopup(0, 1)" class="addTaskPopupIcon pointer"
+        <img onclick="showAddTaskPopup(0, 1), taskClear()" class="addTaskPopupIcon pointer"
             src="./assets/img/icons/icon_close_dark.png" />
     </div>
     <div class="formGroup">
@@ -66,13 +66,11 @@
         <img src="./assets/img/icons/trennstrich.png" />
         <i onclick="pushSubtaskLocalStorage()" class="fa-solid fa-check fa-xl pointer"></i>
     </div>
-    <input id="subtaskText" type="text" placeholder="Add new subtask" />
-    <div id="mistakeReportsubtask"></div>
+    <div class="formGroup">
+        <input id="subtaskText" type="text" placeholder="Add new subtask" />
+        <div id="mistakeReportsubtask"></div>
+    </div>
     <div class="taskFooter">
         <div id="addSubtaskCheckbox"></div>
-        <div class="taskFooterButtons">
-            <button id="buttonClear" onclick="taskClear()">Clear X</button>
-            <button id="buttonCreate" onclick="addTask(); return false">Create Task ✓</button>
-        </div>
     </div>
 </form>

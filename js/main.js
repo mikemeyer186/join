@@ -3,7 +3,6 @@ let activeUser;
 let subTasks = [];
 let tasks = [];
 let taskCategory = [];
-let checkedSubtaskValue;
 let prioritySelect;
 let taskCategorySelector = [];
 let taskContactSelector = [];

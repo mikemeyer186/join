@@ -139,3 +139,18 @@ function categoryColorTemplate() {
         <img class="thisColor" src="./assets/img/categoryColors/${categorySelectedColor}.png">
     `;
 }
+
+/**
+ * html-template for subtasks in add task popup
+ * @param {number} i - iteration of subtask array
+ * @param {string} box - checked or unchecked
+ * @returns - html-template
+ */
+function subtaskTemplate(i, box) {
+    return /*html*/ `
+        <div class="subtaskList" id="subtaskValue">  
+            <input id="checkbox${i}" class="subtaskCheckbox pointer" type="checkbox" onchange="checkSubTask(${i})" ${box}>
+            <p>${subTasks[i].value}</p>
+        </div>
+    `;
+}

@@ -136,6 +136,9 @@ input[type="date"]::-webkit-clear-button {
 }
 
 #mistakeReportsubtask {
+  position: absolute;
+  top: 43px;
+  left: 10px;
   color: rgba(235, 0, 0, 0.699);
   margin-left: 10px;
   margin-top: 0px;
@@ -206,6 +209,7 @@ input[type="date"]::-webkit-clear-button {
   border-top: none;
   border-left: none;
   border-right: none;
+  outline: none;
 }
 
 #inputTitleEdit {
@@ -315,12 +319,14 @@ input[type="date"]::-webkit-clear-button {
 }
 
 #subtaskText {
-  margin-bottom: 8px;
+  margin-bottom: 20px;
   border-bottom: 1px solid #d1d1d1;
+  padding-right: 80px;
   border-top: none;
   border-left: none;
   border-right: none;
   outline: none;
+  font-size: 19px;
 }
 
 #subtaskText::placeholder {
@@ -331,6 +337,11 @@ input[type="date"]::-webkit-clear-button {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.subtaskCheckbox {
+  width: 20px !important;
+  flex-shrink: 0;
 }
 
 #addSubtaskCheckbox input {
@@ -348,6 +359,8 @@ input[type="date"]::-webkit-clear-button {
 .subtaskList {
   display: flex;
   margin-top: 10px;
+  font-size: 19px;
+  color: rgb(63, 63, 63);
 }
 
 .subtaskList input {
@@ -522,7 +535,7 @@ input[type="date"]::-webkit-clear-button {
 .checkAndCrossIcons {
   display: flex;
   position: relative;
-  top: 33px;
+  top: 36px;
   left: 430px;
 }
 
