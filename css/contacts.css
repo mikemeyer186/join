@@ -510,52 +510,8 @@ body {
     object-fit: cover;
 }
 
-#addTaskPopup {
-    overflow-y: scroll !important;
-    overflow-x: hidden;
-    padding-left: 30px;
-    margin-top: 90px;
-    padding-bottom: 30px !important;
-    position: absolute !important;
-    top: 10px !important;
-    bottom: 0 !important;
-    left: calc(100vw - 580px) !important;
-    right: 0px !important;
-    z-index: 5;
-    background-color: white;
-    width: 580px !important;
-    height: calc(100vh - 100px) !important;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15) !important;
-    transform: translateX(300vw);
-    transition: all 300ms ease-out !important;
-    border-bottom-left-radius: 20px !important;
-}
-
-#mobiletaskheader {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0px;
-    left: calc(100vw - 580px);
-    width: 580px;
-    height: 100px;
-    transform: translateX(300vw);
-    transition: all 300ms ease-out;
-    border-top-left-radius: 20px !important;
-}
-
 .formAddtaskPopup {
     width: 90% !important;
-}
-
-.headerSlideIn {
-    transform: translateX(0) !important;
-    transition: all 300ms ease-out;
-}
-
-.translate0 {
-    transform: translateX(0) !important;
-    transition: all 300ms ease-out !important;
 }
 
 .addTaskPopupIcon {

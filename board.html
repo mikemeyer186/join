@@ -34,27 +34,28 @@
         <div class="menu-desktop" w3-include-html="./assets/templates/menuDesktop.html"></div>
         <div class="menu-mobile" w3-include-html="./assets/templates/menuMobile.html"></div>
         <!-- Add Task Popup -->
-        <div id="header-mobile-addTask" w3-include-html="./assets/templates/addTaskHeaderMobile.html"></div>
-        <div id="addTaskPopup" w3-include-html="./addTaskPopup.html"></div>
         <!---->
-        <div id="popup-bg" class="d-none no-opacity" onclick="hidePopUps()">
+        <div id="popup-bg" class="d-none no-opacity" onclick="hidePopUps('out')">
+            <div id="header-mobile-addTask" w3-include-html="./assets/templates/addTaskHeaderMobile.html"></div>
+            <div id="addTaskPopup" w3-include-html="./addTaskPopup.html" onclick="stopPropagate(event)"></div>
             <div id="popup-Task" class="d-none" onclick="stopPropagate(event)">
                 <img class="popup-close-icon-gray" src="./assets/img/icons/xIconGray.png" alt="Close"
-                    onclick="hidePopUps()" />
+                    onclick="hidePopUps('out')" />
                 <div id="taskPopUpContent"></div>
             </div>
         </div>
 
         <div class="boardFindandAddtask">
             <input id="searchInput" type="text" placeholder="Find Task" onkeyup="searchTasksInBoard()" />
-            <button class="pointer addButton" onclick="showAddTaskPopup(0, 1)">Add task +</button>
+            <button class="pointer addButton" onclick="toggleAddTaskPopup(0, 1, 'in')">Add task +</button>
         </div>
         <div id="boardContentID" class="boardContent">
             <div class="boardCollumn" id="boardTodo" ondrop="drop('todo', 'boardTodo')"
                 ondragover="allowDrop(event, 'boardTodo')" ondragleave="removeDragZone('boardTodo')">
                 <div class="boxHeader">
                     <h2>To do</h2>
-                    <img onclick="showAddTaskPopup(0, 1)" class="pointer" src="./assets/img/plus button v1.png" />
+                    <img onclick="toggleAddTaskPopup(0, 1, 'in')" class="pointer"
+                        src="./assets/img/plus button v1.png" />
                 </div>
                 <div id="boardTodoContent"></div>
                 <div class="boardDragZone" id="boardTodoDrop">
@@ -65,7 +66,8 @@
                 ondragover="allowDrop(event, 'boardProgress')" ondragleave="removeDragZone('boardProgress')">
                 <div class="boxHeader">
                     <h2>In progress</h2>
-                    <img onclick="showAddTaskPopup(0, 2)" class="pointer" src="./assets/img/plus button v1.png" />
+                    <img onclick="toggleAddTaskPopup(0, 2, 'in')" class="pointer"
+                        src="./assets/img/plus button v1.png" />
                 </div>
                 <div id="boardProgressContent"></div>
                 <div class="boardDragZone" id="boardProgressDrop">
@@ -76,7 +78,8 @@
                 ondragover="allowDrop(event, 'boardFeedback')" ondragleave="removeDragZone('boardFeedback')">
                 <div class="boxHeader">
                     <h2>Await feedback</h2>
-                    <img onclick="showAddTaskPopup(0, 3)" class="pointer" src="./assets/img/plus button v1.png" />
+                    <img onclick="toggleAddTaskPopup(0, 3, 'in')" class="pointer"
+                        src="./assets/img/plus button v1.png" />
                 </div>
                 <div id="boardFeedbackContent"></div>
                 <div class="boardDragZone" id="boardFeedbackDrop">
@@ -87,7 +90,8 @@
                 ondragover="allowDrop(event, 'boardDone')" ondragleave="removeDragZone('boardDone')">
                 <div class="boxHeader">
                     <h2>Done</h2>
-                    <img onclick="showAddTaskPopup(0, 4)" class="pointer" src="./assets/img/plus button v1.png" />
+                    <img onclick="toggleAddTaskPopup(0, 4, 'in')" class="pointer"
+                        src="./assets/img/plus button v1.png" />
                 </div>
                 <div id="boardDoneContent"></div>
                 <div class="boardDragZone" id="boardDoneDrop">

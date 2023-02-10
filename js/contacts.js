@@ -55,6 +55,7 @@ function renderContactList() {
  */
 function showNewContactPopUp() {
     document.getElementById('popup-bg').classList.remove('d-none');
+    document.getElementById('page-container').classList.toggle('overflowHidden');
 
     setTimeout(() => {
         document.getElementById('popup-contact').classList.add('popup-slideIn');
@@ -66,8 +67,11 @@ function showNewContactPopUp() {
  * hiding popup "new contact"
  */
 function hideNewContactPopUp() {
+    document.getElementById('addTaskPopup').classList.remove('translate0');
+    document.getElementById('mobiletaskheader').classList.remove('headerSlideIn');
     document.getElementById('popup-contact').classList.remove('popup-slideIn');
     document.getElementById('popup-bg').classList.add('no-opacity');
+    document.getElementById('page-container').classList.toggle('overflowHidden');
 
     setTimeout(() => {
         document.getElementById('popup-bg').classList.add('d-none');

@@ -24,6 +24,8 @@ function addContactToUserFromTask() {
 
 /**
  * showing add task popup with white header
+ * @param {number} mode - 0 for no contacts, 1 for checked assigned contacts
+ * @param {string} status - status of new task
  */
 function showAddTaskPopup(mode, status) {
     let index = localStorage.getItem('contactIndex');
@@ -32,12 +34,11 @@ function showAddTaskPopup(mode, status) {
     clearMistakeReports();
     deleteSubTasksArray();
     setCheckedContacts(mode, index, activeUserContacts);
-    document.getElementById('selectorContactRenderPopup').classList.add('noBorder');
-    document.getElementById('selectorCategoryRender').classList.add('noBorder');
+    document.getElementById('selectorContactRenderPopup').classList.toggle('noBorder');
+    document.getElementById('selectorCategoryRender').classList.toggle('noBorder');
     document.getElementById('selectorContactRenderPopup').innerHTML = ``;
     document.getElementById('addTaskPopup').classList.toggle('translate0');
     document.getElementById('mobiletaskheader').classList.toggle('headerSlideIn');
-    document.getElementById('page-container').classList.toggle('overflowHidden');
     showAssignedContacts();
     setTaskStatus(status);
 }

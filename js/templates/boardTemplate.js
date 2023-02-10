@@ -189,18 +189,3 @@ function editPopupTask(ident) {
     `;
     prioritySelectedEdit(popupTaskContent.priority);
 }
-
-/**
- * Hiding the template of popup add Task
- */
-function hidePopUps() {
-    document.getElementById('page-container').classList.remove('overflowHidden');
-    document.getElementById('popup-Task').classList.remove('popup-slideInAddTask');
-    document.getElementById('popup-Task').classList.remove('popup-slideInTask');
-    document.getElementById('popup-bg').classList.add('no-opacity');
-    setTimeout(() => {
-        document.getElementById('popup-Task').classList.add('d-none');
-        document.getElementById('popup-Task').classList.add('d-none');
-        document.getElementById('popup-bg').classList.add('d-none');
-    }, 250);
-}

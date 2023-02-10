@@ -154,3 +154,53 @@ function checkReload() {
         slidePopupIntoView('edited-task-popup');
     }
 }
+
+/**
+ * toggling the add task popup in or out
+ * @param {number} mode - 0 for no contacts, 1 for checked assigned contacts
+ * @param {string} status - status of new task
+ */
+function toggleAddTaskPopup(mode, status, io) {
+    if (io == 'in') {
+        togglePageBackground(io);
+        setTimeout(() => {
+            showAddTaskPopup(mode, status);
+        }, 10);
+    } else {
+        showAddTaskPopup(mode, status);
+        togglePageBackground(io);
+    }
+}
+
+/**
+ * toggling the page background
+ */
+function togglePageBackground(io) {
+    if (io == 'in') {
+        document.getElementById('popup-bg').classList.toggle('d-none');
+        document.getElementById('page-container').classList.toggle('overflowHidden');
+        setTimeout(() => {
+            document.getElementById('popup-bg').classList.toggle('no-opacity');
+        }, 10);
+    } else {
+        document.getElementById('popup-bg').classList.toggle('no-opacity');
+        setTimeout(() => {
+            document.getElementById('popup-bg').classList.toggle('d-none');
+            document.getElementById('page-container').classList.toggle('overflowHidden');
+        }, 250);
+    }
+}
+
+/**
+ * hiding all popups
+ */
+function hidePopUps(io) {
+    document.getElementById('popup-Task').classList.remove('popup-slideInTask');
+    document.getElementById('addTaskPopup').classList.remove('translate0');
+    document.getElementById('mobiletaskheader').classList.remove('headerSlideIn');
+    togglePageBackground(io);
+
+    setTimeout(() => {
+        document.getElementById('popup-Task').classList.add('d-none');
+    }, 250);
+}

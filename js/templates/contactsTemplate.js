@@ -46,7 +46,7 @@ function contactDetailViewTemplate(contact, index) {
             </div>
             <div class="contact-detail-name-box">
                 <span class="contact-detail-name">${contact.contactName}</span>
-                <div onclick="showAddTaskPopup(1, 1)" class="contact-detail-task"><span class="plus">+ </span>Add task</div>
+                <div onclick="toggleAddTaskPopup(1, 1, 'in')" class="contact-detail-task"><span class="plus">+ </span>Add task</div>
             </div>
         </div>
         <div class="contacts-detail-bottom">
