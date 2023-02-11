@@ -492,7 +492,7 @@ function pushSubtaskLocalStorage() {
         clearSubtask();
         renderSubTask();
     } else {
-        document.getElementById('mistakeReportsubtask').innerHTML = 'Please enter value!';
+        document.getElementById('mistakeReportsubtask').innerHTML = 'Please enter a subtask!';
     }
 }
 

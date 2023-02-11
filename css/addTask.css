@@ -164,6 +164,7 @@ input[type="date"]::-webkit-clear-button {
   gap: 20px;
   display: flex;
   align-items: center;
+  width: 440px;
 }
 
 .selectorHeader {
@@ -293,14 +294,16 @@ input[type="date"]::-webkit-clear-button {
 }
 
 #inputDescription {
+  resize: none;
+  width: 500px;
+  height: 120px;
+  font-family: 'Open Sans', sans-serif;
+  color: gray;
   border-style: solid;
   border: 1px solid #d1d1d1;
   margin-top: 10px;
   font-size: 20px;
-  padding-top: 20px;
-  padding-left: 25px;
-  padding-right: 50px;
-  padding-bottom: 75px;
+  padding: 20px;
   border-radius: 0.5em;
   outline: none;
 }
@@ -439,6 +442,7 @@ input[type="date"]::-webkit-clear-button {
   border-top: none;
   border-left: none;
   border-right: none;
+  padding-right: 80px;
 }
 
 .importanceHard {
