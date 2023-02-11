@@ -370,6 +370,9 @@ function taskEditCheckSubTask(i) {
     saveCheckedSubTasksToBackend();
 }
 
+/**
+ * saving checked subtask from popup to backend
+ */
 function saveCheckedSubTasksToBackend() {
     let usedTaskID = popupTaskContent.TaskID;
     for (let i = 0; i < userTasksArray.length; i++) {
@@ -378,4 +381,38 @@ function saveCheckedSubTasksToBackend() {
         }
     }
     addUsertaskInTask();
+}
+
+/**
+ * opening the edit task popup
+ * @param {number} taskID - id of selected task
+ */
+function editPopupTask(taskID) {
+    let priorityPaths = setSelectedPriorityPath();
+    document.getElementById('addTaskPopup').innerHTML = '';
+    document.getElementById('taskPopUpContent').innerHTML = editTaskPopUpTemplate(priorityPaths);
+    contactCheckedValue = popupTaskContent.assignedTo;
+    selectorContactIndex = 0;
+    showAssignedContacts();
+}
+
+/**
+ * setting the path for selected priority of task to show the right image in edit task popup
+ * @returns - object of priority path-strings
+ */
+function setSelectedPriorityPath() {
+    let prioritySelected = popupTaskContent.priority;
+    let lowPriorityPath = 'Low';
+    let midPriorityPath = 'Mid';
+    let hardPriorityPath = 'Hard';
+
+    if (prioritySelected == 'low') {
+        lowPriorityPath = 'LowSelected';
+    } else if (prioritySelected == 'mid') {
+        midPriorityPath = 'MidSelected';
+    } else if (prioritySelected == 'hard') {
+        hardPriorityPath = 'HardSelected';
+    }
+
+    return { low: lowPriorityPath, mid: midPriorityPath, hard: hardPriorityPath };
 }

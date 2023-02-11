@@ -260,6 +260,7 @@ body {
   position: absolute;
   right: 22px;
   bottom: 10px;
+  z-index: 5;
 }
 
 .contact-initials-Task {

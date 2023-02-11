@@ -112,11 +112,7 @@ function taskEditSubtaskTemplate(i, value, box) {
 
 /*****  old code  ******/
 
-/**
- * Template popup Add task
- * @param {string} value of task status
- */
-async function addTaskPopup(value) {
+/* async function addTaskPopup(value) {
     document.getElementById('addTaskPopup').classList.remove('d-none');
     document.getElementById('popup-bg').classList.remove('d-none');
     document.getElementById('page-container').classList.add('overflowHidden');
@@ -130,17 +126,9 @@ async function addTaskPopup(value) {
     <h1>Add Task</h1>
     <button class="buttonCreate pointer" onclick="addTask(${value})">Create Task ✓</button>`;
 }
+*/
 
-/**
- * Template the edit Popup
- * @param {number} ident of task
- */
-function editPopupTask(ident) {
-    findLength(ident);
-    let indet = idInLength;
-    getPopupContent(ident);
-    document.getElementById('taskPopUpContent').innerHTML = `
-    <form>
+/*     <form>
           <input
             value="${popupTaskContent.taskTitle}"
             id="inputTitleEdit"
@@ -204,4 +192,83 @@ function editPopupTask(ident) {
       </form>
     `;
     prioritySelectedEdit(popupTaskContent.priority);
+}
+ */
+
+function editTaskPopUpTemplate(priorityPaths) {
+    return /*html*/ `
+    <form class="formAddtaskPopup">
+      <div class="formGroup">
+        <input value="${popupTaskContent.taskTitle}" id="inputTitleEdit" type="text" placeholder="Enter a title" required>
+        <div id="mistakeReportTitle"></div>
+      </div>
+      <div class="formGroup">
+          <div id="selectorContact">
+              <div onclick="renderingContactsSelectorPopup(${popupTaskContent.taskID})"
+                  class="selectorHeader pointer">
+                  <div>
+                      <span class="inputTextGrey">Selected contacts to assign</span>
+                      <span id="selectorContactAssigned"></span>
+                  </div>
+                  <img class="selectorArrow" src="./assets/img/selectorArrow.png" />
+              </div>
+              <div id="selectorContactRenderPopup">
+                  <!-- rendering contact selector -->
+              </div>
+          </div>
+          <div id="mistakeReportContact"></div>
+      </div>
+      <h3 class="margin-t-35">Due date</h3>
+      <div class="formGroup">
+          <i class="fa-regular fa-calendar-minus fa-xl" onclick="openCalendar()" style="cursor:pointer"></i>
+          <input id="selectDate" class="inputTextGrey" value="${popupTaskContent.toDueDate}" type="text" placeholder="Enter date" onfocus="(this.type='date')"
+              onblur="(this.type='text')" required />
+          <div id="mistakeReportDate"></div>
+      </div>
+      <h3>Category</h3>
+      <div class="formGroup">
+          <div id="selectorCategory">
+              <div class="selectorHeader pointer inputTextGrey" onclick="renderingTaskCategorySelector()">
+                <div class="selected">${popupTaskContent.taskCategory.Category}
+                  <img src="./assets/img/categoryColors/${popupTaskContent.taskCategory.TaskColor}.png">
+                </div>
+                <img class="selectorArrow" src="./assets/img/selectorArrow.png" />
+              </div>
+              <div id="selectorCategoryRender">
+                  <!-- rendering category selector -->
+              </div>
+          </div>
+          <div id="mistakeReportCategory"></div>
+      </div>
+      <div class="formGroup">
+          <div id="importanceLvl">
+              <img class="importanceHard" id="importanceIMGHard" value="taskHard" onclick="prioritySelected(1)"
+                  src="./assets/img/taskValue${priorityPaths.hard}.png" />
+              <img class="importanceMid" id="importanceIMGMid" value="taskMid" onclick="prioritySelected(2)"
+                  src="./assets/img/taskValue${priorityPaths.mid}.png" />
+              <img class="importanceLow" id="importanceIMGLow" value="taskLow" onclick="prioritySelected(3)"
+                  src="./assets/img/taskValue${priorityPaths.low}.png" />
+          </div>
+          <div id="mistakeReportImportance"></div>
+      </div>
+      <h3 class="margin-t-25">Description</h3>
+      <div class="formGroup">
+          <textarea id="inputDescription" placeholder="Enter a description" required></textarea>
+          <div id="mistakeReportDescription"></div>
+      </div>
+      <h3 class="margin-t-35" id="subtaskTitle">Subtasks</h3>
+      <div class="checkAndCrossIcons">
+          <i onclick="clearSubtask()" class="fa-solid fa-xmark fa-xl pointer"></i>
+          <img src="./assets/img/icons/trennstrich.png" />
+          <i onclick="pushSubtaskLocalStorage()" class="fa-solid fa-check fa-xl pointer"></i>
+      </div>
+      <div class="formGroup">
+          <input id="subtaskText" type="text" placeholder="Add new subtask" />
+          <div id="mistakeReportsubtask"></div>
+      </div>
+      <div class="taskFooter">
+          <div id="addSubtaskCheckbox"></div>
+      </div>
+    </form>
+  `;
 }

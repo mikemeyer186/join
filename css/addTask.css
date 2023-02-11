@@ -219,6 +219,7 @@ input[type="date"]::-webkit-clear-button {
   border-top: none;
   border-left: none;
   border-right: none;
+  outline: none;
 }
 
 .inputFields input::placeholder {
@@ -702,7 +703,8 @@ input[type="date"]::-webkit-clear-button {
   width: 500px;
 }
 
-#selectorContactAssigned {
+#selectorContactAssigned,
+#selectorContactAssignedEdit {
   color: #4589ff;
   margin: 0 0 0 20px;
 }
