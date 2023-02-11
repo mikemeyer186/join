@@ -192,12 +192,13 @@ function togglePageBackground(io) {
 }
 
 /**
- * hiding all popups
+ * hiding all popups and scroll task popup content to top
  */
 function hidePopUps(io) {
     document.getElementById('popup-Task').classList.remove('popup-slideInTask');
     document.getElementById('addTaskPopup').classList.remove('translate0');
     document.getElementById('mobiletaskheader').classList.remove('headerSlideIn');
+    document.getElementById('taskPopUpContent').scrollTo(0, 0);
     togglePageBackground(io);
 
     setTimeout(() => {

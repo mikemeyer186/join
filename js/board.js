@@ -147,8 +147,8 @@ function addContact(contactName, initiales, color, number) {
 }
 
 /**
- * get popup content
- * @param {number} taskID - from array
+ * getting task content for popup, with the right taskID
+ * @param {number} taskIDused - index of task from card on the board
  */
 function getPopupContent(taskIDused) {
     for (let i = 0; i < userTasksArray.length; i++) {
@@ -320,6 +320,7 @@ function taskEditPopup(taskId) {
     document.getElementById('popup-bg').classList.remove('d-none');
     document.getElementById('taskPopUpContent').innerHTML = taskEditTemplate();
     taskEditPopupContacts();
+    taskEditPopupSubtasks();
 
     setTimeout(() => {
         document.getElementById('popup-bg').classList.remove('no-opacity');
@@ -336,4 +337,45 @@ function taskEditPopupContacts() {
     for (let i = 0; i < popupTaskContent.assignedTo.length; i++) {
         document.getElementById('popupContactsRender').innerHTML += taskEditContactsTemplate(i);
     }
+}
+
+/**
+ * rendering subtasks in edit task popup
+ */
+function taskEditPopupSubtasks() {
+    document.getElementById('popupSubtasksRender').innerHTML = ``;
+
+    if (popupTaskContent.subTask) {
+        for (let i = 0; i < popupTaskContent.subTask.length; i++) {
+            let value = popupTaskContent.subTask[i].value;
+            let box = popupTaskContent.subTask[i].checkbox;
+            document.getElementById('popupSubtasksRender').innerHTML += taskEditSubtaskTemplate(i, value, box);
+        }
+    } else {
+        document.getElementById('popupSubtasksRender').innerHTML = `<span class="subtaskList">No subtasks added</span>`;
+    }
+}
+
+/**
+ * setting checkbox value to subtask (checked or unchecked)
+ * @param {number} i - iteration checkboxes in subtasks
+ */
+function taskEditCheckSubTask(i) {
+    let box = document.getElementById(`checkbox${i}`);
+    if (box.checked) {
+        popupTaskContent.subTask[i].checkbox = 'checked';
+    } else if (!box.checked) {
+        popupTaskContent.subTask[i].checkbox = 'unchecked';
+    }
+    saveCheckedSubTasksToBackend();
+}
+
+function saveCheckedSubTasksToBackend() {
+    let usedTaskID = popupTaskContent.TaskID;
+    for (let i = 0; i < userTasksArray.length; i++) {
+        if (userTasksArray[i].taskID == usedTaskID) {
+            userTasksArray[i] = popupTaskContent;
+        }
+    }
+    addUsertaskInTask();
 }

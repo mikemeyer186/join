@@ -228,16 +228,18 @@ body {
 }
 
 .popupTaskContacts {
-  height: 430px;
-  min-height: 150px;
   margin-top: 20px;
 }
 
 .popupContactsCell {
   display: flex;
   align-items: center;
-  margin-top: 30px;
+  margin-top: 20px;
   gap: 35px;
+}
+
+.popupSubtasks {
+  margin-top: 20px;
 }
 
 .contact-pic-Task {
@@ -252,11 +254,12 @@ body {
 }
 
 .editButton {
-  position: sticky;
-  float: right;
   object-fit: cover;
   width: 50px;
   padding-bottom: 20px;
+  position: absolute;
+  right: 22px;
+  bottom: 10px;
 }
 
 .contact-initials-Task {
@@ -282,7 +285,9 @@ body {
 
 #taskPopUpContent {
   position: relative;
-  padding: 50px 20px 50px 50px;
+  height: 100%;
+  overflow: auto;
+  padding: 30px 50px 30px 50px;
 }
 
 #popup-bg,
@@ -318,9 +323,8 @@ body {
 }
 
 #popup-Task {
+  padding: 20px 0 20px 0;
   position: relative;
-  overflow-y: auto;
-  justify-content: center;
   width: 580px;
   height: 730px;
   background: #ffffff;
@@ -331,9 +335,9 @@ body {
 }
 
 .popup-addTask-top {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  position: sticky;
+  float: right;
+  bottom: 0;
 }
 
 .popup-addTask-top h1 {

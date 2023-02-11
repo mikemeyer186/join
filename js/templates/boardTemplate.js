@@ -67,19 +67,20 @@ function taskEditTemplate() {
             <img style="object-fit: cover;"src="./assets/img/${popupTaskContent.priority}PopUpIcon.png">
           </div>
         </div>
+        <div class="popupSubtasks">
+          <b>Subtasks:</b>
+          <div id="popupSubtasksRender"></div>
+        </div>
         <div class="popupTaskContacts">
           <b>Assigned to:</b>
           <div id="popupContactsRender"></div>
-        </div>
-        <div class="popup-addTask-top">
-          <img onclick="editPopupTask(${popupTaskContent.taskID})" class="editButton pointer" src="./assets/img/editButton.png"/>
         </div>
       </div>
     `;
 }
 
 /**
- * template for assigned contacts for edit task popup
+ * template for assigned contacts task popup
  * @param {*} i - iteration of assigned contacts
  * @returns - html-template
  */
@@ -92,6 +93,21 @@ function taskEditContactsTemplate(i) {
         <span>${popupTaskContent.assignedTo[i].contactName}</span>
       </div>
     `;
+}
+
+/**
+ * template for subtasks in task popup
+ * @param {number} i - iteration of subtask array
+ * @param {string} box - checked or unchecked
+ * @returns - html-template
+ */
+function taskEditSubtaskTemplate(i, value, box) {
+    return /*html*/ `
+      <div class="subtaskList" id="subtaskValue">  
+          <input id="checkbox${i}" class="subtaskCheckbox pointer" type="checkbox" onchange="taskEditCheckSubTask(${i})" ${box}>
+          <p>${value}</p>
+      </div>
+  `;
 }
 
 /*****  old code  ******/

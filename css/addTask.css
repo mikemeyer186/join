@@ -345,6 +345,7 @@ input[type="date"]::-webkit-clear-button {
 .subtaskCheckbox {
   width: 20px !important;
   flex-shrink: 0;
+  margin-right: 20px !important;
 }
 
 #addSubtaskCheckbox input {
@@ -361,8 +362,8 @@ input[type="date"]::-webkit-clear-button {
 
 .subtaskList {
   display: flex;
-  margin-top: 10px;
-  font-size: 19px;
+  margin-top: 15px;
+  font-size: 16px;
   color: rgb(63, 63, 63);
 }
 

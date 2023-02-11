@@ -41,6 +41,8 @@
             <div id="popup-Task" class="d-none" onclick="stopPropagate(event)">
                 <img class="popup-close-icon-gray" src="./assets/img/icons/xIconGray.png" alt="Close"
                     onclick="hidePopUps('out')" />
+                <img onclick="editPopupTask(`${popupTaskContent.taskID}`)" class="editButton pointer"
+                    src="./assets/img/editButton.png" />
                 <div id="taskPopUpContent"></div>
             </div>
         </div>
