@@ -318,7 +318,7 @@ function addCategory() {
         rechangeCategoryInput();
         renderingTaskCategorySelector();
         selectedCategory(newCategory, categorySelectedColor);
-        selectorCategoryIndex--;
+        selectorCategoryIndex = 0;
     } else {
         document.getElementById('mistakeReportCategory').innerHTML = `Please select color!`;
     }

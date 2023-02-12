@@ -698,6 +698,75 @@ form h3 {
   white-space: nowrap;
 }
 
+.editTask-button-blue {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 35px;
+  gap: 10px;
+  height: 48px;
+  width: 180px;
+  background: #4589ff;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 23px;
+  white-space: nowrap;
+  cursor: pointer;
+  transform: translateX(13%);
+  transition: all 225ms ease-in-out;
+}
+
+.editTask-button-blue>img {
+  width: 16px;
+  object-fit: cover;
+}
+
+.editTask-button-blue:hover {
+  background: #005dff;
+  transition: all 225ms ease-in-out;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.editTask-button-red {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 35px;
+  gap: 10px;
+  height: 48px;
+  width: 180px;
+  background-color: #ff4949;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 23px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 225ms ease-in-out;
+}
+
+.editTask-button-red:hover {
+  background: #ff0606;
+  transition: all 225ms ease-in-out;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.editTask-delete-icon {
+  width: 32px;
+  object-fit: cover;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media(max-width: 820px) {
   .boardFindandAddtask button {
     font-size: 14px !important;

@@ -1,6 +1,3 @@
-let idInLength = -1;
-let taskUser = [];
-
 /**
  * onload functions
  */
@@ -10,20 +7,6 @@ async function boardOnload() {
     await downloadFromServer();
     renderTasksinBoard();
     checkReload();
-}
-
-/**
- *find the right ID in userTasksArray
- * @param {number} ident - id of task
- */
-function findLength(ident) {
-    idInLength = -1;
-    for (let i = 0; userTasksArray.length; i++) {
-        idInLength++;
-        if (userTasksArray[i].taskID == ident) {
-            break;
-        }
-    }
 }
 
 /**
@@ -41,7 +24,7 @@ function startDraggin(id) {
 }
 
 /**
- * shows drop area
+ * showing drop area
  * @param {event} ev - event
  * @param {string} zone - html-element
  */
@@ -53,7 +36,7 @@ function allowDrop(ev, zone) {
 }
 
 /**
- * hides drop area
+ * hiding drop area
  * @param {string} zone - html-element
  */
 function removeDragZone(zone) {
@@ -74,7 +57,7 @@ async function drop(status, zone) {
 }
 
 /**
- * push usertask in task array
+ * pushing usertask in task array
  */
 async function addUsertaskInTask() {
     for (let i = 0; i < userTasksArray.length; i++) {
@@ -85,41 +68,7 @@ async function addUsertaskInTask() {
 }
 
 /**
- * selected priority task for Popup
- * @param {string} value of priority
- */
-function prioritySelectedEdit(i) {
-    if (i == 'hard') {
-        prioritySelect = 'hard';
-        document.getElementById('importanceEditIMGHard').classList.remove('importanceHard');
-        document.getElementById('importanceEditIMGLow').classList.add('importanceLow');
-        document.getElementById('importanceEditIMGMid').classList.add('importanceMid');
-        document.getElementById('importanceEditIMGHard').src = './assets/img/taskValueHardSelected.png';
-        document.getElementById('importanceEditIMGMid').src = './assets/img/taskValueMid.png';
-        document.getElementById('importanceEditIMGLow').src = './assets/img/taskValueLow.png';
-    }
-    if (i == 'mid') {
-        prioritySelect = 'mid';
-        document.getElementById('importanceEditIMGMid').classList.remove('importanceMid');
-        document.getElementById('importanceEditIMGLow').classList.add('importanceLow');
-        document.getElementById('importanceEditIMGHard').classList.add('importanceHard');
-        document.getElementById('importanceEditIMGHard').src = './assets/img/taskValueHard.png';
-        document.getElementById('importanceEditIMGMid').src = './assets/img/taskValueMidSelected.png';
-        document.getElementById('importanceEditIMGLow').src = './assets/img/taskValueLow.png';
-    }
-    if (i == 'low') {
-        prioritySelect = 'low';
-        document.getElementById('importanceEditIMGLow').classList.remove('importanceLow');
-        document.getElementById('importanceEditIMGMid').classList.add('importanceMid');
-        document.getElementById('importanceEditIMGHard').classList.add('importanceHard');
-        document.getElementById('importanceEditIMGHard').src = './assets/img/taskValueHard.png';
-        document.getElementById('importanceEditIMGMid').src = './assets/img/taskValueMid.png';
-        document.getElementById('importanceEditIMGLow').src = './assets/img/taskValueLowSelected.png';
-    }
-}
-
-/**
- * delete the contact from the contactCheckedValue
+ * --- OLD addtask.js --- delete the contact from the contactCheckedValue
  * @param {number} index of contact
  * @param {number} number id of contact in html-id
  * @param {string} contactName name of contact
@@ -131,7 +80,7 @@ function deletContact(index, contactName, number) {
 }
 
 /**
- * push the contact in the contactCheckedValue
+ * --- OLD addtask.js --- push the contact in the contactCheckedValue
  * @param {number} index of contact
  * @param {number} number id of contact in html-id
  * @param {string} contactName name of contact
@@ -158,25 +107,39 @@ function getPopupContent(taskIDused) {
     }
 }
 
+function findIndexOfTask() {
+    let indexTask;
+    for (let i = 0; i < userTasksArray.length; i++) {
+        if (userTasksArray[i].taskID == popupTaskContent.taskID) {
+            indexTask = i;
+        }
+    }
+    return indexTask;
+}
+
 /**
- * pushing JSON in tasks from board
- * @param {number} i - id of task
+ * pushing edited task in usertasks array
  */
-async function pushEditTask(i) {
-    findLength(i);
-    let indet = idInLength;
-    contactCheckedValue = userTasksArray[indet].assignedTo;
-    let taskInputTitle = document.getElementById('inputTitleEdit').value;
-    let dueDate = document.getElementById('selectDateEdit').value;
-    let description = document.getElementById('inputDescriptionEdit').value;
-    userTasksArray[indet].taskTitle = taskInputTitle;
-    userTasksArray[indet].taskDescription = description;
-    userTasksArray[indet].toDueDate = dueDate;
-    userTasksArray[indet].priority = prioritySelect;
-    userTasksArray[indet].assignedTo = contactCheckedValue;
-    await addUsertaskInTask();
-    localStorage.setItem('reloadingEditPopup', true);
-    window.location.reload();
+async function pushEditTask() {
+    let indexTask = findIndexOfTask();
+    let taskInputTitle = document.getElementById('inputTitle').value;
+    let dueDate = document.getElementById('selectDate').value;
+    let description = document.getElementById('inputDescription').value;
+
+    if (checkingEmptyValues()) {
+        userTasksArray[indexTask].taskTitle = taskInputTitle;
+        userTasksArray[indexTask].taskDescription = description;
+        userTasksArray[indexTask].toDueDate = dueDate;
+        userTasksArray[indexTask].priority = prioritySelect;
+        userTasksArray[indexTask].taskCategory = {
+            Category: taskCategoryFinaly,
+            TaskColor: taskCategoryColorFinaly,
+        };
+
+        await addUsertaskInTask();
+        localStorage.setItem('reloadingEditPopup', true);
+        window.location.reload();
+    }
 }
 
 /**
@@ -394,7 +357,11 @@ function editPopupTask(taskID) {
     document.getElementById('taskPopUpContent').innerHTML = editTaskPopUpTemplate(priorityPaths);
     document.getElementById('popup-close-icon').classList.add('d-none');
     document.getElementById('popup-edit-icon').classList.add('d-none');
+    document.getElementById('taskPopUpContent').scrollTo(0, 0);
     contactCheckedValue = popupTaskContent.assignedTo;
+    prioritySelect = popupTaskContent.priority;
+    taskCategoryFinaly = popupTaskContent.taskCategory.Category;
+    taskCategoryColorFinaly = popupTaskContent.taskCategory.TaskColor;
     selectorContactIndex = 0;
     showAssignedContacts();
     taskEditPopupSubtasksRender();

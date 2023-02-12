@@ -120,7 +120,7 @@ function editTaskPopUpTemplate(priorityPaths) {
     <form class="formAddtaskPopup">
 
       <div class="formGroup">
-        <input value="${popupTaskContent.taskTitle}" id="inputTitleEdit" type="text" placeholder="Enter a title" required>
+        <input value="${popupTaskContent.taskTitle}" id="inputTitle" type="text" placeholder="Enter a title" required>
         <div id="mistakeReportTitle"></div>
       </div>
 
@@ -166,7 +166,6 @@ function editTaskPopUpTemplate(priorityPaths) {
           <div id="mistakeReportImportance"></div>
       </div>
 
-
       <div class="formGroup">
           <div id="selectorContact">
               <div onclick="renderingContactsSelectorPopup(${popupTaskContent.taskID})"
@@ -197,8 +196,12 @@ function editTaskPopUpTemplate(priorityPaths) {
       <div class="taskFooter">
           <div id="addSubtaskCheckbox"></div>
       </div>
-
-
+      <div class="formGroup centered">
+        <button class="editTask-button-blue" onclick="pushEditTask(); return false;">Save<img src="./assets/img/icons/icon_check_white.png" alt="Create"></button>
+      </div>
     </form>
+    <div class="formGroup centered">
+      <button class="editTask-button-red" onclick="">Delete<img class="editTask-delete-icon" src="./assets/img/icons/icon_close_white.png" alt="Delete"></button>
+    </div>
   `;
 }
