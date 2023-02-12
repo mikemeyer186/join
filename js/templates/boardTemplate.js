@@ -110,98 +110,63 @@ function taskEditSubtaskTemplate(i, value, box) {
   `;
 }
 
-/*****  old code  ******/
-
-/* async function addTaskPopup(value) {
-    document.getElementById('addTaskPopup').classList.remove('d-none');
-    document.getElementById('popup-bg').classList.remove('d-none');
-    document.getElementById('page-container').classList.add('overflowHidden');
-    document.getElementById('boardContentID').classList.add('overflowHidden');
-    document.getElementById('popup-Task').classList.remove('d-none');
-    setTimeout(() => {
-        document.getElementById('popup-Task').classList.add('popup-slideInAddTask');
-        document.getElementById('popup-bg').classList.remove('no-opacity');
-    }, 10);
-    document.getElementById('addTaskPopupHeader').innerHTML = `
-    <h1>Add Task</h1>
-    <button class="buttonCreate pointer" onclick="addTask(${value})">Create Task ✓</button>`;
-}
-*/
-
-/*     <form>
-          <input
-            value="${popupTaskContent.taskTitle}"
-            id="inputTitleEdit"
-            type="text"
-            placeholder="Enter a title"
-            required
-          />
-          <h3>Description</h3>
-          <input
-            value="${popupTaskContent.taskDescription}"
-            id="inputDescriptionEdit"
-            type="text"
-            placeholder="Enter a Description"
-            required
-          />
-          <h3 style="margin-bottom: 10px;">Due date</h3>
-          <i class="fa-regular fa-calendar-minus fa-xl"></i>
-          <input
-            id="selectDateEdit"
-            type="text"
-            value="${popupTaskContent.toDueDate}"
-            placeholder="dd/mm/yyyy"
-            onfocus="(this.type='date')"
-            onblur="(this.type='text')"
-            required
-          />
-          <div style="margin-top: 30px;" id="importanceLvlEdit">
-            <img
-              class="importanceHard"
-              id="importanceEditIMGHard"
-              value="taskHard"
-              onclick="prioritySelectedEdit('hard')"
-              src="./assets/img/taskValueHard.png"
-            />
-            <img
-              class="importanceMid"
-              id="importanceEditIMGMid"
-              value="taskMid"
-              onclick="prioritySelectedEdit('mid')"
-              src="./assets/img/taskValueMid.png"
-            />
-            <img
-              class="importanceLow"
-              id="importanceEditIMGLow"
-              value="taskLow"
-              onclick="prioritySelectedEdit('low')"
-              src="./assets/img/taskValueLow.png"
-            />
-            </div>
-            <h3>Assigned to</h3>
-            <div id="selectorContactPopup">
-              <div onclick="renderingContactsSelectorPopup(${popupTaskContent.taskID})" class="selectorHeader pointer">
-                Select contacts to assign 
-                <img class="selectorArrow" src="./assets/img/selectorArrow.png">
-              </div>
-              <div class="selectorPopupContacts" id="selectorContactRenderPopup">
-                <!-- renderzone for contact selctor -->
-              </div>
-            </div>
-            <img class="okButton pointer" onclick="pushEditTask(${popupTaskContent.taskID});" src="./assets/img/okButton.png">
-      </form>
-    `;
-    prioritySelectedEdit(popupTaskContent.priority);
-}
+/**
+ * template for edit-task popup
+ * @param {string} priorityPaths - addition for image path of priority-button
+ * @returns - html-template
  */
-
 function editTaskPopUpTemplate(priorityPaths) {
     return /*html*/ `
     <form class="formAddtaskPopup">
+
       <div class="formGroup">
         <input value="${popupTaskContent.taskTitle}" id="inputTitleEdit" type="text" placeholder="Enter a title" required>
         <div id="mistakeReportTitle"></div>
       </div>
+
+      <h3 class="margin-t-25">Description</h3>
+      <div class="formGroup">
+          <textarea id="inputDescription" placeholder="Enter a description" required>${popupTaskContent.taskDescription}</textarea>
+          <div id="mistakeReportDescription"></div>
+      </div>
+
+      <h3>Category</h3>
+      <div class="formGroup">
+          <div id="selectorCategory">
+              <div class="selectorHeader pointer inputTextGrey" onclick="renderingTaskCategorySelector()">
+                <div class="selected">${popupTaskContent.taskCategory.Category}
+                  <img src="./assets/img/categoryColors/${popupTaskContent.taskCategory.TaskColor}.png">
+                </div>
+                <img class="selectorArrow" src="./assets/img/selectorArrow.png" />
+              </div>
+              <div id="selectorCategoryRender">
+                  <!-- rendering category selector -->
+              </div>
+          </div>
+          <div id="mistakeReportCategory"></div>
+      </div>
+
+      <h3 class="margin-t-35">Due date</h3>
+      <div class="formGroup">
+          <i class="fa-regular fa-calendar-minus fa-xl" onclick="openCalendar()" style="cursor:pointer"></i>
+          <input id="selectDate" class="inputTextGrey" value="${popupTaskContent.toDueDate}" type="text" placeholder="Enter date" onfocus="(this.type='date')"
+              onblur="(this.type='text')" required />
+          <div id="mistakeReportDate"></div>
+      </div>
+
+      <div class="formGroup">
+          <div id="importanceLvl">
+              <img class="importanceHard" id="importanceIMGHard" value="taskHard" onclick="prioritySelected(1)"
+                  src="./assets/img/taskValue${priorityPaths.hard}.png" />
+              <img class="importanceMid" id="importanceIMGMid" value="taskMid" onclick="prioritySelected(2)"
+                  src="./assets/img/taskValue${priorityPaths.mid}.png" />
+              <img class="importanceLow" id="importanceIMGLow" value="taskLow" onclick="prioritySelected(3)"
+                  src="./assets/img/taskValue${priorityPaths.low}.png" />
+          </div>
+          <div id="mistakeReportImportance"></div>
+      </div>
+
+
       <div class="formGroup">
           <div id="selectorContact">
               <div onclick="renderingContactsSelectorPopup(${popupTaskContent.taskID})"
@@ -218,44 +183,7 @@ function editTaskPopUpTemplate(priorityPaths) {
           </div>
           <div id="mistakeReportContact"></div>
       </div>
-      <h3 class="margin-t-35">Due date</h3>
-      <div class="formGroup">
-          <i class="fa-regular fa-calendar-minus fa-xl" onclick="openCalendar()" style="cursor:pointer"></i>
-          <input id="selectDate" class="inputTextGrey" value="${popupTaskContent.toDueDate}" type="text" placeholder="Enter date" onfocus="(this.type='date')"
-              onblur="(this.type='text')" required />
-          <div id="mistakeReportDate"></div>
-      </div>
-      <h3>Category</h3>
-      <div class="formGroup">
-          <div id="selectorCategory">
-              <div class="selectorHeader pointer inputTextGrey" onclick="renderingTaskCategorySelector()">
-                <div class="selected">${popupTaskContent.taskCategory.Category}
-                  <img src="./assets/img/categoryColors/${popupTaskContent.taskCategory.TaskColor}.png">
-                </div>
-                <img class="selectorArrow" src="./assets/img/selectorArrow.png" />
-              </div>
-              <div id="selectorCategoryRender">
-                  <!-- rendering category selector -->
-              </div>
-          </div>
-          <div id="mistakeReportCategory"></div>
-      </div>
-      <div class="formGroup">
-          <div id="importanceLvl">
-              <img class="importanceHard" id="importanceIMGHard" value="taskHard" onclick="prioritySelected(1)"
-                  src="./assets/img/taskValue${priorityPaths.hard}.png" />
-              <img class="importanceMid" id="importanceIMGMid" value="taskMid" onclick="prioritySelected(2)"
-                  src="./assets/img/taskValue${priorityPaths.mid}.png" />
-              <img class="importanceLow" id="importanceIMGLow" value="taskLow" onclick="prioritySelected(3)"
-                  src="./assets/img/taskValue${priorityPaths.low}.png" />
-          </div>
-          <div id="mistakeReportImportance"></div>
-      </div>
-      <h3 class="margin-t-25">Description</h3>
-      <div class="formGroup">
-          <textarea id="inputDescription" placeholder="Enter a description" required>${popupTaskContent.taskDescription}</textarea>
-          <div id="mistakeReportDescription"></div>
-      </div>
+
       <h3 class="margin-t-35" id="subtaskTitle">Subtasks</h3>
       <div class="checkAndCrossIcons">
           <i onclick="clearSubtask()" class="fa-solid fa-xmark fa-xl pointer"></i>
@@ -269,6 +197,8 @@ function editTaskPopUpTemplate(priorityPaths) {
       <div class="taskFooter">
           <div id="addSubtaskCheckbox"></div>
       </div>
+
+
     </form>
   `;
 }

@@ -721,7 +721,7 @@ input[type="date"]::-webkit-clear-button {
   box-shadow: 0 8px 10px rgba(200, 200, 200, 0.2);
   position: absolute;
   width: 500px;
-  z-index: 2;
+  z-index: 4;
 }
 
 #selectorContactRenderPopup::-webkit-scrollbar {
