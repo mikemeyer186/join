@@ -41,7 +41,7 @@ async function init(i) {
 }
 
 /**
- * Rendering the header and the sidebar in the page
+ * including the header, sidebar and add-task popup
  */
 async function includeHTML() {
     let includeElements = document.querySelectorAll('[w3-include-html]');
@@ -54,6 +54,20 @@ async function includeHTML() {
         } else {
             element.innerHTML = 'Page not found';
         }
+    }
+}
+
+/**
+ * including add-task popup only
+ */
+async function includeAddTaskPopup() {
+    const element = document.getElementById('addTaskPopup');
+    file = element.getAttribute('w3-include-html');
+    let resp = await fetch(file);
+    if (resp.ok) {
+        element.innerHTML = await resp.text();
+    } else {
+        element.innerHTML = 'Page not found';
     }
 }
 
@@ -200,6 +214,7 @@ function hidePopUps(io) {
     document.getElementById('mobiletaskheader').classList.remove('headerSlideIn');
     document.getElementById('taskPopUpContent').scrollTo(0, 0);
     togglePageBackground(io);
+    includeAddTaskPopup();
 
     setTimeout(() => {
         document.getElementById('popup-Task').classList.add('d-none');
