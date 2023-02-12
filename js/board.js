@@ -344,9 +344,9 @@ function taskEditPopupContacts() {
  */
 function taskEditPopupSubtasks() {
     document.getElementById('popupSubtasksRender').innerHTML = ``;
-    subTasks = popupTaskContent.subTask;
 
     if (popupTaskContent.subTask) {
+        subTasks = popupTaskContent.subTask;
         for (let i = 0; i < subTasks.length; i++) {
             let value = subTasks[i].value;
             let box = subTasks[i].checkbox;
@@ -429,13 +429,12 @@ function taskEditPopupSubtasksRender() {
 
     if (popupTaskContent.subTask.length > 0) {
         subTasks = popupTaskContent.subTask;
-        //localStorage.setItem('subtasks', JSON.stringify(subTasks));
 
         for (let i = 0; i < subTasks.length; i++) {
             let value = subTasks[i].value;
             let box = subTasks[i].checkbox;
             document.getElementById('addSubtaskCheckbox').innerHTML += taskEditSubtaskTemplate(i, value, box);
         }
+        saveCheckedSubTasksToBackend();
     }
-    saveCheckedSubTasksToBackend();
 }

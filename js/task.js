@@ -455,10 +455,9 @@ function clearMistakeReports() {
  * rendering subtasks at the footer of task popup
  */
 function renderSubTask() {
-    //subTasks = JSON.parse(localStorage.getItem('subtasks')) || [];
     document.getElementById('addSubtaskCheckbox').innerHTML = '';
 
-    if (popupTaskContent) {
+    if (popupTaskContent.length > 0) {
         taskEditPopupSubtasksRender();
     } else {
         for (let i = 0; i < subTasks.length; i++) {
@@ -479,7 +478,6 @@ function checkSubTask(i) {
     } else if (!box.checked) {
         subTasks[i].checkbox = 'unchecked';
     }
-    //localStorage.setItem('subtasks', JSON.stringify(subTasks));
 }
 
 /**
@@ -492,7 +490,6 @@ function pushSubtaskLocalStorage() {
             checkbox: 'unchecked',
         };
         subTasks.push(newSubtask);
-        //localStorage.setItem('subtasks', JSON.stringify(subTasks));
         clearSubtask();
         renderSubTask();
     } else {
