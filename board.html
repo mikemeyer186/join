@@ -39,10 +39,10 @@
             <div id="header-mobile-addTask" w3-include-html="./assets/templates/addTaskHeaderMobile.html"></div>
             <div id="addTaskPopup" w3-include-html="./addTaskPopup.html" onclick="stopPropagate(event)"></div>
             <div id="popup-Task" class="d-none" onclick="stopPropagate(event)">
-                <img class="popup-close-icon-gray" src="./assets/img/icons/xIconGray.png" alt="Close"
-                    onclick="hidePopUps('out')" />
-                <img onclick="editPopupTask(`${popupTaskContent.taskID}`)" class="editButton pointer"
-                    src="./assets/img/editButton.png" />
+                <img id="popup-close-icon" class="popup-close-icon-gray" src="./assets/img/icons/xIconGray.png"
+                    alt="Close" onclick="hidePopUps('out')" />
+                <img id="popup-edit-icon" onclick="editPopupTask(`${popupTaskContent.taskID}`)"
+                    class="editButton pointer" src="./assets/img/editButton.png" />
                 <div id="taskPopUpContent"></div>
             </div>
         </div>

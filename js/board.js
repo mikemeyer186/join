@@ -70,7 +70,7 @@ async function drop(status, zone) {
     userTasksArray[currentDraggedElement]['taskStatus'] = status;
     removeDragZone(zone);
     renderTasksinBoard();
-    addUsertaskInTask();
+    await addUsertaskInTask();
 }
 
 /**
@@ -78,8 +78,8 @@ async function drop(status, zone) {
  */
 async function addUsertaskInTask() {
     for (let i = 0; i < userTasksArray.length; i++) {
-        let task = userTasksArray[i].taskID;
-        tasks[task] = userTasksArray[i];
+        let taskID = userTasksArray[i].taskID;
+        tasks[taskID] = userTasksArray[i];
     }
     await pushTasksinBackend();
 }
@@ -344,11 +344,12 @@ function taskEditPopupContacts() {
  */
 function taskEditPopupSubtasks() {
     document.getElementById('popupSubtasksRender').innerHTML = ``;
+    subTasks = popupTaskContent.subTask;
 
     if (popupTaskContent.subTask) {
-        for (let i = 0; i < popupTaskContent.subTask.length; i++) {
-            let value = popupTaskContent.subTask[i].value;
-            let box = popupTaskContent.subTask[i].checkbox;
+        for (let i = 0; i < subTasks.length; i++) {
+            let value = subTasks[i].value;
+            let box = subTasks[i].checkbox;
             document.getElementById('popupSubtasksRender').innerHTML += taskEditSubtaskTemplate(i, value, box);
         }
     } else {
@@ -363,9 +364,9 @@ function taskEditPopupSubtasks() {
 function taskEditCheckSubTask(i) {
     let box = document.getElementById(`checkbox${i}`);
     if (box.checked) {
-        popupTaskContent.subTask[i].checkbox = 'checked';
+        subTasks[i].checkbox = 'checked';
     } else if (!box.checked) {
-        popupTaskContent.subTask[i].checkbox = 'unchecked';
+        subTasks[i].checkbox = 'unchecked';
     }
     saveCheckedSubTasksToBackend();
 }
@@ -373,14 +374,14 @@ function taskEditCheckSubTask(i) {
 /**
  * saving checked subtask from popup to backend
  */
-function saveCheckedSubTasksToBackend() {
+async function saveCheckedSubTasksToBackend() {
     let usedTaskID = popupTaskContent.TaskID;
     for (let i = 0; i < userTasksArray.length; i++) {
         if (userTasksArray[i].taskID == usedTaskID) {
-            userTasksArray[i] = popupTaskContent;
+            userTasksArray[i].subTask = subTasks;
         }
     }
-    addUsertaskInTask();
+    await addUsertaskInTask();
 }
 
 /**
@@ -391,9 +392,12 @@ function editPopupTask(taskID) {
     let priorityPaths = setSelectedPriorityPath();
     document.getElementById('addTaskPopup').innerHTML = '';
     document.getElementById('taskPopUpContent').innerHTML = editTaskPopUpTemplate(priorityPaths);
+    document.getElementById('popup-close-icon').classList.add('d-none');
+    document.getElementById('popup-edit-icon').classList.add('d-none');
     contactCheckedValue = popupTaskContent.assignedTo;
     selectorContactIndex = 0;
     showAssignedContacts();
+    taskEditPopupSubtasksRender();
 }
 
 /**
@@ -415,4 +419,23 @@ function setSelectedPriorityPath() {
     }
 
     return { low: lowPriorityPath, mid: midPriorityPath, hard: hardPriorityPath };
+}
+
+/**
+ * rendering subtasks in edit task popup for changing and adding
+ */
+function taskEditPopupSubtasksRender() {
+    document.getElementById('addSubtaskCheckbox').innerHTML = ``;
+
+    if (popupTaskContent.subTask.length > 0) {
+        subTasks = popupTaskContent.subTask;
+        //localStorage.setItem('subtasks', JSON.stringify(subTasks));
+
+        for (let i = 0; i < subTasks.length; i++) {
+            let value = subTasks[i].value;
+            let box = subTasks[i].checkbox;
+            document.getElementById('addSubtaskCheckbox').innerHTML += taskEditSubtaskTemplate(i, value, box);
+        }
+    }
+    saveCheckedSubTasksToBackend();
 }

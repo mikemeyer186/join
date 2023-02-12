@@ -455,12 +455,16 @@ function clearMistakeReports() {
  * rendering subtasks at the footer of task popup
  */
 function renderSubTask() {
-    subTasks = JSON.parse(localStorage.getItem('subtasks')) || [];
+    //subTasks = JSON.parse(localStorage.getItem('subtasks')) || [];
     document.getElementById('addSubtaskCheckbox').innerHTML = '';
 
-    for (let i = 0; i < subTasks.length; i++) {
-        let box = subTasks[i].checkbox;
-        document.getElementById('addSubtaskCheckbox').innerHTML += subtaskTemplate(i, box);
+    if (popupTaskContent) {
+        taskEditPopupSubtasksRender();
+    } else {
+        for (let i = 0; i < subTasks.length; i++) {
+            let box = subTasks[i].checkbox;
+            document.getElementById('addSubtaskCheckbox').innerHTML += subtaskTemplate(i, box);
+        }
     }
 }
 
@@ -475,7 +479,7 @@ function checkSubTask(i) {
     } else if (!box.checked) {
         subTasks[i].checkbox = 'unchecked';
     }
-    localStorage.setItem('subtasks', JSON.stringify(subTasks));
+    //localStorage.setItem('subtasks', JSON.stringify(subTasks));
 }
 
 /**
@@ -488,7 +492,7 @@ function pushSubtaskLocalStorage() {
             checkbox: 'unchecked',
         };
         subTasks.push(newSubtask);
-        localStorage.setItem('subtasks', JSON.stringify(subTasks));
+        //localStorage.setItem('subtasks', JSON.stringify(subTasks));
         clearSubtask();
         renderSubTask();
     } else {
@@ -510,6 +514,7 @@ function clearSubtask() {
 function deleteSubTasksArray() {
     document.getElementById('addSubtaskCheckbox').innerHTML = '';
     localStorage.removeItem('subtasks');
+    popupTaskContent = [];
     subTasks = [];
 }
 

@@ -253,7 +253,7 @@ function editTaskPopUpTemplate(priorityPaths) {
       </div>
       <h3 class="margin-t-25">Description</h3>
       <div class="formGroup">
-          <textarea id="inputDescription" placeholder="Enter a description" required></textarea>
+          <textarea id="inputDescription" placeholder="Enter a description" required>${popupTaskContent.taskDescription}</textarea>
           <div id="mistakeReportDescription"></div>
       </div>
       <h3 class="margin-t-35" id="subtaskTitle">Subtasks</h3>

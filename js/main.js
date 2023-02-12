@@ -212,7 +212,10 @@ function hidePopUps(io) {
     document.getElementById('popup-Task').classList.remove('popup-slideInTask');
     document.getElementById('addTaskPopup').classList.remove('translate0');
     document.getElementById('mobiletaskheader').classList.remove('headerSlideIn');
+    document.getElementById('popup-close-icon').classList.remove('d-none');
+    document.getElementById('popup-edit-icon').classList.remove('d-none');
     document.getElementById('taskPopUpContent').scrollTo(0, 0);
+    deleteSubTasksArray();
     togglePageBackground(io);
     includeAddTaskPopup();
 
