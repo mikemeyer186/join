@@ -4,7 +4,6 @@
 async function boardOnload() {
     await init(2);
     await loadTasksfromBackend();
-    await downloadFromServer();
     renderTasksinBoard();
     checkReload();
 }
@@ -107,7 +106,11 @@ function getPopupContent(taskIDused) {
     }
 }
 
-function findIndexOfTask() {
+/**
+ * finding the index of edited task in usertask array
+ * @returns - index
+ */
+function findIndexOfUserTask() {
     let indexTask;
     for (let i = 0; i < userTasksArray.length; i++) {
         if (userTasksArray[i].taskID == popupTaskContent.taskID) {
@@ -121,7 +124,7 @@ function findIndexOfTask() {
  * pushing edited task in usertasks array
  */
 async function pushEditTask() {
-    let indexTask = findIndexOfTask();
+    let indexTask = findIndexOfUserTask();
     let taskInputTitle = document.getElementById('inputTitle').value;
     let dueDate = document.getElementById('selectDate').value;
     let description = document.getElementById('inputDescription').value;
@@ -143,15 +146,43 @@ async function pushEditTask() {
 }
 
 /**
+ * finding index of task in user account (userTasks)
+ * @returns - index
+ */
+function findIndexOfUserAccount() {
+    let indexUserTask;
+    for (let i = 0; i < userAccounts[activeUser].userTasks.length; i++) {
+        if (userAccounts[activeUser].userTasks[i] == popupTaskContent.taskID) {
+            indexUserTask = i;
+        }
+    }
+    return indexUserTask;
+}
+
+/**
+ * deleting task from user
+ */
+async function deleteTask() {
+    let indexUserTask = findIndexOfUserAccount();
+    userAccounts[activeUser].userTasks.splice(indexUserTask, 1);
+    await saveAccountsToBackend();
+    localStorage.setItem('reloadingEditPopup', true);
+    window.location.reload();
+}
+
+/**
  * filling usertasksArray with original tasks
  */
 function fillUserTasksFromTasks() {
     userTasksArray = [];
-    let userTasksIds = userAccounts[activeUser].userTasks;
+    let userTasksIds = userAccounts[activeUser].userTasks; // 0, 1, 3, 4
     if (userTasksIds.length > 0) {
         for (let i = 0; i < userTasksIds.length; i++) {
-            let taskId = userTasksIds[i];
-            userTasksArray.push(tasks[taskId]);
+            for (let j = 0; j < tasks.length; j++) {
+                if (tasks[j].taskID == userTasksIds[i]) {
+                    userTasksArray.push(tasks[j]);
+                }
+            }
         }
     }
 }

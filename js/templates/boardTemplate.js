@@ -201,7 +201,7 @@ function editTaskPopUpTemplate(priorityPaths) {
       </div>
     </form>
     <div class="formGroup centered">
-      <button class="editTask-button-red" onclick="">Delete<img class="editTask-delete-icon" src="./assets/img/icons/icon_close_white.png" alt="Delete"></button>
+      <button class="editTask-button-red" onclick="deleteTask()">Delete<img class="editTask-delete-icon" src="./assets/img/icons/icon_close_white.png" alt="Delete"></button>
     </div>
   `;
 }
