@@ -175,14 +175,11 @@ async function deleteTask() {
  */
 function fillUserTasksFromTasks() {
     userTasksArray = [];
-    let userTasksIds = userAccounts[activeUser].userTasks; // 0, 1, 3, 4
+    let userTasksIds = userAccounts[activeUser].userTasks;
     if (userTasksIds.length > 0) {
         for (let i = 0; i < userTasksIds.length; i++) {
-            for (let j = 0; j < tasks.length; j++) {
-                if (tasks[j].taskID == userTasksIds[i]) {
-                    userTasksArray.push(tasks[j]);
-                }
-            }
+            let taskId = userTasksIds[i];
+            userTasksArray.push(tasks[taskId]);
         }
     }
 }
