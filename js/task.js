@@ -474,9 +474,11 @@ function renderSubTask() {
 function checkSubTask(i) {
     let box = document.getElementById(`checkbox${i}`);
     if (box.checked) {
-        subTasks[i].checkbox = 'checked';
-    } else if (!box.checked) {
+        box.checked = false;
         subTasks[i].checkbox = 'unchecked';
+    } else if (!box.checked) {
+        box.checked = true;
+        subTasks[i].checkbox = 'checked';
     }
 }
 
@@ -495,6 +497,11 @@ function pushSubtaskLocalStorage() {
     } else {
         document.getElementById('mistakeReportsubtask').innerHTML = 'Please enter a subtask!';
     }
+}
+
+function taskDeleteSubTask(i) {
+    subTasks.splice(i, 1);
+    renderSubTask();
 }
 
 /**

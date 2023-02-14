@@ -103,9 +103,12 @@ function taskEditContactsTemplate(i) {
  */
 function taskEditSubtaskTemplate(i, value, box) {
     return /*html*/ `
-      <div class="subtaskList" id="subtaskValue">  
+      <div class="subtaskList">
+        <div class="subtaskList-task" onclick="taskEditCheckSubTask(${i})">
           <input id="checkbox${i}" class="subtaskCheckbox pointer" type="checkbox" onchange="taskEditCheckSubTask(${i})" ${box}>
-          <p>${value}</p>
+          <p class="subtaskList-text">${value}</p>
+        </div> 
+        <span class="subtaskList-delete" title="delete subtask" onclick="taskEditDeleteSubTask(${i})">X</span>
       </div>
   `;
 }

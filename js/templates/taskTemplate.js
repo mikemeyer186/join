@@ -148,9 +148,12 @@ function categoryColorTemplate() {
  */
 function subtaskTemplate(i, box) {
     return /*html*/ `
-        <div class="subtaskList" id="subtaskValue">  
-            <input id="checkbox${i}" class="subtaskCheckbox pointer" type="checkbox" onchange="checkSubTask(${i})" ${box}>
-            <p>${subTasks[i].value}</p>
+        <div class="subtaskList">
+            <div class="subtaskList-task" onclick="checkSubTask(${i})">
+                <input id="checkbox${i}" class="subtaskCheckbox pointer" type="checkbox" onchange="checkSubTask(${i})" ${box}>
+                <p class="subtaskList-text">${subTasks[i].value}</p>
+            </div>
+            <span class="subtaskList-delete" title="delete subtask" onclick="taskDeleteSubTask(${i})">X</span>
         </div>
     `;
 }

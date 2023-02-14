@@ -134,6 +134,7 @@ async function pushEditTask() {
         userTasksArray[indexTask].taskDescription = description;
         userTasksArray[indexTask].toDueDate = dueDate;
         userTasksArray[indexTask].priority = prioritySelect;
+        userTasksArray[indexTask].subTask = subTasks;
         userTasksArray[indexTask].taskCategory = {
             Category: taskCategoryFinaly,
             TaskColor: taskCategoryColorFinaly,
@@ -336,7 +337,7 @@ function taskEditPopupContacts() {
 function taskEditPopupSubtasks() {
     document.getElementById('popupSubtasksRender').innerHTML = ``;
 
-    if (popupTaskContent.subTask) {
+    if (popupTaskContent.subTask.length > 0) {
         subTasks = popupTaskContent.subTask;
         for (let i = 0; i < subTasks.length; i++) {
             let value = subTasks[i].value;
@@ -355,11 +356,19 @@ function taskEditPopupSubtasks() {
 function taskEditCheckSubTask(i) {
     let box = document.getElementById(`checkbox${i}`);
     if (box.checked) {
-        subTasks[i].checkbox = 'checked';
-    } else if (!box.checked) {
+        box.checked = false;
         subTasks[i].checkbox = 'unchecked';
+    } else if (!box.checked) {
+        box.checked = true;
+        subTasks[i].checkbox = 'checked';
     }
     saveCheckedSubTasksToBackend();
+}
+
+function taskEditDeleteSubTask(i) {
+    subTasks.splice(i, 1);
+    saveCheckedSubTasksToBackend();
+    taskEditPopupSubtasks();
 }
 
 /**
