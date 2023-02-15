@@ -41,6 +41,7 @@ function showAddTaskPopup(mode, status) {
     document.getElementById('mobiletaskheader').classList.toggle('headerSlideIn');
     showAssignedContacts();
     setTaskStatus(status);
+    showAllDeleteBtns();
 }
 
 /**

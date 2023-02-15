@@ -108,7 +108,7 @@ function taskEditSubtaskTemplate(i, value, box) {
           <input id="checkbox${i}" class="subtaskCheckbox pointer" type="checkbox" onchange="taskEditCheckSubTask(${i})" ${box}>
           <p class="subtaskList-text">${value}</p>
         </div> 
-        <span class="subtaskList-delete" title="delete subtask" onclick="taskEditDeleteSubTask(${i})">X</span>
+        <span class="subtaskList-delete" title="delete subtask" onclick="taskDeleteSubTask(${i})">delete</span>
       </div>
   `;
 }

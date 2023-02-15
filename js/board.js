@@ -313,6 +313,7 @@ function taskEditPopup(taskId) {
     document.getElementById('taskPopUpContent').innerHTML = taskEditTemplate();
     taskEditPopupContacts();
     taskEditPopupSubtasks();
+    hideAllDeleteBtns();
 
     setTimeout(() => {
         document.getElementById('popup-bg').classList.remove('no-opacity');
@@ -402,6 +403,7 @@ function editPopupTask(taskID) {
     selectorContactIndex = 0;
     showAssignedContacts();
     taskEditPopupSubtasksRender();
+    showAllDeleteBtns();
 }
 
 /**
@@ -441,4 +443,14 @@ function taskEditPopupSubtasksRender() {
         }
         saveCheckedSubTasksToBackend();
     }
+}
+
+function hideAllDeleteBtns() {
+    const delBtns = document.querySelectorAll('.subtaskList-delete');
+    delBtns.forEach((btn) => btn.classList.add('d-none'));
+}
+
+function showAllDeleteBtns() {
+    const delBtns = document.querySelectorAll('.subtaskList-delete');
+    delBtns.forEach((btn) => btn.classList.remove('d-none'));
 }

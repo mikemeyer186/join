@@ -465,6 +465,7 @@ form h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 480px;
 }
 
 #addSubtaskCheckbox input {
@@ -477,6 +478,8 @@ form h3 {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
+  width: 100%;
+  padding-left: 20px;
 }
 
 .taskFooterButtons {
@@ -772,10 +775,11 @@ form h3 {
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  width: 100%;
 }
 
 .subtaskList:hover .subtaskList-delete {
-  color: #000000;
+  color: #838fa5;
   transition: all 225ms ease-in-out;
 }
 
@@ -803,9 +807,8 @@ form h3 {
 
 .subtaskList-delete {
   text-align: center;
-  width: 30px;
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 400;
   color: transparent;
   border-radius: 100%;
   transition: all 225ms ease-in-out;
