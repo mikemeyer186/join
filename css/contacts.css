@@ -12,7 +12,7 @@ body {
 
 .page-container {
     height: 100vh;
-    overflow: hidden;
+    overflow: hidden !important;
     position: relative;
 }
 
