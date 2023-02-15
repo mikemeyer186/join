@@ -159,6 +159,8 @@ function slidePopupIntoView(id) {
 function checkReload() {
     let newTaskPopup = localStorage.getItem('reloadingNewPopup');
     let editTaskPopup = localStorage.getItem('reloadingEditPopup');
+    let deleteTaskPopup = localStorage.getItem('reloadingDeletePopup');
+
     if (newTaskPopup) {
         localStorage.removeItem('reloadingNewPopup');
         slidePopupIntoView('created-task-popup');
@@ -166,6 +168,10 @@ function checkReload() {
     if (editTaskPopup) {
         localStorage.removeItem('reloadingEditPopup');
         slidePopupIntoView('edited-task-popup');
+    }
+    if (deleteTaskPopup) {
+        localStorage.removeItem('reloadingDeletePopup');
+        slidePopupIntoView('deleted-task-popup');
     }
 }
 

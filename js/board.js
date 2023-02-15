@@ -167,7 +167,7 @@ async function deleteTask() {
     let indexUserTask = findIndexOfUserAccount();
     userAccounts[activeUser].userTasks.splice(indexUserTask, 1);
     await saveAccountsToBackend();
-    localStorage.setItem('reloadingEditPopup', true);
+    localStorage.setItem('reloadingDeletePopup', true);
     window.location.reload();
 }
 
