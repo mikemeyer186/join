@@ -631,12 +631,12 @@ input[type="date"]::-webkit-clear-button {
 }
 
 #addTaskPopup {
-  overflow-y: scroll !important;
+  overflow-y: scroll;
   overflow-x: hidden;
   padding-left: 30px;
   margin-top: 90px;
   padding-bottom: 30px !important;
-  position: absolute !important;
+  position: absolute;
   top: 10px !important;
   bottom: 0 !important;
   left: calc(100vw - 580px) !important;
@@ -644,8 +644,8 @@ input[type="date"]::-webkit-clear-button {
   z-index: 5;
   background-color: white;
   width: 580px !important;
-  height: calc(100vh - 100px) !important;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15) !important;
+  height: calc(100vh - 100px);
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
   transform: translateX(300vw);
   transition: all 300ms ease-out !important;
   border-bottom-left-radius: 20px !important;
@@ -673,6 +673,25 @@ input[type="date"]::-webkit-clear-button {
 .translate0 {
   transform: translateX(0) !important;
   transition: all 300ms ease-out;
+}
+
+.addTask-Container {
+  padding-top: 50px;
+  padding-left: 250px;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  overflow-y: visible;
+}
+
+.staticPopup {
+  position: static !important;
+  transform: translateX(0) !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  z-index: 3 !important;
+  overflow-y: hidden !important;
+  height: inherit !important;
 }
 
 .addTaskPopupIcon {
@@ -785,6 +804,10 @@ input[type="date"]::-webkit-clear-button {
   color: transparent;
   border-radius: 100%;
   transition: all 225ms ease-in-out;
+}
+
+.d-none {
+  display: none !important;
 }
 
 /* Responsive part of style */

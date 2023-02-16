@@ -1,8 +1,8 @@
 <form class="formAddtaskPopup">
     <div class="addTaskPopupHeader">
         <h1>Add Task</h1>
-        <img onclick="toggleAddTaskPopup(0, 1, 'out'); taskClear();" class="addTaskPopupIcon pointer"
-            src="./assets/img/icons/icon_close_dark.png" />
+        <img id="addTaskPopopIconClose" onclick="toggleAddTaskPopup(0, 1, 'out'); taskClear();"
+            class="addTaskPopupIcon pointer" src="./assets/img/icons/icon_close_dark.png" />
     </div>
     <div class="formGroup">
         <input id="inputTitle" type="text" placeholder="Enter a title" required />
