@@ -3,13 +3,21 @@
  * @param {number} i - index of iteration
  * @returns - html-template
  */
-function taskCardTemplate(i) {
+function taskCardTemplate(i, process) {
     return /*html*/ `
       <div onclick="taskEditPopup(${userTasksArray[i].taskID})" draggable="true" ondragstart="startDraggin(${userTasksArray[i].taskID})" class="boardBox pointer">
         <div class="boardBoxContent">
           <div class="boardBoxContent-top">
             <p class="boardBoxCategory ${userTasksArray[i].taskCategory.TaskColor}">${userTasksArray[i].taskCategory.Category}</p>
             <h4 class="boardBoxTitle">${userTasksArray[i].taskTitle}</h4>
+            <div class="boardBoxProcessContainer">
+              <div class="boardBoxProcess">
+                <div class="boardBoxProcessBar" style="width: ${process.percentage}%"></div>
+              </div>
+              <div class="boardBoxProcessText">
+                <span>${process.done}/${process.sum} done</span>
+              </div>
+            </div>
             <p class="boardBoxDescription">${userTasksArray[i].taskDescription}</p>
           </div>
           <div class="boardBoxFooter">
@@ -64,7 +72,7 @@ function taskEditTemplate() {
         <div class="popupTaskValue">
           <b>Priority: </b>
           <div>
-            <img style="object-fit: cover;"src="./assets/img/${popupTaskContent.priority}PopUpIcon.png">
+            <img style="object-fit: cover;" src="./assets/img/${popupTaskContent.priority}PopUpIcon.png">
           </div>
         </div>
         <div class="popupSubtasks">

@@ -265,10 +265,28 @@ function renderTasksinBoardStatus(status) {
     for (let i = 0; i < userTasksArray.length; i++) {
         if (userTasksArray[i].taskStatus == status) {
             let capStatus = status.charAt(0).toUpperCase() + status.slice(1);
-            document.getElementById(`board${capStatus}Content`).innerHTML += taskCardTemplate(i);
+            let processPerc = calculatePercentage(i);
+            document.getElementById(`board${capStatus}Content`).innerHTML += taskCardTemplate(i, processPerc);
             renderAbbrevaitionInBox(userTasksArray[i].taskID, i);
         }
     }
+}
+
+function calculatePercentage(i) {
+    let percentage = 0;
+    let allSubtasks = userTasksArray[i].subTask;
+    let sumSubtasks = allSubtasks.length;
+    let checked = 0;
+
+    if (allSubtasks.length > 0) {
+        allSubtasks.forEach((subtask) => {
+            if (subtask.checkbox == 'checked') {
+                checked++;
+            }
+        });
+        percentage = (checked / sumSubtasks) * 100;
+    }
+    return { sum: sumSubtasks, done: checked, percentage: percentage };
 }
 
 /**
