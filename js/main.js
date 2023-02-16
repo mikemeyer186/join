@@ -224,6 +224,7 @@ function hidePopUps(io) {
     deleteSubTasksArray();
     togglePageBackground(io);
     includeAddTaskPopup();
+    renderTasksinBoard();
 
     setTimeout(() => {
         document.getElementById('popup-Task').classList.add('d-none');
