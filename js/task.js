@@ -500,6 +500,10 @@ function pushSubtaskLocalStorage() {
     }
 }
 
+/**
+ * splicing subtask
+ * @param {number} i - index of subtask
+ */
 function taskDeleteSubTask(i) {
     subTasks.splice(i, 1);
     renderSubTask();

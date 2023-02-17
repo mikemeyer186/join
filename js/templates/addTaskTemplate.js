@@ -2,14 +2,14 @@
  * Change the contact selector in a input field
  */
 function changeInputContact() {
-    document.getElementById('selectorContact').innerHTML = `
-    <div>
-    <div class="checkAndCrossIconsEmail">
-          <i onclick="rechangeContactInput(); showAssignedContacts()" class="fa-solid fa-xmark fa-xl contactX pointer"></i> 
-          <img src="./assets/img/icons/trennstrich.png">
-          <i onclick="addContactToUserFromTask()" class=" pointer fa-solid fa-check fa-xl contactCheck"></i>
-          </div>
-    <input id="selectContact" type="email" placeholder="Enter E-mail of new contact" required>
+    document.getElementById('selectorContact').innerHTML = /*html*/ `
+    <div class="newContactInput">
+      <input id="selectContact" type="email" placeholder="Enter E-mail of new contact" required>
+      <div class="checkAndCrossIconsEmail">
+            <i onclick="rechangeContactInput(); showAssignedContacts()" class="fa-solid fa-xmark fa-xl contactX pointer"></i> 
+            <img src="./assets/img/icons/trennstrich.png">
+            <i onclick="addContactToUserFromTask()" class=" pointer fa-solid fa-check fa-xl contactCheck"></i>
+      </div>
     </div>`;
 }
 

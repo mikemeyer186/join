@@ -5,11 +5,11 @@
             class="addTaskPopupIcon pointer" src="./assets/img/icons/icon_close_dark.png" />
     </div>
     <div class="formGroup">
-        <input id="inputTitle" type="text" placeholder="Enter a title" required />
+        <input id="inputTitle" type="text" placeholder="Enter a title" onkeydown="clearMistakeReports()" required />
         <div id="mistakeReportTitle"></div>
     </div>
     <div class="formGroup">
-        <div id="selectorContact">
+        <div id="selectorContact" onclick="clearMistakeReports()">
             <div onclick="renderingContactsSelectorPopup(localStorage.getItem('contactIndex'))"
                 class="selectorHeader pointer">
                 <div>
@@ -73,4 +73,5 @@
     <div class="taskFooter">
         <div id="addSubtaskCheckbox"></div>
     </div>
+
 </form>

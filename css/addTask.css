@@ -11,7 +11,6 @@ form {
 form input {
   padding: 10px 20px;
   width: 500px;
-  margin-bottom: 20px;
 }
 
 form h3 {
@@ -211,6 +210,7 @@ input[type="date"]::-webkit-clear-button {
   border-left: none;
   border-right: none;
   outline: none;
+  margin-bottom: 20px;
 }
 
 #inputTitleEdit {
@@ -420,15 +420,17 @@ input[type="date"]::-webkit-clear-button {
 }
 
 #selectContact {
-  margin-top: 10px;
+  height: 34px;
+  margin-top: 20px;
   border: 1px solid #d1d1d1;
   border-top: none;
   border-left: none;
   border-right: none;
+  padding-bottom: 13px;
 }
 
 #selectContact::placeholder {
-  font-size: 18px;
+  font-size: 20px;
 }
 
 #newContactText::placeholder {
@@ -559,10 +561,16 @@ input[type="date"]::-webkit-clear-button {
 }
 
 .checkAndCrossIconsEmail {
-  position: relative;
-  width: 100px;
-  top: 49px;
-  left: 430px;
+  display: flex;
+  position: absolute;
+  top: 20px;
+  left: 440px;
+  z-index: 2;
+}
+
+.checkAndCrossIconsEmail>img {
+  height: 31px;
+  width: 2px;
 }
 
 .contactX {
@@ -804,6 +812,11 @@ input[type="date"]::-webkit-clear-button {
   color: transparent;
   border-radius: 100%;
   transition: all 225ms ease-in-out;
+}
+
+.newContactInput {
+  display: flex;
+  width: 500px;
 }
 
 .d-none {
