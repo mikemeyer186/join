@@ -11,8 +11,8 @@ function contactCardTemplate(contact, index) {
                 <span class="contact-initials">${contact.contactInitials}</span>
             </div>
             <div class="contact-data">
-                <div class="data-name">${contact.contactName}</div>
-                <div class="data-mail">${contact.contactEmail}</div>
+                <div class="data-name" title="${contact.contactName}">${contact.contactName}</div>
+                <div class="data-mail" title="${contact.contactEmail}">${contact.contactEmail}</div>
             </div>
         </div>
     `;

@@ -5,7 +5,7 @@
  */
 function taskCardTemplate(i, process) {
     return /*html*/ `
-      <div onclick="taskEditPopup(${userTasksArray[i].taskID})" draggable="true" ondragstart="startDraggin(${userTasksArray[i].taskID})" class="boardBox pointer">
+      <div onclick="taskEditPopup(${userTasksArray[i].taskID})" draggable="true" ondragstart="startDraggin(${userTasksArray[i].taskID})" class="boardBox pointer" title="${userTasksArray[i].taskTitle}">
         <div class="boardBoxContent">
           <div class="boardBoxContent-top">
             <p class="boardBoxCategory ${userTasksArray[i].taskCategory.TaskColor}">${userTasksArray[i].taskCategory.Category}</p>
