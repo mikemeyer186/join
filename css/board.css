@@ -396,8 +396,6 @@ form {
 form input {
   padding: 10px 20px;
   width: 500px;
-
-  margin-bottom: 20px;
 }
 
 form select {

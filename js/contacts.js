@@ -307,9 +307,12 @@ function saveEditContact() {
 function deleteContact() {
     let index = localStorage.getItem('contactIndex');
     let userContacts = userAccounts[activeUser].userContacts;
+    let contactName = userAccounts[activeUser].userContacts[index].contactName;
+    let contactColor = userAccounts[activeUser].userContacts[index].contactColor;
     userContacts.splice(index, 1);
     openContactDetailView(0);
     saveAndRenderEdit('deleted-popup');
+    deleteContactDataInTasks(contactName, contactColor);
 }
 
 /**

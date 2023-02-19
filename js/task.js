@@ -212,9 +212,25 @@ async function changeContactDataInTasks(index, oldContactName) {
 }
 
 /**
+ * deleting contact data from tasks
+ */
+async function deleteContactDataInTasks(contactName, paint) {
+    for (let i = 0; i < tasks.length; i++) {
+        for (let j = 0; j < tasks[i].assignedTo.length; j++) {
+            const contact = tasks[i].assignedTo[j];
+            if (contact.contactName == contactName && contact.paint == paint) {
+                tasks[i].assignedTo.splice(j, 1);
+            }
+        }
+    }
+    await pushTasksinBackend();
+}
+
+/**
  * changing the inputfield in add task popup for possibility to enter a new contact
  */
 function changeInputContact() {
+    document.getElementById('mistakeReportContact').innerHTML = ``;
     document.getElementById('selectorContact').innerHTML = inputNewContactTemplate();
 }
 
@@ -224,6 +240,7 @@ function changeInputContact() {
 function rechangeContactInput() {
     selectorContactIndex = 0;
     document.getElementById('selectorContact').innerHTML = rechangeContactInputTemplate();
+    document.getElementById('selectorContactRenderPopup').classList.add('noBorder');
 }
 
 /**

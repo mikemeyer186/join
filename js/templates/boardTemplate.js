@@ -194,7 +194,7 @@ function editTaskPopUpTemplate(priorityPaths) {
           <div id="mistakeReportContact"></div>
       </div>
 
-      <h3 class="margin-t-35" id="subtaskTitle">Subtasks</h3>
+      <h3 class="margin-t-45" id="subtaskTitle">Subtasks</h3>
       <div class="checkAndCrossIcons">
           <i onclick="clearSubtask()" class="fa-solid fa-xmark fa-xl pointer"></i>
           <img src="./assets/img/icons/trennstrich.png" />

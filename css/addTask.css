@@ -420,7 +420,7 @@ input[type="date"]::-webkit-clear-button {
   border-top: none;
   border-left: none;
   border-right: none;
-  padding-bottom: 13px;
+  padding-bottom: 20px;
   font-size: 20px;
   outline: none;
 }
@@ -569,8 +569,8 @@ input[type="date"]::-webkit-clear-button {
 .checkAndCrossIcons {
   display: flex;
   position: relative;
-  top: 36px;
-  left: 430px;
+  top: 40px;
+  left: 440px;
   z-index: 2;
 }
 
@@ -786,6 +786,10 @@ input[type="date"]::-webkit-clear-button {
 
 .noBorder {
   border: 0 !important;
+}
+
+.margin-t-45 {
+  margin-top: 45px !important;
 }
 
 .margin-t-35 {

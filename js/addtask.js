@@ -14,6 +14,7 @@ async function addTaskOnload() {
  */
 function hideCloseButton() {
     document.getElementById('addTaskPopopIconClose').classList.add('d-none');
+    document.getElementById('selectorContactRenderPopup').classList.add('noBorder');
 }
 
 /**
