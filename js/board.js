@@ -154,6 +154,8 @@ function fillUserTasksFromTasks() {
             let taskId = userTasksIds[i];
             userTasksArray.push(tasks[taskId]);
         }
+    } else {
+        document.getElementById('noTasksComment').innerHTML = noTasksTemplate();
     }
 }
 

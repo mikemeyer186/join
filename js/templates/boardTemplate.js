@@ -216,3 +216,15 @@ function editTaskPopUpTemplate(priorityPaths) {
     </div>
   `;
 }
+
+/**
+ * html-template for no task in board
+ * @returns - html
+ */
+function noTasksTemplate() {
+    return /*html*/ `
+      <div class="noTasks">
+          <span class="noTasksText">You have no task on your board. Add new tasks with the button "Add task +".</span>
+      </div>
+  `;
+}

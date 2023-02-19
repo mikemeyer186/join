@@ -54,6 +54,7 @@ body {
 }
 
 .boardContent {
+  position: relative;
   display: flex;
   margin-left: 230px;
   gap: 35px;
@@ -799,6 +800,44 @@ form h3 {
 
 #searchInput {
   outline: none;
+}
+
+#noTasksComment {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 25vh;
+}
+
+.noTasks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.noTasksText {
+  text-align: center;
+  font-size: 18px;
+  color: #647188;
+}
+
+.addButton {
+  transition: all 225ms ease-in-out;
+}
+
+.addButton:hover {
+  background: #005dff;
+  transition: all 225ms ease-in-out;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.button-rotate {
+  transition: all 225ms ease-in-out;
+}
+
+.button-rotate:hover {
+  transition: all 225ms ease-in-out;
+  transform: rotate(90deg) !important;
 }
 
 @media(max-width: 820px) {

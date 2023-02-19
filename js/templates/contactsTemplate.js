@@ -86,7 +86,7 @@ function editProfilPicTemplate(contact) {
 function noContactTemplate() {
     return /*html*/ `
         <div class="noContact">
-            <span class="noContactText">You have no contacts in your list. Add new contacts with the button "Add Contact".</span>
+            <span class="noContactText">You have no contacts in your list. Add new contacts with the button "Add contact".</span>
         </div>
     `;
 }

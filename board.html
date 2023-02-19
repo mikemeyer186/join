@@ -54,11 +54,12 @@
             <button class="pointer addButton" onclick="toggleAddTaskPopup(0, 1, 'in')">Add task +</button>
         </div>
         <div id="boardContentID" class="boardContent">
+            <div id="noTasksComment"></div>
             <div class="boardCollumn" id="boardTodo" ondrop="drop('todo', 'boardTodo')"
                 ondragover="allowDrop(event, 'boardTodo')" ondragleave="removeDragZone('boardTodo')">
                 <div class="boxHeader">
                     <h2>To do</h2>
-                    <img onclick="toggleAddTaskPopup(0, 1, 'in')" class="pointer"
+                    <img onclick="toggleAddTaskPopup(0, 1, 'in')" class="pointer button-rotate"
                         src="./assets/img/plus button v1.png" />
                 </div>
                 <div id="boardTodoContent"></div>
@@ -70,7 +71,7 @@
                 ondragover="allowDrop(event, 'boardProgress')" ondragleave="removeDragZone('boardProgress')">
                 <div class="boxHeader">
                     <h2>In progress</h2>
-                    <img onclick="toggleAddTaskPopup(0, 2, 'in')" class="pointer"
+                    <img onclick="toggleAddTaskPopup(0, 2, 'in')" class="pointer button-rotate"
                         src="./assets/img/plus button v1.png" />
                 </div>
                 <div id="boardProgressContent"></div>
@@ -82,7 +83,7 @@
                 ondragover="allowDrop(event, 'boardFeedback')" ondragleave="removeDragZone('boardFeedback')">
                 <div class="boxHeader">
                     <h2>Await feedback</h2>
-                    <img onclick="toggleAddTaskPopup(0, 3, 'in')" class="pointer"
+                    <img onclick="toggleAddTaskPopup(0, 3, 'in')" class="pointer button-rotate"
                         src="./assets/img/plus button v1.png" />
                 </div>
                 <div id="boardFeedbackContent"></div>
@@ -94,7 +95,7 @@
                 ondragover="allowDrop(event, 'boardDone')" ondragleave="removeDragZone('boardDone')">
                 <div class="boxHeader">
                     <h2>Done</h2>
-                    <img onclick="toggleAddTaskPopup(0, 4, 'in')" class="pointer"
+                    <img onclick="toggleAddTaskPopup(0, 4, 'in')" class="pointer button-rotate"
                         src="./assets/img/plus button v1.png" />
                 </div>
                 <div id="boardDoneContent"></div>

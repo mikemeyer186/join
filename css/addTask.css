@@ -849,6 +849,25 @@ input[type="date"]::-webkit-clear-button {
   display: none !important;
 }
 
+.addButton {
+  transition: all 225ms ease-in-out;
+}
+
+.addButton:hover {
+  background: #005dff !important;
+  transition: all 225ms ease-in-out;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.clearButton {
+  transition: all 225ms ease-in-out;
+}
+
+.clearButton:hover {
+  transition: all 225ms ease-in-out;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+
 /* Responsive part of style */
 @media(max-width: 600px) {
   form {
