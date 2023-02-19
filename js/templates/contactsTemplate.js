@@ -78,3 +78,15 @@ function editProfilPicTemplate(contact) {
         </div>
     `;
 }
+
+/**
+ * html-template for no contacts in contact list
+ * @returns - html
+ */
+function noContactTemplate() {
+    return /*html*/ `
+        <div class="noContact">
+            <span class="noContactText">You have no contacts in your list. Add new contacts with the button "Add Contact".</span>
+        </div>
+    `;
+}

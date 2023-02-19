@@ -35,15 +35,19 @@ function renderContacts() {
 }
 
 /**
- * rendering contactList in html element
+ * rendering contactList
  */
 function renderContactList() {
     let content = document.getElementById('contacts-content');
     content.innerHTML = '';
 
-    for (let i = 0; i < contactList.length; i++) {
-        const element = contactList[i];
-        content.innerHTML += element;
+    if (contactList.length > 0) {
+        for (let i = 0; i < contactList.length; i++) {
+            const element = contactList[i];
+            content.innerHTML += element;
+        }
+    } else {
+        content.innerHTML = noContactTemplate();
     }
 }
 

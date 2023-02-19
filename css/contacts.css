@@ -541,6 +541,20 @@ body {
     color: #ff4949 !important;
 }
 
+.noContact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100vh - 200px);
+}
+
+.noContactText {
+    text-align: center;
+    font-size: 18px;
+    color: #647188;
+}
+
 /* responsive section */
 @media (max-width: 1350px) {
     .contacts-detail-top {
