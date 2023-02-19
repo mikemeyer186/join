@@ -453,6 +453,22 @@ function checkingEmptyValues() {
     } else {
         return true;
     }
+    scrollToMistake();
+}
+
+/**
+ * scrolling mistake report into view
+ */
+function scrollToMistake() {
+    let mistakeReportArray = ['Title', 'Contact', 'Date', 'Category', 'Importance', 'Description'];
+
+    for (let i = 0; i < mistakeReportArray.length; i++) {
+        let element = document.getElementById('mistakeReport' + mistakeReportArray[i]);
+
+        if (element.innerHTML != '') {
+            element.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        }
+    }
 }
 
 /**

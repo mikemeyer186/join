@@ -630,6 +630,7 @@ input[type="date"]::-webkit-clear-button {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
   transition: all 225ms ease-in-out;
 }
 

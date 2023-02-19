@@ -7,7 +7,7 @@
 function checkedContactsTemplate(activeUserContacts, i) {
     return /*html*/ `
     <div onclick="selectedContactPopup('${activeUserContacts[i].contactName}','${activeUserContacts[i].contactInitials}','${activeUserContacts[i].contactColor}','${i}')" class="selectorCellContact">
-        <nobr>${activeUserContacts[i].contactName}</nobr>
+        <span>${activeUserContacts[i].contactName}</span>
         <div id="contactSelectorCheckboxes">
             <img id="popup${i}${activeUserContacts[i].contactName}" class="checked" src="./assets/img/icons/checkButtonChecked.png">
         </div>
@@ -24,7 +24,7 @@ function checkedContactsTemplate(activeUserContacts, i) {
 function uncheckedContactsTemplate(activeUserContacts, i) {
     return /*html*/ `
         <div onclick="selectedContactPopup('${activeUserContacts[i].contactName}','${activeUserContacts[i].contactInitials}','${activeUserContacts[i].contactColor}','${i}')" class="selectorCellContact">
-        <nobr>${activeUserContacts[i].contactName}</nobr>
+        <span>${activeUserContacts[i].contactName}</span>
         <div id="contactSelectorCheckboxes">
             <img id="popup${i}${activeUserContacts[i].contactName}" src="./assets/img/icons/checkButton.png">
         </div>
@@ -39,7 +39,7 @@ function uncheckedContactsTemplate(activeUserContacts, i) {
 function newContactTemplate() {
     return /*html*/ `
           <div onclick="changeInputContact()" class="selectorCellContact">
-            <nobr>Invite new contact</nobr>
+            <span>Invite new contact</span>
             <div id="contactSelectorCheckboxes">
                 <img id="contactIconContacts" src="./assets/img/icons/contactIcon.png">
             </div>
