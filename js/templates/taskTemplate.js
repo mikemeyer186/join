@@ -106,7 +106,8 @@ function newCategoryInputTemplate() {
                 <i onclick="addCategory()" class="fa-solid fa-check fa-xl pointer"></i>
             </div>
             <input id="newCategoryText" type="text" placeholder="New category name" required>
-            <div id="categoryColorCells"style="margin-top: 10px; margin-left: 20px; ">
+            <div id="categoryColorCells">
+                <span>Choose a color:</span>
                 <img onclick="addCategoryColor('grayCategory')" class="categoryColor" style="margin-right: 20px;" src="./assets/img/categoryColors/grayCategory.png">
                 <img onclick="addCategoryColor('redCategory')" class="categoryColor" style="margin-right: 20px;" src="./assets/img/categoryColors/redCategory.png">
                 <img onclick="addCategoryColor('greenCategory')" class="categoryColor" style="margin-right: 20px;" src="./assets/img/categoryColors/greenCategory.png">
@@ -114,6 +115,7 @@ function newCategoryInputTemplate() {
                 <img onclick="addCategoryColor('purpleCategory')" class="categoryColor" style="margin-right: 20px;" src="./assets/img/categoryColors/purpleCategory.png">
                 <img onclick="addCategoryColor('blueCategory')" class="categoryColor" src="./assets/img/categoryColors/blueCategory.png">
             </div>
+            <div id="categoryColorSelected"></div>
             <div id="mistakeReportCategory"></div>
         </div>
     `;
@@ -156,4 +158,39 @@ function subtaskTemplate(i, box) {
             <span class="subtaskList-delete" title="delete subtask" onclick="taskDeleteSubTask(${i})">delete</span>
         </div>
     `;
+}
+
+/**
+ * html-template for new contact input in add task popup
+ * @returns - html-template
+ */
+function inputNewContactTemplate() {
+    return /*html*/ `
+      <div class="newContactInput">
+        <input id="selectContact" type="email" placeholder="Enter E-mail of new contact" required>
+        <div class="checkAndCrossIconsEmail">
+              <i onclick="rechangeContactInput(); showAssignedContacts()" class="fa-solid fa-xmark fa-xl contactX pointer"></i> 
+              <img src="./assets/img/icons/trennstrich.png">
+              <i onclick="addContactToUserFromTask()" class=" pointer fa-solid fa-check fa-xl contactCheck"></i>
+        </div>
+      </div>
+  `;
+}
+
+/**
+ * html-template for changing back to normal contact selector
+ * @returns - html-template
+ */
+function rechangeContactInputTemplate() {
+    return /*html*/ `
+    <div onclick="renderingContactsSelectorPopup(localStorage.getItem('contactIndex'))" class="selectorHeader pointer">
+      <div>
+        <span>Selected contacts to assign</span>
+        <span id="selectorContactAssigned"></span>
+      </div>
+      <img class="selectorArrow" src="./assets/img/selectorArrow.png" />
+    </div>
+    <div id="selectorContactRenderPopup">
+    </div>
+  `;
 }

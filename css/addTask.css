@@ -151,12 +151,6 @@ input[type="date"]::-webkit-clear-button {
   margin-right: 10px;
 }
 
-.thisColor {
-  position: relative;
-  bottom: 43px;
-  left: -20px;
-}
-
 .selected {
   color: gray;
   font-size: 19px;
@@ -427,6 +421,8 @@ input[type="date"]::-webkit-clear-button {
   border-left: none;
   border-right: none;
   padding-bottom: 13px;
+  font-size: 20px;
+  outline: none;
 }
 
 #selectContact::placeholder {
@@ -443,12 +439,40 @@ input[type="date"]::-webkit-clear-button {
 
 #newCategoryText {
   font-size: 20px;
+  margin-top: 10px;
   margin-bottom: 0;
   border: 1px solid #d1d1d1;
   border-top: none;
   border-left: none;
   border-right: none;
   padding-right: 80px;
+  outline: none;
+}
+
+#categoryColorCells {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: -30px;
+  margin-top: 10px;
+  margin-left: 20px;
+  right: 0;
+}
+
+#categoryColorCells>span {
+  font-size: 14px;
+  color: #838fa5;
+  font-weight: 400;
+  margin-right: 10px;
+}
+
+#categoryColorSelected {
+  position: absolute;
+  top: 21px;
+  z-index: 5;
+  height: 30px;
+  width: 30px;
+  left: -5px;
 }
 
 .importanceHard {
@@ -536,7 +560,7 @@ input[type="date"]::-webkit-clear-button {
 }
 
 .fa-check {
-  padding-left: 10px;
+  padding-left: 5px;
   padding-top: 3px;
   width: 23px;
   color: #4589ff;
@@ -556,7 +580,7 @@ input[type="date"]::-webkit-clear-button {
 
 .fa-xmark {
   color: #4589ff;
-  padding-right: 12px;
+  padding-right: 8px;
   padding-top: 3px;
 }
 
@@ -585,9 +609,10 @@ input[type="date"]::-webkit-clear-button {
 
 .checkAndCrossIconsCategory {
   display: flex;
-  position: relative;
-  top: 38px;
-  left: 430px;
+  position: absolute;
+  top: 20px;
+  left: 440px;
+  z-index: 2;
 }
 
 .pointer {

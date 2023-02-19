@@ -10,6 +10,7 @@ function taskCardTemplate(i, process) {
           <div class="boardBoxContent-top">
             <p class="boardBoxCategory ${userTasksArray[i].taskCategory.TaskColor}">${userTasksArray[i].taskCategory.Category}</p>
             <h4 class="boardBoxTitle">${userTasksArray[i].taskTitle}</h4>
+            <p class="boardBoxDescription">${userTasksArray[i].taskDescription}</p>
             <div class="boardBoxProcessContainer">
               <div class="boardBoxProcess">
                 <div class="boardBoxProcessBar" style="width: ${process.percentage}%"></div>
@@ -18,7 +19,6 @@ function taskCardTemplate(i, process) {
                 <span>${process.done}/${process.sum} done</span>
               </div>
             </div>
-            <p class="boardBoxDescription">${userTasksArray[i].taskDescription}</p>
           </div>
           <div class="boardBoxFooter">
             <div id="${userTasksArray[i].taskID}" class="boxContacts"></div>

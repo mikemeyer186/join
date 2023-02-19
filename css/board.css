@@ -215,7 +215,7 @@ body {
 
 .boardBoxDescription {
   color: #a8a8a8;
-  height: 86px;
+  height: 71px;
   overflow: hidden;
   text-overflow: ellipsis;
   margin: 10px 0 0 0;
@@ -775,7 +775,7 @@ form h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 10px;
+  margin: 5px 0 10px 0;
   gap: 10px;
 }
 
@@ -795,6 +795,10 @@ form h3 {
   color: #838fa5;
   font-size: 12px;
   white-space: nowrap;
+}
+
+#searchInput {
+  outline: none;
 }
 
 @media(max-width: 820px) {

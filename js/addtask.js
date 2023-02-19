@@ -9,14 +9,23 @@ async function addTaskOnload() {
     setStatusToDo();
 }
 
+/**
+ * hiding the close button of popup in static site
+ */
 function hideCloseButton() {
     document.getElementById('addTaskPopopIconClose').classList.add('d-none');
 }
 
+/**
+ * reloading the page
+ */
 function reloadPage() {
     window.location.href = 'addTask.html';
 }
 
+/**
+ * setting task status to "todo" for new tasks
+ */
 function setStatusToDo() {
     setTaskStatus(1);
 }

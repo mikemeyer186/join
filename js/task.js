@@ -212,6 +212,21 @@ async function changeContactDataInTasks(index, oldContactName) {
 }
 
 /**
+ * changing the inputfield in add task popup for possibility to enter a new contact
+ */
+function changeInputContact() {
+    document.getElementById('selectorContact').innerHTML = inputNewContactTemplate();
+}
+
+/**
+ * changin back to normal contact selector in add task popup
+ */
+function rechangeContactInput() {
+    selectorContactIndex = 0;
+    document.getElementById('selectorContact').innerHTML = rechangeContactInputTemplate();
+}
+
+/**
  * setting the status of new task
  * @param {number} value - 1 - 4 for status
  */
@@ -281,6 +296,10 @@ function fillNewCategories() {
  */
 function selectedCategory(category, color) {
     selectorCategoryIndex--;
+    taskCategoryFinaly = '';
+    taskCategoryColorFinaly = '';
+    categorySelectedColor = '';
+    document.getElementById('mistakeReportCategory').innerHTML = ``;
     document.getElementById('selectorCategoryRender').classList.add('noBorder');
 
     if (category == 'New category') {
@@ -321,7 +340,7 @@ function addCategory() {
         selectedCategory(newCategory, categorySelectedColor);
         selectorCategoryIndex = 0;
     } else {
-        document.getElementById('mistakeReportCategory').innerHTML = `Please select color!`;
+        document.getElementById('mistakeReportCategory').innerHTML = `Please enter category name and choose a color!`;
     }
 }
 
@@ -330,14 +349,9 @@ function addCategory() {
  * @param {string} value - color class of selected category color
  */
 function addCategoryColor(value) {
-    if (document.getElementById('newCategoryText').value) {
-        categorySelectedColor = value;
-        document.getElementById('categoryColorCells').innerHTML = ``;
-        document.getElementById('categoryColorCells').innerHTML = categoryColorTemplate();
-        document.getElementById('mistakeReportCategory').innerHTML = ``;
-    } else {
-        document.getElementById('mistakeReportCategory').innerHTML = `Please enter category first!`;
-    }
+    categorySelectedColor = value;
+    document.getElementById('categoryColorSelected').innerHTML = categoryColorTemplate();
+    document.getElementById('mistakeReportCategory').innerHTML = ``;
 }
 
 /**
@@ -423,6 +437,7 @@ async function addTask() {
  * @returns - true if all inputs are true, else shows alert
  */
 function checkingEmptyValues() {
+    clearMistakeReports();
     if (!document.getElementById('inputTitle').value) {
         document.getElementById('mistakeReportTitle').innerHTML = `Please enter a title!`;
     } else if (contactCheckedValue.length == 0) {
@@ -430,7 +445,7 @@ function checkingEmptyValues() {
     } else if (!document.getElementById('selectDate').value) {
         document.getElementById('mistakeReportDate').innerHTML = `Please select a date!`;
     } else if (!taskCategoryFinaly) {
-        document.getElementById('mistakeReportCategory').innerHTML = `Please select a category!`;
+        document.getElementById('mistakeReportCategory').innerHTML = `Please select a category or add a new one!`;
     } else if (prioritySelect == undefined) {
         document.getElementById('mistakeReportImportance').innerHTML = `Please select an urgency!`;
     } else if (document.getElementById('inputDescription').value == false) {
