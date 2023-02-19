@@ -67,34 +67,6 @@ async function addUsertaskInTask() {
 }
 
 /**
- * --- OLD addtask.js --- delete the contact from the contactCheckedValue
- * @param {number} index of contact
- * @param {number} number id of contact in html-id
- * @param {string} contactName name of contact
- */
-function deletContact(index, contactName, number) {
-    contactCheckedValue.splice(index, 1);
-    document.getElementById('popup' + number + contactName).classList.remove('checked');
-    document.getElementById('popup' + number + contactName).src = './assets/img/icons/checkButton.png';
-}
-
-/**
- * --- OLD addtask.js --- push the contact in the contactCheckedValue
- * @param {number} index of contact
- * @param {number} number id of contact in html-id
- * @param {string} contactName name of contact
- */
-function addContact(contactName, initiales, color, number) {
-    contactCheckedValue.push({
-        contactName: contactName,
-        abbreviation: initiales,
-        paint: color,
-    });
-    document.getElementById('popup' + number + contactName).src = './assets/img/icons/checkButtonChecked.png';
-    document.getElementById('popup' + number + contactName).classList.add('checked');
-}
-
-/**
  * getting task content for popup, with the right taskID
  * @param {number} taskIDused - index of task from card on the board
  */
@@ -202,45 +174,6 @@ function searchTasksInBoard() {
 }
 
 /**
- * getting the initials of new contact name
- * @param {string} inputName - is the typed name
- * @returns - one or two letters
- */
-function getContactInitials(inputName) {
-    let stringName = inputName;
-    let stringLetters = stringName.match(/\b(\w)/g);
-    let initials;
-
-    if (stringLetters.length > 1) {
-        initials = stringLetters[0] + stringLetters[1];
-    } else {
-        initials = stringLetters[0];
-    }
-    return initials;
-}
-
-/**
- * generating random rgb-colors
- * @returns - string with rgb-color
- */
-function getRandomColor() {
-    let r = randomInteger(255);
-    let g = randomInteger(255);
-    let b = randomInteger(255);
-    let rgbColor = 'rgb(' + r + ', ' + g + ', ' + b + ')';
-    return rgbColor;
-}
-
-/**
- * generating random number betwenn 0 and 255
- * @param {number} max - is 255 for rgb
- * @returns - random number
- */
-function randomInteger(max) {
-    return Math.floor(Math.random() * (max + 1));
-}
-
-/**
  * rendering the task cards in the board
  * @param {string} searchResult - value from search input
  */
@@ -272,6 +205,11 @@ function renderTasksinBoardStatus(status) {
     }
 }
 
+/**
+ * calculating the percentage of checked subtasks and returns object with specific data
+ * @param {number} i - index of subtask
+ * @returns - object with sum of all subtasks, done subtasks and percentage of checked subtasks
+ */
 function calculatePercentage(i) {
     let percentage = 0;
     let allSubtasks = userTasksArray[i].subTask;
@@ -405,9 +343,8 @@ async function saveCheckedSubTasksToBackend() {
 
 /**
  * opening the edit task popup
- * @param {number} taskID - id of selected task
  */
-function editPopupTask(taskID) {
+function editPopupTask() {
     let priorityPaths = setSelectedPriorityPath();
     document.getElementById('addTaskPopup').innerHTML = '';
     document.getElementById('taskPopUpContent').innerHTML = editTaskPopUpTemplate(priorityPaths);
@@ -463,11 +400,17 @@ function taskEditPopupSubtasksRender() {
     }
 }
 
+/**
+ * hiding the delete buttons of subtasks in popup
+ */
 function hideAllDeleteBtns() {
     const delBtns = document.querySelectorAll('.subtaskList-delete');
     delBtns.forEach((btn) => btn.classList.add('d-none'));
 }
 
+/**
+ * showing of all delete buttons of subtasks
+ */
 function showAllDeleteBtns() {
     const delBtns = document.querySelectorAll('.subtaskList-delete');
     delBtns.forEach((btn) => btn.classList.remove('d-none'));

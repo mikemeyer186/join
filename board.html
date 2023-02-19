@@ -27,24 +27,28 @@
 
 <body onload="boardOnload()">
     <div id="page-container">
-        <!-- Header and menu -->
+
+        <!-- include menu and header -->
         <div class="header-desktop" w3-include-html="./assets/templates/headerDesktop.html"></div>
         <div class="menu-desktop" w3-include-html="./assets/templates/menuDesktop.html"></div>
         <div class="menu-mobile" w3-include-html="./assets/templates/menuMobile.html"></div>
-        <!-- Add Task Popup -->
-        <!---->
+        <!-- end include -->
+
+        <!-- add task popup -->
         <div id="popup-bg" class="d-none no-opacity" onclick="hidePopUps('out')">
             <div id="header-mobile-addTask" w3-include-html="./assets/templates/addTaskHeaderMobile.html"></div>
             <div id="addTaskPopup" w3-include-html="./addTaskPopup.html" onclick="stopPropagate(event)"></div>
             <div id="popup-Task" class="d-none" onclick="stopPropagate(event)">
                 <img id="popup-close-icon" class="popup-close-icon-gray" src="./assets/img/icons/xIconGray.png"
                     alt="Close" onclick="hidePopUps('out')" />
-                <img id="popup-edit-icon" onclick="editPopupTask(`${popupTaskContent.taskID}`)"
-                    class="editButton pointer" src="./assets/img/editButton.png" />
+                <img id="popup-edit-icon" onclick="editPopupTask()" class="editButton pointer"
+                    src="./assets/img/editButton.png" />
                 <div id="taskPopUpContent"></div>
             </div>
         </div>
+        <!-- end add task popup -->
 
+        <!-- board content -->
         <div class="boardFindandAddtask">
             <input id="searchInput" type="text" placeholder="Find Task" onkeyup="searchTasksInBoard()" />
             <button class="pointer addButton" onclick="toggleAddTaskPopup(0, 1, 'in')">Add task +</button>
@@ -99,8 +103,11 @@
                 </div>
             </div>
         </div>
+        <!-- end board content -->
+
     </div>
 
+    <!-- bottom popup sliders -->
     <div id="created-task-popup" class="popup">
         <span>Your task has been created successfully.</span>
     </div>
@@ -110,7 +117,7 @@
     <div id="deleted-task-popup" class="popup">
         <span>Your task has been deleted successfully.</span>
     </div>
-
+    <!-- end bottom popup sliders -->
 
 </body>
 

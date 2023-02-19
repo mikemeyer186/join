@@ -28,14 +28,19 @@
 
 <body onload="contactsInit()">
     <div id="page-container" class="page-container">
-        <!-- Header and menu -->
+
+        <!-- include menu and header -->
         <div class="header-desktop" w3-include-html="./assets/templates/headerDesktop.html"></div>
         <div class="menu-desktop" w3-include-html="./assets/templates/menuDesktop.html"></div>
         <div class="menu-mobile" w3-include-html="./assets/templates/menuMobile.html"></div>
-        <!-- Add Task Popup -->
+        <!-- end include menu and header -->
+
+        <!-- add task popup and header -->
         <div id="header-mobile-addTask" w3-include-html="./assets/templates/addTaskHeaderMobile.html"></div>
         <div id="addTaskPopup" w3-include-html="./addTaskPopup.html"></div>
-        <!---->
+        <!-- end add task popup and header -->
+
+        <!-- add contact popup -->
         <div id="popup-bg" class="d-none no-opacity" onclick="hideNewContactPopUp()">
             <div id="popup-contact" onclick="stopPropagate(event)">
                 <img class="popup-close-icon" src="./assets/img/icons/icon_close_white.png" alt="Close"
@@ -75,7 +80,9 @@
                 </div>
             </div>
         </div>
+        <!-- end add contact popup -->
 
+        <!-- edit contact popup -->
         <div id="popup-bg-edit" class="d-none no-opacity" onclick="hideEditContactPopUp()">
             <div id="popup-contact-edit" onclick="stopPropagate(event)">
                 <img class="popup-close-icon" src="./assets/img/icons/icon_close_white.png" alt="Close"
@@ -113,7 +120,9 @@
                 </div>
             </div>
         </div>
+        <!-- end edit contact popup -->
 
+        <!-- contact list -->
         <div class="contacts-wrapper">
             <div class="contacts-box">
                 <div id="contacts-content"></div>
@@ -122,12 +131,16 @@
                 <div id="contacts-detail"></div>
             </div>
         </div>
+        <!-- end contact list -->
 
+        <!-- button for contact creation -->
         <button class="addContact-button" onclick="showNewContactPopUp()">
             <span>New Contact</span>
             <img src="./assets/img/icons/icon_addContact.png" alt="New Contact" />
         </button>
+        <!-- end button for contact creation -->
 
+        <!-- bottom popup sliders -->
         <div id="created-popup" class="popup">
             <span>Your contact has been created successfully.</span>
         </div>
@@ -137,7 +150,10 @@
         <div id="deleted-popup" class="popup">
             <span>Your contact has been deleted successfully.</span>
         </div>
+        <!-- end bottom popup sliders -->
+
     </div>
+
 </body>
 
 </html>

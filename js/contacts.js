@@ -1,6 +1,3 @@
-let filterLetters = [];
-let contactList = [];
-
 /**
  * initial function
  */
@@ -160,45 +157,6 @@ function clearAndHidePopUp() {
     document.getElementById('contact-name').placeholder = 'Name';
     document.getElementById('contact-name').classList.remove('fault-name');
     hideNewContactPopUp();
-}
-
-/**
- * getting the initials of new contact name
- * @param {string} inputName - is the typed name
- * @returns - one or two letters
- */
-function getContactInitials(inputName) {
-    let stringName = inputName;
-    let stringLetters = stringName.match(/\b(\w)/g);
-    let initials;
-
-    if (stringLetters.length > 1) {
-        initials = stringLetters[0] + stringLetters[1];
-    } else {
-        initials = stringLetters[0];
-    }
-    return initials;
-}
-
-/**
- * generating random rgb-colors
- * @returns - string with rgb-color
- */
-function getRandomColor() {
-    let r = randomInteger(255);
-    let g = randomInteger(255);
-    let b = randomInteger(255);
-    let rgbColor = 'rgb(' + r + ', ' + g + ', ' + b + ')';
-    return rgbColor;
-}
-
-/**
- * generating random number betwenn 0 and 255
- * @param {number} max - is 255 for rgb
- * @returns - random number
- */
-function randomInteger(max) {
-    return Math.floor(Math.random() * (max + 1));
 }
 
 /**

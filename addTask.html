@@ -27,20 +27,28 @@
 
 <body onload="addTaskOnload()">
     <div id="page-container">
-        <!--Mobile menu bottom-->
-        <div class="header-desktop" w3-include-html=".\assets\templates\headerDesktop.html"></div>
-        <div class="menu-desktop" w3-include-html=".\assets\templates\menuDesktop.html"></div>
-        <div class="header-mobile-addTask" w3-include-html=".\assets\templates\addTaskHeaderMobile.html"></div>
-        <div class="menu-mobile" w3-include-html=".\assets\templates\menuMobile.html"></div>
+        <!-- include menu and header -->
+        <div class="header-desktop" w3-include-html="./assets/templates/headerDesktop.html"></div>
+        <div class="menu-desktop" w3-include-html="./assets/templates/menuDesktop.html"></div>
+        <div class="header-mobile-addTask" w3-include-html="./assets/templates/addTaskHeaderMobile.html"></div>
+        <div class="menu-mobile" w3-include-html="./assets/templates/menuMobile.html"></div>
+        <!-- end include -->
+
+        <!-- add task popup -->
         <div id="addTask-Container" class="addTask-Container">
             <div id="addTaskPopup" class="staticPopup" w3-include-html="./addTaskPopup.html"></div>
         </div>
+        <!-- end add task popup -->
+
+        <!-- buttons for task creation -->
         <div class="taskFooterButtons">
             <button id="buttonClear" onclick="reloadPage()">Clear X</button>
             <button id="buttonCreate" onclick="addTask(); return false">Create Task ✓</button>
         </div>
+        <!-- end buttons for task creation -->
 
     </div>
+
 </body>
 
 </html>

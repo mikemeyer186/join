@@ -21,12 +21,16 @@
 
 <body onload="loginInit()">
     <div id="login-page">
+
+        <!-- logo and button -->
         <img id="login-logo-white" src="./assets/img/login_logo_white.png" alt="Join Logo" />
         <img id="login-logo-blue" class="no-opacity" src="./assets/img/login_logo_blue.png" alt="Join Logo" />
         <div id="login-signup-box" class="no-opacity">
             <span class="signup-text">Not a Join user?</span>
             <button class="login-button-blue signup-button" onclick="showSignUpBox()">Sign up</button>
         </div>
+        <!-- end logo and button -->
+
         <!-- login box -->
         <div id="login-box" class="login-box no-opacity">
             <span class="login-box-headline">Log in</span>
@@ -61,6 +65,8 @@
                 </div>
             </form>
         </div>
+        <!-- end login box -->
+
         <!-- sign up box -->
         <div id="signup-box" class="login-box d-none">
             <img src="./assets/img/arrow_left.png" alt="Back" class="arrow-back" onclick="backToLoginBox()" />
@@ -88,6 +94,8 @@
                 </div>
             </form>
         </div>
+        <!-- end sign up box -->
+
         <!-- forgot password box -->
         <div id="forgot-box" class="login-box d-none">
             <img src="./assets/img/arrow_left.png" alt="Back" class="arrow-back" onclick="backToLoginBox()" />
@@ -107,6 +115,8 @@
                 </div>
             </form>
         </div>
+        <!-- end forgot password box -->
+
         <!-- reset box -->
         <div id="reset-box" class="login-box d-none">
             <img src="./assets/img/arrow_left.png" alt="Back" class="arrow-back" onclick="backToLoginBox()" />
@@ -140,7 +150,9 @@
                 </div>
             </form>
         </div>
+        <!-- end reset box -->
 
+        <!-- bottom popup sliders -->
         <div id="signup-popup" class="popup">
             <span>Your account has been successfully created</span>
         </div>
@@ -150,7 +162,10 @@
         <div id="reset-popup" class="popup">
             <span>Your password has been successfully changed</span>
         </div>
+        <!-- end bottom popup sliders -->
+
     </div>
+
 </body>
 
 </html>

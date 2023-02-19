@@ -91,27 +91,6 @@ function signUpNewUser() {
 }
 
 /**
- * generating random rgb-colors
- * @returns string with rgb-color
- */
-function getRandomColor() {
-    let r = randomInteger(255);
-    let g = randomInteger(255);
-    let b = randomInteger(255);
-    let rgbColor = 'rgb(' + r + ', ' + g + ', ' + b + ')';
-    return rgbColor;
-}
-
-/**
- * generating random number betwenn 0 and 255
- * @param {number} max - is 255 for rgb
- * @returns random number
- */
-function randomInteger(max) {
-    return Math.floor(Math.random() * (max + 1));
-}
-
-/**
  * getting users initials (first letter of firstname and lastname)
  * @param {string} signUpName - username from sign up
  * @returns string with two letters
@@ -199,6 +178,9 @@ function hideLoginFault() {
     document.getElementById('login-input-password').placeholder = 'Password';
 }
 
+/**
+ * hiding the login fault (mail) when user types mail adress
+ */
 function hideLoginFaultMail() {
     document.getElementById('login-fault-email').classList.add('d-none');
 }
