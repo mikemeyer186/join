@@ -275,7 +275,7 @@
     color: black;
 }
 
-.popup > span {
+.popup>span {
     text-align: center;
 }
 
@@ -470,10 +470,6 @@
         top: 130px !important;
     }
 
-    .reset-headline::after {
-        top: 120px !important;
-    }
-
     .login-form {
         padding-top: 5px;
         width: 90%;
@@ -509,6 +505,16 @@
     }
 }
 
+@media (max-width: 461px) {
+    .reset-headline::after {
+        top: 120px !important;
+    }
+
+    .reset-box-text {
+        padding: 0 20px 0 20px;
+    }
+}
+
 @media (max-width: 350px) {
     .forgot-headline {
         padding: 0;
@@ -521,7 +527,7 @@
 
 @media (max-height: 900px) {
     .login-box {
-        gap: 15px;
+        gap: 7px;
     }
 
     .login-form {
@@ -546,7 +552,7 @@
 @media (max-height: 600px) {
     .login-box {
         position: absolute;
-        overflow: auto;
+        overflow: hidden;
         height: 70%;
     }
 
@@ -587,6 +593,7 @@
         margin: 0;
         margin-left: auto;
         margin-right: auto;
+        overflow: hidden;
     }
 }
 
@@ -599,5 +606,54 @@
         height: 100%;
         width: 100%;
         top: 0px;
+    }
+
+    .forgot-headline::after {
+        top: 120px !important;
+    }
+}
+
+@media (max-height: 370px) {
+    .login-box {
+        padding: 0;
+    }
+
+    .forgot-headline::after {
+        top: 115px !important;
+    }
+
+}
+
+@media (max-height: 350px) {
+    .login-form {
+        gap: 5px;
+    }
+
+    .login-button {
+        flex-direction: row;
+    }
+
+    .login-options {
+        gap: 5px;
+    }
+
+    .login-input-box {
+        padding: 5px 10px;
+    }
+
+    .forgot-box-text {
+        padding: 0 10px 0 10px;
+    }
+}
+
+@media (max-width: 700px) and (max-height: 400px) {
+    .forgot-headline::after {
+        top: 60px !important;
+    }
+}
+
+@media (max-width: 900px) and (max-height: 450px) {
+    .forgot-headline::after {
+        top: 65px !important;
     }
 }
