@@ -671,13 +671,13 @@ input[type="date"]::-webkit-clear-button {
   margin-top: 90px;
   padding-bottom: 30px !important;
   position: absolute;
-  top: 10px !important;
+  top: 10px;
   bottom: 0 !important;
-  left: calc(100vw - 580px) !important;
+  left: calc(100vw - 580px);
   right: 0px !important;
   z-index: 5;
   background-color: white;
-  width: 580px !important;
+  width: 580px;
   height: calc(100vh - 100px);
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
   transform: translateX(300vw);
@@ -888,6 +888,10 @@ input[type="date"]::-webkit-clear-button {
     border-radius: 0 !important;
   }
 
+  .addTask-Container {
+    padding-left: 0;
+  }
+
   .header-mobile-addTask {
     display: block;
   }
@@ -1019,10 +1023,32 @@ input[type="date"]::-webkit-clear-button {
   .checkAndCrossIcons {
     left: 75vw;
   }
+
+  .addTaskPopupHeader {
+    width: 100%;
+  }
+
+  #selectorContactRenderPopup {
+    width: 90vw;
+  }
+
+  #selectorCategoryRender {
+    width: 90vw;
+  }
 }
 
 @media(max-width: 450px) {
   #importanceLvl img {
     width: 100px;
   }
+
+  #importanceLvl {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #addTaskPopup {
+    padding-left: 20px;
+  }
+
 }
