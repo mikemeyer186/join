@@ -140,6 +140,7 @@ body {
   border: 1px solid #d1d1d1;
   border-radius: 1em;
   background-color: #ffffff;
+  flex-shrink: 0;
 }
 
 .blueCategory {
@@ -959,22 +960,22 @@ form h3 {
   }
 
   #boardTodo {
-    width: 80vw !important;
+    width: 100vw !important;
     margin-left: 0px;
   }
 
   #boardProgress {
-    width: 80vw !important;
+    width: 100vw !important;
     margin-left: 0px;
   }
 
   #boardFeedback {
-    width: 80vw !important;
+    width: 100vw !important;
     margin-left: 0px;
   }
 
   #boardDone {
-    width: 80vw !important;
+    width: 100vw !important;
     margin-left: 0px;
     margin-right: 0px;
   }
@@ -989,12 +990,42 @@ form h3 {
   }
 
   .boardFindandAddtask {
-    padding-top: 150px;
-    margin-bottom: 50px;
+    padding-top: 120px;
+    margin-bottom: 15px;
     margin-left: 30vw;
     margin-right: 30vw;
     display: flex;
     justify-content: center;
+  }
+
+  .boardCollumContent {
+    display: flex;
+    overflow-x: scroll;
+    padding: 0 0 15px 0;
+    gap: 10px;
+  }
+
+  .boardCollumContent::-webkit-scrollbar {
+    height: 4px;
+    width: 10px;
+  }
+
+  .boardCollumContent::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  .boardCollumContent::-webkit-scrollbar-thumb {
+    background: #647188;
+    border-radius: 2px;
+  }
+
+  .boardCollumContent::-webkit-scrollbar-thumb:hover {
+    background: #42526e;
+    border-radius: 2px;
+  }
+
+  .boardBox {
+    width: 80%;
   }
 
 }
