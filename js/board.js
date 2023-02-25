@@ -6,7 +6,7 @@ async function boardOnload() {
     await loadTasksfromBackend();
     renderTasksinBoard();
     checkReload();
-    //touchEvents();
+    touchEvents();
 }
 
 /**
@@ -419,7 +419,6 @@ function showAllDeleteBtns() {
     delBtns.forEach((btn) => btn.classList.remove('d-none'));
 }
 
-/*
 function touchEvents() {
     let cards = document.querySelectorAll('.boardBox');
 
@@ -437,4 +436,3 @@ function dragTouchEvents(card, idNumber) {
         startDraggin(idNumber);
     });
 }
-*/

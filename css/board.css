@@ -526,6 +526,12 @@ form h3 {
   border-top: none;
   border-left: none;
   border-right: none;
+  padding-right: 80px;
+}
+
+#selectContact::placeholder {
+  width: 90%;
+  overflow: hidden;
 }
 
 #newContactText::placeholder {
@@ -770,7 +776,7 @@ form h3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 90% !important;
+  width: 100% !important;
 }
 
 .boardBoxProcessContainer {
@@ -973,8 +979,16 @@ form h3 {
     width: 100% !important;
   }
 
+  .taskFooter {
+    width: 100%;
+  }
+
   .boardBox {
     width: 80vw;
+  }
+
+  #selectorContact {
+    width: 90vw;
   }
 
   .selectorContactPopup {
@@ -1004,11 +1018,11 @@ form h3 {
   }
 
   form {
-    width: 90% !important;
+    width: 100% !important;
   }
 
   .formGroup {
-    width: 90vw;
+    width: 90%;
   }
 
   #importanceLvl {
@@ -1055,6 +1069,14 @@ form h3 {
     display: none;
   }
 
+  .editTask-button-blue {
+    transform: translateX(0%);
+  }
+
+  .checkAndCrossIconsCategory {
+    top: 20px !important;
+  }
+
   .boardFindandAddtask {
     padding-top: 120px;
     margin-bottom: 15px;
@@ -1071,7 +1093,7 @@ form h3 {
   }
 
   #taskPopUpContent {
-    padding-left: 10px;
+    padding-left: 20px;
     padding-right: 20px;
   }
 
@@ -1080,15 +1102,19 @@ form h3 {
   }
 
   .formAddtaskPopup {
-    width: 100vw !important;
+    width: 100% !important;
   }
 
   .centered {
-    width: 100vw !important;
+    width: 100% !important;
   }
 
   .formGroup {
-    width: 90vw;
+    width: 90%;
+  }
+
+  .taskFooter {
+    width: 90% !important;
   }
 
   form {
@@ -1102,7 +1128,7 @@ form h3 {
   }
 
   .formAddtaskPopup input {
-    width: 90vw !important;
+    width: 90vw;
   }
 
   .selectorPopupContacts {
@@ -1130,7 +1156,15 @@ form h3 {
   }
 
   input {
-    width: 60%;
+    width: 90%;
+  }
+
+  .newContactInput {
+    width: 100% !important;
+  }
+
+  .checkAndCrossIconsEmail {
+    left: 75vw !important;
   }
 }
 
@@ -1366,4 +1400,27 @@ form h3 {
   #selectDate {
     width: 90vw;
   }
+}
+
+@media(max-width: 350px) {
+
+  .checkAndCrossIconsCategory,
+  .checkAndCrossIcons {
+    left: 72vw !important;
+  }
+}
+
+@media(max-width: 530px) {
+  #categoryColorCells {
+    right: -20px !important;
+  }
+
+  #categoryColorCells>span {
+    display: none;
+  }
+
+  #categoryColorCells>img {
+    margin-right: 5px !important;
+  }
+
 }
