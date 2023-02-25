@@ -456,7 +456,7 @@ input[type="date"]::-webkit-clear-button {
   top: -30px;
   margin-top: 10px;
   margin-left: 20px;
-  right: 0;
+  right: 0px;
 }
 
 #categoryColorCells>span {
@@ -538,6 +538,10 @@ input[type="date"]::-webkit-clear-button {
 .inputCategory {
   display: flex;
   flex-direction: column;
+}
+
+.formGroup {
+  width: 100%;
 }
 
 .categoryColor:hover {
@@ -752,7 +756,7 @@ input[type="date"]::-webkit-clear-button {
 }
 
 .formAddtaskPopup {
-  width: 90%;
+  width: 100%;
 }
 
 .formAddtaskPopup input {

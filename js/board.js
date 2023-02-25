@@ -6,7 +6,6 @@ async function boardOnload() {
     await loadTasksfromBackend();
     renderTasksinBoard();
     checkReload();
-    //touchEvents();
 }
 
 /**
@@ -418,22 +417,3 @@ function showAllDeleteBtns() {
     const delBtns = document.querySelectorAll('.subtaskList-delete');
     delBtns.forEach((btn) => btn.classList.remove('d-none'));
 }
-
-/*
-function touchEvents() {
-    let cards = document.querySelectorAll('.boardBox');
-
-    for (let i = 0; i < cards.length; i++) {
-        let card = cards[i];
-        let value = cards[i].attributes[0].value;
-        let idNumber = value.match(/\d+/)[0];
-        dragTouchEvents(card, idNumber);
-    }
-}
-
-function dragTouchEvents(card, idNumber) {
-    card.addEventListener('touchstart', (event) => {
-        event.preventDefault();
-        startDraggin(idNumber);
-    });
-}*/

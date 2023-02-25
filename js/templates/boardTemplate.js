@@ -165,8 +165,8 @@ function editTaskPopUpTemplate(priorityPaths) {
           <div id="mistakeReportDate"></div>
       </div>
 
-      <div class="formGroup">
-          <div id="importanceLvl">
+      <div class="formGroup centered">
+          <div id="importanceLvl"> 
               <img class="importanceHard" id="importanceIMGHard" value="taskHard" onclick="prioritySelected(1)"
                   src="./assets/img/taskValue${priorityPaths.hard}.png" />
               <img class="importanceMid" id="importanceIMGMid" value="taskMid" onclick="prioritySelected(2)"

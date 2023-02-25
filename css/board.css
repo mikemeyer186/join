@@ -726,7 +726,6 @@ form h3 {
   font-size: 23px;
   white-space: nowrap;
   cursor: pointer;
-  transform: translateX(13%);
   transition: all 225ms ease-in-out;
 }
 
@@ -988,7 +987,7 @@ form h3 {
   }
 
   #selectorContact {
-    width: 90vw;
+    width: 100%;
   }
 
   .selectorContactPopup {
@@ -1022,12 +1021,11 @@ form h3 {
   }
 
   .formGroup {
-    width: 90%;
+    width: 100% !important;
   }
 
   #importanceLvl {
     justify-content: flex-start !important;
-    padding-left: 50px;
   }
 
   #bodyBoard {
@@ -1088,6 +1086,11 @@ form h3 {
 }
 
 @media(max-width: 600px) {
+
+  .popup-close-icon-gray {
+    top: 60px;
+  }
+
   #addTaskPopup {
     padding-left: 20px !important;
   }
@@ -1095,6 +1098,7 @@ form h3 {
   #taskPopUpContent {
     padding-left: 20px;
     padding-right: 20px;
+    padding-top: 80px;
   }
 
   .editTask-button-blue {
@@ -1107,10 +1111,11 @@ form h3 {
 
   .centered {
     width: 100% !important;
+    transform: translateX(6%);
   }
 
   .formGroup {
-    width: 90%;
+    width: 90% !important;
   }
 
   .taskFooter {
@@ -1382,6 +1387,10 @@ form h3 {
   .okButton {
     top: 620px;
   }
+
+  #categoryColorCells {
+    right: -30px !important;
+  }
 }
 
 @media(max-width: 550px) {
@@ -1414,10 +1423,7 @@ form h3 {
   }
 }
 
-@media(max-width: 530px) {
-  #categoryColorCells {
-    right: -20px !important;
-  }
+@media(max-width: 550px) {
 
   #categoryColorCells>span {
     display: none;
