@@ -863,7 +863,6 @@ form h3 {
   }
 
   .boardContent {
-    width: 60vw !important;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -890,7 +889,8 @@ form h3 {
   }
 
   #boardDone {
-    margin-left: 100px;
+    margin-left: 50px;
+    margin-right: 0;
     height: 100%;
     width: 50vw;
     margin-top: 0;
@@ -916,9 +916,52 @@ form h3 {
     margin-bottom: 10px;
     margin-top: 10px;
   }
+
+  .boardCollumContent {
+    display: flex;
+    overflow-x: scroll;
+    padding: 0 10% 15px 0;
+    gap: 10px;
+  }
+
+  .boardCollumContent::-webkit-scrollbar {
+    height: 4px;
+    width: 10px;
+  }
+
+  .boardCollumContent::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  .boardCollumContent::-webkit-scrollbar-thumb {
+    background: #647188;
+    border-radius: 2px;
+  }
+
+  .boardCollumContent::-webkit-scrollbar-thumb:hover {
+    background: #42526e;
+    border-radius: 2px;
+  }
+
+  .boardCollumContent::-webkit-scrollbar-corner {
+    background: #040d1d;
+  }
+
+  .boardBox {
+    width: 80%;
+  }
+
+  .boxHeader {
+    transform: translate(-10%, 0);
+  }
+
 }
 
 @media(max-width: 800px) {
+  .boardBox {
+    width: 80vw;
+  }
+
   .selectorContactPopup {
     width: 100vw !important;
   }
@@ -961,23 +1004,22 @@ form h3 {
 
   #boardTodo {
     width: 100vw !important;
-    margin-left: 0px;
+    margin-left: 20%;
   }
 
   #boardProgress {
     width: 100vw !important;
-    margin-left: 0px;
+    margin-left: 20%;
   }
 
   #boardFeedback {
     width: 100vw !important;
-    margin-left: 0px;
+    margin-left: 20%;
   }
 
   #boardDone {
     width: 100vw !important;
-    margin-left: 0px;
-    margin-right: 0px;
+    margin-left: 20%;
   }
 
   .boardContent {
@@ -997,37 +1039,6 @@ form h3 {
     display: flex;
     justify-content: center;
   }
-
-  .boardCollumContent {
-    display: flex;
-    overflow-x: scroll;
-    padding: 0 0 15px 0;
-    gap: 10px;
-  }
-
-  .boardCollumContent::-webkit-scrollbar {
-    height: 4px;
-    width: 10px;
-  }
-
-  .boardCollumContent::-webkit-scrollbar-track {
-    background: #ffffff;
-  }
-
-  .boardCollumContent::-webkit-scrollbar-thumb {
-    background: #647188;
-    border-radius: 2px;
-  }
-
-  .boardCollumContent::-webkit-scrollbar-thumb:hover {
-    background: #42526e;
-    border-radius: 2px;
-  }
-
-  .boardBox {
-    width: 80%;
-  }
-
 }
 
 @media(max-width: 600px) {
