@@ -4,11 +4,11 @@
         <img id="addTaskPopopIconClose" onclick="toggleAddTaskPopup(0, 1, 'out'); taskClear();"
             class="addTaskPopupIcon pointer" src="./assets/img/icons/icon_close_dark.png" />
     </div>
-    <div class="formGroup">
+    <div class="formGroup form90">
         <input id="inputTitle" type="text" placeholder="Enter a title" onkeydown="clearMistakeReports()" required />
         <div id="mistakeReportTitle"></div>
     </div>
-    <div class="formGroup">
+    <div class="formGroup form90">
         <div id="selectorContact" onclick="clearMistakeReports()">
             <div onclick="renderingContactsSelectorPopup(localStorage.getItem('contactIndex'))"
                 class="selectorHeader pointer">
@@ -25,14 +25,14 @@
         <div id="mistakeReportContact"></div>
     </div>
     <h3 class="margin-t-35">Due date</h3>
-    <div class="formGroup">
+    <div class="formGroup form90">
         <i class="fa-regular fa-calendar-minus fa-xl" onclick="openCalendar()" style="cursor:pointer"></i>
         <input id="selectDate" class="inputTextGrey" type="text" placeholder="Enter date" onfocus="(this.type='date')"
             onblur="(this.type='text')" required />
         <div id="mistakeReportDate"></div>
     </div>
     <h3>Category</h3>
-    <div class="formGroup">
+    <div class="formGroup form90">
         <div id="selectorCategory">
             <div class="selectorHeader pointer inputTextGrey" onclick="renderingTaskCategorySelector()">
                 Select task category
@@ -44,7 +44,7 @@
         </div>
         <div id="mistakeReportCategory"></div>
     </div>
-    <div class="formGroup">
+    <div class="formGroup form90">
         <div id="importanceLvl">
             <img class="importanceHard" id="importanceIMGHard" value="taskHard" onclick="prioritySelected(1)"
                 src="./assets/img/taskValueHard.png" />
@@ -56,7 +56,7 @@
         <div id="mistakeReportImportance"></div>
     </div>
     <h3 class="margin-t-25">Description</h3>
-    <div class="formGroup">
+    <div class="formGroup form90">
         <textarea id="inputDescription" placeholder="Enter a description" required></textarea>
         <div id="mistakeReportDescription"></div>
     </div>
@@ -66,7 +66,7 @@
         <img src="./assets/img/icons/trennstrich.png" />
         <i onclick="pushSubtaskLocalStorage()" class="fa-solid fa-check fa-xl pointer"></i>
     </div>
-    <div class="formGroup">
+    <div class="formGroup form90">
         <input id="subtaskText" type="text" placeholder="Add new subtask" />
         <div id="mistakeReportsubtask"></div>
     </div>

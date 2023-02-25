@@ -606,7 +606,6 @@ form h3 {
   position: relative;
   width: 30px;
   left: 460px;
-  top: 29px;
 }
 
 .fa-check {
@@ -1111,11 +1110,14 @@ form h3 {
 
   .centered {
     width: 100% !important;
-    transform: translateX(6%);
   }
 
   .formGroup {
-    width: 90% !important;
+    width: 90%;
+  }
+
+  .form100 {
+    width: 100% !important;
   }
 
   .taskFooter {
@@ -1141,7 +1143,7 @@ form h3 {
   }
 
   .selectorHeader {
-    width: 90vw !important;
+    width: 100% !important;
   }
 
   #selectDateEdit {
@@ -1169,7 +1171,7 @@ form h3 {
   }
 
   .checkAndCrossIconsEmail {
-    left: 75vw !important;
+    left: 78vw !important;
   }
 }
 
@@ -1407,7 +1409,7 @@ form h3 {
   }
 
   .selectorHeader {
-    width: 90vw;
+    width: 100%;
   }
 
   #selectDate {

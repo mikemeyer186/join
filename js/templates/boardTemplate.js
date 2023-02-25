@@ -130,19 +130,19 @@ function editTaskPopUpTemplate(priorityPaths) {
     return /*html*/ `
     <form class="formAddtaskPopup">
 
-      <div class="formGroup">
+      <div class="formGroup form100">
         <input value="${popupTaskContent.taskTitle}" id="inputTitle" type="text" placeholder="Enter a title" required>
         <div id="mistakeReportTitle"></div>
       </div>
 
       <h3 class="margin-t-25">Description</h3>
-      <div class="formGroup">
+      <div class="formGroup form100">
           <textarea id="inputDescription" placeholder="Enter a description" required>${popupTaskContent.taskDescription}</textarea>
           <div id="mistakeReportDescription"></div>
       </div>
 
       <h3>Category</h3>
-      <div class="formGroup">
+      <div class="formGroup form100">
           <div id="selectorCategory">
               <div class="selectorHeader pointer inputTextGrey" onclick="renderingTaskCategorySelector()">
                 <div class="selected">${popupTaskContent.taskCategory.Category}
@@ -158,14 +158,14 @@ function editTaskPopUpTemplate(priorityPaths) {
       </div>
 
       <h3 class="margin-t-35">Due date</h3>
-      <div class="formGroup">
+      <div class="formGroup form100">
           <i class="fa-regular fa-calendar-minus fa-xl" onclick="openCalendar()" style="cursor:pointer"></i>
           <input id="selectDate" class="inputTextGrey" value="${popupTaskContent.toDueDate}" type="text" placeholder="Enter date" onfocus="(this.type='date')"
               onblur="(this.type='text')" required />
           <div id="mistakeReportDate"></div>
       </div>
 
-      <div class="formGroup centered">
+      <div class="formGroup centered form100">
           <div id="importanceLvl"> 
               <img class="importanceHard" id="importanceIMGHard" value="taskHard" onclick="prioritySelected(1)"
                   src="./assets/img/taskValue${priorityPaths.hard}.png" />
@@ -177,7 +177,7 @@ function editTaskPopUpTemplate(priorityPaths) {
           <div id="mistakeReportImportance"></div>
       </div>
 
-      <div class="formGroup">
+      <div class="formGroup form100">
           <div id="selectorContact">
               <div onclick="renderingContactsSelectorPopup(${popupTaskContent.taskID})"
                   class="selectorHeader pointer">
@@ -200,18 +200,18 @@ function editTaskPopUpTemplate(priorityPaths) {
           <img src="./assets/img/icons/trennstrich.png" />
           <i onclick="pushSubtaskLocalStorage()" class="fa-solid fa-check fa-xl pointer"></i>
       </div>
-      <div class="formGroup">
+      <div class="formGroup form100">
           <input id="subtaskText" type="text" placeholder="Add new subtask" />
           <div id="mistakeReportsubtask"></div>
       </div>
       <div class="taskFooter">
           <div id="addSubtaskCheckbox"></div>
       </div>
-      <div class="formGroup centered">
+      <div class="formGroup centered form100">
         <button class="editTask-button-blue" onclick="pushEditTask(); return false;">Save<img src="./assets/img/icons/icon_check_white.png" alt="Create"></button>
       </div>
     </form>
-    <div class="formGroup centered">
+    <div class="formGroup centered form100">
       <button class="editTask-button-red" onclick="deleteTask()">Delete<img class="editTask-delete-icon" src="./assets/img/icons/icon_close_white.png" alt="Delete"></button>
     </div>
   `;

@@ -71,6 +71,7 @@ input[type="date"]::-webkit-clear-button {
 
 .formGroup {
   position: relative;
+  width: 90%;
 }
 
 #mistakeReportCategory {
@@ -456,7 +457,7 @@ input[type="date"]::-webkit-clear-button {
   top: -30px;
   margin-top: 10px;
   margin-left: 20px;
-  right: 0px;
+  right: -60px;
 }
 
 #categoryColorCells>span {
@@ -540,10 +541,6 @@ input[type="date"]::-webkit-clear-button {
   flex-direction: column;
 }
 
-.formGroup {
-  width: 100%;
-}
-
 .categoryColor:hover {
   cursor: pointer;
   border-radius: 3em;
@@ -557,10 +554,9 @@ input[type="date"]::-webkit-clear-button {
 
 .fa-calendar-minus {
   color: #4589ff;
-  position: relative;
+  position: absolute;
   width: 30px;
   left: 470px;
-  top: 29px;
 }
 
 .fa-check {
@@ -881,6 +877,22 @@ input[type="date"]::-webkit-clear-button {
   form {
     margin-bottom: 50px;
   }
+
+  .formGroup {
+    position: relative;
+  }
+
+  .form90 {
+    width: 90% !important;
+  }
+
+  .fa-calendar-minus {
+    left: 91%;
+  }
+
+  #categoryColorCells {
+    right: 50px !important;
+  }
 }
 
 @media(max-width: 800px) {
@@ -913,6 +925,10 @@ input[type="date"]::-webkit-clear-button {
     top: 55px;
   }
 
+  #categoryColorCells {
+    right: -20px;
+  }
+
   .taskFooter {
     margin-bottom: 50px;
   }
@@ -926,7 +942,7 @@ input[type="date"]::-webkit-clear-button {
   }
 
   .fa-calendar-minus {
-    display: none;
+    top: 0;
   }
 
   #buttonClear {
@@ -997,7 +1013,7 @@ input[type="date"]::-webkit-clear-button {
 
 @media(max-width: 550px) {
   .checkAndCrossIconsCategory {
-    left: 75vw;
+    left: 78vw;
   }
 
   #newCategoryText {
@@ -1009,7 +1025,7 @@ input[type="date"]::-webkit-clear-button {
   }
 
   .selectorHeader {
-    width: 90vw;
+    width: 100%;
   }
 
   #selectDate {
@@ -1025,7 +1041,7 @@ input[type="date"]::-webkit-clear-button {
   }
 
   .checkAndCrossIcons {
-    left: 75vw;
+    left: 78vw;
   }
 
   .addTaskPopupHeader {
@@ -1059,5 +1075,9 @@ input[type="date"]::-webkit-clear-button {
 
   #importanceLvl img {
     width: 120px;
+  }
+
+  #categoryColorCells {
+    right: 0px !important;
   }
 }
