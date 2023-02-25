@@ -1174,6 +1174,18 @@ form h3 {
     padding-bottom: 0;
   }
 
+  .formAddtaskPopup {
+    width: 100% !important;
+  }
+
+  .editTask-button-blue {
+    transform: translateX(0) !important;
+  }
+
+  .formGroup {
+    width: 500px !important;
+  }
+
   .okButton {
     top: 530px;
     left: 730px;
@@ -1183,21 +1195,13 @@ form h3 {
     width: 90%;
   }
 
-  .selectorHeader {
-    width: 90vw !important;
-  }
-
   #selectDateEdit {
     width: 90%;
   }
 
-  .fa-calendar-minus {
-    left: 620px !important;
-  }
-
   #popup-Task {
     height: 80vh;
-    width: 60vw;
+    width: 100vw;
     padding-bottom: 0 !important;
   }
 
