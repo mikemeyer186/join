@@ -262,7 +262,7 @@ body {
   padding-bottom: 20px;
   position: absolute;
   right: 22px;
-  bottom: 10px;
+  bottom: 20px;
   z-index: 5;
 }
 
@@ -292,7 +292,7 @@ body {
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
-  padding: 30px 50px 30px 50px;
+  padding: 30px 50px 60px 50px;
 }
 
 #popup-bg,
@@ -1097,7 +1097,7 @@ form h3 {
 @media(max-width: 600px) {
 
   .popup-close-icon-gray {
-    top: 60px;
+    top: 80px;
   }
 
   #addTaskPopup {
@@ -1107,7 +1107,7 @@ form h3 {
   #taskPopUpContent {
     padding-left: 20px;
     padding-right: 20px;
-    padding-top: 80px;
+    padding-top: 60px;
   }
 
   .editTask-button-blue {
