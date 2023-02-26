@@ -31,6 +31,7 @@ function showAddTaskPopup(mode, status) {
     let index = localStorage.getItem('contactIndex');
     let activeUserContacts = userAccounts[activeUser].userContacts;
     taskCategoryFinaly = '';
+    checkInputsOpen();
     clearMistakeReports();
     deleteSubTasksArray();
     setCheckedContacts(mode, index, activeUserContacts);
@@ -42,6 +43,24 @@ function showAddTaskPopup(mode, status) {
     showAssignedContacts();
     setTaskStatus(status);
     showAllDeleteBtns();
+}
+
+/**
+ * checking if inputs are open befor closing the popup
+ */
+function checkInputsOpen() {
+    let contactInput = document.getElementById('selectContact');
+    let categoryInput = document.getElementById('newCategoryText');
+
+    if (contactInput) {
+        rechangeContactInput();
+        selectorContactIndex = 0;
+    }
+    if (categoryInput) {
+        rechangeCategoryInput();
+        selectorCategoryIndex = 1;
+        renderingTaskCategorySelector();
+    }
 }
 
 /**
