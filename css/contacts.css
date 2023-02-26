@@ -3,7 +3,7 @@ body {
 }
 
 .checkAndCrossIconsCategory {
-    left: 350px !important;
+    left: 350px;
 }
 
 .checkAndCrossIcons {
@@ -726,7 +726,7 @@ body {
     }
 
     .checkAndCrossIcons {
-        left: 80% !important;
+        left: 80%;
     }
 }
 

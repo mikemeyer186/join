@@ -424,6 +424,7 @@ input[type="date"]::-webkit-clear-button {
   padding-bottom: 20px;
   font-size: 20px;
   outline: none;
+  padding-right: 80px;
 }
 
 #selectContact::placeholder {
@@ -457,7 +458,7 @@ input[type="date"]::-webkit-clear-button {
   top: -30px;
   margin-top: 10px;
   margin-left: 20px;
-  right: -60px;
+  right: 0;
 }
 
 #categoryColorCells>span {
@@ -873,10 +874,23 @@ input[type="date"]::-webkit-clear-button {
 }
 
 /* Responsive part of style */
-@media(max-width: 600px) {
-  form {
-    margin-bottom: 50px;
+@media(max-width: 550px) {
+
+  #categoryColorCells>span {
+    display: none;
   }
+
+  #categoryColorCells>img {
+    margin-right: 5px !important;
+  }
+
+  .checkAndCrossIconsEmail {
+    left: 78vw;
+  }
+
+}
+
+@media(max-width: 600px) {
 
   .formGroup {
     position: relative;
@@ -886,12 +900,36 @@ input[type="date"]::-webkit-clear-button {
     width: 90% !important;
   }
 
-  .fa-calendar-minus {
-    left: 91%;
+  #categoryColorCells {
+    right: 10px !important;
   }
 
-  #categoryColorCells {
-    right: 50px !important;
+  .formAddtaskPopup input {
+    width: 100%;
+  }
+
+  .newContactInput {
+    width: 100%;
+  }
+
+  #selectorContact {
+    width: 90vw;
+  }
+
+  #selectorCategory {
+    width: 90vw;
+  }
+
+  #selectDate {
+    width: 90vw;
+  }
+
+  #inputTitle {
+    width: 90vw;
+  }
+
+  .fa-calendar-minus {
+    left: 110% !important;
   }
 }
 
@@ -908,6 +946,13 @@ input[type="date"]::-webkit-clear-button {
     padding-left: 0;
   }
 
+  .taskFooterButtons {
+    top: -20px !important;
+    left: 108px !important;
+    padding-bottom: 100px !important;
+    z-index: 3;
+  }
+
   .header-mobile-addTask {
     display: block;
   }
@@ -922,11 +967,10 @@ input[type="date"]::-webkit-clear-button {
 
   .checkAndCrossIconsCategory {
     left: 430px;
-    top: 55px;
   }
 
   #categoryColorCells {
-    right: -20px;
+    right: 0px;
   }
 
   .taskFooter {
@@ -943,14 +987,6 @@ input[type="date"]::-webkit-clear-button {
 
   .fa-calendar-minus {
     top: 0;
-  }
-
-  #buttonClear {
-    display: none;
-  }
-
-  #buttonCreate {
-    display: none;
   }
 
   #importanceIMGHard {
@@ -990,6 +1026,12 @@ input[type="date"]::-webkit-clear-button {
   #importanceIMGLow {
     width: 70px;
   }
+
+  .checkAndCrossIconsEmail,
+  .checkAndCrossIconsCategory,
+  .checkAndCrossIcons {
+    left: 73vw !important;
+  }
 }
 
 @media(max-width: 1300px) {
@@ -1006,12 +1048,24 @@ input[type="date"]::-webkit-clear-button {
   .taskFooterButtons {
     display: flex;
     position: relative;
-    top: 100px;
-    left: -100px;
+    top: 30px;
+    left: 364px;
+    padding-bottom: 20px;
   }
 }
 
 @media(max-width: 550px) {
+  .taskFooterButtons {
+    width: 100vw;
+    left: 0 !important;
+    justify-content: center;
+  }
+
+  .taskFooterButtons>button {
+    margin-left: 5px;
+  }
+
+
   .checkAndCrossIconsCategory {
     left: 78vw;
   }

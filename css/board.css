@@ -864,6 +864,11 @@ form h3 {
 }
 
 @media(max-width: 1100px) {
+
+  #noTasksComment {
+    top: -4vh;
+  }
+
   .boardFindandAddtask {
     margin-left: 330px;
   }
@@ -964,6 +969,11 @@ form h3 {
 }
 
 @media(max-width: 800px) {
+
+  #noTasksComment {
+    display: none;
+  }
+
   #addTaskPopup {
     margin-top: 80px !important;
     top: 0 !important;
