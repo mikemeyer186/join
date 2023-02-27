@@ -158,10 +158,10 @@ function editTaskPopUpTemplate(priorityPaths) {
       </div>
 
       <h3 class="margin-t-35">Due date</h3>
-      <div class="formGroup form100">
-          <i class="fa-regular fa-calendar-minus fa-xl" onclick="openCalendar()" style="cursor:pointer"></i>
-          <input id="selectDate" class="inputTextGrey" value="${popupTaskContent.toDueDate}" type="text" placeholder="Enter date" onfocus="(this.type='date')"
-              onblur="(this.type='text')" required />
+      <div class="formGroup form100" onclick="openCalendar()">
+          <i class="fa-regular fa-calendar-minus fa-xl" style="cursor:pointer"></i>
+          <input id="selectDate" class="inputTextGrey" value="${popupTaskContent.toDueDate}" type="text" placeholder="Enter date" onfocus="openCalendar(); this.showPicker();"
+              onblur="(this.type='text')" onchange="checkDateIsCorrect()" required />
           <div id="mistakeReportDate"></div>
       </div>
 

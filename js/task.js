@@ -285,8 +285,46 @@ function setTaskStatus(value) {
  * opening date picker
  */
 function openCalendar() {
+    let minDate = new Date().toISOString().split('T');
+
     document.getElementById('selectDate').type = 'date';
+    document.getElementById('selectDate').min = minDate[0];
+    document.getElementById('selectDate').max = '2024-12-31';
     document.getElementById('selectDate').focus();
+}
+
+/**
+ * checking if date is in valid range
+ */
+function checkDateIsCorrect() {
+    let value = document.getElementById('selectDate').value;
+    let date = new Date(value);
+    let dateToday = new Date().toISOString().split('T');
+    let today = new Date(dateToday[0]);
+    let maxDate = new Date('2024-12-31');
+    let error = 0;
+
+    if (date < today) {
+        error = 1;
+    } else if (date > maxDate) {
+        error = 1;
+    } else {
+        error = 0;
+    }
+    showErrorReport(error);
+}
+
+/**
+ * shows error report if date is invalid
+ * @param {number} error - 0 or 1
+ */
+function showErrorReport(error) {
+    let report = document.getElementById('mistakeReportDate');
+    report.innerHTML = '';
+
+    if (error == 1) {
+        report.innerHTML = 'Please choose a correct date';
+    }
 }
 
 /**
