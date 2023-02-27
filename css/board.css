@@ -241,6 +241,12 @@ body {
   gap: 35px;
 }
 
+.popupContactsCell>span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
 .popupSubtasks {
   margin-top: 20px;
 }
@@ -254,6 +260,7 @@ body {
   align-items: center;
   color: white;
   border: 2px solid white;
+  flex-shrink: 0;
 }
 
 .editButton {
@@ -1323,7 +1330,8 @@ form h3 {
   }
 
   .boardFindandAddtask button {
-    width: 80%;
+    width: 140px;
+    font-size: 18px;
   }
 }
 

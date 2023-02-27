@@ -351,7 +351,7 @@ body {
 }
 
 .contact-data {
-    overflow: auto;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -360,10 +360,16 @@ body {
 
 .data-name {
     font-size: 19px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .data-mail {
+    width: 100%;
     font-size: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .alphabet-card {
