@@ -101,7 +101,7 @@ async function pushEditTask() {
     let dueDate = document.getElementById('selectDate').value;
     let description = document.getElementById('inputDescription').value;
 
-    if (checkingEmptyValues()) {
+    if (checkingEmptyValues() && checkDateIsCorrect()) {
         userTasksArray[indexTask].taskTitle = taskInputTitle;
         userTasksArray[indexTask].taskDescription = description;
         userTasksArray[indexTask].toDueDate = dueDate;

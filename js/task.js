@@ -302,29 +302,32 @@ function checkDateIsCorrect() {
     let dateToday = new Date().toISOString().split('T');
     let today = new Date(dateToday[0]);
     let maxDate = new Date('2024-12-31');
-    let error = 0;
+    let correct = true;
 
     if (date < today) {
-        error = 1;
+        correct = false;
     } else if (date > maxDate) {
-        error = 1;
+        correct = false;
     } else {
-        error = 0;
+        correct = true;
     }
-    showErrorReport(error);
+    showErrorReport(correct);
+    return correct;
 }
 
 /**
  * shows error report if date is invalid
- * @param {number} error - 0 or 1
+ * @param {boolean} correct - true or false
  */
-function showErrorReport(error) {
+function showErrorReport(correct) {
     let report = document.getElementById('mistakeReportDate');
     report.innerHTML = '';
 
-    if (error == 1) {
-        report.innerHTML = 'Please choose a correct date';
+    if (!correct) {
+        report.innerHTML = 'Choose date between today and 31.12.2024';
     }
+
+    scrollToMistake();
 }
 
 /**
@@ -478,7 +481,7 @@ function setPriorityLow() {
  * adding new tasks to account and backend
  */
 async function addTask() {
-    if (checkingEmptyValues()) {
+    if (checkingEmptyValues() && checkDateIsCorrect()) {
         let taskInputTitle = document.getElementById('inputTitle').value;
         let dueDate = document.getElementById('selectDate').value;
         let description = document.getElementById('inputDescription').value;
