@@ -75,6 +75,13 @@ function signUpNewUser() {
     let signUpId = userAccounts.length;
     let signUpColor = getRandomColor();
     let signUpInitials = getUserInitials(signUpName);
+    let contactObject = {
+        contactName: 'You',
+        contactEmail: signUpEmail,
+        contactPhone: '',
+        contactInitials: 'Y',
+        contactColor: signUpColor,
+    };
     let newUser = {
         userId: signUpId,
         userName: signUpName,
@@ -82,7 +89,7 @@ function signUpNewUser() {
         userPassword: signUpPassword,
         userColor: signUpColor,
         userInitials: signUpInitials,
-        userContacts: [],
+        userContacts: [contactObject],
         userTasks: [],
     };
     userAccounts.push(newUser);
