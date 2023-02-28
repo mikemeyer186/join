@@ -54,27 +54,32 @@
                     <div class="contact-profil-box">
                         <img class="contact-profil-img" src="./assets/img/user_white.png" alt="User" />
                     </div>
-                    <div class="contact-input-box">
-                        <input id="contact-name" type="text" class="contact-input" placeholder="Name" />
-                        <img class="contact-icon" src="./assets/img/icons/icon_user_grey.png" alt="Name" />
-                    </div>
-                    <div class="contact-input-box">
-                        <input id="contact-email" type="email" class="contact-input" placeholder="Email" />
-                        <img class="contact-icon" src="./assets/img/icons/icon_mail_grey.png" alt="Email" />
-                    </div>
-                    <div class="contact-input-box">
-                        <input id="contact-phone" type="tel" class="contact-input" placeholder="Phone" />
-                        <img class="contact-icon" src="./assets/img/icons/icon_phone_grey.png" alt="Phone" />
-                    </div>
+                    <form class="contact-form" onsubmit="inputValidation(); return false;">
+                        <div class="contact-input-box">
+                            <input id="contact-name" type="text" class="contact-input" placeholder="Name" required />
+                            <img class="contact-icon" src="./assets/img/icons/icon_user_grey.png" alt="Name" />
+                        </div>
+                        <div class="contact-input-box">
+                            <input id="contact-email" type="email" class="contact-input" placeholder="Email"
+                                pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z0-9.-]{1,}[.]{1}[a-zA-Z0-9]{2,}" required />
+                            <img class="contact-icon" src="./assets/img/icons/icon_mail_grey.png" alt="Email" />
+                        </div>
+                        <div class="contact-input-box">
+                            <input id="contact-phone" type="tel" class="contact-input" placeholder="Phone" />
+                            <img class="contact-icon" src="./assets/img/icons/icon_phone_grey.png" alt="Phone" />
+                        </div>
+                        <div class="contact-button-box">
+                            <button class="contact-button-blue">
+                                Create contact
+                                <img src="./assets/img/icons/icon_check_white.png" alt="Create" />
+                            </button>
+                        </div>
+                    </form>
                     <div class="contact-button-box">
                         <button class="contact-button-white" onmouseover="blueCloseIcon()"
                             onmouseleave="darkCloseIcon()" onclick="clearAndHidePopUp()">
                             Cancel
                             <img id="button-close" src="./assets/img/icons/icon_close_dark.png" alt="Close" />
-                        </button>
-                        <button class="contact-button-blue" onclick="inputValidation(); return false;">
-                            Create contact
-                            <img src="./assets/img/icons/icon_check_white.png" alt="Create" />
                         </button>
                     </div>
                 </div>
@@ -94,27 +99,33 @@
                 </div>
                 <div class="popup-contact-bottom">
                     <div id="contact-profil-edit"></div>
-                    <div class="contact-input-box">
-                        <input id="contact-name-edit" type="text" class="contact-input" placeholder="Name" />
-                        <img class="contact-icon" src="./assets/img/icons/icon_user_grey.png" alt="Name" />
-                    </div>
-                    <div class="contact-input-box">
-                        <input id="contact-email-edit" type="text" class="contact-input" placeholder="Email" />
-                        <img class="contact-icon" src="./assets/img/icons/icon_mail_grey.png" alt="Email" />
-                    </div>
-                    <div class="contact-input-box">
-                        <input id="contact-phone-edit" type="text" class="contact-input" placeholder="Phone" />
-                        <img class="contact-icon" src="./assets/img/icons/icon_phone_grey.png" alt="Phone" />
-                    </div>
+                    <form class="contact-form" onsubmit="inputValidationEdit(); return false;">
+                        <div class="contact-input-box">
+                            <input id="contact-name-edit" type="text" class="contact-input" placeholder="Name"
+                                required />
+                            <img class="contact-icon" src="./assets/img/icons/icon_user_grey.png" alt="Name" />
+                        </div>
+                        <div class="contact-input-box">
+                            <input id="contact-email-edit" type="email" class="contact-input" placeholder="Email"
+                                pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z0-9.-]{1,}[.]{1}[a-zA-Z0-9]{2,}" required />
+                            <img class="contact-icon" src="./assets/img/icons/icon_mail_grey.png" alt="Email" />
+                        </div>
+                        <div class="contact-input-box">
+                            <input id="contact-phone-edit" type="tel" class="contact-input" placeholder="Phone" />
+                            <img class="contact-icon" src="./assets/img/icons/icon_phone_grey.png" alt="Phone" />
+                        </div>
+                        <div class="contact-button-box">
+                            <button class="contact-button-blue">
+                                Save
+                                <img src="./assets/img/icons/icon_check_white.png" alt="Create" />
+                            </button>
+                        </div>
+                    </form>
                     <div class="contact-button-box">
-                        <button class="contact-button-red" onclick="deleteContact()">
+                        <button class="contact-button-red" onclick="deleteContact(); return false;">
                             Delete
                             <img class="contact-delete-icon" src="./assets/img/icons/icon_close_white.png"
                                 alt="Delete" />
-                        </button>
-                        <button class="contact-button-blue" onclick="inputValidationEdit()">
-                            Save
-                            <img src="./assets/img/icons/icon_check_white.png" alt="Create" />
                         </button>
                     </div>
                 </div>

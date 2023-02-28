@@ -174,7 +174,7 @@ body {
     align-items: center;
     border-bottom: 1px solid #d1d1d1;
     padding: 13px 21px;
-    width: 422px;
+    width: 100%;
     height: 49px;
     position: relative;
 }
@@ -204,10 +204,13 @@ body {
 
 .contact-button-box {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     gap: 12px;
-    margin-top: 32px;
+}
+
+.contact-form {
+    width: 90%;
 }
 
 .contact-button-blue {
@@ -227,6 +230,7 @@ body {
     white-space: nowrap;
     cursor: pointer;
     transition: all 225ms ease-in-out;
+    margin-top: 52px;
 }
 
 .contact-button-blue>img {
@@ -248,7 +252,7 @@ body {
     padding: 10px 35px;
     gap: 10px;
     height: 48px;
-    width: 165px;
+    width: 246px;
     background: #ffffff;
     border: 1px solid #647188;
     border-radius: 8px;
@@ -286,6 +290,7 @@ body {
     font-size: 23px;
     white-space: nowrap;
     cursor: pointer;
+    transform: translateY(-20px);
     transition: all 225ms ease-in-out;
 }
 
@@ -699,6 +704,8 @@ body {
 @media (max-width: 500px) {
     .popup-contact-bottom {
         padding-top: 0;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 
     .contact-button-box {
@@ -710,7 +717,7 @@ body {
     }
 
     .contact-input-box {
-        width: 110%;
+        width: 100%;
     }
 
     .contact-top-headline {
@@ -744,6 +751,11 @@ body {
     .popup-contact-bottom {
         gap: 12px;
     }
+
+    .contact-button-red {
+        transform: translateY(0);
+    }
+
 
     .contact-profil-box {
         width: 80px;
