@@ -7,6 +7,23 @@
     transition: all 225ms ease-in-out;
 }
 
+.login-legal {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+.login-legal:hover {
+    text-decoration: underline;
+}
+
+.login-white {
+    color: white;
+}
+
 #login-logo-white {
     width: 265px;
     object-fit: cover;

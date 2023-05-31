@@ -17,6 +17,7 @@ function changeColorsOfLoginScreen() {
     document.getElementById('login-logo-blue').classList.remove('no-opacity');
     document.getElementById('login-box').classList.remove('no-opacity');
     document.getElementById('login-signup-box').classList.remove('no-opacity');
+    document.getElementById('login-legal').classList.remove('login-white');
 }
 
 /**

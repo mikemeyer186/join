@@ -1,0 +1,37 @@
+.legal-wrapper {
+    padding: 48px;
+}
+
+h1 {
+    color: #4589ff;
+}
+
+h2 {
+    color: #005dff;
+    word-break: break-all;
+}
+
+.legal-wrapper a {
+    word-break: break-all;
+}
+
+.arrow-back {
+    position: absolute;
+    width: 25px;
+    object-fit: cover;
+    cursor: pointer;
+    z-index: 1;
+    left: 48px;
+    top: 20px;
+}
+
+@media (max-width: 400px) {
+    .legal-wrapper {
+        padding: 24px;
+    }
+
+    .arrow-back {
+        top: 10px;
+        left: 24px;
+    }
+}
