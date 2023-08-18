@@ -1,1146 +1,1139 @@
 body {
-  overflow-x: hidden;
-  overflow-y: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 form {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 form input {
-  padding: 10px 20px;
-  width: 500px;
+    padding: 10px 20px;
+    width: 500px;
 }
 
 form h3 {
-  color: #42526e;
-  margin-top: 20px;
-  margin-bottom: 0;
+    color: #42526e;
+    margin-top: 20px;
+    margin-bottom: 0;
 }
 
-input[type="date"] {
-  position: relative;
+input[type='date'] {
+    position: relative;
 }
 
-input[type="date"]:after {
-  content: "\25BC";
-  color: #555;
-  padding: 0 5px;
+input[type='date']:after {
+    content: '\25BC';
+    color: #555;
+    padding: 0 5px;
 }
 
-input[type="date"]:hover:after {
-  color: #bf1400;
+input[type='date']:hover:after {
+    color: #bf1400;
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: auto;
-  height: auto;
-  color: transparent;
-  background: transparent;
+input[type='date']::-webkit-calendar-picker-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: auto;
+    color: transparent;
+    background: transparent;
 }
 
-input[type="date"]::-webkit-inner-spin-button {
-  z-index: 1;
+input[type='date']::-webkit-inner-spin-button {
+    z-index: 1;
 }
 
-input[type="date"]::-webkit-clear-button {
-  z-index: 1;
+input[type='date']::-webkit-clear-button {
+    z-index: 1;
 }
 
 #selectorContactRender {
-  max-height: 200px;
-  overflow-y: scroll;
+    max-height: 200px;
+    overflow-y: scroll;
 }
 
 #page-container {
-  height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-  position: relative;
+    height: 100svh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
 }
 
 .overflowHidden {
-  overflow: hidden !important;
+    overflow: hidden !important;
 }
 
 .formGroup {
-  position: relative;
-  width: 90%;
+    position: relative;
+    width: 90%;
 }
 
 #mistakeReportCategory {
-  position: absolute;
-  top: 47px;
-  color: rgba(235, 0, 0, 0.699);
-  margin-left: 20px;
-  margin-top: 10px;
-  margin-bottom: 0;
-  padding: 0;
+    position: absolute;
+    top: 47px;
+    color: rgba(235, 0, 0, 0.699);
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 0;
+    padding: 0;
 }
 
 #mistakeReportDate {
-  position: absolute;
-  top: 33px;
-  color: rgba(235, 0, 0, 0.699);
-  margin-left: 20px;
-  margin-top: 10px;
-  margin-bottom: 0;
-  padding: 0;
+    position: absolute;
+    top: 33px;
+    color: rgba(235, 0, 0, 0.699);
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 0;
+    padding: 0;
 }
 
 #mistakeReportImportance {
-  position: absolute;
-  top: 97px;
-  color: rgba(235, 0, 0, 0.699);
-  margin-left: 20px;
-  margin-top: 10px;
-  margin-bottom: 0;
-  padding: 0;
+    position: absolute;
+    top: 97px;
+    color: rgba(235, 0, 0, 0.699);
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 0;
+    padding: 0;
 }
 
 #mistakeReportTitle {
-  position: absolute;
-  top: 68px;
-  left: 2px;
-  color: rgba(235, 0, 0, 0.699);
-  margin-left: 20px;
-  margin-top: 0px;
-  margin-bottom: 0;
-  padding: 0;
+    position: absolute;
+    top: 68px;
+    left: 2px;
+    color: rgba(235, 0, 0, 0.699);
+    margin-left: 20px;
+    margin-top: 0px;
+    margin-bottom: 0;
+    padding: 0;
 }
 
 #mistakeReportContact {
-  position: absolute;
-  top: 49px;
-  color: rgba(235, 0, 0, 0.699);
-  margin-left: 20px;
-  margin-top: 10px;
-  margin-bottom: 0;
-  padding: 0;
+    position: absolute;
+    top: 49px;
+    color: rgba(235, 0, 0, 0.699);
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 0;
+    padding: 0;
 }
 
 #mistakeReportDescription {
-  position: absolute;
-  top: 131px;
-  color: rgba(235, 0, 0, 0.699);
-  margin-left: 10px;
-  margin-top: 0px;
-  margin-bottom: 20px;
-  padding: 0;
+    position: absolute;
+    top: 131px;
+    color: rgba(235, 0, 0, 0.699);
+    margin-left: 10px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    padding: 0;
 }
 
 #mistakeReportsubtask {
-  position: absolute;
-  top: 43px;
-  left: 10px;
-  color: rgba(235, 0, 0, 0.699);
-  margin-left: 10px;
-  margin-top: 0px;
-  margin-bottom: 0;
-  padding: 0;
+    position: absolute;
+    top: 43px;
+    left: 10px;
+    color: rgba(235, 0, 0, 0.699);
+    margin-left: 10px;
+    margin-top: 0px;
+    margin-bottom: 0;
+    padding: 0;
 }
 
 .selectorArrow {
-  width: 10px;
-  height: 10px;
-  margin-right: 10px;
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
 }
 
 .selected {
-  color: gray;
-  font-size: 19px;
-  gap: 20px;
-  display: flex;
-  align-items: center;
-  width: 440px;
+    color: gray;
+    font-size: 19px;
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    width: 440px;
 }
 
 .selectorHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 10px;
-  margin-top: 20px;
-  padding-left: 20px;
-  font-size: 20px;
-  border: 1px solid #d1d1d1;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  width: 500px;
-  color: gray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    margin-top: 20px;
+    padding-left: 20px;
+    font-size: 20px;
+    border: 1px solid #d1d1d1;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 500px;
+    color: gray;
 }
 
 .selectorCell {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 20px;
-  font-size: 16px;
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  transition: all 225ms ease-in-out;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    font-size: 16px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    transition: all 225ms ease-in-out;
 }
 
 .selectorCell:hover {
-  transition: all 225ms ease-in-out;
-  background-color: #D2E3FF;
+    transition: all 225ms ease-in-out;
+    background-color: #d2e3ff;
 }
 
 .selectorCell img {
-  padding-top: 3px;
-  margin-left: 20px;
+    padding-top: 3px;
+    margin-left: 20px;
 }
 
 #inputTitle {
-  font-size: 40px;
-  border: 1px solid #d1d1d1;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  outline: none;
-  margin-bottom: 20px;
+    font-size: 40px;
+    border: 1px solid #d1d1d1;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+    margin-bottom: 20px;
 }
 
 #inputTitleEdit {
-  font-size: 40px;
-  border: 1px solid #d1d1d1;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  outline: none;
+    font-size: 40px;
+    border: 1px solid #d1d1d1;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
 }
 
 .inputFields input::placeholder {
-  color: #d1d1d1;
+    color: #d1d1d1;
 }
 
 .inputFields {
-  width: 500px;
-  margin-left: 40px;
-  padding-bottom: 50px;
+    width: 500px;
+    margin-left: 40px;
+    padding-bottom: 50px;
 }
 
 #importanceLvl {
-  margin-top: 45px;
-  display: flex;
-  justify-content: center;
-  gap: 6px;
-  margin-bottom: 20px;
+    margin-top: 45px;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 20px;
 }
 
 #selectDate {
-  border: 1px solid #d1d1d1;
-  height: 40px;
-  margin: 0 0 20px 0;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  font-size: 20px;
-  cursor: pointer;
-  outline: none;
+    border: 1px solid #d1d1d1;
+    height: 40px;
+    margin: 0 0 20px 0;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-size: 20px;
+    cursor: pointer;
+    outline: none;
 }
 
 #selectDate::after {
-  display: none;
+    display: none;
 }
 
-
 #selectDateEdit {
-  border: 1px solid #d1d1d1;
-  margin-top: 0;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  font-size: 20px;
+    border: 1px solid #d1d1d1;
+    margin-top: 0;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-size: 20px;
 }
 
 .selectDate::placeholder {
-  color: gray;
+    color: gray;
 }
 
 .inputTextGrey {
-  color: gray;
-  font-size: 19px;
-  font-weight: 500;
+    color: gray;
+    font-size: 19px;
+    font-weight: 500;
 }
 
 .inputTextGrey::placeholder {
-  font-family: 'Open Sans';
-  color: gray;
-  font-size: 19px;
-  font-weight: 500;
+    font-family: 'Open Sans';
+    color: gray;
+    font-size: 19px;
+    font-weight: 500;
 }
 
-
 #selectorCategoryRender {
-  background-color: #ffffff;
-  max-height: 200px;
-  overflow: scroll;
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom-left-radius: 1em;
-  border-bottom-right-radius: 1em;
-  box-shadow: 0 8px 10px rgba(200, 200, 200, 0.2);
-  position: absolute;
-  width: 500px;
-  z-index: 2;
+    background-color: #ffffff;
+    max-height: 200px;
+    overflow: scroll;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+    box-shadow: 0 8px 10px rgba(200, 200, 200, 0.2);
+    position: absolute;
+    width: 500px;
+    z-index: 2;
 }
 
 #selectorCategoryRender::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 #inputDescription {
-  resize: none;
-  width: 500px;
-  height: 120px;
-  font-family: 'Open Sans', sans-serif;
-  color: gray;
-  border-style: solid;
-  border: 1px solid #d1d1d1;
-  margin-top: 10px;
-  font-size: 20px;
-  padding: 20px;
-  border-radius: 0.5em;
-  outline: none;
+    resize: none;
+    width: 500px;
+    height: 120px;
+    font-family: 'Open Sans', sans-serif;
+    color: gray;
+    border-style: solid;
+    border: 1px solid #d1d1d1;
+    margin-top: 10px;
+    font-size: 20px;
+    padding: 20px;
+    border-radius: 0.5em;
+    outline: none;
 }
 
 #inputDescriptionEdit {
-  border-style: solid;
-  border: 1px solid #d1d1d1;
-  margin-top: 10px;
-  font-size: 20px;
-  padding-top: 20px;
-  padding-left: 25px;
-  padding-right: 50px;
-  padding-bottom: 75px;
-  border-radius: 0.5em;
-  outline: none;
+    border-style: solid;
+    border: 1px solid #d1d1d1;
+    margin-top: 10px;
+    font-size: 20px;
+    padding-top: 20px;
+    padding-left: 25px;
+    padding-right: 50px;
+    padding-bottom: 75px;
+    border-radius: 0.5em;
+    outline: none;
 }
 
 #subtaskText {
-  margin-bottom: 20px;
-  border-bottom: 1px solid #d1d1d1;
-  padding-right: 80px;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  outline: none;
-  font-size: 19px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #d1d1d1;
+    padding-right: 80px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+    font-size: 19px;
 }
 
 #subtaskText::placeholder {
-  font-size: 19px;
+    font-size: 19px;
 }
 
 .taskFooter {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .subtaskCheckbox {
-  width: 20px !important;
-  flex-shrink: 0;
-  margin-right: 20px !important;
+    width: 20px !important;
+    flex-shrink: 0;
+    margin-right: 20px !important;
 }
 
 #addSubtaskCheckbox input {
-  border-color: #4589ff;
-  margin-right: 20px;
-  width: 16px;
+    border-color: #4589ff;
+    margin-right: 20px;
+    width: 16px;
 }
 
 #addSubtaskCheckbox {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  width: 100%;
-  padding-left: 20px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+    padding-left: 20px;
 }
 
 .subtaskList {
-  display: flex;
-  margin-top: 15px;
-  font-size: 16px;
-  color: rgb(63, 63, 63);
+    display: flex;
+    margin-top: 15px;
+    font-size: 16px;
+    color: rgb(63, 63, 63);
 }
 
 .subtaskList input {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .subtaskList p {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .taskFooterButtons {
-  display: flex;
-  position: fixed;
-  top: 90vh;
-  left: 73vw;
+    display: flex;
+    position: fixed;
+    top: 90vh;
+    left: 73vw;
 }
 
 .taskFooterButtons button {
-  margin-left: 25px;
+    margin-left: 25px;
 }
 
 #buttonClear {
-  padding: 15px 30px;
-  border-style: solid;
-  border-radius: 0.5em;
-  background-color: white;
-  color: #647188;
-  font-size: 20px;
-  border: 1px solid #647188;
-  border-color: #647188;
+    padding: 15px 30px;
+    border-style: solid;
+    border-radius: 0.5em;
+    background-color: white;
+    color: #647188;
+    font-size: 20px;
+    border: 1px solid #647188;
+    border-color: #647188;
 }
 
 #buttonCreate {
-  padding: 15px 20px;
-  color: white;
-  background-color: #4589ff;
-  font-size: 20px;
-  border-radius: 0.5em;
-  border: none;
+    padding: 15px 20px;
+    color: white;
+    background-color: #4589ff;
+    font-size: 20px;
+    border-radius: 0.5em;
+    border: none;
 }
 
 #buttonCreate:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 #buttonClear:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 #selectContact {
-  height: 34px;
-  margin-top: 20px;
-  border: 1px solid #d1d1d1;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  padding-bottom: 20px;
-  font-size: 20px;
-  outline: none;
-  padding-right: 80px;
+    height: 34px;
+    margin-top: 20px;
+    border: 1px solid #d1d1d1;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    padding-bottom: 20px;
+    font-size: 20px;
+    outline: none;
+    padding-right: 80px;
 }
 
 #selectContact::placeholder {
-  font-size: 20px;
+    font-size: 20px;
 }
 
 #newContactText::placeholder {
-  font-size: 18px;
+    font-size: 18px;
 }
 
 #newCategoryText::placeholder {
-  font-size: 18px;
+    font-size: 18px;
 }
 
 #newCategoryText {
-  font-size: 20px;
-  margin-top: 10px;
-  margin-bottom: 0;
-  border: 1px solid #d1d1d1;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  padding-right: 80px;
-  outline: none;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 0;
+    border: 1px solid #d1d1d1;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    padding-right: 80px;
+    outline: none;
 }
 
 #categoryColorCells {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  top: -30px;
-  margin-top: 10px;
-  margin-left: 20px;
-  right: 0;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: -30px;
+    margin-top: 10px;
+    margin-left: 20px;
+    right: 0;
 }
 
-#categoryColorCells>span {
-  font-size: 14px;
-  color: #838fa5;
-  font-weight: 400;
-  margin-right: 10px;
+#categoryColorCells > span {
+    font-size: 14px;
+    color: #838fa5;
+    font-weight: 400;
+    margin-right: 10px;
 }
 
 #categoryColorSelected {
-  position: absolute;
-  top: 21px;
-  z-index: 5;
-  height: 30px;
-  width: 30px;
-  left: -5px;
+    position: absolute;
+    top: 21px;
+    z-index: 5;
+    height: 30px;
+    width: 30px;
+    left: -5px;
 }
 
 .importanceHard {
-  width: 150px;
-  border: 2px solid #ffffff;
-  border-bottom-left-radius: 1em;
-  border-bottom-right-radius: 1em;
-  border-top: none;
-  border-left: none;
-  border-right: none;
+    width: 150px;
+    border: 2px solid #ffffff;
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+    border-top: none;
+    border-left: none;
+    border-right: none;
 }
 
 .importanceMid {
-  width: 150px;
-  border: 2px solid #ffffff;
-  border-bottom-left-radius: 1em;
-  border-bottom-right-radius: 1em;
-  border-top: none;
-  border-left: none;
-  border-right: none;
+    width: 150px;
+    border: 2px solid #ffffff;
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+    border-top: none;
+    border-left: none;
+    border-right: none;
 }
 
 .importanceLow {
-  width: 150px;
-  border: 2px solid #ffffff;
-  border-bottom-left-radius: 1em;
-  border-bottom-right-radius: 1em;
-  border-top: none;
-  border-left: none;
-  border-right: none;
+    width: 150px;
+    border: 2px solid #ffffff;
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+    border-top: none;
+    border-left: none;
+    border-right: none;
 }
 
 .importanceHard:hover {
-  border: 2px solid #ff3d00;
-  border-bottom-left-radius: 1em;
-  border-bottom-right-radius: 1em;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  cursor: pointer;
+    border: 2px solid #ff3d00;
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    cursor: pointer;
 }
 
 .importanceMid:hover {
-  border: 2px solid #ffa800;
-  border-bottom-left-radius: 1em;
-  border-bottom-right-radius: 1em;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  cursor: pointer;
+    border: 2px solid #ffa800;
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    cursor: pointer;
 }
 
 .importanceLow:hover {
-  border: 2px solid #7ae229;
-  border-bottom-left-radius: 1em;
-  border-bottom-right-radius: 1em;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  cursor: pointer;
+    border: 2px solid #7ae229;
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    cursor: pointer;
 }
 
 .inputCategory {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .categoryColor:hover {
-  cursor: pointer;
-  border-radius: 3em;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    border-radius: 3em;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .checkSelector {
-  width: 20px;
-  position: relative;
+    width: 20px;
+    position: relative;
 }
 
 .fa-calendar-minus {
-  color: #4589ff;
-  position: absolute;
-  width: 30px;
-  left: 470px;
-  z-index: 3;
+    color: #4589ff;
+    position: absolute;
+    width: 30px;
+    left: 470px;
+    z-index: 3;
 }
 
 .fa-check {
-  padding-left: 5px;
-  padding-top: 3px;
-  width: 23px;
-  color: #4589ff;
+    padding-left: 5px;
+    padding-top: 3px;
+    width: 23px;
+    color: #4589ff;
 }
 
 .checkAndCrossIcons {
-  display: flex;
-  position: relative;
-  top: 40px;
-  left: 440px;
-  z-index: 2;
+    display: flex;
+    position: relative;
+    top: 40px;
+    left: 440px;
+    z-index: 2;
 }
 
 .checkAndCrossIcons p {
-  padding: 5px;
+    padding: 5px;
 }
 
 .fa-xmark {
-  color: #4589ff;
-  padding-right: 8px;
-  padding-top: 3px;
+    color: #4589ff;
+    padding-right: 8px;
+    padding-top: 3px;
 }
 
 .checkAndCrossIconsEmail {
-  display: flex;
-  position: absolute;
-  top: 20px;
-  left: 440px;
-  z-index: 2;
+    display: flex;
+    position: absolute;
+    top: 20px;
+    left: 440px;
+    z-index: 2;
 }
 
-.checkAndCrossIconsEmail>img {
-  height: 31px;
-  width: 2px;
+.checkAndCrossIconsEmail > img {
+    height: 31px;
+    width: 2px;
 }
 
 .contactX {
-  padding-bottom: 10px;
-  padding-right: 8px;
+    padding-bottom: 10px;
+    padding-right: 8px;
 }
 
 .contactCheck {
-  padding-bottom: 10px;
-  padding-left: 5px;
+    padding-bottom: 10px;
+    padding-left: 5px;
 }
 
 .checkAndCrossIconsCategory {
-  display: flex;
-  position: absolute;
-  top: 20px;
-  left: 440px;
-  z-index: 2;
+    display: flex;
+    position: absolute;
+    top: 20px;
+    left: 440px;
+    z-index: 2;
 }
 
 .pointer {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .selectorCellContact {
-  background-color: #ffffff;
-  padding-left: 20px;
-  padding-top: 10px;
-  height: 50px;
-  font-size: 16px;
-  padding-bottom: 10px;
-  max-height: 50px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-  transition: all 225ms ease-in-out;
+    background-color: #ffffff;
+    padding-left: 20px;
+    padding-top: 10px;
+    height: 50px;
+    font-size: 16px;
+    padding-bottom: 10px;
+    max-height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all 225ms ease-in-out;
 }
 
 .selectorCellContact:hover {
-  transition: all 225ms ease-in-out;
-  background-color: #D2E3FF;
+    transition: all 225ms ease-in-out;
+    background-color: #d2e3ff;
 }
 
 #contactSelectorCheckboxes {
-  margin: 0;
-  margin-right: 10px;
+    margin: 0;
+    margin-right: 10px;
 }
 
 #contactIconContacts {
-  width: 30px;
-  margin-right: -8px;
-  object-fit: cover;
+    width: 30px;
+    margin-right: -8px;
+    object-fit: cover;
 }
 
 .selectorContact {
-  max-height: 100px !important;
+    max-height: 100px !important;
 }
 
 .addtaskStatic {
-  margin-left: 300px;
-  padding-top: 140px;
+    margin-left: 300px;
+    padding-top: 140px;
 }
 
 .header-mobile-addTask {
-  width: 100vw;
-  display: none;
+    width: 100vw;
+    display: none;
 }
 
 #addTaskPopup {
-  overflow-y: scroll;
-  overflow-x: hidden;
-  padding-left: 30px;
-  margin-top: 90px;
-  padding-bottom: 30px !important;
-  position: absolute;
-  top: 10px;
-  bottom: 0 !important;
-  left: calc(100vw - 580px);
-  right: 0px !important;
-  z-index: 5;
-  background-color: white;
-  width: 580px;
-  height: calc(100vh - 100px);
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
-  transform: translateX(300vw);
-  transition: all 300ms ease-out !important;
-  border-bottom-left-radius: 20px !important;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-left: 30px;
+    margin-top: 90px;
+    padding-bottom: 30px !important;
+    position: absolute;
+    top: 10px;
+    bottom: 0 !important;
+    left: calc(100vw - 580px);
+    right: 0px !important;
+    z-index: 5;
+    background-color: white;
+    width: 580px;
+    height: calc(100svh - 100px);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+    transform: translateX(300vw);
+    transition: all 300ms ease-out !important;
+    border-bottom-left-radius: 20px !important;
 }
 
 #mobiletaskheader {
-  position: absolute;
-  z-index: 5;
-  top: 0;
-  bottom: 0;
-  right: 0px;
-  left: calc(100vw - 580px);
-  width: 580px;
-  height: 100px;
-  transform: translateX(300vw);
-  transition: all 300ms ease-out;
-  border-top-left-radius: 20px !important;
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    bottom: 0;
+    right: 0px;
+    left: calc(100vw - 580px);
+    width: 580px;
+    height: 100px;
+    transform: translateX(300vw);
+    transition: all 300ms ease-out;
+    border-top-left-radius: 20px !important;
 }
 
 .headerSlideIn {
-  transform: translateX(0) !important;
-  transition: all 300ms ease-out;
+    transform: translateX(0) !important;
+    transition: all 300ms ease-out;
 }
 
 .translate0 {
-  transform: translateX(0) !important;
-  transition: all 300ms ease-out;
+    transform: translateX(0) !important;
+    transition: all 300ms ease-out;
 }
 
 .addTask-Container {
-  padding-top: 50px;
-  padding-left: 250px;
-  display: flex;
-  justify-content: flex-start;
-  width: 100%;
-  overflow-y: visible;
+    padding-top: 50px;
+    padding-left: 250px;
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    overflow-y: visible;
 }
 
 .staticPopup {
-  position: static !important;
-  transform: translateX(0) !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  z-index: 3 !important;
-  overflow-y: hidden !important;
-  height: inherit !important;
+    position: static !important;
+    transform: translateX(0) !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    z-index: 3 !important;
+    overflow-y: hidden !important;
+    height: inherit !important;
 }
 
 .addTaskPopupIcon {
-  width: 20px;
-  position: absolute;
-  right: 28px;
-  top: 20px;
+    width: 20px;
+    position: absolute;
+    right: 28px;
+    top: 20px;
 }
 
 .addTaskPopupHeader {
-  width: 60%;
-  display: flex;
-  align-items: flex-start;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin-left: 0;
+    width: 60%;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 0;
 }
 
 .addTaskPopupHeader h1 {
-  padding-left: 20px !important;
-  font-size: 48px;
-  padding: 0;
-  margin: 0;
+    padding-left: 20px !important;
+    font-size: 48px;
+    padding: 0;
+    margin: 0;
 }
 
 .formAddtaskPopup {
-  width: 100%;
+    width: 100%;
 }
 
 .formAddtaskPopup input {
-  width: 500px;
+    width: 500px;
 }
 
 #selectorContactAssigned,
 #selectorContactAssignedEdit {
-  color: #4589ff;
-  margin: 0 0 0 20px;
+    color: #4589ff;
+    margin: 0 0 0 20px;
 }
 
 #selectorContactRenderPopup {
-  background-color: #ffffff;
-  max-height: 200px;
-  overflow: scroll;
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom-left-radius: 1em;
-  border-bottom-right-radius: 1em;
-  box-shadow: 0 8px 10px rgba(200, 200, 200, 0.2);
-  position: absolute;
-  width: 500px;
-  z-index: 4;
+    background-color: #ffffff;
+    max-height: 200px;
+    overflow: scroll;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+    box-shadow: 0 8px 10px rgba(200, 200, 200, 0.2);
+    position: absolute;
+    width: 500px;
+    z-index: 4;
 }
 
 #selectorContactRenderPopup::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 .noBorder {
-  border: 0 !important;
+    border: 0 !important;
 }
 
 .margin-t-45 {
-  margin-top: 45px !important;
+    margin-top: 45px !important;
 }
 
 .margin-t-35 {
-  margin-top: 35px !important;
+    margin-top: 35px !important;
 }
 
 .margin-t-25 {
-  margin-top: 25px !important;
+    margin-top: 25px !important;
 }
 
 .subtaskList {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-  width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    width: 100%;
 }
 
 .subtaskList:hover .subtaskList-delete {
-  color: #838fa5;
-  transition: all 225ms ease-in-out;
+    color: #838fa5;
+    transition: all 225ms ease-in-out;
 }
 
 .subtaskList:hover .subtaskList-text {
-  color: #000000;
-  transition: all 225ms ease-in-out;
+    color: #000000;
+    transition: all 225ms ease-in-out;
 }
 
-
 .subtaskList-task {
-  display: flex;
-  width: 100%;
+    display: flex;
+    width: 100%;
 }
 
 .subtaskList-text {
-  width: 85%;
-  margin-right: 10px;
-  transition: all 225ms ease-in-out;
+    width: 85%;
+    margin-right: 10px;
+    transition: all 225ms ease-in-out;
 }
 
 .subtaskList-text:hover {
-  color: #000000;
-  transition: all 225ms ease-in-out;
+    color: #000000;
+    transition: all 225ms ease-in-out;
 }
 
 .subtaskList-delete {
-  text-align: center;
-  font-size: 14px;
-  font-weight: 400;
-  color: transparent;
-  border-radius: 100%;
-  transition: all 225ms ease-in-out;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    color: transparent;
+    border-radius: 100%;
+    transition: all 225ms ease-in-out;
 }
 
 .newContactInput {
-  display: flex;
-  width: 500px;
+    display: flex;
+    width: 500px;
 }
 
 .d-none {
-  display: none !important;
+    display: none !important;
 }
 
 .addButton {
-  transition: all 225ms ease-in-out;
+    transition: all 225ms ease-in-out;
 }
 
 .addButton:hover {
-  background: #005dff !important;
-  transition: all 225ms ease-in-out;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+    background: #005dff !important;
+    transition: all 225ms ease-in-out;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
 }
 
 .clearButton {
-  transition: all 225ms ease-in-out;
+    transition: all 225ms ease-in-out;
 }
 
 .clearButton:hover {
-  transition: all 225ms ease-in-out;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+    transition: all 225ms ease-in-out;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
 }
 
 /* Responsive part of style */
-@media(max-width: 550px) {
+@media (max-width: 550px) {
+    #categoryColorCells > span {
+        display: none;
+    }
 
-  #categoryColorCells>span {
-    display: none;
-  }
+    #categoryColorCells > img {
+        margin-right: 5px !important;
+    }
 
-  #categoryColorCells>img {
-    margin-right: 5px !important;
-  }
-
-  .checkAndCrossIconsEmail {
-    left: 78vw;
-  }
-
+    .checkAndCrossIconsEmail {
+        left: 78vw;
+    }
 }
 
-@media(max-width: 600px) {
+@media (max-width: 600px) {
+    .formGroup {
+        position: relative;
+    }
 
-  .formGroup {
-    position: relative;
-  }
+    .form90 {
+        width: 90% !important;
+    }
 
-  .form90 {
-    width: 90% !important;
-  }
+    #categoryColorCells {
+        right: 10px !important;
+    }
 
-  #categoryColorCells {
-    right: 10px !important;
-  }
+    .formAddtaskPopup input {
+        width: 100%;
+    }
 
-  .formAddtaskPopup input {
-    width: 100%;
-  }
+    .newContactInput {
+        width: 100%;
+    }
 
-  .newContactInput {
-    width: 100%;
-  }
+    #selectorContact {
+        width: 90vw;
+    }
 
-  #selectorContact {
-    width: 90vw;
-  }
+    #selectorCategory {
+        width: 90vw;
+    }
 
-  #selectorCategory {
-    width: 90vw;
-  }
+    #selectDate {
+        width: 90vw;
+    }
 
-  #selectDate {
-    width: 90vw;
-  }
+    #inputTitle {
+        width: 90vw;
+    }
 
-  #inputTitle {
-    width: 90vw;
-  }
-
-  .fa-calendar-minus {
-    left: 110% !important;
-  }
+    .fa-calendar-minus {
+        left: 110% !important;
+    }
 }
 
-@media(max-width: 800px) {
-  #mobiletaskheader {
-    width: 100vw !important;
-    height: 80px !important;
-    left: 0 !important;
-    right: 0 !important;
-    border-radius: 0 !important;
-  }
+@media (max-width: 800px) {
+    #mobiletaskheader {
+        width: 100vw !important;
+        height: 80px !important;
+        left: 0 !important;
+        right: 0 !important;
+        border-radius: 0 !important;
+    }
 
-  .addTask-Container {
-    padding-left: 0;
-  }
+    .addTask-Container {
+        padding-left: 0;
+    }
 
-  .taskFooterButtons {
-    top: -20px !important;
-    left: 108px !important;
-    padding-bottom: 100px !important;
-    z-index: 3;
-  }
+    .taskFooterButtons {
+        top: -20px !important;
+        left: 108px !important;
+        padding-bottom: 100px !important;
+        z-index: 3;
+    }
 
-  .header-mobile-addTask {
-    display: block;
-  }
+    .header-mobile-addTask {
+        display: block;
+    }
 
-  .menu-desktop {
-    display: none !important;
-  }
+    .menu-desktop {
+        display: none !important;
+    }
 
-  .checkAndCrossIcons {
-    left: 430px;
-  }
+    .checkAndCrossIcons {
+        left: 430px;
+    }
 
-  .checkAndCrossIconsCategory {
-    left: 430px;
-  }
+    .checkAndCrossIconsCategory {
+        left: 430px;
+    }
 
-  #categoryColorCells {
-    right: 0px;
-  }
+    #categoryColorCells {
+        right: 0px;
+    }
 
-  .taskFooter {
-    margin-bottom: 50px;
-  }
+    .taskFooter {
+        margin-bottom: 50px;
+    }
 
-  .addtaskStatic {
-    margin-left: 0;
-    padding-top: 100px;
-    max-width: 100vw;
-    padding-left: 5vw;
-    padding-right: 5vw;
-  }
+    .addtaskStatic {
+        margin-left: 0;
+        padding-top: 100px;
+        max-width: 100vw;
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
 
-  .fa-calendar-minus {
-    top: 0;
-  }
+    .fa-calendar-minus {
+        top: 0;
+    }
 
-  #importanceIMGHard {
-    width: 120px;
-  }
+    #importanceIMGHard {
+        width: 120px;
+    }
 
-  #importanceIMGMid {
-    width: 120px;
-  }
+    #importanceIMGMid {
+        width: 120px;
+    }
 
-  #importanceIMGLow {
-    width: 120px;
-  }
+    #importanceIMGLow {
+        width: 120px;
+    }
 
-  .importanceLvl {
-    width: 100vw;
-  }
+    .importanceLvl {
+        width: 100vw;
+    }
 }
 
-@media(max-width: 380px) {
-  .checkAndCrossIcons {
-    left: 270px;
-  }
+@media (max-width: 380px) {
+    .checkAndCrossIcons {
+        left: 270px;
+    }
 
-  .checkAndCrossIconsCategory {
-    left: 270px;
-  }
+    .checkAndCrossIconsCategory {
+        left: 270px;
+    }
 
-  #importanceIMGHard {
-    width: 70px;
-  }
+    #importanceIMGHard {
+        width: 70px;
+    }
 
-  #importanceIMGMid {
-    width: 70px;
-  }
+    #importanceIMGMid {
+        width: 70px;
+    }
 
-  #importanceIMGLow {
-    width: 70px;
-  }
+    #importanceIMGLow {
+        width: 70px;
+    }
 
-  .checkAndCrossIconsEmail,
-  .checkAndCrossIconsCategory,
-  .checkAndCrossIcons {
-    left: 73vw !important;
-  }
+    .checkAndCrossIconsEmail,
+    .checkAndCrossIconsCategory,
+    .checkAndCrossIcons {
+        left: 73vw !important;
+    }
 }
 
-@media(max-width: 1300px) {
-  #buttonClear {
-    font-size: 16px;
-  }
+@media (max-width: 1300px) {
+    #buttonClear {
+        font-size: 16px;
+    }
 
-  #buttonCreate {
-    font-size: 16px;
-  }
+    #buttonCreate {
+        font-size: 16px;
+    }
 }
 
-@media(max-width: 1120px) {
-  .taskFooterButtons {
-    display: flex;
-    position: relative;
-    top: 30px;
-    left: 364px;
-    padding-bottom: 20px;
-  }
+@media (max-width: 1120px) {
+    .taskFooterButtons {
+        display: flex;
+        position: relative;
+        top: 30px;
+        left: 364px;
+        padding-bottom: 20px;
+    }
 }
 
-@media(max-width: 550px) {
-  .taskFooterButtons {
-    width: 100vw;
-    left: 0 !important;
-    justify-content: center;
-  }
+@media (max-width: 550px) {
+    .taskFooterButtons {
+        width: 100vw;
+        left: 0 !important;
+        justify-content: center;
+    }
 
-  .taskFooterButtons>button {
-    margin-left: 5px;
-  }
+    .taskFooterButtons > button {
+        margin-left: 5px;
+    }
 
+    .checkAndCrossIconsCategory {
+        left: 78vw;
+    }
 
-  .checkAndCrossIconsCategory {
-    left: 78vw;
-  }
+    #newCategoryText {
+        width: 90vw;
+    }
 
-  #newCategoryText {
-    width: 90vw;
-  }
+    #inputTitle {
+        width: 90vw;
+    }
 
-  #inputTitle {
-    width: 90vw;
-  }
+    .selectorHeader {
+        width: 100%;
+    }
 
-  .selectorHeader {
-    width: 100%;
-  }
+    #selectDate {
+        width: 90vw;
+    }
 
-  #selectDate {
-    width: 90vw;
-  }
+    #inputDescription {
+        width: 90vw;
+    }
 
-  #inputDescription {
-    width: 90vw;
-  }
+    #subtaskText {
+        width: 90vw;
+    }
 
-  #subtaskText {
-    width: 90vw;
-  }
+    .checkAndCrossIcons {
+        left: 78vw;
+    }
 
-  .checkAndCrossIcons {
-    left: 78vw;
-  }
+    .addTaskPopupHeader {
+        width: 100%;
+    }
 
-  .addTaskPopupHeader {
-    width: 100%;
-  }
+    #selectorContactRenderPopup {
+        width: 90vw;
+    }
 
-  #selectorContactRenderPopup {
-    width: 90vw;
-  }
-
-  #selectorCategoryRender {
-    width: 90vw;
-  }
+    #selectorCategoryRender {
+        width: 90vw;
+    }
 }
 
-@media(max-width: 450px) {
-  #importanceLvl img {
-    width: 110px;
-  }
+@media (max-width: 450px) {
+    #importanceLvl img {
+        width: 110px;
+    }
 
-  #addTaskPopup {
-    padding-left: 20px;
-  }
+    #addTaskPopup {
+        padding-left: 20px;
+    }
 }
 
-@media(max-width: 400px) {
-  #importanceLvl {
-    flex-direction: column;
-    align-items: center;
-  }
+@media (max-width: 400px) {
+    #importanceLvl {
+        flex-direction: column;
+        align-items: center;
+    }
 
-  #importanceLvl img {
-    width: 120px;
-  }
+    #importanceLvl img {
+        width: 120px;
+    }
 
-  #categoryColorCells {
-    right: 0px !important;
-  }
+    #categoryColorCells {
+        right: 0px !important;
+    }
 }
