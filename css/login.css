@@ -1,5 +1,5 @@
 #login-page {
-    height: 100vh;
+    height: 100svh;
     width: 100vw;
     background-color: #4589ff;
     overflow: hidden;
@@ -10,7 +10,7 @@
 .login-legal {
     position: absolute;
     bottom: 20px;
-    right: 20px;
+    left: calc(50% - 95px);
     text-decoration: none;
     color: black;
     cursor: pointer;
@@ -292,7 +292,7 @@
     color: black;
 }
 
-.popup>span {
+.popup > span {
     text-align: center;
 }
 
@@ -417,7 +417,7 @@
 
     #login-signup-box {
         right: 50% !important;
-        top: 90% !important;
+        top: 88% !important;
         transform: translateX(50%) !important;
     }
 
@@ -428,6 +428,12 @@
     .logoMovement {
         width: 60px !important;
         top: 3.81% !important;
+    }
+
+    .login-legal {
+        transform: translateY(10px);
+        font-size: 14px;
+        left: calc(50% - 84px);
     }
 }
 
@@ -638,7 +644,6 @@
     .forgot-headline::after {
         top: 115px !important;
     }
-
 }
 
 @media (max-height: 350px) {
