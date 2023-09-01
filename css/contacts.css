@@ -567,6 +567,12 @@ body {
 }
 
 /* responsive section */
+@media (min-width: 1350px) {
+    .contacts-detail-bottom {
+        justify-content: flex-start;
+    }
+}
+
 @media (max-width: 1350px) {
     .contacts-detail-top {
         flex-direction: column;
